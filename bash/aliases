@@ -48,6 +48,8 @@ function zipr() {
 # Finder
 alias o='open . &'
 alias ff='open -a Firefox'
+alias css='open -a CSSEdit'
+alias coda='open -a Coda'
 
 # General code
 
