@@ -88,6 +88,7 @@ alias gst='git status'
 alias gt='git status'
 alias g='git status'
 alias eg='mate .git/config'
+alias egg='mate ~/.gitconfig'
 # Git clone from GitHub
 function gch() {
   git clone git://github.com/$USER/$1.git
@@ -233,3 +234,17 @@ function __rm_single_file(){
     fi
 }
 
+# Drupal
+# Drupal Directories for my themes, modules, features, and drush make files.
+
+alias themes='cd ~/Dropbox/drupal/themes/' #goto the themes folder
+alias modules='cd ~/Dropbox/drupal/modules/' #goto the modules folder
+alias builds='cd ~/Dropbox/drupal/builds/' #goto the builds folder
+alias features='cd ~/Dropbox/drupal/features/' #goto the features folder
+
+# MAMP
+
+alias htdocs='cd /Applications/MAMP/htdocs/' #Goto the MAMP/htdocs dir
+
+# Drush
+alias drush='/Applications/MAMP/bin/php5/bin/php ~/drush/drush.php'

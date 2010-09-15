@@ -4,10 +4,7 @@ export EDITOR="mate -w"
 
 export PATH=$PATH:~/bin
 
-# MacPorts Installer addition on 2010-08-04_at_23:04:59: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
 # Git completion
 source ~/git-completion.bash
 
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
