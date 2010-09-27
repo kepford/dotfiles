@@ -2,8 +2,8 @@
 
 # Utility
 alias reload='source ~/bin/dotfiles/bash/aliases'
-alias ea='mate -w ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
-alias ee="mate ~/bin/dotfiles/bash/env"
+alias ea='bbedit -w ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
+alias ee="bbedit ~/bin/dotfiles/bash/env"
 
 # Quicker cd
 alias cg='cd /Library/Ruby/Gems/1.8/gems/'
@@ -87,8 +87,8 @@ alias gp='git push'
 alias gst='git status'
 alias gt='git status'
 alias g='git status'
-alias eg='mate .git/config'
-alias egg='mate ~/.gitconfig'
+alias eg='bbedit .git/config'
+alias egg='bbedit ~/.gitconfig'
 # Git clone from GitHub
 function gch() {
   git clone git://github.com/$USER/$1.git

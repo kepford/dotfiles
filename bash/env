@@ -1,6 +1,6 @@
 # Set PATH, CDPATH, EDITOR, etc.
 
-export EDITOR="mate -w"
+export EDITOR="bbedit -w"
 
 export PATH=$PATH:~/bin
 
@@ -8,3 +8,6 @@ export PATH=$PATH:~/bin
 source ~/git-completion.bash
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+PATH=/Applications/MAMP/bin/php5/bin:\
+/Applications/MAMP/Library/bin:$PATH
+export PATH
