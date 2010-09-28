@@ -41,9 +41,14 @@ alias k9="killall -9"
 function killnamed () { 
     ps ax | grep $1 | cut -d ' ' -f 2 | xargs kill 
 }
+# recursively zips all files in a directory. Example: $zipr nameofdirectory
 function zipr() {
   zip -r $1.zip $1
 }
+
+# zips every files in your current directory with the current name of each file and deletes the the original file.
+# Thanks to Steven Frank for this. http://stevenf.tumblr.com/post/1200983113/this-terminal-command-will-turn-every-file-in-the
+alias zipall='for item in *; do zip -m "${item}.zip" "${item}"; done'
 
 # Finder
 alias o='open . &'
