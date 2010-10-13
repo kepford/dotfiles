@@ -1,0 +1,51 @@
+[user]
+	name = kepford
+	email = bob@bobkepford.com
+[github]
+	user = kepford
+	token = 33e0eb22297ecca91206cc352f977c83
+[core]
+	editor = nano
+	excludesfile = /Users/bobkepford/.gitignore
+[merge]
+	tool = FileMerge
+[difftool]
+	tool = FileMerge
+[color]
+  [color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+  [color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+  [color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[color]
+    ui = true
+[push]
+	default = current
+[alias]
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    lg = log -p
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    ls = ls-files
+	datetag = !git tag `date "+%Y_%m_%d_%H%M"`
+	unstage = reset HEAD
+	diffall = diff HEAD
+	undolast = reset --soft Head^
+	diffstaged = diff --staged
+	filelog = log --oneline --no-merges --
+[apply]
+	whitespace = nowarn
+[branch]
+	autosetupprebase = always
