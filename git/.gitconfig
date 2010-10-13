@@ -5,11 +5,11 @@
 	user = kepford
 	token = 33e0eb22297ecca91206cc352f977c83
 [core]
-	editor = nano
+	editor = bbedit -w
 	excludesfile = /Users/bobkepford/.gitignore
-[merge]
-	tool = FileMerge
 [difftool]
+	tool = FileMerge
+[merge]
 	tool = FileMerge
 [color]
   [color "branch"]
