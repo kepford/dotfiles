@@ -266,3 +266,5 @@ alias ql="qlmanage -p 2>/dev/null" # preview a file using QuickLook
 
 # Open Notational Velicity/Simplenote files in Textmate
 alias notes='cd ~/Dropbox/Notational\ Data;mate .'
+
+alias vpn='sudo SystemStarter restart CiscoVPN'
