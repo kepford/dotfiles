@@ -1,5 +1,8 @@
 # Set PATH, CDPATH, EDITOR, etc.
 
+PATH=/usr/local/Cellar/ruby/1.9.2-p0/bin:$PATH
+
+
 export EDITOR="bbedit -w"
 
 export PATH=$PATH:~/bin

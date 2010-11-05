@@ -247,6 +247,7 @@ alias themes='cd ~/Dropbox/drupal/themes/' #goto the themes folder
 alias modules='cd ~/Dropbox/drupal/modules/' #goto the modules folder
 alias builds='cd ~/Dropbox/drupal/builds/' #goto the builds folder
 alias features='cd ~/Dropbox/drupal/features/' #goto the features folder
+alias profiles='cd ~/Dropbox/drupal/profiles/' #goto the profiles folder
 
 # MAMP
 
