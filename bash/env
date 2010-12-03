@@ -1,7 +1,7 @@
 # Set PATH, CDPATH, EDITOR, etc.
 
 PATH=/usr/local/Cellar/ruby/1.9.2-p0/bin:$PATH
-
+export GEM_HOME='$(brew --prefix)/Cellar/gems/1.9.2-p0'
 
 export EDITOR="bbedit -w"
 
