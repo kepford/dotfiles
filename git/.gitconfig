@@ -5,7 +5,7 @@
 	user = kepford
 	token = 33e0eb22297ecca91206cc352f977c83
 [core]
-	editor = mate
+	editor = mate -w
 	excludesfile = /Users/bobkepford/.gitignore
 	quotepath = false
 [difftool]
