@@ -1,9 +1,5 @@
 # Set PATH, CDPATH, EDITOR, etc.
-
-PATH=/usr/local/Cellar/ruby/1.9.2-p0/bin:$PATH
-export GEM_HOME='$(brew --prefix)/Cellar/gems/1.9.2-p0'
-
-export EDITOR="bbedit -w"
+export EDITOR="mate -w"
 
 export PATH=$PATH:~/bin
 
@@ -14,3 +10,4 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
 PATH=/Applications/MAMP/bin/php5/bin:\
 /Applications/MAMP/Library/bin:$PATH
 export PATH
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
