@@ -4,6 +4,7 @@
 alias reload='source ~/bin/dotfiles/bash/aliases'
 alias ea='mate -w ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
 alias ee="mate ~/bin/dotfiles/bash/env"
+alias es="mate ~/bin/dotfiles/ssh/config"
 
 # Quicker cd
 alias cg='cd /Library/Ruby/Gems/1.8/gems/'
@@ -53,8 +54,12 @@ alias zipall='for item in *; do zip -m "${item}.zip" "${item}"; done'
 # Finder
 alias o='open . &'
 alias ff='open -a Firefox'
+alias chrome='open -a Google\ Chrome'
 alias css='open -a CSSEdit'
 alias coda='open -a Coda'
+alias mamp='open -a MAMP'
+alias watch='~/scripts/watch.rb'
+
 
 # General code
 
@@ -87,6 +92,7 @@ alias gco='git checkout'
 alias gcob='git checkout -b'
 alias gd='git diff'
 alias gdm='git diff master'
+alias gdx='git diff | gitx'
 alias gl='git pull'
 alias gnp="git-notpushed"
 alias gp='git push'
@@ -118,16 +124,6 @@ function new-git() {
   git config branch.master.remote origin
   git config branch.master.merge refs/heads/master
   git config push.default current
-}
-
-# Text editing
-# Emacs
-alias em="open -a Emacs"
-alias emm="open -a Emacs ."
-# Regenerate TAGS file from file arguments
-function ct() {
-  rm -f TAGS
-  etags --append --output=TAGS $*
 }
 
 # TextMate
@@ -249,10 +245,12 @@ alias modules='cd ~/Dropbox/drupal/modules/' #goto the modules folder
 alias builds='cd ~/Dropbox/drupal/builds/' #goto the builds folder
 alias features='cd ~/Dropbox/drupal/features/' #goto the features folder
 alias profiles='cd ~/Dropbox/drupal/profiles/' #goto the profiles folder
+alias repos='cd ~/Dropbox/repos/' #goto the repos folder
 
 # MAMP
 
 alias htdocs='cd /Applications/MAMP/htdocs/' #Goto the MAMP/htdocs dir
+alias backups='cd /Applications/MAMP/htdocs/backups' #Goto the webdev backups dir
 
 # Drush
 alias drush='/Applications/MAMP/bin/php5/bin/php ~/drush/drush.php'
@@ -270,3 +268,6 @@ alias ql="qlmanage -p 2>/dev/null" # preview a file using QuickLook
 alias notes='cd ~/Dropbox/Notational\ Data;mate .'
 
 alias vpn='sudo SystemStarter restart CiscoVPN'
+alias hosts='mate /private/etc/hosts'
+
+alias watch='/Users/bobkepford/scripts/watch.rb'

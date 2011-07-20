@@ -1,1 +1,4 @@
+*.orig
+*.patch
 .DS_Store
+.sass-cache/*

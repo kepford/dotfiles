@@ -1,17 +1,17 @@
 [user]
 	name = kepford
-	email = bob@bobkepford.com
+  email = bob@bobkepford.com
 [github]
-	user = kepford
-	token = 33e0eb22297ecca91206cc352f977c83
+  user = kepford
+  token = 33e0eb22297ecca91206cc352f977c83
 [core]
-	editor = mate -w
-	excludesfile = /Users/bobkepford/.gitignore
-	quotepath = false
+  editor = mate -w
+  excludesfile = /Users/bobkepford/.gitignore
+  quotepath = false
 [difftool]
-	tool = FileMerge
+  tool = FileMerge
 [merge]
-	tool = FileMerge
+  tool = FileMerge
 [color]
   [color "branch"]
     current = yellow reverse
@@ -29,7 +29,7 @@
 [color]
     ui = true
 [push]
-	default = current
+  default = current
 [alias]
     st = status
     ci = commit
@@ -40,13 +40,15 @@
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     ls = ls-files
-	datetag = !git tag `date "+%Y_%m_%d_%H%M"`
-	unstage = reset HEAD
-	diffall = diff HEAD
-	undolast = reset --soft Head^
-	diffstaged = diff --staged
-	filelog = log --oneline --no-merges --
+  datetag = !git tag `date "+%Y_%m_%d_%H%M"`
+  unstage = reset HEAD
+  diffall = diff HEAD
+  undolast = reset --soft Head^
+  diffstaged = diff --staged
+  filelog = log --oneline --no-merges --
 [apply]
-	whitespace = nowarn
+  whitespace = nowarn
 [branch]
-	autosetupprebase = always
+  autosetupprebase = always
+[dropbox]
+  folder = /Users/bobkepford/Dropbox/repos
