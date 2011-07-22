@@ -50,5 +50,6 @@
   whitespace = nowarn
 [branch]
   autosetupprebase = always
+	autosetuprebase = always
 [dropbox]
   folder = /Users/bobkepford/Dropbox/repos
