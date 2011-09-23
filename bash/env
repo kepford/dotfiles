@@ -1,5 +1,5 @@
 # Set PATH, CDPATH, EDITOR, etc.
-export EDITOR="mate -w"
+export EDITOR="bbedit -w"
 
 export PATH=$PATH:~/bin
 

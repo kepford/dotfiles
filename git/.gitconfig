@@ -1,11 +1,11 @@
 [user]
-	name = kepford
+  name = kepford
   email = bob@bobkepford.com
 [github]
   user = kepford
   token = 33e0eb22297ecca91206cc352f977c83
 [core]
-  editor = mate -w
+  editor = bbedit -w
   excludesfile = /Users/bobkepford/.gitignore
   quotepath = false
 [difftool]
@@ -50,6 +50,6 @@
   whitespace = nowarn
 [branch]
   autosetupprebase = always
-	autosetuprebase = always
+  autosetuprebase = always
 [dropbox]
   folder = /Users/bobkepford/Dropbox/repos
