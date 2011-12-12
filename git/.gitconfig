@@ -6,7 +6,7 @@
   token = 33e0eb22297ecca91206cc352f977c83
 [core]
   editor = mate -w
-  excludesfile = /Users/bobkepford/.gitignore
+	excludesfile = /Users/bobkepford/.gitignore
   quotepath = false
 [difftool]
   tool = FileMerge
@@ -53,3 +53,9 @@
   autosetuprebase = always
 [dropbox]
   folder = /Users/bobkepford/Dropbox/repos
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

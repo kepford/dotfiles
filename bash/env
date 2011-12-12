@@ -1,6 +1,5 @@
 # Set PATH, CDPATH, EDITOR, etc.
-export EDITOR="bbedit -w"
-
+export EDITOR="mate -w"
 export PATH=$PATH:~/bin
 
 # Git completion
@@ -8,7 +7,7 @@ source ~/git-completion.bash
 # Homebrew completion
 source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
-PATH=/Applications/MAMP/bin/php5/bin:\
+PATH=/Applications/MAMP/bin/php/php5.2.17/bin:\
 /Applications/MAMP/Library/bin:$PATH
 export PATH
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator

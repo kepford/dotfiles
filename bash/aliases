@@ -253,7 +253,7 @@ alias htdocs='cd /Applications/MAMP/htdocs/' #Goto the MAMP/htdocs dir
 alias backups='cd /Applications/MAMP/htdocs/backups' #Goto the webdev backups dir
 
 # Drush
-alias drush='/Applications/MAMP/bin/php5/bin/php ~/drush/drush.php'
+alias drush='/Applications/MAMP/bin/php/php5.2.17/bin/php ~/drush/drush.php'
 
 # Get readable list of network IPs
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
