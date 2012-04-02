@@ -1,15 +1,16 @@
 [user]
-  name = kepford
-  email = bob@bobkepford.com
+	name = kepford
+	email = bob@bobkepford.com
 [github]
   user = kepford
   token = 33e0eb22297ecca91206cc352f977c83
 [core]
   editor = mate -w
   excludesfile = ~/.gitignore
-  quotepath = false
+	quotepath = false
 [difftool]
   tool = FileMerge
+	prompt = false
 [merge]
   tool = FileMerge
 [color]
@@ -59,3 +60,9 @@
 [mergetool "sourcetree"]
   cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
   trustExitCode = true
+[mergetool]
+	keepBackup = true
+[difftool "Kaleidoscope"]
+	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+[diff]
+	tool = Kaleidoscope
