@@ -270,4 +270,3 @@ alias notes='cd ~/Dropbox/Notational\ Data;mate .'
 alias vpn='sudo SystemStarter restart CiscoVPN'
 alias hosts='mate /private/etc/hosts'
 
-alias watch='/Users/bobkepford/scripts/watch.rb'
