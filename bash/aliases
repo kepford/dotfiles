@@ -2,9 +2,9 @@
 
 # Utility
 alias reload='source ~/bin/dotfiles/bash/aliases'
-alias ea='mate -w ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
-alias ee="mate ~/bin/dotfiles/bash/env"
-alias es="mate ~/bin/dotfiles/ssh/config"
+alias ea='subl -w ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
+alias ee="subl ~/bin/dotfiles/bash/env"
+alias es="subl ~/bin/dotfiles/ssh/config"
 
 # Quicker cd
 alias cg='cd /Library/Ruby/Gems/1.8/gems/'
@@ -99,8 +99,8 @@ alias gp='git push'
 alias gst='git status'
 alias gt='git status'
 alias g='git status'
-alias eg='mate .git/config'
-alias egg='mate ~/.gitconfig'
+alias eg='subl .git/config'
+alias egg='subl ~/.gitconfig'
 
 # Git clone from GitHub
 function gch() {
@@ -268,5 +268,5 @@ alias ql="qlmanage -p 2>/dev/null" # preview a file using QuickLook
 alias notes='cd ~/Dropbox/Notational\ Data;mate .'
 
 alias vpn='sudo SystemStarter restart CiscoVPN'
-alias hosts='mate /private/etc/hosts'
+alias hosts='subl /private/etc/hosts'
 
