@@ -1,14 +1,16 @@
 # Set PATH, CDPATH, EDITOR, etc.
 export EDITOR="mate -w"
-export PATH=$PATH:~/bin
+
+export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin
+
+PATH="/usr/local/Cellar/php53/5.3.15/bin:$PATH"
 
 # Git completion
 source ~/git-completion.bash
+
 # Homebrew completion
 source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
-PATH=/Applications/MAMP/bin/php/php5.2.17/bin:\
-/Applications/MAMP/Library/bin:$PATH
+
 export PATH
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
