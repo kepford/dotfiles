@@ -188,11 +188,16 @@ function sxx() {
 alias ox="open *.xcodeproj"
 
 # Nginx
+# sudo $(brew --prefix)/sbin/nginx -s stop
 function nginx_stop() {
     ps ax | grep nginx | cut -d " " -f 1 | xargs sudo kill -9
 }
 function nginx_start() {
-    sudo /opt/nginx/sbin/nginx
+    sudo /usr/local/sbin/nginx
+}
+
+function nginx_reload() {
+  sudo $(brew --prefix)/sbin/nginx -s reload
 }
 
 # TaskPaper
