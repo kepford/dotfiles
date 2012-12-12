@@ -12,7 +12,7 @@
   tool = FileMerge
 	prompt = false
 [merge]
-  tool = FileMerge
+	tool = Kaleidoscope
 [color]
   [color "branch"]
     current = yellow reverse
@@ -62,7 +62,10 @@
   trustExitCode = true
 [mergetool]
 	keepBackup = true
+	prompt = false
 [difftool "Kaleidoscope"]
-	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
 	tool = Kaleidoscope
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot

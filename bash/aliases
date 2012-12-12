@@ -2,9 +2,9 @@
 
 # Utility
 alias reload='source ~/bin/dotfiles/bash/aliases'
-alias ea='subl -w ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
-alias ee="subl ~/bin/dotfiles/bash/env"
-alias es="subl ~/bin/dotfiles/ssh/config"
+alias ea='vim ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
+alias ee="vim ~/bin/dotfiles/bash/env"
+alias es="vim ~/bin/dotfiles/ssh/config"
 
 # Quicker cd
 alias cg='cd /Library/Ruby/Gems/1.8/gems/'
@@ -58,7 +58,7 @@ alias chrome='open -a Google\ Chrome'
 alias css='open -a CSSEdit'
 alias coda='open -a Coda'
 alias mamp='open -a MAMP'
-alias watch='~/scripts/watch.rb'
+#alias watch='~/scripts/watch.rb'
 
 
 # General code
@@ -99,8 +99,8 @@ alias gp='git push'
 alias gst='git status'
 alias gt='git status'
 alias g='git status'
-alias eg='subl .git/config'
-alias egg='subl ~/.gitconfig'
+alias eg='vim .git/config'
+alias egg='vim ~/.gitconfig'
 
 # Git clone from GitHub
 function gch() {
@@ -127,8 +127,7 @@ function new-git() {
 }
 
 # TextMate
-# use sublime instead of mate
-alias mate='subl -w'
+alias mate='mate -w'
 alias et="mate"
 alias ett="mate ."
 alias etr="mate app config lib db schema public spec test vendor/gems vendor/plugins Rakefile Capfile Vladfile Todofile README stories merb slices tasks features &"
@@ -198,6 +197,11 @@ function nginx_start() {
 
 function nginx_reload() {
   sudo $(brew --prefix)/sbin/nginx -s reload
+}
+
+# php-fpm
+function php_stop() {
+    ps ax | grep php-fpm | cut -d " " -f 1 | xargs sudo kill -9
 }
 
 # TaskPaper
@@ -275,5 +279,4 @@ alias ql="qlmanage -p 2>/dev/null" # preview a file using QuickLook
 alias notes='cd ~/Dropbox/Notational\ Data;mate .'
 
 alias vpn='sudo SystemStarter restart CiscoVPN'
-alias hosts='subl /private/etc/hosts'
-
+alias hosts='sudo vim /private/etc/hosts'
