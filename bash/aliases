@@ -58,6 +58,7 @@ alias chrome='open -a Google\ Chrome'
 alias css='open -a CSSEdit'
 alias coda='open -a Coda'
 alias mamp='open -a MAMP'
+alias f='open -a Path\ Finder ./'
 #alias watch='~/scripts/watch.rb'
 
 
@@ -99,6 +100,7 @@ alias gp='git push'
 alias gst='git status'
 alias gt='git status'
 alias g='git status'
+alias ga-modified="git status | grep modified | cut -d':' -f2 | xargs git add"
 alias eg='vim .git/config'
 alias egg='vim ~/.gitconfig'
 
@@ -257,6 +259,7 @@ alias builds='cd ~/Dropbox/drupal/builds/' #goto the builds folder
 alias features='cd ~/Dropbox/drupal/features/' #goto the features folder
 alias profiles='cd ~/Dropbox/drupal/profiles/' #goto the profiles folder
 alias repos='cd ~/Dropbox/repos/' #goto the repos folder
+alias sites='cd ~/Sites' #goto the profiles folder
 
 # MAMP
 

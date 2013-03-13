@@ -8,7 +8,6 @@
   editor = mate -w
   excludesfile = ~/.gitignore
 	quotepath = false
-	autocrlf = input
 [difftool]
   tool = FileMerge
 	prompt = false
@@ -70,3 +69,4 @@
 	tool = Kaleidoscope
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true

@@ -3,7 +3,8 @@ export EDITOR="vim"
 
 export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin
 
-PATH="/usr/local/Cellar/php53/5.3.15/bin:$PATH"
+PATH="$(brew --prefix josegonzalez/php/php53)/bin:$PATH"
+##PATH="/usr/local/Cellar/php53/5.3.15/bin:$PATH"
 
 # Git completion
 source ~/git-completion.bash
@@ -15,4 +16,3 @@ eval "$(rbenv init -)"
 
 export PATH
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
