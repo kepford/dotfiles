@@ -12,6 +12,11 @@ function cr() {
  cd ~/repos/$*
 }
 
+#Bret Terpstra
+#copy the working directory path
+alias cpwd='pwd|tr -d "\n"|pbcopy'
+
+
 # Common -- Some are from Damian Conway
 alias a='ls -A' # -A all except literal . ..
 alias la="ls -A -l -G"
@@ -23,6 +28,10 @@ function cdc() {
 }
 alias cls='clear; ls'
 alias h='history'
+#share history between terminal sessions
+alias he="history -a" # export history
+alias hi="history -n" # import history
+
 alias l.='ls -d .[^.]*'
 alias l='ls -lhGt'  # -l long listing, most recent first
                     # -G color
@@ -194,11 +203,11 @@ function nginx_stop() {
     ps ax | grep nginx | cut -d " " -f 1 | xargs sudo kill -9
 }
 function nginx_start() {
-    sudo /usr/local/sbin/nginx
+  sudo /usr/local/sbin/nginx
 }
 
 function nginx_reload() {
-  sudo $(brew --prefix)/sbin/nginx -s reload
+  $(brew --prefix)/sbin/nginx -s reload
 }
 
 # php-fpm
@@ -256,7 +265,7 @@ function __rm_single_file(){
 alias themes='cd ~/Dropbox/drupal/themes/' #goto the themes folder
 alias modules='cd ~/Dropbox/drupal/modules/' #goto the modules folder
 alias builds='cd ~/Dropbox/drupal/builds/' #goto the builds folder
-alias features='cd ~/Dropbox/drupal/features/' #goto the features folder
+alias fbuilds='cd ~/Dropbox/fpu/drush-make-files' #goto the builds folder
 alias profiles='cd ~/Dropbox/drupal/profiles/' #goto the profiles folder
 alias repos='cd ~/Dropbox/repos/' #goto the repos folder
 alias sites='cd ~/Sites' #goto the profiles folder
@@ -284,3 +293,4 @@ alias notes='cd ~/Dropbox/Notational\ Data;mate .'
 alias vpn='sudo SystemStarter restart CiscoVPN'
 alias hosts='sudo vim /private/etc/hosts'
 alias dns='sudo vim /etc/resolv.dnsmasq.conf'
+alias dnsconf='sudo vim /usr/local/etc/dnsmasq.conf'
