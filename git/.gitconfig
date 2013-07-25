@@ -5,7 +5,7 @@
   user = kepford
   token = 33e0eb22297ecca91206cc352f977c83
 [core]
-  editor = mate -w
+  editor = vim
 	excludesfile = /Users/kepford/.gitignore
 	quotepath = false
 [difftool]
@@ -50,7 +50,6 @@
 [apply]
   whitespace = nowarn
 [branch]
-  autosetupprebase = always
   autosetuprebase = always
 [dropbox]
   folder = ~/Dropbox/repos
@@ -70,3 +69,5 @@
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
+[pull]
+	rebase = true

@@ -5,7 +5,11 @@ export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/
 
 #PATH="$(brew --prefix josegonzalez/php/php53)/bin:$PATH"
 #PATH="/usr/local/Cellar/php53/5.3.15/bin:$PATH"
+# homebew PHP
 PATH="/usr/local/Cellar/php53/5.3.22/bin:$PATH"
+
+# MAMP PHP
+#export PATH="/Applications/MAMP/bin:/Applications/MAMP/Library/bin:/Applications/MAMP/bin/php/php5.4.10/bin:$PATH"
 
 # Git completion
 source ~/git-completion.bash
