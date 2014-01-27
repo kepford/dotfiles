@@ -40,7 +40,7 @@
     lg = log -p
     logm = log --author="kepford" --decorate
     lolm = log --author="kepford" --graph --decorate --pretty=oneline --abbrev-commit
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     ls = ls-files
   datetag = !git tag `date "+%Y_%m_%d_%H%M"`
