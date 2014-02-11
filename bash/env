@@ -8,7 +8,8 @@ export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/
 # homebew PHP
 PATH="/usr/local/Cellar/php53/5.3.26/bin:$PATH"
 export PATH="/usr/local/drush:/usr/local/bin:$PATH"
-
+# Drush completion
+source /usr/local/drush/drush.complete.sh
 # MAMP PHP
 #export PATH="/Applications/MAMP/bin:/Applications/MAMP/Library/bin:/Applications/MAMP/bin/php/php5.4.10/bin:$PATH"
 
@@ -18,7 +19,10 @@ source ~/git-flow-completion.bash
 # Homebrew completion
 source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 
-eval "$(rbenv init -)"
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+PATH="/Users/kepford/.rvm/gems/ruby-2.1.0/bin:$PATH"
 
 export PATH
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator

@@ -130,6 +130,7 @@ function gch() {
 }
 
 # Setup a tracking branch from [remote] [branch_name]
+# EXAMPLE gbt remote branch_name
 function gbt() {
   git branch --track $2 $1/$2 && git checkout $2
 }
@@ -277,6 +278,7 @@ alias vpn='sudo SystemStarter restart CiscoVPN'
 alias hosts='sudo vim /private/etc/hosts'
 alias dns='sudo vim /etc/resolv.dnsmasq.conf'
 alias dnsconf='sudo vim /usr/local/etc/dnsmasq.conf'
+alias dnsreload='sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist && sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist'
 
 # Automator 
 alias startcall="automator /Users/kepford/Dropbox/scripts/start_call.workflow  &> /dev/null"
