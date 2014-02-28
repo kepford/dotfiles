@@ -274,11 +274,14 @@ alias ql="qlmanage -p 2>/dev/null" # preview a file using QuickLook
 # Open Notational Velicity/Simplenote files in Textmate
 alias notes='cd ~/Dropbox/Notational\ Data;subl .'
 alias marked='open -a Marked'
+
+# Networking
 alias vpn='sudo SystemStarter restart CiscoVPN'
 alias hosts='sudo vim /private/etc/hosts'
 alias dns='sudo vim /etc/resolv.dnsmasq.conf'
 alias dnsconf='sudo vim /usr/local/etc/dnsmasq.conf'
 alias dnsreload='sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist && sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist'
+alias wifi="networksetup -setairportpower en1"
 
 # Automator 
 alias startcall="automator /Users/kepford/Dropbox/scripts/start_call.workflow  &> /dev/null"

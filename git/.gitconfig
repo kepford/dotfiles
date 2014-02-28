@@ -37,18 +37,33 @@
     br = branch
     co = checkout
     df = diff
+    #Show modified files in last commit:
+    dl = "!git ll -1"
+    #Show a diff last commit:
+    dlc = diff --cached HEAD^
     lg = log -p
     logm = log --author="kepford" --decorate
     lolm = log --author="kepford" --graph --decorate --pretty=oneline --abbrev-commit
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit
-    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    lol = log --graph --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    lola = log --graph --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --all
     ls = ls-files
+    #List commits showing changed files is invoked with git ll and looks like this:
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    #List oneline commits showing dates:
+    lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+    #List oneline commits showing relative dates:
+    ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+    #stash
+    sl = stash list
+    sa = stash apply
+    ss = stash save
   datetag = !git tag `date "+%Y_%m_%d_%H%M"`
   unstage = reset HEAD
   diffall = diff HEAD
   undolast = reset --soft Head^
   diffstaged = diff --staged
   filelog = log --oneline --no-merges --
+  fl = log -u
 [apply]
   whitespace = nowarn
 [branch]
