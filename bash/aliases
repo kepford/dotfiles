@@ -127,15 +127,26 @@ alias g='git status'
 alias ga-modified="git status | grep modified | cut -d':' -f2 | xargs git add"
 alias eg='vim .git/config'
 alias egg='vim ~/.gitconfig'
-
+# Lists all merged branches and deletes the local branchs
+alias gclean="git branch --merged | grep -v "\*" | xargs -n 1 git branch -d"
 function glg() {
   git log --author="$1" --decorate
 }
+
+function gi() {
+  curl http://www.gitignore.io/api/$@ ;
+}
+
+# Tig
+alias ts='tig status'
 
 # Git clone from GitHub
 function gch() {
   git clone git://github.com/$1/$2.git
 }
+
+# get and merge upstream repo
+alias gups='git fetch upstream && git merge upstream/master'
 
 # Setup a tracking branch from [remote] [branch_name]
 # EXAMPLE gbt remote branch_name
@@ -159,6 +170,10 @@ function new-git() {
 
 #Git Flow
 alias gf='git-flow'
+
+## Open Drupal issue node
+# http://chapterthree.com/blog/open-your-drupalorg-issue-automatically-your-git-repository
+alias issue="open /Applications/Google\ Chrome.app https://www.drupal.org/node/\$(git symbolic-ref -q HEAD 2>/dev/null | sed 's/^refs\/heads\/\([0-9]*\).*/\1/')"
 
 # TDD / BDD
 alias aa='autotest'
@@ -194,6 +209,10 @@ function sxx() {
 }
 
 alias ox="open *.xcodeproj"
+
+# Apache
+# Restart
+alias apacherestart="sudo apachectl -k restart"
 
 # Nginx
 # sudo $(brew --prefix)/sbin/nginx -s stop
@@ -258,6 +277,7 @@ function __rm_single_file(){
 # Drupal
 # Drupal Directories for my themes, modules, features, and drush make files.
 
+alias drupalcs='phpcs --standard=/Users/kepford/.drush/coder/coder_sniffer/Drupal --'
 alias themes='cd ~/Dropbox/drupal/themes/' #goto the themes folder
 alias modules='cd ~/Dropbox/drupal/modules/' #goto the modules folder
 alias builds='cd ~/Dropbox/drupal/builds/' #goto the builds folder
@@ -265,6 +285,8 @@ alias profiles='cd ~/Dropbox/drupal/profiles/' #goto the profiles folder
 alias repos='cd ~/Dropbox/repos/' #goto the repos folder
 alias sites='cd ~/Sites' #goto the profiles folder
 alias twd='cd ~/Dropbox/currentprojects/theweeklydrop' #goto theweeklydrop folder
+alias drush6="/usr/local/bin/drush/drush"
+alias drush7="/Users/kepford/.composer/vendor/bin/drush"
 
 #Grunt
 alias grunt='/usr/local/share/npm/bin/grunt'
@@ -273,6 +295,9 @@ alias grunt='/usr/local/share/npm/bin/grunt'
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias flush="dscacheutil -flushcache" # Flush DNS cache
+alias dnslocal="sudo networksetup -setdnsservers Wi-Fi 192.168.2.1"
+alias dnsgoogle="sudo networksetup -setdnsservers Wi-Fi 8.8.8.8 8.8.4.4"
+alias dnsopen="sudo networksetup -setdnsservers Wi-Fi 208.67.222.222 208.67.220.220"
 alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip'
 
 alias gzip="gzip -9n" # set strongest compression level as ‘default’ for gzip
@@ -297,5 +322,4 @@ alias stopcall="automator /Users/kepford/Dropbox/scripts/stop_call.workflow  &> 
 
 #Mediacurrent
 alias mc='cd /Users/kepford/Dropbox/mediacurrent'
-alias nba='cd /Users/kepford/Dropbox/mediacurrent/nba'
-alias asco='cd /Users/kepford/Sites/asco/docroot'
+alias butler='cd /Users/kepford/Sites/butler'

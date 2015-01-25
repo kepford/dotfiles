@@ -32,6 +32,7 @@
 [push]
   default = current
 [alias]
+    init = init --template /Users/kepford/.git_template
     st = status
     ci = commit
     br = branch
@@ -90,3 +91,5 @@
 	trustExitCode = true
 [pull]
 	rebase = true
+[init]
+	templatedir = ~/.git_template
