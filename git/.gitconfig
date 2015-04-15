@@ -10,9 +10,7 @@
 	quotepath = false
 [difftool]
   tool = Kaleidoscope
-	prompt = false
 [merge]
-	tool = Kaleidoscope
 [color]
   [color "branch"]
     current = yellow reverse
@@ -56,6 +54,8 @@
     lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
     #List oneline commits showing relative dates:
     ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+    # Commits on current branch. Assumes the branch was created from develop
+    thisbranch = log --no-merges develop..
     #stash
     sl = stash list
     sa = stash apply
@@ -81,15 +81,21 @@
 	trustExitCode = true
 [mergetool]
 	keepBackup = true
-	prompt = false
 [difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
 	tool = Kaleidoscope
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+	trustexitcode = true
 [pull]
 	rebase = true
 [init]
 	templatedir = ~/.git_template
+[merge]
+	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false

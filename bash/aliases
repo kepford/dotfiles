@@ -12,6 +12,11 @@ function cr() {
  cd ~/repos/$*
 }
 
+#Dash
+function d () {
+  open dash://$1
+}
+
 #Bret Terpstra
 #copy the working directory path
 alias cpwd='pwd|tr -d "\n"|pbcopy'
@@ -128,7 +133,7 @@ alias ga-modified="git status | grep modified | cut -d':' -f2 | xargs git add"
 alias eg='vim .git/config'
 alias egg='vim ~/.gitconfig'
 # Lists all merged branches and deletes the local branchs
-alias gclean="git branch --merged | grep -v "\*" | xargs -n 1 git branch -d"
+alias gclean="git branch --merged | grep -v -i -E 'master|develop|medcur_enhancments' | xargs -n 1 git branch -d"
 function glg() {
   git log --author="$1" --decorate
 }
@@ -274,7 +279,6 @@ function __rm_single_file(){
     fi
 }
 
-# Drupal
 # Drupal Directories for my themes, modules, features, and drush make files.
 
 alias drupalcs='phpcs --standard=/Users/kepford/.drush/coder/coder_sniffer/Drupal --'
@@ -287,6 +291,7 @@ alias sites='cd ~/Sites' #goto the profiles folder
 alias twd='cd ~/Dropbox/currentprojects/theweeklydrop' #goto theweeklydrop folder
 alias drush6="/usr/local/bin/drush/drush"
 alias drush7="/Users/kepford/.composer/vendor/bin/drush"
+alias grab="drush dl --package-handler=git_drupalorg --dev"
 
 #Grunt
 alias grunt='/usr/local/share/npm/bin/grunt'

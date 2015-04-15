@@ -23,6 +23,24 @@ set smartcase                     " But case-sensitive if expression contains a 
 set number                        " Show line numbers.
 set ruler                         " Show cursor position.
 
+" Highlight the current line
+set cursorline
+
+" Set cursorline colors
+highlight CursorLine ctermbg=235
+
+" Set color of number column on cursorline
+highlight CursorLineNR ctermbg=235 ctermfg=white
+
+" Better Undo History  http://shelldevel.net/post/112278835197/better-undo-history-in-vim
+set undofile
+
+set undodir=~/.vim/history
+
+set undolevels=1000
+
+set undoreload=10000
+
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
 

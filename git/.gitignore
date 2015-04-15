@@ -5,10 +5,12 @@
 .sass-cache/*
 *.taskpaper
 *.tp
+*.idea
 
 # drupal dev sites
 *.dev
 *.ld
+local.settings.php
 # not sure if this is a good idea
 docroot/sites/default/files/
 FirePHPCore/
