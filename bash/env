@@ -3,10 +3,14 @@ export EDITOR="vim"
 
 export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin
 
+# PHP https://github.com/Homebrew/homebrew-php/wiki/Installing-Multiple-Versions
+# PHP 5.6
+#export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
 # PHP 5.5
 export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
+# PHP 5.4
+#export PATH="$(brew --prefix homebrew/php/php54)/bin:$PATH"
 
-#PATH="/usr/local/Cellar/php53/5.3.26/bin:$PATH"
 PATH="$HOME/.composer/vendor/bin:$PATH"
 #export PATH="/usr/local/drush:/usr/local/bin:$PATH"
 
