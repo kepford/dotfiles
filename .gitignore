@@ -1,2 +1,5 @@
 ssh/.config.swp
 vim/.vimrc.swp
+vim/history
+vim/bundle
+vim/.netrwhist
