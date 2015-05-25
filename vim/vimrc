@@ -1,4 +1,19 @@
-call pathogen#infect()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#begin()
+
+" let vundle manage vundle
+Plugin 'gmarik/vundle'
+
+" list all plugins that you'd like to install here
+Plugin 'kien/ctrlp.vim' " fuzzy find files
+Plugin 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
+Plugin 'benmills/vimux'
+Plugin 'tpope/vim-fugitive' " the ultimate git helper
+Plugin 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual mode
+Plugin 'altercation/vim-colors-solarized'
+
+call vundle#end()
+filetype plugin indent on
 
 set nocompatible                  " Must come first because it changes other options.
 
