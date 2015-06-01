@@ -5,6 +5,7 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 
 " list all plugins that you'd like to install here
+Plugin 'rizzatti/dash.vim'
 Plugin 'kien/ctrlp.vim' " fuzzy find files
 Plugin 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
 Plugin 'benmills/vimux'
@@ -90,7 +91,8 @@ map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
-
+" Map ctrl+n to toggle NERDTree 
+map <C-n> :NERDTreeToggle<cr>
 
 set autoindent
 set smartindent

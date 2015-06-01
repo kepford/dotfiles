@@ -6,6 +6,7 @@
 *.taskpaper
 *.tp
 *.idea
+*.swp
 
 # drupal dev sites
 *.dev
