@@ -281,6 +281,7 @@ function __rm_single_file(){
 
 # Drupal Directories for my themes, modules, features, and drush make files.
 
+alias dca='drush cc all'
 alias drupalcs='phpcs --standard=/Users/kepford/.drush/coder/coder_sniffer/Drupal --'
 alias themes='cd ~/Dropbox/drupal/themes/' #goto the themes folder
 alias modules='cd ~/Dropbox/drupal/modules/' #goto the modules folder

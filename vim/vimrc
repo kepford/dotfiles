@@ -5,13 +5,16 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 
 " list all plugins that you'd like to install here
-Plugin 'rizzatti/dash.vim'
+Plugin 'rizzatti/dash.vim' "Dash.app support
 Plugin 'kien/ctrlp.vim' " fuzzy find files
 Plugin 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
 Plugin 'benmills/vimux'
 Plugin 'tpope/vim-fugitive' " the ultimate git helper
 Plugin 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual mode
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'ervandew/supertab' "use <Tab> for all your insert completion needs (:help ins-completion).
+Plugin 'scrooloose/syntastic' "syntax checking plugin for Vim.
 
 call vundle#end()
 filetype plugin indent on
@@ -22,6 +25,19 @@ syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
 
 "runtime macros/matchit.vim        " Load the matchit plugin.
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+set guifont=Monaco
+
+" Syntastic Drupal coding standards
+let g:syntastic_php_phpcs_args="--standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
 
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
@@ -37,10 +53,7 @@ set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
 
 set number                        " Show line numbers.
-set ruler                         " Show cursor position.
-
-" Highlight the current line
-set cursorline
+"set ruler                         " Show cursor position.
 
 " Set cursorline colors
 highlight CursorLine ctermbg=235
@@ -80,6 +93,9 @@ set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
+" disable the folding for vim markdown
+let g:vim_markdown_folding_disabled=1
+
 " Tab mappings.
 map <leader>tt :tabnew<cr>
 map <leader>te :tabedit
@@ -110,5 +126,4 @@ if has("autocmd")
   augroup END
 endif
 syntax enable
-set background=dark
-colorscheme solarized
+
