@@ -11,6 +11,7 @@ Plugin 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
 Plugin 'benmills/vimux'
 Plugin 'tpope/vim-fugitive' " the ultimate git helper
 Plugin 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual mode
+Plugin 'tomtom/tcomment_vim' "provides easy to use, file-type sensible comments for Vim
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'ervandew/supertab' "use <Tab> for all your insert completion needs (:help ins-completion).
@@ -109,6 +110,9 @@ map <leader>tm :tabmove
 
 " Map ctrl+n to toggle NERDTree 
 map <C-n> :NERDTreeToggle<cr>
+
+" T-Comment mapping
+map <leader>c <c-_><c-_>
 
 set autoindent
 set smartindent
