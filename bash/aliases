@@ -6,12 +6,6 @@ alias ea='vim ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
 alias ee="vim ~/bin/dotfiles/bash/env"
 alias es="vim ~/bin/dotfiles/ssh/config"
 
-# Quicker cd
-alias cg='cd /Library/Ruby/Gems/1.8/gems/'
-function cr() {
- cd ~/repos/$*
-}
-
 #Dash
 function d () {
   open dash://$1
@@ -20,6 +14,7 @@ function d () {
 #Bret Terpstra
 #copy the working directory path
 alias cpwd='pwd|tr -d "\n"|pbcopy'
+
 # http://brettterpstra.com/2011/12/28/a-simple-but-handy-bash-function-console
 function console () {
   if [[ $# > 0 ]]; then
@@ -41,6 +36,7 @@ function cdc() {
 }
 alias cls='clear; ls'
 alias h='history'
+
 #share history between terminal sessions
 alias he="history -a" # export history
 alias hi="history -n" # import history
@@ -82,29 +78,13 @@ alias zipall='for item in *; do zip -m "${item}.zip" "${item}"; done'
 alias o='open . &'
 alias ff='open -a Firefox'
 alias chrome='open -a Google\ Chrome'
-alias css='open -a CSSEdit'
-alias coda='open -a Coda'
-alias mamp='open -a MAMP'
 alias f='open -a Path\ Finder ./'
-#alias watch='~/scripts/watch.rb'
-
 
 # General code
-
-# From Chris Wanstrath
-function pless() {
-    pygmentize $1 | less -r
-}
 
 # Processes
 alias tu='top -o cpu' # cpu
 alias tm='top -o vsize' # memory
-
-# Mercurial hg
-function new-hg() {
-    ssh hg@example.com "hg init $1"
-    hg clone ssh://hg@example.com/$1
-}
 
 # Git
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
@@ -112,6 +92,7 @@ alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
+
 # Commit pending changes and quote all args as message
 function gg() {
     git commit -v -a -m "$*"
@@ -132,8 +113,10 @@ alias g='git status'
 alias ga-modified="git status | grep modified | cut -d':' -f2 | xargs git add"
 alias eg='vim .git/config'
 alias egg='vim ~/.gitconfig'
+
 # Lists all merged branches and deletes the local branchs
 alias gclean="git branch --merged | grep -v -i -E 'master|develop|medcur_enhancments' | xargs -n 1 git branch -d"
+
 function glg() {
   git log --author="$1" --decorate
 }
@@ -174,16 +157,11 @@ function new-git() {
 }
 
 #Git Flow
-alias gf='git-flow'
+alias gff='git flow feature start'
 
 ## Open Drupal issue node
 # http://chapterthree.com/blog/open-your-drupalorg-issue-automatically-your-git-repository
 alias issue="open /Applications/Google\ Chrome.app https://www.drupal.org/node/\$(git symbolic-ref -q HEAD 2>/dev/null | sed 's/^refs\/heads\/\([0-9]*\).*/\1/')"
-
-# TDD / BDD
-alias aa='autotest'
-alias aaf='autotest -f' # Don't run all at start
-alias aas="./script/autospec"
 
 # Setup a tunnel
 function haproxyssh() {
@@ -202,21 +180,7 @@ function wav2mp3() {
   lame -h -V 0 $1.wav $1.mp3
 }
 
-
-# XCode
-# Analyze release build
-alias sx="xcodebuild clean && ~/src/checker-0.146/scan-build -k -V xcodebuild"
-# Analyze test build
-alias sxt="xcodebuild -target Test clean && ~/src/checker-0.146/scan-build -k -V xcodebuild -target Test"
-# Call with -target Foo
-function sxx() {
-  xcodebuild $* clean && ~/src/checker-0.146/scan-build -k -V xcodebuild $*
-}
-
-alias ox="open *.xcodeproj"
-
-# Apache
-# Restart
+# Apache Restart
 alias apacherestart="sudo apachectl -k restart"
 
 # Nginx
@@ -326,6 +290,5 @@ alias wifi="networksetup -setairportpower en1"
 alias startcall="automator /Users/kepford/Dropbox/scripts/start_call.workflow  &> /dev/null"
 alias stopcall="automator /Users/kepford/Dropbox/scripts/stop_call.workflow  &> /dev/null"
 
-#Mediacurrent
-alias mc='cd /Users/kepford/Dropbox/mediacurrent'
-alias butler='cd /Users/kepford/Sites/butler'
+# Include custom aliases
+[[ -f ~/.aliases.local ]] && source ~/.aliases.local
