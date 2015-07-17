@@ -17,9 +17,13 @@ Plugin 'pbrisbin/vim-mkdir' "Automatically create any non-existent directories b
 Plugin 'plasticboy/vim-markdown'
 Plugin 'ervandew/supertab' "use <Tab> for all your insert completion needs (:help ins-completion).
 Plugin 'scrooloose/syntastic' "syntax checking plugin for Vim.
+Plugin 'christoomey/vim-tmux-navigator' "https://robots.thoughtbot.com/seamlessly-navigate-vim-and-tmux-splits
 
 call vundle#end()
 filetype plugin indent on
+
+" Set leader to space bar
+let mapleader = "\<Space>"
 
 set nocompatible                  " Must come first because it changes other options.
 
