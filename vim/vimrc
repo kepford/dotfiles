@@ -113,6 +113,10 @@ map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
 " Map ctrl+n to toggle NERDTree 
 map <C-n> :NERDTreeToggle<cr>
 
