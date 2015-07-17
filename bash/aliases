@@ -92,12 +92,14 @@ alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
+alias gf='git fetch'
 
 # Commit pending changes and quote all args as message
 function gg() {
     git commit -v -a -m "$*"
 }
 alias gco='git checkout'
+alias gcod='git checkout develop'
 alias gcob='git checkout -b'
 alias gd='git diff'
 alias gdm='git diff master'
@@ -246,6 +248,7 @@ function __rm_single_file(){
 # Drupal Directories for my themes, modules, features, and drush make files.
 
 alias dca='drush cc all'
+alias dfr='drush fra -y && drush cc all'
 alias drupalcs='phpcs --standard=/Users/kepford/.drush/coder/coder_sniffer/Drupal --'
 alias themes='cd ~/Dropbox/drupal/themes/' #goto the themes folder
 alias modules='cd ~/Dropbox/drupal/modules/' #goto the modules folder
