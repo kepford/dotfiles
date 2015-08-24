@@ -6,6 +6,7 @@ Plugin 'gmarik/vundle'
 
 " list all plugins that you'd like to install here
 Plugin 'rizzatti/dash.vim' "Dash.app support
+Plugin 'terryma/vim-multiple-cursors' 
 Plugin 'kien/ctrlp.vim' " fuzzy find files
 Plugin 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
 Plugin 'benmills/vimux'
@@ -117,8 +118,11 @@ map <leader>tm :tabmove
 set splitbelow
 set splitright
 
-" Map ctrl+n to toggle NERDTree 
-map <C-n> :NERDTreeToggle<cr>
+" Map ctrl+d to toggle NERDTree 
+map <C-d> :NERDTreeToggle<cr>
+
+" Set NerdTree Window size
+let NERDTreeWinSize = 50
 
 " T-Comment mapping
 map <leader>c <c-_><c-_>
