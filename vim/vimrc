@@ -6,11 +6,12 @@ Plugin 'gmarik/vundle'
 
 " list all plugins that you'd like to install here
 Plugin 'rizzatti/dash.vim' "Dash.app support
-Plugin 'terryma/vim-multiple-cursors' 
+Plugin 'terryma/vim-multiple-cursors'
 Plugin 'kien/ctrlp.vim' " fuzzy find files
 Plugin 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
 Plugin 'benmills/vimux'
 Plugin 'tpope/vim-fugitive' " the ultimate git helper
+Plugin 'airblade/vim-gitgutter' " shows a git diff in the gutter
 Plugin 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual mode
 Plugin 'tomtom/tcomment_vim' "provides easy to use, file-type sensible comments for Vim
 Plugin 'godlygeek/tabular'
@@ -20,6 +21,16 @@ Plugin 'ervandew/supertab' "use <Tab> for all your insert completion needs (:hel
 Plugin 'scrooloose/syntastic' "syntax checking plugin for Vim.
 Plugin 'christoomey/vim-tmux-navigator' "https://robots.thoughtbot.com/seamlessly-navigate-vim-and-tmux-splits
 Plugin 'tpope/vim-surround' " surround text with things
+Plugin 'bling/vim-airline'
+Plugin 'evidens/vim-twig'
+Plugin 'MarcWeber/vim-addon-mw-utils' " Required by vim-snipmate
+Plugin 'tomtom/tlib_vim' " Required by vim-snipmate
+Plugin 'garbas/vim-snipmate'
+Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'davidoc/taskpaper.vim'
+
+" Bundles
+Bundle 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
 
 call vundle#end()
 filetype plugin indent on
@@ -42,6 +53,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+:command Sd SyntasticToggleMode
+
 set guifont=Monaco
 
 " Syntastic Drupal coding standards
@@ -63,11 +76,54 @@ set smartcase                     " But case-sensitive if expression contains a 
 set number                        " Show line numbers.
 "set ruler                         " Show cursor position.
 
+if exists('$TMUX')
+  set term=screen-256color
+endif
+
+
+
+if exists('$ITERM_PROFILE')
+  if exists('$TMUX')
+    let &t_SI = "\<Esc>[3 q"
+    let &t_EI = "\<Esc>[0 q"
+  else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  endif
+end
+
+" for tmux to automatically set paste and nopaste mode at the time pasting (as
+" happens in VIM UI)
+
+function! WrapForTmux(s)
+  if !exists('$TMUX')
+    return a:s
+  endif
+
+  let tmux_start = "\<Esc>Ptmux;"
+  let tmux_end = "\<Esc>\\"
+
+  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+endfunction
+
+let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
 " Set cursorline colors
 highlight CursorLine ctermbg=235
 
 " Set color of number column on cursorline
 highlight CursorLineNR ctermbg=235 ctermfg=white
+
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 " Better Undo History  http://shelldevel.net/post/112278835197/better-undo-history-in-vim
 set undofile
@@ -104,6 +160,12 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLo
 " disable the folding for vim markdown
 let g:vim_markdown_folding_disabled=1
 
+"folding settings
+set foldmethod=indent            "fold based on indent
+set foldnestmax=10               "deepest fold is 10 levels
+set nofoldenable                 "dont fold by default
+set foldlevel=1                  "this is just what i use
+
 " Tab mappings.
 map <leader>tt :tabnew<cr>
 map <leader>te :tabedit
@@ -119,8 +181,17 @@ map <leader>tm :tabmove
 set splitbelow
 set splitright
 
-" Map ctrl+d to toggle NERDTree 
+" Map ctrl+d to toggle NERDTree
 map <C-d> :NERDTreeToggle<cr>
+
+" Remap CtrlP to leader o
+nnoremap <Leader>o :CtrlP<CR>
+
+" Save files faster
+nnoremap <Leader>w :w<CR>
+
+" Enter visual line mode with <Space><Space>:
+nmap <Leader><Leader> V
 
 " Set NerdTree Window size
 let NERDTreeWinSize = 50
@@ -134,6 +205,9 @@ endfunction
 
 " T-Comment mapping
 map <leader>c <c-_><c-_>
+
+" Auto remove line end whitespace
+autocmd BufWritePre * :%s/\s\+$//e
 
 set autoindent
 set smartindent
@@ -149,6 +223,9 @@ if has("autocmd")
     autocmd BufRead,BufNewFile *.profile set filetype=php
     autocmd BufRead,BufNewFile *.view set filetype=php
   augroup END
+
+  " Omnicompletion with PHPcomplete
+  autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 endif
 syntax enable
 

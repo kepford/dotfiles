@@ -11,6 +11,7 @@
 # drupal dev sites
 *.dev
 *.ld
+settings.local.php
 local.settings.php
 # not sure if this is a good idea
 docroot/sites/default/files/
