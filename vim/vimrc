@@ -19,6 +19,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'ervandew/supertab' "use <Tab> for all your insert completion needs (:help ins-completion).
 Plugin 'scrooloose/syntastic' "syntax checking plugin for Vim.
 Plugin 'christoomey/vim-tmux-navigator' "https://robots.thoughtbot.com/seamlessly-navigate-vim-and-tmux-splits
+Plugin 'tpope/vim-surround' " surround text with things
 
 call vundle#end()
 filetype plugin indent on
@@ -123,6 +124,13 @@ map <C-d> :NERDTreeToggle<cr>
 
 " Set NerdTree Window size
 let NERDTreeWinSize = 50
+
+"https://github.com/scrooloose/nerdtree/issues/162#issuecomment-107643011
+nmap <silent> <Leader>t :call g:WorkaroundNERDTreeToggle()<CR>
+
+function! g:WorkaroundNERDTreeToggle()
+  try | NERDTreeToggle | catch | silent! NERDTree | endtry
+endfunction
 
 " T-Comment mapping
 map <leader>c <c-_><c-_>

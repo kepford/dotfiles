@@ -5,6 +5,7 @@ alias reload='source ~/bin/dotfiles/bash/aliases'
 alias ea='vim ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
 alias ee="vim ~/bin/dotfiles/bash/env"
 alias es="vim ~/bin/dotfiles/ssh/config"
+alias vrc='vim ~/.vimrc'
 
 #Dash
 function d () {
@@ -292,6 +293,9 @@ alias wifi="networksetup -setairportpower en1"
 # Automator 
 alias startcall="automator /Users/kepford/Dropbox/scripts/start_call.workflow  &> /dev/null"
 alias stopcall="automator /Users/kepford/Dropbox/scripts/stop_call.workflow  &> /dev/null"
+
+# Get pantheon db dump
+alias kdb='terminus site backups create --element=database --site=thewellkingsburg --env=dev && terminus site backups get --element=database --site=thewellkingsburg --env=dev --to-directory=$HOME/Downloads/ --latest'
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
