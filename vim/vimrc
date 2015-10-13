@@ -5,8 +5,10 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 
 " list all plugins that you'd like to install here
+Plugin 'tpope/vim-repeat' "Required by easyclip
+Plugin 'svermeulen/vim-easyclip' "Simplified clipboard functionality for Vim.
 Plugin 'rizzatti/dash.vim' "Dash.app support
-Plugin 'terryma/vim-multiple-cursors'
+Plugin 'terryma/vim-multiple-cursors' " True Sublime Text style multiple selections for Vim
 Plugin 'kien/ctrlp.vim' " fuzzy find files
 Plugin 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
 Plugin 'benmills/vimux'
@@ -28,9 +30,11 @@ Plugin 'tomtom/tlib_vim' " Required by vim-snipmate
 Plugin 'garbas/vim-snipmate'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'davidoc/taskpaper.vim'
+Plugin 'szw/vim-g' "Google from vim by selecting a word
 
 " Bundles
 Bundle 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
+Bundle 'joonty/vdebug.git'
 
 call vundle#end()
 filetype plugin indent on
@@ -53,6 +57,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:vdebug_options = {}
+let g:vdebug_options["port"] = 9001
+
+" Toggle synctastic
 :command Sd SyntasticToggleMode
 
 set guifont=Monaco
@@ -79,8 +88,6 @@ set number                        " Show line numbers.
 if exists('$TMUX')
   set term=screen-256color
 endif
-
-
 
 if exists('$ITERM_PROFILE')
   if exists('$TMUX')
@@ -184,17 +191,20 @@ set splitright
 " Map ctrl+d to toggle NERDTree
 map <C-d> :NERDTreeToggle<cr>
 
+" Remap ctrl-p to ctrl-o
+let g:ctrlp_map = '<c-o>'
+
 " Remap CtrlP to leader o
 nnoremap <Leader>o :CtrlP<CR>
+
+" Remap CtrlPBuffer to leader b
+nnoremap <Leader>b :CtrlPBuffer<CR>
 
 " Save files faster
 nnoremap <Leader>w :w<CR>
 
-" Enter visual line mode with <Space><Space>:
-nmap <Leader><Leader> V
-
 " Set NerdTree Window size
-let NERDTreeWinSize = 50
+let NERDTreeWinSize = 40
 
 "https://github.com/scrooloose/nerdtree/issues/162#issuecomment-107643011
 nmap <silent> <Leader>t :call g:WorkaroundNERDTreeToggle()<CR>
