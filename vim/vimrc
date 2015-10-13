@@ -31,6 +31,7 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'davidoc/taskpaper.vim'
 Plugin 'szw/vim-g' "Google from vim by selecting a word
+Plugin 'embear/vim-localvimrc' "Searches for local vimrc files in the file system tree of the currently opened file.
 
 " Bundles
 Bundle 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
@@ -85,6 +86,10 @@ set smartcase                     " But case-sensitive if expression contains a 
 set number                        " Show line numbers.
 "set ruler                         " Show cursor position.
 
+" Check spelling in Git
+autocmd FileType gitcommit setlocal spell
+
+" TMUX
 if exists('$TMUX')
   set term=screen-256color
 endif
