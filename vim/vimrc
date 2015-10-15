@@ -199,6 +199,9 @@ map <leader>tm :tabmove
 set splitbelow
 set splitright
 
+" Resize splits with mouse.
+set ttymouse=xterm2
+
 " Map ctrl+d to toggle NERDTree
 map <C-d> :NERDTreeToggle<cr>
 
