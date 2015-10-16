@@ -39,9 +39,7 @@ BCYAN='\e[46m'
 BWHITE='\e[47m'
 
 PS1="\n\u:\w\n"
-# Update the command prompt to be <user>:<current_directory>(git_branch) >
-# Note that the git branch is given a special color
-#PS1="\n\u:\w \[$EBLACK\]\$(vcprompt)\[$NO_COLOR\] \n→ "
+
 # Git Radar a heads up display for git.
 # https://github.com/michaeldfallen/git-radar
 PS1="$PS1\$(git-radar --bash --fetch) \n→ "
