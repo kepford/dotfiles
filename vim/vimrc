@@ -71,8 +71,12 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" Vdebug settings.
 let g:vdebug_options = {}
-let g:vdebug_options["port"] = 9001
+let g:vdebug_options['port'] = 9001
+
+" Need to set as empty for this to work with Vagrant boxes.
+let g:vdebug_options['server'] = ""
 
 " Toggle synctastic
 :command Sd SyntasticToggleMode
@@ -259,3 +263,7 @@ if has("autocmd")
 endif
 syntax enable
 
+let $LOCALFILE=expand('~/.vimrc-private')
+if filereadable($LOCALFILE)
+    source $LOCALFILE
+endif
