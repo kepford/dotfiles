@@ -241,8 +241,11 @@ set splitright
 " Resize splits with mouse.
 set ttymouse=xterm2
 
-" Map ctrl+d to toggle NERDTree
-map <C-d> :NERDTreeToggle<cr>
+" Map leader+d to toggle NERDTree
+map <Leader>d :NERDTreeToggle<cr>
+
+" Show current file in nerdtree
+map <Leader>f :NERDTreeFind<cr>
 
 " Remap ctrl-p to ctrl-o
 let g:ctrlp_map = '<c-o>'
