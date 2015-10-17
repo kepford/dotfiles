@@ -158,6 +158,9 @@ highlight CursorLineNR ctermbg=235 ctermfg=white
 
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
+" Turn off autohide of quotes in json-vim.
+let g:vim_json_syntax_conceal = 0
+
 " Better Undo History  http://shelldevel.net/post/112278835197/better-undo-history-in-vim
 set undofile
 
