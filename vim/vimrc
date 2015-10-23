@@ -9,6 +9,7 @@ Plugin 'tpope/vim-repeat' "Required by easyclip
 Plugin 'svermeulen/vim-easyclip' "Simplified clipboard functionality for Vim.
 Plugin 'rizzatti/dash.vim' "Dash.app support
 Plugin 'terryma/vim-multiple-cursors' " True Sublime Text style multiple selections for Vim
+Plugin 'rking/ag.vim' " a front for ag, A.K.A. the_silver_searcher
 Plugin 'kien/ctrlp.vim' " fuzzy find files
 Plugin 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
 Plugin 'benmills/vimux'
@@ -35,7 +36,6 @@ Plugin 'szw/vim-g' "Google from vim by selecting a word
 " Markdown
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-markdown'
-Plugin 'reedes/vim-pencil'
 Plugin 'itspriddle/vim-marked'
 
 " Bundles
@@ -79,6 +79,7 @@ let g:syntastic_check_on_wq = 0
 " Vdebug settings.
 let g:vdebug_options = {}
 let g:vdebug_options['port'] = 9001
+let g:vdebug_options['break_on_open'] = 0
 
 " Need to set as empty for this to work with Vagrant boxes.
 let g:vdebug_options['server'] = ""
@@ -105,8 +106,32 @@ set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
 
 set number                        " Show line numbers.
-"set ruler                         " Show cursor position.
+set ruler                         " Show cursor position.
 
+" Need it for powerline symbols
+set encoding=utf-8
+
+" Airline settings
+let g:airline#extensions#syntastic#enabled=1
+let g:airline_powerline_fonts=1
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = ''
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 " Check spelling in Git
 autocmd FileType gitcommit setlocal spell
 
@@ -210,13 +235,6 @@ function! SetMarkdownOptions()
   " Lastly, invoke Goyo plugin.
 endfunction
 
-" Vim-pencil stuff.
-augroup pencil
-  autocmd!
-  autocmd FileType markdown,mkd,md call pencil#init()
-  autocmd FileType text         call pencil#init()
-augroup ENDighlight ExtraWhitespace ctermbg=red guibg=red
-
 "folding settings
 set foldmethod=indent            "fold based on indent
 set foldnestmax=10               "deepest fold is 10 levels
@@ -294,6 +312,9 @@ if has("autocmd")
   autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 endif
 syntax enable
+
+" Custom wrap command.
+command! -nargs=* Wrap set wrap linebreak nolist
 
 " Increase speed of ctrlp by excluding files.
 " https://medium.com/a-tiny-piece-of-vim/making-ctrlp-vim-load-100x-faster-7a722fae7df6
