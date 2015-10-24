@@ -265,9 +265,6 @@ map <Leader>d :NERDTreeToggle<cr>
 " Show current file in nerdtree
 map <Leader>f :NERDTreeFind<cr>
 
-" Remap ctrl-p to ctrl-o
-let g:ctrlp_map = '<c-o>'
-
 " Remap CtrlP to leader o
 nnoremap <Leader>o :CtrlP<CR>
 
@@ -296,7 +293,10 @@ autocmd BufWritePre * :%s/\s\+$//e
 set autoindent
 set smartindent
 set clipboard=unnamed
+
+" Enable text selection with the mouse in all modes.
 :set mouse=a
+
 if has("autocmd")
   " Drupal *.module and *.install files.
   augroup module
