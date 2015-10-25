@@ -1,6 +1,11 @@
 # Set PATH, CDPATH, EDITOR, etc.
 export EDITOR="vim"
 
+# Bash completion via homebrew.
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
 export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin
 
 # PHP https://github.com/Homebrew/homebrew-php/wiki/Installing-Multiple-Versions
@@ -25,6 +30,9 @@ source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 
 # Terminus completion
 source ~/bin/dotfiles/terminus/terminus-completion.bash
+
+#Drupal Console completion
+source "$HOME/.console/console.rc" 2>/dev/null
 
 export PATH
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
