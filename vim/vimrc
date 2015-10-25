@@ -183,6 +183,8 @@ highlight CursorLineNR ctermbg=235 ctermfg=white
 
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
+set cursorline
+
 " Turn off autohide of quotes in json-vim.
 let g:vim_json_syntax_conceal = 0
 
