@@ -4,39 +4,54 @@ call vundle#begin()
 " let vundle manage vundle
 Plugin 'gmarik/vundle'
 
-" list all plugins that you'd like to install here
+" Easyclip
 Plugin 'tpope/vim-repeat' "Required by easyclip
 Plugin 'svermeulen/vim-easyclip' "Simplified clipboard functionality for Vim.
-Plugin 'rizzatti/dash.vim' "Dash.app support
 Plugin 'terryma/vim-multiple-cursors' " True Sublime Text style multiple selections for Vim
+
+" Search
 Plugin 'rking/ag.vim' " a front for ag, A.K.A. the_silver_searcher
+
+" File management
 Plugin 'kien/ctrlp.vim' " fuzzy find files
 Plugin 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
-Plugin 'benmills/vimux'
+Plugin 'pbrisbin/vim-mkdir' "Automatically create any non-existent directories before writing the buffer
+
+" Git
 Plugin 'tpope/vim-fugitive' " the ultimate git helper
 Plugin 'airblade/vim-gitgutter' " shows a git diff in the gutter
+
+" Code management
 Plugin 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual mode
 Plugin 'tomtom/tcomment_vim' "provides easy to use, file-type sensible comments for Vim
-Plugin 'pbrisbin/vim-mkdir' "Automatically create any non-existent directories before writing the buffer
 Plugin 'ervandew/supertab' "use <Tab> for all your insert completion needs (:help ins-completion).
 Plugin 'scrooloose/syntastic' "syntax checking plugin for Vim.
+Plugin 'shawncplus/phpcomplete.vim'
+
+" Tmux
 Plugin 'christoomey/vim-tmux-navigator' "https://robots.thoughtbot.com/seamlessly-navigate-vim-and-tmux-splits
 Plugin 'tpope/vim-surround' " surround text with things
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim' " Tmuxline
 Plugin 'evidens/vim-twig'
 Plugin 'elzr/vim-json' " JSON code highlighting.
+
+" Snipmate
 Plugin 'MarcWeber/vim-addon-mw-utils' " Required by vim-snipmate
 Plugin 'tomtom/tlib_vim' " Required by vim-snipmate
 Plugin 'garbas/vim-snipmate'
-Plugin 'shawncplus/phpcomplete.vim'
-Plugin 'davidoc/taskpaper.vim'
+
+" Misc
+
+Plugin 'benmills/vimux'
+Plugin 'rizzatti/dash.vim' "Dash.app support
 Plugin 'szw/vim-g' "Google from vim by selecting a word
 
 " Markdown
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-markdown'
 Plugin 'itspriddle/vim-marked'
+Plugin 'davidoc/taskpaper.vim'
 
 " Bundles
 Bundle 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
@@ -166,6 +181,10 @@ endfunction
 
 let &t_SI .= WrapForTmux("\<Esc>[?2004h")
 let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+
+" Cursor shape by mode for tmux running in iTerm2 on OS X
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
 function! XTermPasteBegin()
   set pastetoggle=<Esc>[201~
