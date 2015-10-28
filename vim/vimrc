@@ -283,15 +283,16 @@ inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 " Line coloring
 """""""""""""""""""""""""""""""""""""""
 
-" set cursorline colors
-highlight cursrline ctermbg=235
+set cursorline
 
-" set color of number column on cursorline
+" set cursorline colors
+highlight cursorline term=bold cterm=NONE ctermbg=darkgrey ctermfg=none
+
+" Set color of number column on cursorline
 highlight cursorlinenr ctermbg=235 ctermfg=white
 
+" Highlights the current line number.
 highlight linenr term=bold cterm=none ctermfg=darkgrey ctermbg=none gui=none guifg=darkgrey
-
-set cursorline
 
 """""""""""""""""""""""""""""""""""""""
 " Misc
