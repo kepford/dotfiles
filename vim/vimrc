@@ -91,6 +91,16 @@ nnoremap <Leader>w :w<CR>
 " T-Comment mapping
 map <leader>c <c-_><c-_>
 
+" turn off search highlight
+nnoremap <leader>, :nohlsearch<CR>
+
+" Edit vimrc and load vimrc bindings
+nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
+" open ag.vim
+nnoremap <leader>a :Ag
+
 """""""""""""""""""""""""""""""""""""""
 " General settings
 """""""""""""""""""""""""""""""""""""""
@@ -102,6 +112,7 @@ set nocompatible                  " Must come first because it changes other opt
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
+set lazyredraw                    " redraw only when we need to.
 
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
@@ -147,9 +158,21 @@ set clipboard=unnamed
 " Enable text selection with the mouse in all modes.
 :set mouse=a
 
+
+"""""""""""""""""""""""""""""""""""""""
+" CTRLP
+"""""""""""""""""""""""""""""""""""""""
+
 " Increase speed of ctrlp by excluding files.
 " https://medium.com/a-tiny-piece-of-vim/making-ctrlp-vim-load-100x-faster-7a722fae7df6
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+" Swap order of results so matches are on the top.
+let g:ctrlp_match_window = 'bottom,order:ttb'
+
+" Always open new files in new buffers.
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
 
 """""""""""""""""""""""""""""""""""""""
 " Nerdtree
