@@ -30,10 +30,13 @@ Plugin 'shawncplus/phpcomplete.vim'
 
 " Tmux
 Plugin 'christoomey/vim-tmux-navigator' "https://robots.thoughtbot.com/seamlessly-navigate-vim-and-tmux-splits
-Plugin 'tpope/vim-surround' " surround text with things
+
+" Airline
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim' " Tmuxline
-Plugin 'evidens/vim-twig'
+
+" Syntax highlighting.
+Plugin 'evidens/vim-twig' " Twig syntax hightlighting.
 Plugin 'elzr/vim-json' " JSON code highlighting.
 
 " Snipmate
@@ -42,7 +45,7 @@ Plugin 'tomtom/tlib_vim' " Required by vim-snipmate
 Plugin 'garbas/vim-snipmate'
 
 " Misc
-
+Plugin 'tpope/vim-surround' " surround text with things
 Plugin 'benmills/vimux'
 Plugin 'rizzatti/dash.vim' "Dash.app support
 Plugin 'szw/vim-g' "Google from vim by selecting a word
@@ -60,6 +63,10 @@ Bundle 'joonty/vdebug.git'
 call vundle#end()
 filetype plugin indent on
 
+"""""""""""""""""""""""""""""""""""""""
+" Remapping
+"""""""""""""""""""""""""""""""""""""""
+
 " Disable arrow keys.
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -72,7 +79,23 @@ let mapleader = "\<Space>"
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
 
-" Use the same symbols as TextMate for tabstops and EOLs
+" remap ctrlp to leader o
+nnoremap <Leader>o :CtrlP<CR>
+
+" Remap CtrlPBuffer to leader b
+nnoremap <Leader>b :CtrlPBuffer<CR>
+
+" Save files faster
+nnoremap <Leader>w :w<CR>
+
+" T-Comment mapping
+map <leader>c <c-_><c-_>
+
+"""""""""""""""""""""""""""""""""""""""
+" General settings
+"""""""""""""""""""""""""""""""""""""""
+
+" Use the same symbols as TextMate for tab stops and EOLs
 set listchars=tab:▸\ ,eol:¬
 
 set nocompatible                  " Must come first because it changes other options.
@@ -80,7 +103,77 @@ set nocompatible                  " Must come first because it changes other opt
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
 
-"runtime macros/matchit.vim        " Load the matchit plugin.
+set showcmd                       " Display incomplete commands.
+set showmode                      " Display the mode you're in.
+set backspace=indent,eol,start    " Intuitive backspacing.
+set hidden                        " Handle multiple buffers better.
+set wildmenu                      " Enhanced command line completion.
+set wildmode=list:longest         " Complete files like a shell.
+set ignorecase                    " Case-insensitive searching.
+set smartcase                     " But case-sensitive if expression contains a capital letter.
+set number                        " Show line numbers.
+set ruler                         " Show cursor position.
+
+" Better Undo History  http://shelldevel.net/post/112278835197/better-undo-history-in-vim
+set undofile
+set undodir=~/.vim/history
+set undolevels=1000
+set undoreload=10000
+
+set incsearch                     " Highlight matches as you type.
+set hlsearch                      " Highlight matches.
+set wrap                          " Turn on line wrapping.
+set scrolloff=3                   " Show 3 lines of context around the cursor.
+set title                         " Set the terminal's title
+set visualbell                    " No beeping.
+set noswapfile                    " No .swp files.
+set nobackup                      " Don't make a backup before overwriting a file.
+set nowritebackup                 " And again.
+set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
+set tabstop=2                    " Global tab width.
+set shiftwidth=2                 " And again, related.
+set expandtab                    " Use spaces instead of tabs
+set laststatus=2                  " Show the status line all the time
+" Useful status information at bottom of screen
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+
+" Auto remove line end whitespace
+autocmd BufWritePre * :%s/\s\+$//e
+
+set autoindent
+set smartindent
+set clipboard=unnamed
+
+" Enable text selection with the mouse in all modes.
+:set mouse=a
+
+" Increase speed of ctrlp by excluding files.
+" https://medium.com/a-tiny-piece-of-vim/making-ctrlp-vim-load-100x-faster-7a722fae7df6
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+"""""""""""""""""""""""""""""""""""""""
+" Nerdtree
+"""""""""""""""""""""""""""""""""""""""
+
+" map leader+d to toggle nerdtree
+map <leader>d :NERDTreeToggle<cr>
+
+" show current file in nerdtree
+map <leader>f :NERDTreeFind<cr>
+
+" Set NerdTree Window size
+let NERDTreeWinSize = 40
+
+"https://github.com/scrooloose/nerdtree/issues/162#issuecomment-107643011
+nmap <silent> <Leader>t :call g:WorkaroundNERDTreeToggle()<CR>
+
+function! g:WorkaroundNERDTreeToggle()
+  try | NERDTreeToggle | catch | silent! NERDTree | endtry
+endfunction
+
+"""""""""""""""""""""""""""""""""""""""
+" Syntastic
+"""""""""""""""""""""""""""""""""""""""
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -91,42 +184,31 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" Toggle synctastic
+:command! Sd SyntasticToggleMode
+
+""""""""""""""""""""""""""""""""""""""""
+" Vdebug
+""""""""""""""""""""""""""""""""""""""""
+
 " Vdebug settings.
 let g:vdebug_options = {}
 let g:vdebug_options['port'] = 9001
 let g:vdebug_options['break_on_open'] = 0
+let g:vdebug_options['max_children'] = 128
+let g:vdebug_options['watch_window_style'] = 'compact'
 
 " Need to set as empty for this to work with Vagrant boxes.
 let g:vdebug_options['server'] = ""
 
-" Toggle synctastic
-:command Sd SyntasticToggleMode
+"""""""""""""""""""""""""""""""""""""""
+" airline
+"""""""""""""""""""""""""""""""""""""""
 
-set guifont=Monaco
-
-" Syntastic Drupal coding standards
-let g:syntastic_php_phpcs_args="--standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
-
-set showcmd                       " Display incomplete commands.
-set showmode                      " Display the mode you're in.
-
-set backspace=indent,eol,start    " Intuitive backspacing.
-
-set hidden                        " Handle multiple buffers better.
-
-set wildmenu                      " Enhanced command line completion.
-set wildmode=list:longest         " Complete files like a shell.
-
-set ignorecase                    " Case-insensitive searching.
-set smartcase                     " But case-sensitive if expression contains a capital letter.
-
-set number                        " Show line numbers.
-set ruler                         " Show cursor position.
-
-" Need it for powerline symbols
+" need it for airline symbols
 set encoding=utf-8
 
-" Airline settings
+" airline settings
 let g:airline#extensions#syntastic#enabled=1
 let g:airline_powerline_fonts=1
 
@@ -144,30 +226,36 @@ let g:airline_symbols.linenr = '␤'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = ''
 let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = 'þ'
 let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-" Check spelling in Git
-autocmd FileType gitcommit setlocal spell
+let g:airline_symbols.whitespace = 'ξ'
 
-" TMUX
-if exists('$TMUX')
+"""""""""""""""""""""""""""""""""""""""
+" git
+"""""""""""""""""""""""""""""""""""""""
+
+" check spelling in git
+autocmd filetype gitcommit setlocal spell
+
+"""""""""""""""""""""""""""""""""""""""
+" Tmux
+"""""""""""""""""""""""""""""""""""""""
+
+if exists('$tmux')
   set term=screen-256color
 endif
 
-if exists('$ITERM_PROFILE')
-  if exists('$TMUX')
-    let &t_SI = "\<Esc>[3 q"
-    let &t_EI = "\<Esc>[0 q"
-  else
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-  endif
-end
+" Change Cursor shape by mode for tmux.
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
 
-" for tmux to automatically set paste and nopaste mode at the time pasting (as
+" For tmux to automatically set paste and nopaste mode at the time pasting (as
 " happens in VIM UI)
-
 function! WrapForTmux(s)
   if !exists('$TMUX')
     return a:s
@@ -182,10 +270,6 @@ endfunction
 let &t_SI .= WrapForTmux("\<Esc>[?2004h")
 let &t_EI .= WrapForTmux("\<Esc>[?2004l")
 
-" Cursor shape by mode for tmux running in iTerm2 on OS X
-let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-
 function! XTermPasteBegin()
   set pastetoggle=<Esc>[201~
   set paste
@@ -193,76 +277,61 @@ function! XTermPasteBegin()
 endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+" End fix for Tmux paste.
 
-" Set cursorline colors
-highlight CursorLine ctermbg=235
+"""""""""""""""""""""""""""""""""""""""
+" Line coloring
+"""""""""""""""""""""""""""""""""""""""
 
-" Set color of number column on cursorline
-highlight CursorLineNR ctermbg=235 ctermfg=white
+" set cursorline colors
+highlight cursrline ctermbg=235
 
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+" set color of number column on cursorline
+highlight cursorlinenr ctermbg=235 ctermfg=white
+
+highlight linenr term=bold cterm=none ctermfg=darkgrey ctermbg=none gui=none guifg=darkgrey
 
 set cursorline
 
-" Turn off autohide of quotes in json-vim.
+"""""""""""""""""""""""""""""""""""""""
+" Misc
+"""""""""""""""""""""""""""""""""""""""
+
+" turn off autohide of quotes in json-vim.
 let g:vim_json_syntax_conceal = 0
 
-" Better Undo History  http://shelldevel.net/post/112278835197/better-undo-history-in-vim
-set undofile
+" Custom wrap command.
+command! -nargs=* Wrap set wrap linebreak nolist
 
-set undodir=~/.vim/history
+"""""""""""""""""""""""""""""""""""""""
+" Markdown
+"""""""""""""""""""""""""""""""""""""""
 
-set undolevels=1000
-
-set undoreload=10000
-
-set incsearch                     " Highlight matches as you type.
-set hlsearch                      " Highlight matches.
-
-set wrap                          " Turn on line wrapping.
-set scrolloff=3                   " Show 3 lines of context around the cursor.
-
-set title                         " Set the terminal's title
-
-set visualbell                    " No beeping.
-
-" No .swp files.
-set noswapfile
-
-set nobackup                      " Don't make a backup before overwriting a file.
-set nowritebackup                 " And again.
-set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
-
-" UNCOMMENT TO USE
-set tabstop=2                    " Global tab width.
-set shiftwidth=2                 " And again, related.
-set expandtab                    " Use spaces instead of tabs
-
-set laststatus=2                  " Show the status line all the time
-" Useful status information at bottom of screen
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
-
-"Markdown specific stuff.
-let g:marked_app = "Marked 2"
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-autocmd Filetype markdown call SetMarkdownOptions()
-function! SetMarkdownOptions()
+let g:marked_app = "marked 2"
+autocmd bufnewfile,bufreadpost *.md set filetype=markdown
+autocmd filetype markdown call Setmarkdownoptions()
+function! Setmarkdownoptions()
   set showmode
-  " Enable spellcheck.
+  " enable spellcheck.
   set spell spelllang=en_us
-  " Wrap text (without linebreak charecters)
-  " I don't want to highlight the current line.
-  highlight CursorLine ctermbg=NONE
-  " Lastly, invoke Goyo plugin.
+  " wrap text (without linebreak charecters)
+  " i don't want to highlight the current line.
+  highlight cursorline ctermbg=none
 endfunction
 
-"folding settings
+"""""""""""""""""""""""""""""""""""""""
+" Folding settings
+"""""""""""""""""""""""""""""""""""""""
+
 set foldmethod=indent            "fold based on indent
 set foldnestmax=10               "deepest fold is 10 levels
 set nofoldenable                 "dont fold by default
 set foldlevel=1                  "this is just what i use
 
-" Tab mappings.
+""""""""""""""""""""""""""""""""""""""
+" tab mappings
+""""""""""""""""""""""""""""""""""""""
+
 map <leader>tt :tabnew<cr>
 map <leader>te :tabedit
 map <leader>tc :tabclose<cr>
@@ -273,50 +342,24 @@ map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
-" Open new split panes to right and bottom, which feels more natural
+"""""""""""""""""""""""""""""""""""""
+" splits
+"""""""""""""""""""""""""""""""""""""
+
+" open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
 
-" Resize splits with mouse.
+" resize splits with mouse.
 set ttymouse=xterm2
 
-" Map leader+d to toggle NERDTree
-map <Leader>d :NERDTreeToggle<cr>
 
-" Show current file in nerdtree
-map <Leader>f :NERDTreeFind<cr>
+"""""""""""""""""""""""""""""""""""""""
+" Drupal
+"""""""""""""""""""""""""""""""""""""""
 
-" Remap CtrlP to leader o
-nnoremap <Leader>o :CtrlP<CR>
-
-" Remap CtrlPBuffer to leader b
-nnoremap <Leader>b :CtrlPBuffer<CR>
-
-" Save files faster
-nnoremap <Leader>w :w<CR>
-
-" Set NerdTree Window size
-let NERDTreeWinSize = 40
-
-"https://github.com/scrooloose/nerdtree/issues/162#issuecomment-107643011
-nmap <silent> <Leader>t :call g:WorkaroundNERDTreeToggle()<CR>
-
-function! g:WorkaroundNERDTreeToggle()
-  try | NERDTreeToggle | catch | silent! NERDTree | endtry
-endfunction
-
-" T-Comment mapping
-map <leader>c <c-_><c-_>
-
-" Auto remove line end whitespace
-autocmd BufWritePre * :%s/\s\+$//e
-
-set autoindent
-set smartindent
-set clipboard=unnamed
-
-" Enable text selection with the mouse in all modes.
-:set mouse=a
+" syntastic drupal coding standards
+let g:syntastic_php_phpcs_args="--standard=drupal --extensions=php,module,inc,install,test,profile,theme"
 
 if has("autocmd")
   " Drupal *.module and *.install files.
@@ -332,14 +375,10 @@ if has("autocmd")
   " Omnicompletion with PHPcomplete
   autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 endif
-syntax enable
 
-" Custom wrap command.
-command! -nargs=* Wrap set wrap linebreak nolist
-
-" Increase speed of ctrlp by excluding files.
-" https://medium.com/a-tiny-piece-of-vim/making-ctrlp-vim-load-100x-faster-7a722fae7df6
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+"""""""""""""""""""""""""""""""""""""""
+" Vimrc settings
+"""""""""""""""""""""""""""""""""""""""
 
 " Automatically reload vimrc when it's saved.
 augroup VimrcSo
