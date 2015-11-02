@@ -49,7 +49,7 @@ Plugin 'tpope/vim-surround' " surround text with things
 Plugin 'benmills/vimux'
 Plugin 'rizzatti/dash.vim' "Dash.app support
 Plugin 'szw/vim-g' "Google from vim by selecting a word
-
+Plugin 'sjl/gundo.vim' " Visualize your Vim undo tree.
 " Markdown
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-markdown'
@@ -112,7 +112,6 @@ set nocompatible                  " Must come first because it changes other opt
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
-set lazyredraw                    " redraw only when we need to.
 
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
@@ -301,6 +300,17 @@ endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 " End fix for Tmux paste.
+
+""""""""""""""""""""""""""""""""""""""
+" Colors
+""""""""""""""""""""""""""""""""""""""
+
+syntax enable
+set background=dark
+" colorscheme solarized
+" let g:solarized_termcolors=256
+
+let g:airline_theme='solarized'
 
 """""""""""""""""""""""""""""""""""""""
 " Line coloring
