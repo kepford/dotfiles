@@ -2,7 +2,7 @@
 	name = kepford
 	email = bob@bobkepford.com
 [github]
-  user = kepford
+	user = kepford
   token = 33e0eb22297ecca91206cc352f977c83
 [core]
   editor = vim
