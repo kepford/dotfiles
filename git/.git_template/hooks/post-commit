@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Create dayone entry with last commit message
+git log --pretty=format:"%s @${PWD##*/}%n%b" -1 HEAD | dayone new
+
+# Copy last commit message copied to clipboard
+git log --pretty=format:"%s %n%b" -1 HEAD | pbcopy
