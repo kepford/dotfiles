@@ -4,6 +4,7 @@
 alias reload='source ~/bin/dotfiles/bash/aliases'
 alias ea='vim ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
 alias ee="vim ~/bin/dotfiles/bash/env"
+alias et="vim ~/bin/dotfiles/tmux/tmux.conf"
 alias es="vim ~/bin/dotfiles/ssh/config"
 alias vrc='vim ~/.vimrc'
 
