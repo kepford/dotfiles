@@ -56,6 +56,7 @@ Bundle 'mattn/gist-vim'
 " Markdown
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-markdown'
+Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'itspriddle/vim-marked'
 Plugin 'davidoc/taskpaper.vim'
 
