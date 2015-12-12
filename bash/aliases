@@ -7,6 +7,7 @@ alias ee="vim ~/bin/dotfiles/bash/env"
 alias et="vim ~/bin/dotfiles/tmux/tmux.conf"
 alias es="vim ~/bin/dotfiles/ssh/config"
 alias vrc='vim ~/.vimrc'
+alias vnote="vim /Users/kepford/Dropbox/Notational\ Data/vim.md"
 
 #Dash
 function dash () {
