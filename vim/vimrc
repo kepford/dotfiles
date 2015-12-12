@@ -267,6 +267,13 @@ autocmd filetype gitcommit setlocal spell
 " Tmux
 """""""""""""""""""""""""""""""""""""""
 
+" zoom a vim pane, <C-w>= to re-balance
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
+
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+
 if exists('$tmux')
   set term=screen-256color
 endif
