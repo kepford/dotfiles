@@ -94,9 +94,6 @@ nnoremap <Leader>w :w<CR>
 " T-Comment mapping
 map <leader>c <c-_><c-_>
 
-" turn off search highlight
-nnoremap <leader>, :nohlsearch<CR>
-
 " Edit vimrc and load vimrc bindings
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
@@ -122,8 +119,6 @@ set backspace=indent,eol,start    " Intuitive backspacing.
 set hidden                        " Handle multiple buffers better.
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
-set ignorecase                    " Case-insensitive searching.
-set smartcase                     " But case-sensitive if expression contains a capital letter.
 set number                        " Show line numbers.
 set ruler                         " Show cursor position.
 
@@ -133,8 +128,13 @@ set undodir=~/.vim/history
 set undolevels=1000
 set undoreload=10000
 
+" turn off search highlight
+nnoremap <leader>, :nohlsearch<CR>
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
+set ignorecase                    " Case-insensitive searching.
+set smartcase                     " But case-sensitive if expression contains a capital letter.
+
 set wrap                          " Turn on line wrapping.
 set scrolloff=3                   " Show 3 lines of context around the cursor.
 set title                         " Set the terminal's title
@@ -147,6 +147,13 @@ set tabstop=2                    " Global tab width.
 set shiftwidth=2                 " And again, related.
 set expandtab                    " Use spaces instead of tabs
 set laststatus=2                  " Show the status line all the time
+
+" Auto resize splits.
+set winwidth=84
+set winheight=5
+set winminheight=5
+set winheight=999
+
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
