@@ -1,0 +1,24 @@
+# ~/.vagrant.d/Vagrantfile
+
+# Local configuration to use across all Vagrant machines
+
+Vagrant.configure("2") do |config|
+  config.vm.provider :virtualbox do |vb|
+    # Increase allowed memory usage and cpus
+    vb.customize ["modifyvm", :id, "--cpuexecutioncap", "90", "--memory", "4096", "--cpus", "4"]
+  end
+
+  # vagrant-cachier plugin configuration
+  if Vagrant.has_plugin?("vagrant-cachier")
+    # Cache downloaded packages per box
+    config.cache.scope = :box
+  end
+
+  # vagrant-exec plugin configuration
+  if Vagrant.has_plugin?("vagrant-exec")
+    # By default run vagrant-exec commands within the /vagrant directory
+    config.exec.commands '*', directory: '/vagrant'
+    # Run all drush commands within the Drupal root
+    config.exec.commands 'drush', directory: '/vagrant/docroot'
+  end
+end
