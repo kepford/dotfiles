@@ -1,6 +1,15 @@
 # Set PATH, CDPATH, EDITOR, etc.
 export EDITOR="vim"
 
+# Go lang
+export GOPATH=~/golang
+export PATH=$PATH:$GOPATH/bin
+
+# S completion.
+if [ -f $GOPATH/src/github.com/zquestz/s/autocomplete/s-completion.bash ]; then
+    . $GOPATH/src/github.com/zquestz/s/autocomplete/s-completion.bash
+fi
+
 # Bash completion via homebrew.
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
@@ -17,7 +26,6 @@ export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
 #export PATH="$(brew --prefix homebrew/php/php54)/bin:$PATH"
 
 PATH="$HOME/.composer/vendor/bin:$PATH"
-#export PATH="/usr/local/drush:/usr/local/bin:$PATH"
 
 # Drush completion
 source $HOME/.composer/vendor/drush/drush/drush.complete.sh
