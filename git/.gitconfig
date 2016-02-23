@@ -1,12 +1,6 @@
-[user]
-	name = kepford
-	email = bob@bobkepford.com
-[github]
-	user = kepford
-  token = 33e0eb22297ecca91206cc352f977c83
 [core]
   editor = vim
-	excludesfile = /Users/kepford/.gitignore
+	excludesfile = ~/.gitignore
 	quotepath = false
 [difftool]
   tool = Kaleidoscope
@@ -30,7 +24,7 @@
 [push]
   default = current
 [alias]
-    init = init --template /Users/kepford/.git_template
+    init = init --template ~/.git_template
     st = status
     ci = commit
     br = branch
@@ -93,3 +87,6 @@
 	prompt = false
 [mergetool]
 	prompt = false
+
+[include]
+    path = ~/.gitconfig_local

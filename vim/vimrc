@@ -76,11 +76,18 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+" Add line without entering insert mode.
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
 " Set leader to space bar
 let mapleader = "\<Space>"
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
+
+" Shortcut to rapidly Google but it only works in normal mode.
+nnoremap <leader>g :Google<CR>
 
 " remap ctrlp to leader o
 nnoremap <Leader>o :CtrlP<CR>
@@ -141,18 +148,17 @@ set title                         " Set the terminal's title
 set visualbell                    " No beeping.
 set noswapfile                    " No .swp files.
 set nobackup                      " Don't make a backup before overwriting a file.
-set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 set tabstop=2                    " Global tab width.
 set shiftwidth=2                 " And again, related.
 set expandtab                    " Use spaces instead of tabs
 set laststatus=2                  " Show the status line all the time
 
-" Auto resize splits.
-set winwidth=84
-set winheight=5
-set winminheight=5
-set winheight=999
+" " Auto resize splits.
+" set winwidth=84
+" set winheight=5
+" set winminheight=5
+" set winheight=999
 
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
@@ -182,6 +188,9 @@ let g:ctrlp_working_path_mode = 0
 """""""""""""""""""""""""""""""""""""""
 " Nerdtree
 """""""""""""""""""""""""""""""""""""""
+
+" Show hidden files by default in NERDTree
+let NERDTreeShowHidden=1
 
 " map leader+d to toggle nerdtree
 map <leader>d :NERDTreeToggle<cr>
