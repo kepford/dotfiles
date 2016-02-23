@@ -18,6 +18,9 @@ function dash () {
 #copy the working directory path
 alias cpwd='pwd|tr -d "\n"|pbcopy'
 
+# Make file executable.
+alias ax='chmod +x'
+
 # http://brettterpstra.com/2011/12/28/a-simple-but-handy-bash-function-console
 function console () {
   if [[ $# > 0 ]]; then
@@ -113,7 +116,6 @@ alias gl='git pull'
 alias gnp="git-notpushed"
 alias gp='git push'
 alias gst='git status'
-alias gt='git status'
 alias g='git status'
 alias ga-modified="git status | grep modified | cut -d':' -f2 | xargs git add"
 alias eg='vim .git/config'
@@ -185,6 +187,9 @@ function wav2mp3() {
   lame -h -V 0 $1.wav $1.mp3
 }
 
+# Update Vhosts
+alias vhost="sudo vi /etc/apache2/extra/httpd-vhosts.conf"
+
 # Apache Restart
 alias apacherestart="sudo apachectl -k restart"
 
@@ -248,12 +253,23 @@ function __rm_single_file(){
     fi
 }
 
-# Drupal Directories for my themes, modules, features, and drush make files.
+# Terminus
+alias terminus="$HOME/pantheon-cli/bin/terminus"
 
+# Drupal Directories for my themes, modules, features, and drush make files.
 
 alias d='drupal'
 alias dca='drush cc all'
 alias dfr='drush fra -y && drush cc all'
+alias dfl='drush fl'
+alias duli='drush uli'
+
+# Import a compressed database using Drush.
+function dimport() {
+  gunzip -c $1 | drush sqlc
+}
+
+# Code sniffer.
 alias drupalcs='phpcs --standard=/Users/kepford/.drush/coder/coder_sniffer/Drupal --'
 alias themes='cd ~/Dropbox/drupal/themes/' #goto the themes folder
 alias modules='cd ~/Dropbox/drupal/modules/' #goto the modules folder
@@ -262,12 +278,19 @@ alias profiles='cd ~/Dropbox/drupal/profiles/' #goto the profiles folder
 alias repos='cd ~/Dropbox/repos/' #goto the repos folder
 alias sites='cd ~/Sites' #goto the profiles folder
 alias twd='cd ~/Dropbox/currentprojects/theweeklydrop' #goto theweeklydrop folder
-alias drush6="/usr/local/bin/drush/drush"
-alias drush7="/Users/kepford/.composer/vendor/bin/drush"
 alias grab="drush dl --package-handler=git_drupalorg --dev"
 
 #Grunt
 alias grunt='/usr/local/share/npm/bin/grunt'
+
+# Go lang s search tool.
+alias s="~/golang/bin/s"
+alias sa="s -p amazon"
+alias sw="s -p wikipedia"
+alias si="s -p imdb"
+alias ss="s -p stackoverflow"
+alias sy="s -p youtube"
+
 
 # Get readable list of network IPs
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
@@ -297,6 +320,9 @@ alias wifi="networksetup -setairportpower en1"
 # Automator
 alias startcall="automator /Users/kepford/Dropbox/scripts/start_call.workflow  &> /dev/null"
 alias stopcall="automator /Users/kepford/Dropbox/scripts/stop_call.workflow  &> /dev/null"
+
+# Edit local aliases
+alias eal='vim ~/.alias_local'
 
 # Include local and private aliases.
 if [ -f ~/.alias_local ]; then
