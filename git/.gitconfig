@@ -2,10 +2,8 @@
   editor = vim
 	excludesfile = ~/.gitignore
 	quotepath = false
-[difftool]
-  tool = Kaleidoscope
-[merge]
 [color]
+  ui = true
   [color "branch"]
     current = yellow reverse
     local = yellow
@@ -19,41 +17,39 @@
     added = yellow
     changed = green
     untracked = cyan
-[color]
-    ui = true
 [push]
   default = current
 [alias]
-    init = init --template ~/.git_template
-    st = status
-    ci = commit
-    br = branch
-    co = checkout
-    df = diff
-    #Show modified files in last commit:
-    dl = "!git ll -1"
-    #Show a diff last commit:
-    dlc = diff --cached HEAD^
-    lg = log -p
-    logm = log --author="kepford" --decorate
-    # copies today's commits by me on a branch
-    mc = "!git log --since=6am --author="kepford" --decorate --abbrev-commit | grep -vwE \"(Author:|Date:)\" | pbcopy | pbpaste | cat"
-    lolm = log --author="kepford" --decorate --pretty=oneline --abbrev-commit
-    lol = log --graph --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-    lola = log --graph --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --all
-    ls = ls-files
-    #List commits showing changed files is invoked with git ll and looks like this:
-    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-    #List oneline commits showing dates:
-    lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
-    #List oneline commits showing relative dates:
-    ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
-    # Commits on current branch. Assumes the branch was created from develop
-    thisbranch = log --no-merges develop..
-    #stash
-    sl = stash list
-    sa = stash apply
-    ss = stash save
+  init = init --template ~/.git_template
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  #Show modified files in last commit:
+  dl = "!git ll -1"
+  #Show a diff last commit:
+  dlc = diff --cached HEAD^
+  lg = log -p
+  logm = log --author="kepford" --decorate
+  # copies today's commits by me on a branch
+  mc = "!git log --since=6am --author="kepford" --decorate --abbrev-commit | grep -vwE \"(Author:|Date:)\" | pbcopy | pbpaste | cat"
+  lolm = log --author="kepford" --decorate --pretty=oneline --abbrev-commit
+  lol = log --graph --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  lola = log --graph --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --all
+  ls = ls-files
+  #List commits showing changed files is invoked with git ll and looks like this:
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  #List oneline commits showing dates:
+  lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+  #List oneline commits showing relative dates:
+  ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+  # Commits on current branch. Assumes the branch was created from develop
+  thisbranch = log --no-merges develop..
+  #stash
+  sl = stash list
+  sa = stash apply
+  ss = stash save
   datetag = !git tag `date "+%Y_%m_%d_%H%M"`
   unstage = reset HEAD
   diffall = diff HEAD
@@ -65,28 +61,23 @@
   whitespace = nowarn
 [branch]
   autosetuprebase = always
-[dropbox]
-  folder = ~/Dropbox/repos
-[mergetool]
-	keepBackup = true
-[difftool "Kaleidoscope"]
-[diff]
-	tool = Kaleidoscope
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustexitcode = true
 [pull]
 	rebase = true
 [init]
 	templatedir = ~/.git_template
 [merge]
 	tool = Kaleidoscope
+[mergetool]
+	prompt = false
+	keepBackup = true
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+[diff]
+	tool = Kaleidoscope
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool]
 	prompt = false
-[mergetool]
-	prompt = false
-
 [include]
     path = ~/.gitconfig_local
