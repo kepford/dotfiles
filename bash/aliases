@@ -115,9 +115,11 @@ function gdx() {
 alias gl='git pull'
 alias gnp="git-notpushed"
 alias gp='git push'
-alias gst='git status'
 alias g='git status'
 alias ga-modified="git status | grep modified | cut -d':' -f2 | xargs git add"
+
+# Get and merge upstream repo
+alias gups='git fetch upstream && git merge upstream/master'
 alias eg='vim .git/config'
 alias egg='vim ~/.gitconfig'
 
@@ -139,9 +141,6 @@ alias ts='tig status'
 function gch() {
   git clone git://github.com/$1/$2.git
 }
-
-# get and merge upstream repo
-alias gups='git fetch upstream && git merge upstream/master'
 
 # Setup a tracking branch from [remote] [branch_name]
 # EXAMPLE gbt remote branch_name
