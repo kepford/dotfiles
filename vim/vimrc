@@ -43,6 +43,7 @@ Plugin 'elzr/vim-json' " JSON code highlighting.
 Plugin 'MarcWeber/vim-addon-mw-utils' " Required by vim-snipmate
 Plugin 'tomtom/tlib_vim' " Required by vim-snipmate
 Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets' " Snippets for snipmate
 
 " Misc
 Plugin 'tpope/vim-surround' " surround text with things
@@ -218,6 +219,13 @@ let g:syntastic_check_on_wq = 0
 
 " Toggle synctastic
 :command! Sd SyntasticToggleMode
+
+""""""""""""""""""""""""""""""""""""""""
+" Snipmate
+""""""""""""""""""""""""""""""""""""""""
+"to prevent clash with tab completion, change snippet trigger
+imap <C-J> <esc>a<Plug>snipMateNextOrTrigger
+smap <C-J> <Plug>snipMateNextOrTrigger
 
 """"""""""""""""""""""""""""""""""""""""
 " Vdebug
@@ -454,9 +462,9 @@ let g:gist_open_browser_after_post = 1
 """""""""""""""""""""""""""""""""""""""
 
 " Automatically reload vimrc when it's saved.
-augroup VimrcSo
-  au!
-  autocmd BufWritePost $MYVIMRC so $MYVIMRC
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
 
 " Include local vim settings.
