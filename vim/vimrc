@@ -32,7 +32,8 @@ Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'christoomey/vim-tmux-navigator' "https://robots.thoughtbot.com/seamlessly-navigate-vim-and-tmux-splits
 
 " Airline
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Syntax highlighting.
 Plugin 'evidens/vim-twig' " Twig syntax hightlighting.
