@@ -27,6 +27,9 @@ Plugin 'tomtom/tcomment_vim' "provides easy to use, file-type sensible comments 
 Plugin 'ervandew/supertab' "use <Tab> for all your insert completion needs (:help ins-completion).
 Plugin 'scrooloose/syntastic' "syntax checking plugin for Vim.
 Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'xolox/vim-misc' "Required by easytags.
+Plugin 'xolox/vim-easytags' "Automated tag file generation and syntax highlighting of tags
 
 " Tmux
 Plugin 'christoomey/vim-tmux-navigator' "https://robots.thoughtbot.com/seamlessly-navigate-vim-and-tmux-splits
@@ -96,6 +99,9 @@ nnoremap <Leader>o :CtrlP<CR>
 
 " Remap CtrlPBuffer to leader b
 nnoremap <Leader>b :CtrlPBuffer<CR>
+
+" Remap CtrlPTag to .
+nnoremap <leader>. :CtrlPTag<cr>
 
 " Save files faster
 nnoremap <Leader>w :w<CR>
