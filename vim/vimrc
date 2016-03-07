@@ -370,6 +370,20 @@ highlight linenr term=bold cterm=none ctermfg=darkgrey ctermbg=none gui=none gui
 set number                     " Show current line number
 set relativenumber             " Show relative line numbers
 
+" Toggle relative numbering.
+function! NumberToggle()
+  if(&rnu == 0 && &nu == 0)
+    set nu
+  elseif(&nu == 1)
+    set nonu
+    set rnu
+  else
+    set nornu
+  endif
+endfunc
+
+nnoremap <leader>n :call NumberToggle()<cr>
+
 """""""""""""""""""""""""""""""""""""""
 " Misc
 """""""""""""""""""""""""""""""""""""""
