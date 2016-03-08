@@ -2,6 +2,8 @@
   editor = vim
 	excludesfile = ~/.gitignore
 	quotepath = false
+  # diff-highlight http://theunixtoolbox.com/git-diff-highlight/
+  pager = diff-highlight | less -r
 [color]
   ui = true
   [color "branch"]
@@ -56,6 +58,9 @@
   thisbranch = log --no-merges develop..
   undolast = reset --soft Head^
   unstage = reset HEAD
+
+  # diff-highlight http://theunixtoolbox.com/git-diff-highlight/
+  worddiff = !git diff --color | diff-highlight | less -r
 [apply]
   whitespace = nowarn
 [branch]
