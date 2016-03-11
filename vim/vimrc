@@ -22,7 +22,6 @@ Plugin 'airblade/vim-gitgutter' " shows a git diff in the gutter
 
 " Code management
 Plugin 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual mode
-Plugin 'tomtom/tcomment_vim' "provides easy to use, file-type sensible comments for Vim
 Plugin 'ervandew/supertab' "use <Tab> for all your insert completion needs (:help ins-completion).
 Plugin 'scrooloose/syntastic' "syntax checking plugin for Vim.
 Plugin 'shawncplus/phpcomplete.vim'
@@ -444,6 +443,20 @@ set splitright
 " resize splits with mouse.
 set ttymouse=xterm2
 
+"""""""""""""""""""""""""""""""""""""
+" Make arrowkey resize viewports
+" To resize the split by 1 use Left,Right,Up,Down
+" To resize by 50% of the split use <C-w>Left,Right,Up,Down
+"""""""""""""""""""""""""""""""""""""
+
+nnoremap <Left> :vertical resize +1<CR>
+nnoremap <Right> :vertical resize -1<CR>
+nnoremap <Up> :resize +1<CR>
+nnoremap <Down> :resize -1<CR>
+nnoremap <C-w><Right> :exe "vertical resize +" . (winwidth(0) * 1/2)<CR>
+nnoremap <C-w><Left> :exe "vertical resize -" . (winwidth(0) * 1/2)<CR>
+nnoremap <C-w><Up> :exe "resize +" . (winheight(0) * 1/2)<CR>
+nnoremap <C-w><Down> :exe "resize -" . (winheight(0) * 1/2)<CR>
 
 """""""""""""""""""""""""""""""""""""""
 " Drupal

@@ -318,7 +318,7 @@ alias ping="ping -c 5" # ping 5 times ‘by default’
 alias ql="qlmanage -p 2>/dev/null" # preview a file using QuickLook
 
 # Open Notational Velicity/Simplenote files in Vim
-alias notes='cd ~/Dropbox/Notational\ Data;vim .'
+alias notes='cd ~/Dropbox/Notational\ Data;vim +CtrlP'
 alias marked='open -a Marked'
 
 # Networking
