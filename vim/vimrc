@@ -7,7 +7,6 @@ Plugin 'gmarik/vundle'
 " Easyclip
 Plugin 'tpope/vim-repeat' "Required by easyclip
 Plugin 'svermeulen/vim-easyclip' "Simplified clipboard functionality for Vim.
-Plugin 'terryma/vim-multiple-cursors' " True Sublime Text style multiple selections for Vim
 
 " Search
 Plugin 'rking/ag.vim' " a front for ag, A.K.A. the_silver_searcher
