@@ -48,6 +48,7 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets' " Snippets for snipmate
 
 " Misc
+Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround' " surround text with things
 Plugin 'benmills/vimux'
 Plugin 'rizzatti/dash.vim' "Dash.app support
