@@ -55,6 +55,7 @@ Plugin 'szw/vim-g' "Google from vim by selecting a word
 Plugin 'sjl/gundo.vim' " Visualize your Vim undo tree.
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
+Plugin 'Raimondi/delimitMate' "Provides auto-completion for quotes
 
 " Markdown
 Plugin 'godlygeek/tabular'
