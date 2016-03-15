@@ -56,6 +56,7 @@ Plugin 'sjl/gundo.vim' " Visualize your Vim undo tree.
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Plugin 'Raimondi/delimitMate' "Provides auto-completion for quotes
+Plugin 'terryma/vim-smooth-scroll' "Smooths the scrolling in Vim
 
 " Markdown
 Plugin 'godlygeek/tabular'
@@ -234,6 +235,13 @@ imap <C-J> <esc>a<Plug>snipMateNextOrTrigger
 smap <C-J> <Plug>snipMateNextOrTrigger
 
 """"""""""""""""""""""""""""""""""""""""
+" Smooth Scroll
+""""""""""""""""""""""""""""""""""""""""
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+
 " Vdebug
 """"""""""""""""""""""""""""""""""""""""
 
