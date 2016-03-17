@@ -58,12 +58,17 @@ Bundle 'mattn/gist-vim'
 Plugin 'Raimondi/delimitMate' "Provides auto-completion for quotes
 Plugin 'terryma/vim-smooth-scroll' "Smooths the scrolling in Vim
 
+" Linters
+Plugin 'amperser/proselint', {'rtp': 'plugins/vim/syntastic_proselint/'}
+Plugin 'wookiehangover/jshint.vim'
+
 " Markdown
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-markdown'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'itspriddle/vim-marked'
 Plugin 'davidoc/taskpaper.vim'
+Plugin 'dhruvasagar/vim-table-mode'
 
 " Bundles
 Bundle 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
@@ -378,13 +383,15 @@ highlight linenr term=bold cterm=none ctermfg=darkgrey ctermbg=none gui=none gui
 set number                     " Show current line number
 set relativenumber             " Show relative line numbers
 
-" Toggle relative numbering.
+" Toggle numbering.
 function! NumberToggle()
   if(&rnu == 0 && &nu == 0)
     set nu
-  elseif(&nu == 1)
-    set nonu
+  elseif(&nu == 1 && &rnu == 0)
+    set nu
     set rnu
+  elseif(&nu == 1 && &rnu == 1)
+    set nonu
   else
     set nornu
   endif
@@ -405,7 +412,8 @@ command! -nargs=* Wrap set wrap linebreak nolist
 """""""""""""""""""""""""""""""""""""""
 " Markdown
 """""""""""""""""""""""""""""""""""""""
-
+let g:syntastic_markdown_checkers = ['proselint']
+let g:table_mode_corner=" "
 let g:marked_app = "marked 2"
 autocmd bufnewfile,bufreadpost *.md set filetype=markdown
 autocmd filetype markdown call Setmarkdownoptions()
