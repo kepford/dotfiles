@@ -112,8 +112,8 @@ nnoremap <leader>. :CtrlPTag<cr>
 " Save files faster
 nnoremap <Leader>w :w<CR>
 
-" T-Comment mapping
-map <leader>c <c-_><c-_>
+" Comment mapping
+nmap cm  <Plug>Commentary
 
 " Edit vimrc and load vimrc bindings
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
