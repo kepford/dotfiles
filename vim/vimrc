@@ -71,6 +71,7 @@ Plugin 'davidoc/taskpaper.vim'
 Plugin 'dhruvasagar/vim-table-mode'
 
 " Bundles
+Bundle 'christoomey/vim-titlecase'
 Bundle 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
 Bundle 'joonty/vdebug.git'
 
@@ -180,7 +181,6 @@ set clipboard=unnamed
 
 " Enable text selection with the mouse in all modes.
 :set mouse=a
-
 
 """""""""""""""""""""""""""""""""""""""
 " CTRLP
