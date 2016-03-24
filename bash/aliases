@@ -9,6 +9,9 @@ alias es="vim ~/bin/dotfiles/ssh/config"
 alias vrc='vim ~/.vimrc'
 alias vnote="vim /Users/kepford/Dropbox/Notational\ Data/vim.md"
 
+# Global ag ignore.
+alias ag='ag --path-to-agignore=~/.agignore'
+
 #Dash
 function dash () {
   open dash://$1
