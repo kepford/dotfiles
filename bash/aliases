@@ -259,7 +259,7 @@ function __rm_single_file(){
 }
 
 # Terminus
-alias terminus="$HOME/pantheon-cli/bin/terminus"
+alias terminus="$HOME/bin/terminus/vendor/pantheon-systems/terminus/bin/terminus"
 
 # Drupal Directories for my themes, modules, features, and drush make files.
 
@@ -281,7 +281,13 @@ function ddb() {
 
 # Import a compressed database using Drush.
 function dimport() {
+  echo "Dropping current database."
+  drush sql-drop
+  echo "Importing database from $1"
   gunzip -c $1 | drush sqlc
+  echo "Database imported. Rebuiling registry now."
+  echo "Logging you in now."
+  drush uli
 }
 
 # Code sniffer.
@@ -314,6 +320,7 @@ alias flush="dscacheutil -flushcache" # Flush DNS cache
 alias dnslocal="sudo networksetup -setdnsservers Wi-Fi 192.168.2.1"
 alias dnsgoogle="sudo networksetup -setdnsservers Wi-Fi 8.8.8.8 8.8.4.4"
 alias dnsopen="sudo networksetup -setdnsservers Wi-Fi 208.67.222.222 208.67.220.220"
+alias dnsmlb="sudo networksetup -setdnsservers Wi-Fi 192.169.71.180 192.254.74.201 208.110.81.51"
 alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip'
 
 alias gzip="gzip -9n" # set strongest compression level as ‘default’ for gzip
