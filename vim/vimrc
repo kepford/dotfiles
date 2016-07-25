@@ -19,6 +19,7 @@ Plugin 'pbrisbin/vim-mkdir' "Automatically create any non-existent directories b
 " Git
 Plugin 'tpope/vim-fugitive' " the ultimate git helper
 Plugin 'airblade/vim-gitgutter' " shows a git diff in the gutter
+Plugin 'christoomey/vim-conflicted' "Easy git merge conflict resolution in Vim
 
 " Code management
 Plugin 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual mode
@@ -57,6 +58,8 @@ Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Plugin 'Raimondi/delimitMate' "Provides auto-completion for quotes
 Plugin 'terryma/vim-smooth-scroll' "Smooths the scrolling in Vim
+Plugin 'christoomey/vim-titlecase'
+Plugin 'polm/github-tasks.vim' " This plugin adds support for Github tasks, letting you turn normal markdown list entries into tasks and toggle them done or not done.
 
 " Linters
 Plugin 'amperser/proselint', {'rtp': 'plugins/vim/syntastic_proselint/'}
@@ -70,10 +73,9 @@ Plugin 'itspriddle/vim-marked'
 Plugin 'davidoc/taskpaper.vim'
 Plugin 'dhruvasagar/vim-table-mode'
 
-" Bundles
-Bundle 'christoomey/vim-titlecase'
-Bundle 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
-Bundle 'joonty/vdebug.git'
+" Plugin 'arnaud-lb/vim-php-namespace' "types PHP use statements for you
+Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
+Plugin 'joonty/vdebug.git'
 
 call vundle#end()
 filetype plugin indent on
@@ -477,11 +479,21 @@ nnoremap <C-w><Up> :exe "resize +" . (winheight(0) * 1/2)<CR>
 nnoremap <C-w><Down> :exe "resize -" . (winheight(0) * 1/2)<CR>
 
 """""""""""""""""""""""""""""""""""""""
+" PHP
+"""""""""""""""""""""""""""""""""""""""
+" function! IPhpInsertUse()
+"     call PhpInsertUse()
+"     call feedkeys('a',  'n')
+" endfunction
+" autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+" autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+
+"""""""""""""""""""""""""""""""""""""""
 " Drupal
 """""""""""""""""""""""""""""""""""""""
 
 " syntastic drupal coding standards
-let g:syntastic_php_phpcs_args="--standard=drupal --extensions=php,module,inc,install,test,profile,theme"
+let g:syntastic_php_phpcs_args="--standard=drupal --extensions='php,module,inc,install,test,profile,theme,info' --ignore='*.features.*.inc'"
 
 if has("autocmd")
   " Drupal *.module and *.install files.

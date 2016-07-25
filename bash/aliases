@@ -5,7 +5,7 @@ alias reload='source ~/bin/dotfiles/bash/aliases'
 alias ea='vim ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
 alias ee="vim ~/bin/dotfiles/bash/env"
 alias et="vim ~/bin/dotfiles/tmux/tmux.conf"
-alias es="vim ~/bin/dotfiles/ssh/config"
+alias es="vim ~/.ssh/config"
 alias vrc='vim ~/.vimrc'
 alias vnote="vim /Users/kepford/Dropbox/Notational\ Data/vim.md"
 
@@ -87,7 +87,7 @@ alias zipall='for item in *; do zip -m "${item}.zip" "${item}"; done'
 alias o='open . &'
 alias ff='open -a Firefox'
 alias chrome='open -a Google\ Chrome'
-alias f='open -a Path\ Finder ./'
+alias f='open .'
 
 # General code
 
