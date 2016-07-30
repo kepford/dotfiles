@@ -50,6 +50,7 @@ Plugin 'honza/vim-snippets' " Snippets for snipmate
 " Misc
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround' " surround text with things
+Plugin 'tpope/vim-dispatch' " Run commands in the background.
 Plugin 'benmills/vimux'
 Plugin 'rizzatti/dash.vim' "Dash.app support
 Plugin 'szw/vim-g' "Google from vim by selecting a word
