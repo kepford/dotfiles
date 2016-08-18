@@ -60,7 +60,8 @@ Bundle 'mattn/gist-vim'
 Plugin 'Raimondi/delimitMate' "Provides auto-completion for quotes
 Plugin 'terryma/vim-smooth-scroll' "Smooths the scrolling in Vim
 Plugin 'christoomey/vim-titlecase'
-Plugin 'polm/github-tasks.vim' " This plugin adds support for Github tasks, letting you turn normal markdown list entries into tasks and toggle them done or not done.
+Plugin 'polm/github-tasks.vim' "This plugin adds support for Github tasks, letting you turn normal markdown list entries into tasks and toggle them done or not done.
+Plugin 'tommcdo/vim-exchange' "Easy text exchange operator
 
 " Linters
 Plugin 'amperser/proselint', {'rtp': 'plugins/vim/syntastic_proselint/'}
