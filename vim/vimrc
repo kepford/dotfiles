@@ -62,6 +62,7 @@ Plugin 'terryma/vim-smooth-scroll' "Smooths the scrolling in Vim
 Plugin 'christoomey/vim-titlecase'
 Plugin 'polm/github-tasks.vim' "This plugin adds support for Github tasks, letting you turn normal markdown list entries into tasks and toggle them done or not done.
 Plugin 'tommcdo/vim-exchange' "Easy text exchange operator
+Plugin 'lifepillar/vim-solarized8' " My current colorscheme.
 
 " Linters
 Plugin 'amperser/proselint', {'rtp': 'plugins/vim/syntastic_proselint/'}
@@ -365,8 +366,16 @@ inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
 syntax enable
 set background=dark
-" colorscheme solarized
-" let g:solarized_termcolors=256
+colorscheme solarized8_dark_low
+let g:solarized_termcolors=256
+let g:solarized_visibility="high"
+let g:solarized_diffmode="high"
+
+" Toggle between light and dark themes
+nnoremap  <leader>B :<c-u>exe "colors" (g:colors_name =~# "dark"
+    \ ? substitute(g:colors_name, 'dark', 'light', '')
+    \ : substitute(g:colors_name, 'light', 'dark', '')
+    \ )<cr>
 
 let g:airline_theme='solarized'
 
@@ -377,7 +386,7 @@ let g:airline_theme='solarized'
 set cursorline
 
 " set cursorline colors
-highlight cursorline term=bold cterm=NONE ctermbg=darkgrey ctermfg=none
+" highlight cursorline term=bold cterm=NONE ctermbg=white ctermfg=none
 
 " Set color of number column on cursorline
 highlight cursorlinenr ctermbg=235 ctermfg=white
