@@ -5,12 +5,34 @@ application:
     temp: /tmp
     develop: 'false'
     command: about
+    checked: 'true'
     remote:
         user: root
-        port: 22
+        port: '22'
         console: /usr/local/bin/drupal
         keys:
             public: ~/.ssh/id_rsa.pub
             private: ~/.ssh/id_rsa
             passphrase: ~/.ssh/passphrase.txt
-    checked: 'true'
+    composer:
+        create-project:
+            default:
+                package: drupal-composer/drupal-project
+            drupal:
+                package: drupal/drupal
+        repositories:
+            default: 'https://packagist.drupal-composer.org'
+            drupal: 'https://packages.drupal.org/8'
+            packagist: 'https://packagist.org'
+    disable:
+        modules: null
+        commands: null
+        namespaces: null
+    options:
+        learning: false
+        examples: false
+        generate-inline: false
+        generate-chain: false
+        'yes': false
+        composer: false
+        shellexec_output: true
