@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 # Make sure we’re using the latest Homebrew
 brew update
 
@@ -66,7 +64,6 @@ brew install wget
 brew install youtube-dl
 
 # Cask
-brew cask install 1password
 brew cask install alfred
 brew cask install arq
 brew cask install audacity
@@ -136,16 +133,16 @@ brew cask install suspicious-package
 cleanup
 
 # Mac App store apps have to be installed separately
-# Bettersnaptool
 # Annotate
+# Bettersnaptool
 # Deckset
 # Fantastical 2
 # FruitJuice
+# Next Meeting
+# Omnifocus
 # Timing.app
 # Tree 2
 # Tweetbot
-# Next Meeting
-# Omnifocus
 
 # Other Apps
 # Little Snitch

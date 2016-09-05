@@ -2,6 +2,7 @@
 
 ## Features
 
+* Homebrew
 * Bash
 * Vim
 * Git
@@ -10,6 +11,12 @@
 * osx
 
 ## Installation
+
+### Homebrew
+
+Install [Homebrew](http://brew.sh/)
+
+`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
 
 ### Symlinks and home directory
