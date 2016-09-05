@@ -1,47 +1,156 @@
-ansible
-bash-completion
-battery
-brew-php-switcher
-browsertime
-ctags
-curl
-dnsmasq
-ffmpeg
-flac
-flex
-git-extras
-git-flow
-git-radar
-glib
-go
-gzip
-htop
-htop-osx
-hub
-mariadb
-mp3splt
-nmap
-node
-peco
-php54
-php55
-php55-opcache
-php55-xdebug
-php56
-php56-xdebug
-python
-readline
-reattach-to-user-namespace
-rename
-ssh-copy-id
-sshuttle
-testdisk
-the_silver_searcher
-tig
-tmux
-tree
-tuntap
-vim
-watch
-wget
-youtube-dl
+#!/usr/bin/env bash
+
+# Make sure we’re using the latest Homebrew
+brew update
+
+# Upgrade any already-installed formulae
+brew upgrade
+
+# Taps
+brew tap homebrew/dupes
+brew tap homebrew/versions
+brew tap homebrew/homebrew-php
+
+brew install ansible
+brew install bash-completion
+brew install battery
+brew install brew-php-switcher
+brew install browsertime
+brew install composer
+brew install ctags
+brew install ctags-better-php
+brew install curl
+brew install dnsmasq
+brew install ffmpeg
+brew install flac
+brew install flex
+brew install fontconfig
+brew install freetype
+brew install git-extras
+brew install git-flow
+brew install git-radar
+brew install glib
+brew install go
+brew install graphviz
+brew install gzip
+brew install htop
+brew install htop-osx
+brew install hub
+brew install irssi
+brew install mariadb
+brew install mp3splt
+brew install nmap
+brew install node
+brew install peco
+brew install php55
+brew install php55-opcache
+brew install php55-xdebug
+brew install php56
+brew install php56-xdebug
+brew install python
+brew install readline
+brew install reattach-to-user-namespace
+brew install rename
+brew install resty
+brew install ssh-copy-id
+brew install sshuttle
+brew install testdisk
+brew install the_silver_searcher
+brew install tig
+brew install tmux
+brew install tree
+brew install tuntap
+brew install vim
+brew install watch
+brew install wget
+brew install youtube-dl
+
+# Cask
+brew cask install 1password
+brew cask install alfred
+brew cask install arq
+brew cask install audacity
+brew cask install audio-hijack
+brew cask install bartender
+brew cask install bee
+brew cask install bettertouchtool
+brew cask install bittorrent-sync
+brew cask install caffeine
+brew cask install calibre
+brew cask install cloud
+brew cask install controlplane
+brew cask install daisydisk
+brew cask install dash
+brew cask install dropbox
+brew cask install firefox
+brew cask install flux
+brew cask install google-chrome
+brew cask install google-drive
+brew cask install imagealpha
+brew cask install imageoptim
+brew cask install iterm2
+brew cask install hazel
+brew cask install jumpcut
+brew cask install kaleidoscope
+brew cask install karabiner
+brew cask install keycastr
+brew cask install licecap
+brew cask install mailmate
+brew cask install marked
+brew cask install mindnode-pro
+brew cask install mountain
+brew cask install mousepose
+brew cask install nvalt
+brew cask install onyx
+brew cask install path-finder
+brew cask install popclip
+brew cask install postman
+brew cask install proxpn
+brew cask install screenflow
+brew cask install seil
+brew cask install sequel-pro
+brew cask install sketch
+brew cask install slack
+brew cask install soulver
+brew cask install spotify
+brew cask install superduper
+brew cask install transmission
+brew cask install tripmode
+brew cask install virtualbox
+brew cask install vagrant
+brew cask install vlc
+brew cask install xscope
+
+# Quicklook elugins
+brew cask install qlcolorcode
+brew cask install qlmarkdown
+brew cask install qlstephen
+brew cask install quicklook-json
+brew cask install qlprettypatch
+brew cask install quicklook-csv
+brew cask install betterzipql
+brew cask install webpquicklook
+brew cask install suspicious-package
+
+# Remove outdated versions from the cellar
+cleanup
+
+# Mac App store apps have to be installed separately
+# Bettersnaptool
+# Annotate
+# Deckset
+# Fantastical 2
+# FruitJuice
+# Timing.app
+# Tree 2
+# Tweetbot
+# Next Meeting
+# Omnifocus
+
+# Other Apps
+# Little Snitch
+# Loopback
+# OmniGraffle Professional 5
+# TextExpander 5.1.4 - pre-subscription model.
+# ToggleDesktop
+# iThoughtsX
