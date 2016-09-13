@@ -57,7 +57,6 @@ Plugin 'szw/vim-g' "Google from vim by selecting a word
 Plugin 'sjl/gundo.vim' " Visualize your Vim undo tree.
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
-Plugin 'Raimondi/delimitMate' "Provides auto-completion for quotes
 Plugin 'terryma/vim-smooth-scroll' "Smooths the scrolling in Vim
 Plugin 'christoomey/vim-titlecase'
 Plugin 'polm/github-tasks.vim' "This plugin adds support for Github tasks, letting you turn normal markdown list entries into tasks and toggle them done or not done.
