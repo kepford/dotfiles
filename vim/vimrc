@@ -64,8 +64,8 @@ Plugin 'polm/github-tasks.vim' "This plugin adds support for Github tasks, letti
 Plugin 'tommcdo/vim-exchange' "Easy text exchange operator
 Plugin 'lifepillar/vim-solarized8' " My current colorscheme.
 
-" Linters
-Plugin 'amperser/proselint', {'rtp': 'plugins/vim/syntastic_proselint/'}
+" Javascript
+Plugin 'pangloss/vim-javascript'
 Plugin 'wookiehangover/jshint.vim'
 
 " Markdown
@@ -75,6 +75,7 @@ Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'itspriddle/vim-marked'
 Plugin 'davidoc/taskpaper.vim'
 Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'amperser/proselint', {'rtp': 'plugins/vim/syntastic_proselint/'}
 
 " Plugin 'arnaud-lb/vim-php-namespace' "types PHP use statements for you
 Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
@@ -271,7 +272,7 @@ let g:vdebug_keymap = {
 
 " Vdebug settings.
 let g:vdebug_options = {}
-let g:vdebug_options['break_on_open'] = 0
+let g:vdebug_options['break_on_open'] = 1
 let g:vdebug_options['max_children'] = 128
 let g:vdebug_options['watch_window_style'] = 'compact'
 
@@ -397,6 +398,11 @@ highlight linenr term=bold cterm=none ctermfg=darkgrey ctermbg=none gui=none gui
 set number                     " Show current line number
 set relativenumber             " Show relative line numbers
 
+" Let me know when I've went over 80 characters.
+au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+" set textwidth=80
+" set colorcolumn=+1
+
 " Toggle numbering.
 function! NumberToggle()
   if(&rnu == 0 && &nu == 0)
@@ -439,6 +445,7 @@ function! Setmarkdownoptions()
   " i don't want to highlight the current line.
   highlight cursorline ctermbg=none
 endfunction
+let g:vim_markdown_new_list_item_indent = 2
 
 """""""""""""""""""""""""""""""""""""""
 " Folding settings
