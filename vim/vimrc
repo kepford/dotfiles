@@ -76,7 +76,6 @@ Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'amperser/proselint', {'rtp': 'plugins/vim/syntastic_proselint/'}
 
 " PHP and Drupal
-Plugin 'vim-scripts/phpfolding.vim'
 Plugin 'arnaud-lb/vim-php-namespace' "types PHP use statements for you
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
@@ -101,9 +100,6 @@ nmap <CR> o<Esc>
 
 " Set leader to space bar
 let mapleader = "\<Space>"
-
-" Shortcut to rapidly toggle `set list`
-nmap <leader>l :set list!<CR>
 
 " Shortcut to rapidly Google but it only works in normal mode.
 nnoremap <leader>g :Google<CR>
@@ -157,8 +153,6 @@ set undodir=~/.vim/history
 set undolevels=1000
 set undoreload=10000
 
-" turn off search highlight
-nnoremap <leader>, :nohlsearch<CR>
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
 set ignorecase                    " Case-insensitive searching.
@@ -403,22 +397,6 @@ set relativenumber             " Show relative line numbers
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 " set textwidth=80
 " set colorcolumn=+1
-
-" Toggle numbering.
-function! NumberToggle()
-  if(&rnu == 0 && &nu == 0)
-    set nu
-  elseif(&nu == 1 && &rnu == 0)
-    set nu
-    set rnu
-  elseif(&nu == 1 && &rnu == 1)
-    set nonu
-  else
-    set nornu
-  endif
-endfunc
-
-nnoremap <leader>n :call NumberToggle()<cr>
 
 """""""""""""""""""""""""""""""""""""""
 " Misc
