@@ -9,6 +9,9 @@ alias es="vim ~/.ssh/config"
 alias vrc='vim ~/.vimrc'
 alias vnote="vim /Users/kepford/Dropbox/Notational\ Data/vim.md"
 
+# Notify command
+alias notify="osascript -e 'tell app \"System Events\" to display alert \"Shell task\" message \"Task completed\"'"
+
 # Global ag ignore.
 alias ag='ag --path-to-agignore=~/.agignore'
 
