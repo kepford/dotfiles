@@ -25,7 +25,6 @@ Plugin 'christoomey/vim-conflicted' "Easy git merge conflict resolution in Vim
 Plugin 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual mode
 Plugin 'ervandew/supertab' "use <Tab> for all your insert completion needs (:help ins-completion).
 Plugin 'scrooloose/syntastic' "syntax checking plugin for Vim.
-Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'xolox/vim-misc' "Required by easytags.
 Plugin 'xolox/vim-easytags' "Automated tag file generation and syntax highlighting of tags
@@ -76,7 +75,10 @@ Plugin 'davidoc/taskpaper.vim'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'amperser/proselint', {'rtp': 'plugins/vim/syntastic_proselint/'}
 
-" Plugin 'arnaud-lb/vim-php-namespace' "types PHP use statements for you
+" PHP and Drupal
+Plugin 'vim-scripts/phpfolding.vim'
+Plugin 'arnaud-lb/vim-php-namespace' "types PHP use statements for you
+Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
 Plugin 'joonty/vdebug.git'
 
