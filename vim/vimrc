@@ -13,7 +13,6 @@ Plugin 'rking/ag.vim' " a front for ag, A.K.A. the_silver_searcher
 
 " File management
 Plugin 'ctrlpvim/ctrlp.vim' " fuzzy find files
-Plugin 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
 Plugin 'pbrisbin/vim-mkdir' "Automatically create any non-existent directories before writing the buffer
 
 " Git
@@ -195,28 +194,11 @@ let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
-"""""""""""""""""""""""""""""""""""""""
-" Nerdtree
-"""""""""""""""""""""""""""""""""""""""
+" map leader+d to toggle Netrw
+nnoremap <leader>d :e.<cr>
 
-" Show hidden files by default in NERDTree
-let NERDTreeShowHidden=1
-
-" map leader+d to toggle nerdtree
-map <leader>d :NERDTreeToggle<cr>
-
-" show current file in nerdtree
-map <leader>f :NERDTreeFind<cr>
-
-" Set NerdTree Window size
-let NERDTreeWinSize = 40
-
-"https://github.com/scrooloose/nerdtree/issues/162#issuecomment-107643011
-nmap <silent> <Leader>t :call g:WorkaroundNERDTreeToggle()<CR>
-
-function! g:WorkaroundNERDTreeToggle()
-  try | NERDTreeToggle | catch | silent! NERDTree | endtry
-endfunction
+" Show current file in Netrw
+nnoremap <leader>f :Explore<cr>
 
 """""""""""""""""""""""""""""""""""""""
 " Syntastic
