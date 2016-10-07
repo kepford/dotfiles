@@ -13,6 +13,7 @@ Plugin 'rking/ag.vim' " a front for ag, A.K.A. the_silver_searcher
 
 " File management
 Plugin 'ctrlpvim/ctrlp.vim' " fuzzy find files
+Plugin 'tpope/vim-vinegar' " Combine with netrw to create a delicious salad dressing.
 Plugin 'pbrisbin/vim-mkdir' "Automatically create any non-existent directories before writing the buffer
 
 " Git
@@ -49,6 +50,8 @@ Plugin 'honza/vim-snippets' " Snippets for snipmate
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround' " surround text with things
 Plugin 'tpope/vim-dispatch' " Run commands in the background.
+Plugin 'tpope/vim-speeddating' " use CTRL-A/CTRL-X to increment dates, times, and more.
+Plugin 'tpope/vim-rsi' " Readline style insertion.
 Plugin 'benmills/vimux'
 Plugin 'rizzatti/dash.vim' "Dash.app support
 Plugin 'szw/vim-g' "Google from vim by selecting a word
@@ -193,6 +196,16 @@ let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+"""""""""""""""""""""""""""""""""""""""
+" Netrw
+"""""""""""""""""""""""""""""""""""""""
+let g:netrw_liststyle=3     " tree view
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+" Allow netrw to remove non-empty local directories
+"
+let g:netrw_localrmdir='rm -r'
 
 " map leader+d to toggle Netrw
 nnoremap <leader>d :e.<cr>
@@ -407,13 +420,14 @@ function! Setmarkdownoptions()
   highlight cursorline ctermbg=none
 endfunction
 let g:vim_markdown_new_list_item_indent = 2
+let g:markdown_fenced_languages = ['php', 'css', 'sass', 'javascript', 'js=javascript', 'json=javascript', 'bash=sh', 'html']
 
 """""""""""""""""""""""""""""""""""""""
 " Folding settings
 """""""""""""""""""""""""""""""""""""""
 
 set foldmethod=indent            "fold based on indent
-set foldnestmax=10               "deepest fold is 10 levels
+set foldnestmax=1               "deepest fold is 10 levels
 set nofoldenable                 "dont fold by default
 set foldlevel=1                  "this is just what i use
 
