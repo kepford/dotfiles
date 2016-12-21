@@ -20,14 +20,9 @@ export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/
 # PHP https://github.com/Homebrew/homebrew-php/wiki/Installing-Multiple-Versions
 # PHP 5.6
 export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
-# PHP 5.5
-# export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
-# PHP 5.4
-#export PATH="$(brew --prefix homebrew/php/php54)/bin:$PATH"
-#
 export XDEBUG_CONFIG="idekey=PHPSTORM"
 
-PATH="$HOME/.composer/vendor/bin:$PATH"
+PATH="$PATH:$HOME/.composer/vendor/bin"
 
 # Drush completion
 source $HOME/.composer/vendor/drush/drush/drush.complete.sh

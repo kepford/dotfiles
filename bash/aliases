@@ -193,7 +193,7 @@ function wav2mp3() {
 }
 
 # Update Vhosts
-alias vhost="sudo vi /etc/apache2/extra/httpd-vhosts.conf"
+alias vhost="sudo vim /etc/apache2/extra/httpd-vhosts.conf"
 
 # Apache Restart
 alias apacherestart="sudo apachectl -k restart"
@@ -294,7 +294,8 @@ function dimport() {
 }
 
 # Code sniffer.
-alias drupalcs='phpcs --standard=/Users/kepford/.drush/coder/coder_sniffer/Drupal --'
+alias drupalcs='phpcs --standard=/Users/kepford/.composer/vendor/drupal/coder/coder_sniffer/Drupal --'
+alias drupalcsfix="phpcbf --standard=Drupal —extensions=php,module,inc,install,test,profile,theme,js,css,info,txt,md"
 alias themes='cd ~/Dropbox/drupal/themes/' #goto the themes folder
 alias modules='cd ~/Dropbox/drupal/modules/' #goto the modules folder
 alias builds='cd ~/Dropbox/drupal/builds/' #goto the builds folder

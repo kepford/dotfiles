@@ -28,6 +28,7 @@ Plugin 'scrooloose/syntastic' "syntax checking plugin for Vim.
 Plugin 'majutsushi/tagbar'
 Plugin 'xolox/vim-misc' "Required by easytags.
 Plugin 'xolox/vim-easytags' "Automated tag file generation and syntax highlighting of tags
+Plugin 'AndrewRadev/splitjoin.vim' "Transition between multiline and single-line code.
 
 " Tmux
 Plugin 'christoomey/vim-tmux-navigator' "https://robots.thoughtbot.com/seamlessly-navigate-vim-and-tmux-splits
@@ -78,7 +79,7 @@ Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'amperser/proselint', {'rtp': 'plugins/vim/syntastic_proselint/'}
 
 " PHP and Drupal
-Plugin 'arnaud-lb/vim-php-namespace' "types PHP use statements for you
+" Plugin 'arnaud-lb/vim-php-namespace' "types PHP use statements for you
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
 Plugin 'joonty/vdebug.git'
@@ -200,18 +201,20 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 """""""""""""""""""""""""""""""""""""""
 " Netrw
 """""""""""""""""""""""""""""""""""""""
+" Map :E to :Explore: http://stackoverflow.com/questions/14367440/map-e-to-explore-in-command-mode
+command! -nargs=* -bar -bang -count=0 -complete=dir E Explore <args>
+
 let g:netrw_liststyle=3     " tree view
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+" let g:netrw_browse_split=4 " Open file in previous buffer
+
 " Allow netrw to remove non-empty local directories
-"
-let g:netrw_localrmdir='rm -r'
+let g:netrw_localrmdir='rm -rf'
 
 " map leader+d to toggle Netrw
-nnoremap <leader>d :e.<cr>
-
-" Show current file in Netrw
-nnoremap <leader>f :Explore<cr>
+nnoremap <leader>d :Lexplore<cr>
+let g:netrw_winsize=20
 
 """""""""""""""""""""""""""""""""""""""
 " Syntastic
@@ -221,10 +224,15 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 0
+" let g:syntastic_check_on_wq = 1
+
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
 
 " Toggle synctastic
 :command! Sd SyntasticToggleMode
@@ -272,6 +280,16 @@ let g:vdebug_options['server'] = ""
 """""""""""""""""""""""""""""""""""""""
 " airline
 """""""""""""""""""""""""""""""""""""""
+
+" Powerline Escape Fix: http://usevim.com/2013/07/24/powerline-escape-fix
+if ! has('gui_running')
+  set ttimeoutlen=10
+  augroup FastEscape
+    autocmd!
+    au InsertEnter * set timeoutlen=0
+    au InsertLeave * set timeoutlen=1000
+  augroup END
+endif
 
 " need it for airline symbols
 set encoding=utf-8
@@ -389,7 +407,7 @@ set number                     " Show current line number
 set relativenumber             " Show relative line numbers
 
 " Let me know when I've went over 80 characters.
-au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+" au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 " set textwidth=80
 " set colorcolumn=+1
 
@@ -472,14 +490,21 @@ nnoremap <C-w><Up> :exe "resize +" . (winheight(0) * 1/2)<CR>
 nnoremap <C-w><Down> :exe "resize -" . (winheight(0) * 1/2)<CR>
 
 """""""""""""""""""""""""""""""""""""""
+" Javascript
+"""""""""""""""""""""""""""""""""""""""
+" Enables syntax highlighting for JSDocs.
+let g:javascript_plugin_jsdoc = 1
+
+
+"""""""""""""""""""""""""""""""""""""""
 " PHP
 """""""""""""""""""""""""""""""""""""""
-" function! IPhpInsertUse()
-"     call PhpInsertUse()
-"     call feedkeys('a',  'n')
-" endfunction
-" autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
-" autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <Leader>cu <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>cu :call PhpInsertUse()<CR>
 
 """""""""""""""""""""""""""""""""""""""
 " Drupal
