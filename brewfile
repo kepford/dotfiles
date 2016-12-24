@@ -8,8 +8,10 @@ brew upgrade
 brew tap homebrew/dupes
 brew tap homebrew/versions
 brew tap homebrew/homebrew-php
+brew tap gbataille/homebrew-gba
 
 brew install ansible
+brew install bash
 brew install bash-completion
 brew install battery
 brew install brew-php-switcher
@@ -26,7 +28,7 @@ brew install fontconfig
 brew install freetype
 brew install git-extras
 brew install git-flow
-brew install git-radar
+brew install githud
 brew install glib
 brew install go
 brew install graphviz
@@ -40,11 +42,16 @@ brew install mp3splt
 brew install nmap
 brew install node
 brew install peco
-brew install php55
-brew install php55-opcache
-brew install php55-xdebug
 brew install php56
+brew install php56-apcu
 brew install php56-xdebug
+brew install php56-igbinary
+brew install php56-memcached
+brew install php56-opcache
+brew install php56-xdebug
+brew install php70
+brew install php71
+brew install xdebug-osx
 brew install python
 brew install readline
 brew install reattach-to-user-namespace
@@ -63,13 +70,19 @@ brew install watch
 brew install wget
 brew install youtube-dl
 
+# Install homebrew Bash
+```
+sudo -s
+echo /usr/local/bin/bash >> /etc/shells
+chsh -s /usr/local/bin/bash
+```
+
 # Cask
 brew cask install alfred
 brew cask install arq
 brew cask install audacity
 brew cask install audio-hijack
 brew cask install bartender
-brew cask install bee
 brew cask install bettertouchtool
 brew cask install bittorrent-sync
 brew cask install caffeine
@@ -97,7 +110,6 @@ brew cask install marked
 brew cask install mindnode-pro
 brew cask install mountain
 brew cask install mousepose
-brew cask install nvalt
 brew cask install onyx
 brew cask install path-finder
 brew cask install popclip
