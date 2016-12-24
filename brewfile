@@ -95,6 +95,7 @@ brew cask install dropbox
 brew cask install firefox
 brew cask install flux
 brew cask install google-chrome
+brew cask install google-chrome-canary
 brew cask install google-drive
 brew cask install imagealpha
 brew cask install imageoptim
@@ -108,6 +109,7 @@ brew cask install licecap
 brew cask install mailmate
 brew cask install marked
 brew cask install mindnode-pro
+brew cask install monosnap
 brew cask install mountain
 brew cask install mousepose
 brew cask install onyx
@@ -145,7 +147,6 @@ brew cask install suspicious-package
 cleanup
 
 # Mac App store apps have to be installed separately
-# Annotate
 # Bettersnaptool
 # Deckset
 # Fantastical 2
