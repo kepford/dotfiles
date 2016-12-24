@@ -38,8 +38,8 @@ BMAGENTA='\e[45m'
 BCYAN='\e[46m'
 BWHITE='\e[47m'
 
-PS1="\n\u:\w\n"
+PS1="\n\[\033[0;36m\]\u:\[\033[0m\]\w\n"
 
-# Git Radar a heads up display for git.
-# https://github.com/michaeldfallen/git-radar
-PS1="$PS1\$(git-radar --bash --fetch) \n→ "
+# gitHUD is a heads up display for the command line that will show git information
+# https://github.com/gbataille/gitHUD
+PS1="$PS1\$(/usr/local/bin/gitHUD)\[\033[0m\]\n→ "
