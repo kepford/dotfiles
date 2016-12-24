@@ -30,8 +30,6 @@ source $HOME/.composer/vendor/drush/drush/drush.complete.sh
 # Git completion
 source ~/git-completion.bash
 source ~/git-flow-completion.bash
-# Homebrew completion
-# source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 
 # Terminus completion
 source ~/bin/dotfiles/terminus/terminus-completion.bash
