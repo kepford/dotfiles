@@ -103,7 +103,7 @@ brew cask install iterm2
 brew cask install hazel
 brew cask install jumpcut
 brew cask install kaleidoscope
-brew cask install karabiner
+brew cask install karabiner-elements
 brew cask install keycastr
 brew cask install licecap
 brew cask install mailmate
@@ -114,11 +114,9 @@ brew cask install mountain
 brew cask install mousepose
 brew cask install onyx
 brew cask install path-finder
-brew cask install popclip
 brew cask install postman
 brew cask install proxpn
 brew cask install screenflow
-brew cask install seil
 brew cask install sequel-pro
 brew cask install sketch
 brew cask install slack
@@ -156,6 +154,7 @@ cleanup
 # Timing.app
 # Tree 2
 # Tweetbot
+# Popclip
 
 # Other Apps
 # Little Snitch
