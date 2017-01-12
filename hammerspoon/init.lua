@@ -18,7 +18,10 @@ end
 singleapps = {
   {'q', 'MailMate'},
   {'w', 'OmniFocus'},
-  {'r', 'Google Chrome'}
+  {'r', 'Google Chrome'},
+  {'s', 'Slack'},
+  {'f', 'Fantastical 2'},
+  {'z', 'zoom.us'}
 }
 
 for i, app in ipairs(singleapps) do
@@ -30,7 +33,6 @@ a = hs.hotkey.modal.new({}, "F16")
 apps = {
   {'t', 'iTerm'},
   {'f', 'Finder'},
-  {'s', 'Slack'},
 }
 for i, app in ipairs(apps) do
   a:bind({}, app[1], function() launch(app[2]); a:exit(); end)

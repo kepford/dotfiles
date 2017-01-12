@@ -119,6 +119,7 @@ function gdx() {
   git diff $1 $2 | gitx
 }
 alias gl='git pull'
+# https://github.com/chrisk/git-extras
 alias gnp="git-notpushed"
 alias gp='git push'
 alias g='git status'
@@ -342,6 +343,9 @@ alias dns='sudo vim /etc/resolv.dnsmasq.conf'
 alias dnsconf='sudo vim /usr/local/etc/dnsmasq.conf'
 alias dnsreload='sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist && sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist'
 alias wifi="networksetup -setairportpower en1"
+
+# Tmuxinator
+alias mux="tmuxinator"
 
 # Automator
 alias startcall="automator /Users/kepford/Dropbox/scripts/start_call.workflow  &> /dev/null"
