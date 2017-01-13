@@ -36,3 +36,6 @@ source "$HOME/.console/console.rc" 2>/dev/null
 
 export PATH
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+# Add ssh keys to agent.
+ssh-add -A 2>/dev/null;

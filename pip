@@ -1,3 +1,4 @@
 # proselint https://github.com/amperser/proselint
 pip install proselint
 pip install ansible
+pip install diff-highlight

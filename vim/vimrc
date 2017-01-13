@@ -1,6 +1,9 @@
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
 " let vundle manage vundle
 Plugin 'gmarik/vundle'
 
@@ -38,7 +41,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " Syntax highlighting.
-Plugin 'evidens/vim-twig' " Twig syntax hightlighting.
+Plugin 'lumiliet/vim-twig' " Twig syntax hightlighting.
 Plugin 'elzr/vim-json' " JSON code highlighting.
 
 " Snipmate
