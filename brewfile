@@ -9,6 +9,7 @@ brew tap homebrew/dupes
 brew tap homebrew/versions
 brew tap homebrew/homebrew-php
 brew tap gbataille/homebrew-gba
+brew tap Goles/battery
 
 brew install ansible
 brew install bash
@@ -124,6 +125,7 @@ brew cask install spotify
 brew cask install superduper
 brew cask install transmission
 brew cask install tripmode
+brew cask install tunnelblick
 brew cask install virtualbox
 brew cask install vagrant
 brew cask install vlc
