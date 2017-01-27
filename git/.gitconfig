@@ -30,6 +30,7 @@
   # Show modified files in last commit.
   diffall = diff HEAD
   diffstaged = diff --staged
+  nextrelease = log origin/develop ^origin/master --no-merges
   dl = "!git ll -1"
   # Show a diff last commit.
   dlc = diff --cached HEAD^
