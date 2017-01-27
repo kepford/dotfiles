@@ -1,0 +1,4 @@
+{
+   "t" = ( "toggleTag:", "@NextAction" );
+   "R" = ( "toggleTag:", "ToRead" );
+}
