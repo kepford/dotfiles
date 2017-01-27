@@ -131,7 +131,7 @@ brew cask install vagrant
 brew cask install vlc
 brew cask install xscope
 
-# Quicklook elugins
+# Quicklook plugins
 brew cask install qlcolorcode
 brew cask install qlmarkdown
 brew cask install qlstephen
@@ -164,6 +164,7 @@ mas install 417375580  # BetterSnapTool (1.7)
 mas install 847496013  # Deckset (1.6.3)
 mas install 409203825  # Numbers (4.0.5)
 mas install 609313570  # PDFpenPro 6 (6.3.2)
+mas install 413965349  # Soulver
 
 # Other Apps that have to be installed manually.
 # Little Snitch
