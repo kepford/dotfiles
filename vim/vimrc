@@ -71,6 +71,7 @@ Plugin 'lifepillar/vim-solarized8' " My current colorscheme.
 " Javascript
 Plugin 'pangloss/vim-javascript'
 Plugin 'wookiehangover/jshint.vim'
+Plugin 'tpope/vim-jdaddy' "JSON manipulation and pretty printing
 
 " Markdown
 Plugin 'godlygeek/tabular'
@@ -214,6 +215,9 @@ let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
 " Allow netrw to remove non-empty local directories
 let g:netrw_localrmdir='rm -rf'
+
+" Resolve hidden buffers preventing quiting of Vim.
+autocmd FileType netrw setl bufhidden=delete
 
 " map leader+d to toggle Netrw
 nnoremap <leader>d :Lexplore<cr>
@@ -442,6 +446,11 @@ function! Setmarkdownoptions()
 endfunction
 let g:vim_markdown_new_list_item_indent = 2
 let g:markdown_fenced_languages = ['php', 'css', 'sass', 'javascript', 'js=javascript', 'json=javascript', 'bash=sh', 'html']
+let g:markdown_fold_style = 'nested'
+
+" Add custom surround for markdown bold and emphasis
+autocmd FileType markdown let b:surround_{char2nr('e')} = "*\r*"
+autocmd FileType markdown let b:surround_{char2nr('b')} = "**\r**"
 
 """""""""""""""""""""""""""""""""""""""
 " Folding settings
@@ -498,7 +507,6 @@ nnoremap <C-w><Down> :exe "resize -" . (winheight(0) * 1/2)<CR>
 " Enables syntax highlighting for JSDocs.
 let g:javascript_plugin_jsdoc = 1
 
-
 """""""""""""""""""""""""""""""""""""""
 " PHP
 """""""""""""""""""""""""""""""""""""""
@@ -508,6 +516,9 @@ function! IPhpInsertUse()
 endfunction
 autocmd FileType php inoremap <Leader>cu <Esc>:call IPhpInsertUse()<CR>
 autocmd FileType php noremap <Leader>cu :call PhpInsertUse()<CR>
+
+" Adds custom PHP tag surround with `-` in PHP files.
+autocmd FileType php let b:surround_45 = "<?php \r ?>"
 
 """""""""""""""""""""""""""""""""""""""
 " Drupal
