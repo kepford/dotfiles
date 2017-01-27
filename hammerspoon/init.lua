@@ -20,6 +20,7 @@ singleapps = {
   {'w', 'OmniFocus'},
   {'r', 'Google Chrome'},
   {'s', 'Slack'},
+  {'t', 'iTerm'},
   {'f', 'Fantastical 2'},
   {'z', 'zoom.us'}
 }
