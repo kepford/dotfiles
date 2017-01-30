@@ -41,7 +41,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " Syntax highlighting.
-Plugin 'lumiliet/vim-twig' " Twig syntax hightlighting.
+Plugin 'lumiliet/vim-twig' " Twig syntax highlighting.
 Plugin 'elzr/vim-json' " JSON code highlighting.
 
 " Snipmate
@@ -67,6 +67,7 @@ Plugin 'christoomey/vim-titlecase'
 Plugin 'polm/github-tasks.vim' "This plugin adds support for Github tasks, letting you turn normal markdown list entries into tasks and toggle them done or not done.
 Plugin 'tommcdo/vim-exchange' "Easy text exchange operator
 Plugin 'lifepillar/vim-solarized8' " My current colorscheme.
+Plugin 'wincent/terminus' " Enhanced terminal integration for Vim. Allows Vim to receive FocusGained and FocusLost events, even in the terminal and inside tmux.
 
 " Javascript
 Plugin 'pangloss/vim-javascript'
@@ -137,48 +138,136 @@ nnoremap <leader>a :Ag
 " General settings
 """""""""""""""""""""""""""""""""""""""
 
-" Use the same symbols as TextMate for tab stops and EOLs
-set listchars=tab:▸\ ,eol:¬
+set nocompatible                      " Must come first because it changes other options.
+syntax enable                         " Turn on syntax highlighting.
+filetype plugin indent on             " Turn on file type detection.
+set showmode                          " Display the mode you're in.
+set backspace=indent,eol,start        " Intuitive backspacing.
+set ruler                             " Show cursor position.
 
-set nocompatible                  " Must come first because it changes other options.
+if has('persistent_undo')
+  if exists('$SUDO_USER')
+    set noundofile                    " don't create root-owned files
+  else
+    set undodir=~/local/.vim/tmp/undo " Keep undo files out of the way.
+    set undodir+=~/.vim/tmp/undo
+    set undodir+=.
+    set undofile                      " actually use undo files
+    set undolevels=1000
+    set undoreload=10000
+  endif
+endif
 
-syntax enable                     " Turn on syntax highlighting.
-filetype plugin indent on         " Turn on file type detection.
+if has('viminfo')
+  if exists('$SUDO_USER')
+    set viminfo=                      " Don't create root-owned files.
+  else
+    if isdirectory('~/local/.vim/tmp')
+      set viminfo+=n~/local/.vim/tmp/viminfo
+    else
+      set viminfo+=n~/.vim/tmp/viminfo " Override ~/.viminfo default.
+    endif
 
-set showcmd                       " Display incomplete commands.
-set showmode                      " Display the mode you're in.
-set backspace=indent,eol,start    " Intuitive backspacing.
-set hidden                        " Handle multiple buffers better.
-set wildmenu                      " Enhanced command line completion.
-set wildmode=list:longest         " Complete files like a shell.
-set number                        " Show line numbers.
-set ruler                         " Show cursor position.
+    if !empty(glob('~/.vim/tmp/viminfo'))
+      if !filereadable(expand('~/.vim/tmp/viminfo'))
+        echoerr 'warning: ~/.vim/tmp/viminfo exists but is not readable'
+      endif
+    endif
+  endif
+endif
 
-" Better Undo History  http://shelldevel.net/post/112278835197/better-undo-history-in-vim
-set undofile
-set undodir=~/.vim/history
-set undolevels=1000
-set undoreload=10000
+if has('mksession')
+  if isdirectory('~/local/.vim/tmp')
+    set viewdir=~/local/.vim/tmp/view
+  else
+    set viewdir=~/.vim/tmp/view       " Override ~/.vim/view default.
+  endif
+  set viewoptions=cursor,folds        " Save/restore just these (with `:{mk,load}view`).
+endif
 
-set incsearch                     " Highlight matches as you type.
-set hlsearch                      " Highlight matches.
-set ignorecase                    " Case-insensitive searching.
-set smartcase                     " But case-sensitive if expression contains a capital letter.
+if has('virtualedit')
+  set virtualedit=block               " Allow cursor to move where there is no text in visual block mode
+endif
 
-set wrap                          " Turn on line wrapping.
-set scrolloff=3                   " Show 3 lines of context around the cursor.
-set title                         " Set the terminal's title
-set visualbell                    " No beeping.
-set noswapfile                    " No .swp files.
-set nobackup                      " Don't make a backup before overwriting a file.
-set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
-set tabstop=2                    " Global tab width.
-set shiftwidth=2                 " And again, related.
-set expandtab                    " Use spaces instead of tabs
-set laststatus=2                  " Show the status line all the time
+if has('wildmenu')
+  set wildmenu                        " Show options as list when switching buffers etc
+endif
+
+set wildmode=longest:full,full        " Shell-like autocomplete to unambiguous portion
+set incsearch                         " Highlight matches as you type.
+set hlsearch                          " Highlight matches.
+set ignorecase                        " Case-insensitive searching.
+set smartcase                         " But case-sensitive if expression contains a capital letter.
+set wrap                              " Turn on line wrapping.
+set title                             " Set the terminal's title
+set noswapfile                        " Don't create swap files.
+
+if exists('$SUDO_USER')
+  set nobackup                        " Don't create root-owned files.
+  set nowritebackup                   " Don't create root-owned files.
+else
+  set backupdir=$HOME/local/.vim/tmp/backup
+  set backupdir+=$HOME/.vim/tmp/backup    " Keep backup files out of the way.
+  set backupdir+=.
+endif
+
+if exists('&belloff')
+  set belloff=all                     " Never ring the bell for any reason.
+endif
+
+set visualbell                        " No beeping.
+
+if has('linebreak')
+  set breakindent                     " Indent wrapped lines to match start.
+  if exists('&breakindentopt')
+    set breakindentopt=shift:2        " Emphasize broken lines by indenting them.
+  endif
+endif
+
+set expandtab                         " Use spaces instead of tabs
+set laststatus=2                      " Show the status line all the time
+set lazyredraw                        " Don't bother updating screen during macro playback
+set listchars=nbsp:⦸                  " CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
+set listchars=tab:▸\ ,eol:¬           " Use the same symbols as TextMate for tab stops and EOLs.
+                                      " + BOX DRAWINGS HEAVY TRIPLE DASH HORIZONTAL (U+2505, UTF-8: E2 94 85)
+set listchars+=extends:»              " RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
+set listchars+=precedes:«             " LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
+set listchars+=trail:•                " BULLET (U+2022, UTF-8: E2 80 A2)
+set nojoinspaces                      " Don't autoinsert two spaces after '.', '?', '!' for join command.
+set number                            " Show line numbers in gutter.
+
+if exists('+relativenumber')
+  set relativenumber             " Show relative numbers in gutter.
+endif
+
+set scrolloff=3                  " Show 3 lines of context around the cursor.
+set shiftround                   " Always indent by multiple of shiftwidth.
+set shiftwidth=2                 " Spaces per tab (when shifting)
+
+if has('linebreak')
+  let &showbreak='⤷ '            " ARROW POINTING DOWNWARDS THEN CURVING RIGHTWARDS (U+2937, UTF-8: E2 A4 B7)
+endif
+
+if has('showcmd')
+  set showcmd                    " Display incomplete commands. " extra info at end of command line.
+endif
+
+set sidescrolloff=3              " Same as scolloff, but for columns.
+set smarttab                     " <tab>/<BS> indent/dedent in leading whitespace
+
+if v:progname !=# 'vi'
+  set softtabstop=-1                  " Use 'shiftwidth' for tab/bs at end of line.
+endif
 
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+
+if has('syntax')
+  set spellcapcheck=             " Don't check for capital letters at start of sentence.
+endif
+
+set switchbuf=usetab             " Try to reuse windows/tabs when switching buffers.
+set tabstop=2                    " Global tab width.
 
 " Auto remove line end whitespace
 autocmd BufWritePre * :%s/\s\+$//e
@@ -379,44 +468,38 @@ inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 """"""""""""""""""""""""""""""""""""""
 " Colors
 """"""""""""""""""""""""""""""""""""""
+" Set Vim-specific sequences for RGB colors
+if exists('$TMUX')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+
+if has('termguicolors')
+  set termguicolors                   " use guifg/guibg instead of ctermfg/ctermbg in terminal
+endif
 
 syntax enable
 set background=dark
-colorscheme solarized8_dark_low
-let g:solarized_termcolors=256
+colorscheme solarized8_dark
 let g:solarized_visibility="high"
 let g:solarized_diffmode="high"
-
-" Toggle between light and dark themes
-nnoremap  <leader>B :<c-u>exe "colors" (g:colors_name =~# "dark"
-    \ ? substitute(g:colors_name, 'dark', 'light', '')
-    \ : substitute(g:colors_name, 'light', 'dark', '')
-    \ )<cr>
-
+let g:solarized_termtrans=1           " Make terminal background transparent so colors in gutter work.
 let g:airline_theme='solarized'
 
 """""""""""""""""""""""""""""""""""""""
 " Line coloring
 """""""""""""""""""""""""""""""""""""""
 
-set cursorline
-
-" set cursorline colors
-" highlight cursorline term=bold cterm=NONE ctermbg=white ctermfg=none
-
-" Set color of number column on cursorline
-highlight cursorlinenr ctermbg=235 ctermfg=white
+set cursorline " Highlight current line.
 
 " Highlights the current line number.
 highlight linenr term=bold cterm=none ctermfg=darkgrey ctermbg=none gui=none guifg=darkgrey
+set textwidth=80                      " Set width to 80 characters as this is a good default and is also the Drupal coding standard.
 
-set number                     " Show current line number
-set relativenumber             " Show relative line numbers
-
-" Let me know when I've went over 80 characters.
-" au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-" set textwidth=80
-" set colorcolumn=+1
+if exists('+colorcolumn')
+  " Highlight up to 255 columns (this is the current Vim max) beyond 'textwidth'
+  let &l:colorcolumn='+' . join(range(0, 255), ',+')
+endif
 
 """""""""""""""""""""""""""""""""""""""
 " Misc
@@ -455,14 +538,33 @@ autocmd FileType markdown let b:surround_{char2nr('b')} = "**\r**"
 """""""""""""""""""""""""""""""""""""""
 " Folding settings
 """""""""""""""""""""""""""""""""""""""
+if has('folding')
+  if has('windows')
+    set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
+  endif
+  set foldmethod=indent            " Fold based on indent.
+  set foldnestmax=1                " Deepest fold is 10 levels.
+  set nofoldenable                 " Dont fold by default.
+  set foldlevel=1                  " This is just what i use.
+endif
 
-set foldmethod=indent            "fold based on indent
-set foldnestmax=1               "deepest fold is 10 levels
-set nofoldenable                 "dont fold by default
-set foldlevel=1                  "this is just what i use
+if v:version > 703 || v:version == 703 && has('patch541')
+  set formatoptions+=j                " Remove comment leader when joining comment lines.
+endif
+
+set formatoptions+=n              " Smart auto-indenting inside numbered list.
+set hidden                        " Allows you to hide buffers with unsaved changes without being prompted.
+
+" set highlight+=@:ColorColumn          " ~/@ at end of window, 'showbreak'
+set highlight+=N:DiffText             " Make current line number stand out a little
+set highlight+=c:LineNr               " Blend vertical separators with line numbers
+
+if has('linebreak')
+  set linebreak                       " Wrap long lines at characters in 'breakat'.
+endif
 
 """"""""""""""""""""""""""""""""""""""
-" tab mappings
+" Tab mappings
 """"""""""""""""""""""""""""""""""""""
 
 map <leader>tt :tabnew<cr>
@@ -476,12 +578,17 @@ map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
 """""""""""""""""""""""""""""""""""""
-" splits
+" Splits
 """""""""""""""""""""""""""""""""""""
 
-" open new split panes to right and bottom, which feels more natural
-set splitbelow
-set splitright
+" Open new split panes to right and bottom, which feels more natural.
+if has('windows')
+  set splitbelow
+endif
+
+if has('vertsplit')
+  set splitright
+endif
 
 " resize splits with mouse.
 set ttymouse=xterm2

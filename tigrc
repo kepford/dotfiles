@@ -1,1 +1,4 @@
 set vertical-split = no
+
+# Do not read Git's color settings. Resolves plain looking additions that should be green.
+set git-colors = no
