@@ -71,18 +71,11 @@
 [init]
 	templatedir = ~/.git_template
 [merge]
-	tool = Kaleidoscope
+	tool = vimdiff
 [mergetool]
 	prompt = false
 	keepBackup = true
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustexitcode = true
 [diff]
-	tool = Kaleidoscope
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[difftool]
-	prompt = false
+	tool = vimdiff
 [include]
     path = ~/.gitconfig_local
