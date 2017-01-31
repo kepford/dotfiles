@@ -68,10 +68,10 @@ Plugin 'polm/github-tasks.vim' "This plugin adds support for Github tasks, letti
 Plugin 'tommcdo/vim-exchange' "Easy text exchange operator
 Plugin 'lifepillar/vim-solarized8' " My current colorscheme.
 Plugin 'wincent/terminus' " Enhanced terminal integration for Vim. Allows Vim to receive FocusGained and FocusLost events, even in the terminal and inside tmux.
+Plugin 'tpope/vim-eunuch' " Vim sugar for UNIX shell commands that need it the most.
 
 " Javascript
 Plugin 'pangloss/vim-javascript'
-Plugin 'wookiehangover/jshint.vim'
 Plugin 'tpope/vim-jdaddy' "JSON manipulation and pretty printing
 
 " Markdown
@@ -330,6 +330,11 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 
+let g:syntastic_error_symbol = '❌'
+let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_warning_symbol = '⚠️'
+let g:syntastic_style_warning_symbol = '💩'
+
 " Toggle synctastic
 :command! Sd SyntasticToggleMode
 
@@ -515,6 +520,7 @@ command! -nargs=* Wrap set wrap linebreak nolist
 " Markdown
 """""""""""""""""""""""""""""""""""""""
 let g:syntastic_markdown_checkers = ['proselint']
+au FileType markdown let g:syntastic_check_on_open = 0  " Don't check Markdown files for errors on open.
 let g:table_mode_corner=" "
 let g:marked_app = "marked 2"
 autocmd bufnewfile,bufreadpost *.md set filetype=markdown
