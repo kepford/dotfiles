@@ -499,6 +499,7 @@ set cursorline " Highlight current line.
 
 " Highlights the current line number.
 highlight linenr term=bold cterm=none ctermfg=darkgrey ctermbg=none gui=none guifg=darkgrey
+highlight Comment cterm=italic        " Make comments italic.
 set textwidth=80                      " Set width to 80 characters as this is a good default and is also the Drupal coding standard.
 
 if exists('+colorcolumn')
