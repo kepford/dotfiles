@@ -422,7 +422,8 @@ let g:airline_symbols.whitespace = 'ξ'
 """""""""""""""""""""""""""""""""""""""
 
 " check spelling in git
-autocmd filetype gitcommit setlocal spell
+autocmd FileType gitcommit setlocal spell
+autocmd FileType gitcommit set textwidth=72
 
 """""""""""""""""""""""""""""""""""""""
 " Tmux
@@ -499,6 +500,7 @@ set cursorline " Highlight current line.
 
 " Highlights the current line number.
 highlight linenr term=bold cterm=none ctermfg=darkgrey ctermbg=none gui=none guifg=darkgrey
+
 highlight Comment cterm=italic        " Make comments italic.
 set textwidth=80                      " Set width to 80 characters as this is a good default and is also the Drupal coding standard.
 
@@ -522,6 +524,7 @@ command! -nargs=* Wrap set wrap linebreak nolist
 """""""""""""""""""""""""""""""""""""""
 let g:syntastic_markdown_checkers = ['proselint']
 au FileType markdown let g:syntastic_check_on_open = 0  " Don't check Markdown files for errors on open.
+au FileType Markdown set textwidth=0                  " Don't set text width in markdown files.
 let g:table_mode_corner=" "
 let g:marked_app = "marked 2"
 autocmd bufnewfile,bufreadpost *.md set filetype=markdown
@@ -638,7 +641,7 @@ autocmd FileType php let b:surround_45 = "<?php \r ?>"
 " Drupal
 """""""""""""""""""""""""""""""""""""""
 
-" syntastic drupal coding standards
+" Syntastic drupal coding standards
 let g:syntastic_php_phpcs_args="--standard=drupal --extensions='php,module,inc,install,test,profile,theme,info' --ignore='*.features.*.inc'"
 
 if has("autocmd")
