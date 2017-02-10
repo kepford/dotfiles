@@ -103,7 +103,6 @@ brew cask install imageoptim
 brew cask install iterm2
 brew cask install hazel
 brew cask install jumpcut
-brew cask install kaleidoscope
 brew cask install karabiner-elements
 brew cask install keycastr
 brew cask install licecap
@@ -165,6 +164,7 @@ mas install 847496013  # Deckset (1.6.3)
 mas install 409203825  # Numbers (4.0.5)
 mas install 609313570  # PDFpenPro 6 (6.3.2)
 mas install 413965349  # Soulver
+mas install 557168941  # Tweetbot
 
 # Other Apps that have to be installed manually.
 # Little Snitch
