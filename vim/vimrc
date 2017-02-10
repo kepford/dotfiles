@@ -109,11 +109,21 @@ nmap <CR> o<Esc>
 " Set leader to space bar
 let mapleader = "\<Space>"
 
+" Close other buffers, focus on one.
+nnoremap <Leader>f :only<CR>
+
 " Shortcut to rapidly Google but it only works in normal mode.
 nnoremap <leader>g :Google<CR>
 
 " remap ctrlp to leader o
 nnoremap <Leader>o :CtrlP<CR>
+
+" <Leader>p -- Show the path of the current file (mnemonic: path; useful when
+" you have a lot of splits and the status line gets truncated).
+nnoremap <Leader>p :echo expand('%')<CR>
+
+" Copy current buffer file name and full path to system clipboard.
+nnoremap <Leader>pp :let @+ = expand("%:p")<CR>
 
 " Remap CtrlPBuffer to leader b
 nnoremap <Leader>b :CtrlPBuffer<CR>
@@ -123,6 +133,10 @@ nnoremap <leader>. :CtrlPTag<cr>
 
 " Save files faster
 nnoremap <Leader>w :w<CR>
+
+nnoremap <Leader>q :quit<CR>
+
+nnoremap <Leader>x :xit<CR>
 
 " Comment mapping
 nmap cm  <Plug>Commentary
@@ -365,7 +379,7 @@ let g:vdebug_keymap = {
 \    "step_out" : "<Right>",
 \    "close" : "q",
 \    "detach" : "<F7>",
-\    "set_breakpoint" : "<Leader>p",
+\    "set_breakpoint" : "<Leader>s",
 \    "eval_visual" : "<Leader>e"
 \}
 
