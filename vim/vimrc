@@ -73,6 +73,8 @@ Plugin 'tpope/vim-eunuch' " Vim sugar for UNIX shell commands that need it the m
 " Javascript
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-jdaddy' "JSON manipulation and pretty printing
+Plugin 'mxw/vim-jsx' " React JSX syntax highlighting and indenting for vim.
+Plugin 'mattn/emmet-vim' " emmet for vim
 
 " Markdown
 Plugin 'godlygeek/tabular'
@@ -380,7 +382,8 @@ let g:vdebug_keymap = {
 \    "close" : "q",
 \    "detach" : "<F7>",
 \    "set_breakpoint" : "<Leader>s",
-\    "eval_visual" : "<Leader>e"
+\    "eval_visual" : "<Leader>e",
+\    "eval_under_cursor" : "<Leader>c"
 \}
 
 " Vdebug settings.
@@ -388,6 +391,7 @@ let g:vdebug_options = {}
 let g:vdebug_options['break_on_open'] = 1
 let g:vdebug_options['max_children'] = 128
 let g:vdebug_options['watch_window_style'] = 'compact'
+let g:vdebug_options['ide_key'] = 'PHPSTORM'
 
 " Need to set as empty for this to work with Vagrant boxes.
 let g:vdebug_options['server'] = ""
@@ -637,6 +641,10 @@ nnoremap <C-w><Down> :exe "resize -" . (winheight(0) * 1/2)<CR>
 """""""""""""""""""""""""""""""""""""""
 " Enables syntax highlighting for JSDocs.
 let g:javascript_plugin_jsdoc = 1
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
+" Omni completion for Javascript.
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 """""""""""""""""""""""""""""""""""""""
 " PHP
