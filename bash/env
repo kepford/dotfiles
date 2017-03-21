@@ -1,6 +1,9 @@
 # Set PATH, CDPATH, EDITOR, etc.
 export EDITOR="vim"
 
+# Z
+. /usr/local/etc/profile.d/z.sh
+
 # Go lang
 export GOPATH=~/golang
 export PATH=$PATH:$GOPATH/bin

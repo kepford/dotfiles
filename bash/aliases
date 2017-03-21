@@ -337,7 +337,6 @@ alias notes='cd ~/Dropbox/Notational\ Data;vim +CtrlP'
 alias marked='open -a Marked'
 
 # Networking
-alias vpn='sudo SystemStarter restart CiscoVPN'
 alias hosts='sudo vim /private/etc/hosts'
 alias dns='sudo vim /etc/resolv.dnsmasq.conf'
 alias dnsconf='sudo vim /usr/local/etc/dnsmasq.conf'

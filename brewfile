@@ -71,6 +71,7 @@ brew install vim
 brew install watch
 brew install wget
 brew install youtube-dl
+brew install z
 
 # Install homebrew Bash
 ```
@@ -153,6 +154,7 @@ mas install 540348655  # Monosnap (3.3.0)
 mas install 408981434  # iMovie (10.1.4)
 mas install 409183694  # Keynote (7.0.5)
 mas install 443987910  # 1Password (6.5.3)
+mas install 588726889  # ReadKit (2.5.1)
 mas install 975937182  # Fantastical 2 (2.3.3)
 mas install 1017470484 # Next Meeting (1.9)
 mas install 671736912  # FruitJuice (2.3.2)
