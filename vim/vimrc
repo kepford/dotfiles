@@ -26,7 +26,8 @@ Plugin 'christoomey/vim-conflicted' "Easy git merge conflict resolution in Vim
 
 " Code management
 Plugin 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual mode
-Plugin 'ervandew/supertab' "use <Tab> for all your insert completion needs (:help ins-completion).
+" Plugin 'ervandew/supertab' "use <Tab> for all your insert completion needs (:help ins-completion).
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic' "syntax checking plugin for Vim.
 Plugin 'majutsushi/tagbar'
 Plugin 'xolox/vim-misc' "Required by easytags.
@@ -75,6 +76,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-jdaddy' "JSON manipulation and pretty printing
 Plugin 'mxw/vim-jsx' " React JSX syntax highlighting and indenting for vim.
 Plugin 'mattn/emmet-vim' " emmet for vim
+Plugin 'ternjs/tern_for_vim'
 
 " Markdown
 Plugin 'godlygeek/tabular'
@@ -88,6 +90,7 @@ Plugin 'amperser/proselint', {'rtp': 'plugins/vim/syntastic_proselint/'}
 " PHP and Drupal
 " Plugin 'arnaud-lb/vim-php-namespace' "types PHP use statements for you
 Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'mkusher/padawan.vim'
 Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
 Plugin 'joonty/vdebug.git'
 
@@ -649,6 +652,14 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 """""""""""""""""""""""""""""""""""""""
 " PHP
 """""""""""""""""""""""""""""""""""""""
+" Padaewan PHP composer path
+let $PATH=$PATH . ':' . expand('/usr/local/bin/composer')
+let g:padawan#composer_command = "php /usr/local/bin/composer"
+
+let g:ycm_semantic_triggers = {}
+let g:ycm_semantic_triggers.php =
+      \ ['->', '::', '(', 'use ', 'namespace ', '\']
+
 function! IPhpInsertUse()
     call PhpInsertUse()
     call feedkeys('a',  'n')

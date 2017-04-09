@@ -17,6 +17,7 @@ brew install bash-completion
 brew install battery
 brew install brew-php-switcher
 brew install browsertime
+brew install cmake
 brew install composer
 brew install ctags
 brew install ctags-better-php
