@@ -38,6 +38,8 @@ BMAGENTA='\e[45m'
 BCYAN='\e[46m'
 BWHITE='\e[47m'
 
+# Colorize listing of files
+export CLICOLOR=1
 PS1="\n\[\033[0;36m\]\u:\[\033[0m\]\w\n"
 
 # gitHUD is a heads up display for the command line that will show git information
