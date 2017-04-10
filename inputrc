@@ -1,5 +1,26 @@
 set expand-tilde on
 set bell-style visible
 
+# Readline performs filename matching and completion in a case-insensitive
+# fashion.
+set completion-ignore-case on
+
+# Filename matching during completion will treat hyphens and underscores as equivalent.
+set completion-map-case on
+
+# Readline to display all possible matches for an ambiguous pattern at the first <Tab> press instead of at the second.
+set show-all-if-ambiguous on
+
+# Symbolic links to directories have a slash appended in completion.
+set mark-symlinked-directories on
+
+# Display completions using different colors for their file types
+set colored-stats on
+
+# Use up/down arrows to search through history of a command like cd.
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# CTRL-n to cycle through completions
 "\C-n": menu-complete
 "\e3": "#"
