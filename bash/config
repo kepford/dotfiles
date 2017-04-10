@@ -40,8 +40,52 @@ BWHITE='\e[47m'
 
 # Colorize listing of files
 export CLICOLOR=1
-PS1="\n\[\033[0;36m\]\u:\[\033[0m\]\w\n"
+
+PS1="\n⚡ ${BLUE}\u${WHITE}:${NO_COLOR}${GREEN}\w${NO_COLOR}\n"
 
 # gitHUD is a heads up display for the command line that will show git information
 # https://github.com/gbataille/gitHUD
-PS1="$PS1\$(/usr/local/bin/gitHUD)\[\033[0m\]\n→ "
+PS1="$PS1\$(/usr/local/bin/gitHUD)\n${WHITE}→${NO_COLOR} "
+
+# History from Sensible Bash
+# http://mrzool.cc/writing/sensible-bash/
+
+# Append to the history file, don't overwrite it
+shopt -s histappend
+
+# Save multi-line commands as one command
+shopt -s cmdhist
+
+# Record each line as it gets issued
+PROMPT_COMMAND='history -a'
+
+# Huge history. Doesn't appear to slow things down, so why not?
+HISTSIZE=500000
+HISTFILESIZE=100000
+
+# Avoid duplicate entries
+HISTCONTROL="erasedups:ignoreboth"
+
+# Don't record some commands
+export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:h:e:l:c"
+
+# Useful timestamp format
+HISTTIMEFORMAT='%F %T '
+
+# cd navigration improvements from Sensible Bash.
+
+# Type the name of a directory and Bash will know you want to use cd.
+shopt -s autocd
+
+#  dirspell and cdspell will get Bash to autocorrect minor spelling errors like transposed characters in directory names: the former during tab completion, the latter in arguments already supplied to the cd command.
+shopt -s dirspell
+shopt -s cdspell
+
+# Adds paths besides the current dir to tab completion.
+CDPATH=".:~/Sites"
+
+# Automatically trim long paths in the prompt (requires Bash 4.x)
+PROMPT_DIRTRIM=2
+
+# Update window size after every command
+shopt -s checkwinsize
