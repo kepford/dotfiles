@@ -1,12 +1,12 @@
 # Command Enhancements 2010-09-28-1248
 
 # Utility
-alias reload='source ~/bin/dotfiles/bash/aliases'
-alias ea='vim ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
-alias ee="vim ~/bin/dotfiles/bash/env"
-alias et="vim ~/bin/dotfiles/tmux/tmux.conf"
-alias es="vim ~/.ssh/config"
-alias vrc='vim ~/.vimrc'
+alias reload='source $HOME/bin/dotfiles/bash/aliases'
+alias ea='vim $HOME/bin/dotfiles/bash/aliases && reload' # Edit aliases
+alias ee="vim $HOME/bin/dotfiles/bash/env"
+alias et="vim $HOME/bin/dotfiles/tmux/tmux.conf"
+alias es="vim $HOME/ssh/config"
+alias vrc='vim $HOME/vimrc'
 alias vnote="vim /Users/kepford/Dropbox/Notational\ Data/vim.md"
 
 # Set the TERM of the remote machine to xterm-256. Needed for the italic local
