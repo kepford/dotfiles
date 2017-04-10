@@ -8,6 +8,9 @@ export EDITOR="vim"
 export GOPATH=~/golang
 export PATH=$PATH:$GOPATH/bin
 
+# Bash completion.
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
 # S completion.
 if [ -f $GOPATH/src/github.com/zquestz/s/autocomplete/s-completion.bash ]; then
     . $GOPATH/src/github.com/zquestz/s/autocomplete/s-completion.bash
