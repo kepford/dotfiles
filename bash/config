@@ -45,7 +45,7 @@ PS1="\n⚡ ${BLUE}\u${WHITE}:${NO_COLOR}${GREEN}\w${NO_COLOR}\n"
 
 # gitHUD is a heads up display for the command line that will show git information
 # https://github.com/gbataille/gitHUD
-PS1="$PS1\$(/usr/local/bin/gitHUD)\n${WHITE}→${NO_COLOR} "
+PS1="$PS1\$(/usr/local/bin/gitHUD)\[\033[0m\]\n→ "
 
 # History from Sensible Bash
 # http://mrzool.cc/writing/sensible-bash/
