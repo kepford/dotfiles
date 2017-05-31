@@ -33,6 +33,8 @@ Plugin 'majutsushi/tagbar'
 Plugin 'xolox/vim-misc' "Required by easytags.
 Plugin 'xolox/vim-easytags' "Automated tag file generation and syntax highlighting of tags
 Plugin 'AndrewRadev/splitjoin.vim' "Transition between multiline and single-line code.
+Plugin 'jiangmiao/auto-pairs' "Insert or delete brackets, parens, quotes in pair.
+Plugin 'chrisbra/csv.vim' " A Filetype plugin for csv files.
 
 " Tmux
 Plugin 'christoomey/vim-tmux-navigator' "https://robots.thoughtbot.com/seamlessly-navigate-vim-and-tmux-splits
@@ -294,6 +296,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 set autoindent
 set smartindent
 set clipboard=unnamed
+
+set complete+=kspell
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\
 
 " Enable text selection with the mouse in all modes.
 :set mouse=a
@@ -574,7 +579,7 @@ if has('folding')
     set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
   endif
   set foldmethod=indent            " Fold based on indent.
-  set foldnestmax=1                " Deepest fold is 10 levels.
+  set foldnestmax=6                " Deepest fold is 10 levels.
   set nofoldenable                 " Dont fold by default.
   set foldlevel=1                  " This is just what i use.
 endif
@@ -717,3 +722,7 @@ let $LOCALFILE=expand('~/.vimrc-private')
 if filereadable($LOCALFILE)
     source $LOCALFILE
 endif
+
+" Look for project specific .vimrc.
+set exrc
+set secure
