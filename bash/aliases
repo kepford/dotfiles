@@ -294,6 +294,9 @@ function dimport() {
   echo "Importing database from $1"
   gunzip -c $1 | drush sqlc
   echo "Database imported. Rebuiling registry now."
+  drush rr
+  echo "unblocking user ID 1"
+  drush uublk 1
   echo "Logging you in now."
   drush uli
 }
@@ -321,16 +324,18 @@ alias si="s -p imdb"
 alias ss="s -p stackoverflow"
 alias sy="s -p youtube"
 
+alias arduino="/Applications/Arduino.app/Contents/MacOS/Arduino"
 
 # Get readable list of network IPs
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias flush="dscacheutil -flushcache" # Flush DNS cache
-alias dnslocal="sudo networksetup -setdnsservers Wi-Fi 192.168.2.1"
+alias dnslocal="sudo networksetup -setdnsservers Wi-Fi 10.10.10.21"
 alias dnsgoogle="sudo networksetup -setdnsservers Wi-Fi 8.8.8.8 8.8.4.4"
 alias dnsopen="sudo networksetup -setdnsservers Wi-Fi 208.67.222.222 208.67.220.220"
 alias dnsmlb="sudo networksetup -setdnsservers Wi-Fi 192.169.71.180 192.254.74.201 208.110.81.51"
 alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip'
+alias vpnfix="sudo ifconfig en0 down && sudo route flush && sudo ifconfig en0 up"
 
 alias gzip="gzip -9n" # set strongest compression level as ‘default’ for gzip
 alias ping="ping -c 5" # ping 5 times ‘by default’
@@ -349,6 +354,29 @@ alias wifi="networksetup -setairportpower en1"
 
 # Tmuxinator
 alias mux="tmuxinator"
+
+# Vagrant
+alias vgs='vagrant global-status'
+# alias vgh="vagrant global-status | awk '/virtualbox running/{ print $1 }' | xargs vagrant halt"
+
+# vagrant halt all and vagrant switch
+# https://gist.github.com/PGBI/4bdac70e8fcb0d9335db154e9458934f
+
+vagrant() {
+  if [[ $@ == "halt all" ]]; then
+    command vagrant global-status | grep running | colrm 8 | xargs -L 1 -t vagrant halt
+  elif [[ $@ == "switch" ]]; then
+    command vagrant global-status | grep running | colrm 8 | xargs -L 1 -t vagrant halt
+    command vagrant up
+  else
+    command vagrant "$@"
+  fi
+}
+
+# Open Jira ticket
+jira() {
+  open "http://codeandtheory.atlassian.net/browse/$1"
+}
 
 # Automator
 alias startcall="automator /Users/kepford/Dropbox/scripts/start_call.workflow  &> /dev/null"
