@@ -1,4 +1,3 @@
-
 filetype plugin indent on
 
 """""""""""""""""""""""""""""""""""""""
@@ -25,7 +24,7 @@ nnoremap <Leader>f :only<CR>
 nnoremap <leader>g :Google<CR>
 
 " remap ctrlp to leader o
-nnoremap <Leader>o :CtrlP<CR>
+nnoremap <Leader>o :Files<CR>
 
 " <Leader>p -- Show the path of the current file (mnemonic: path; useful when
 " you have a lot of splits and the status line gets truncated).
@@ -35,10 +34,10 @@ nnoremap <Leader>p :echo expand('%')<CR>
 nnoremap <Leader>pp :let @+ = expand("%:p")<CR>
 
 " Remap CtrlPBuffer to leader b
-nnoremap <Leader>b :CtrlPBuffer<CR>
+nnoremap <Leader>b :Buffers<CR>
 
 " Remap CtrlPTag to .
-nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <leader>. :Tags<cr>
 
 " Save files faster
 nnoremap <Leader>w :w<CR>
@@ -649,6 +648,9 @@ endif
 
 " Include packages.
 source ~/.vim/packages.vim
+
+" Use fzf in Vim!
+set rtp+=/usr/local/opt/fzf
 
 " Look for project specific .vimrc.
 set exrc

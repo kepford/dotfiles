@@ -7,12 +7,13 @@ endif
 
 call minpac#init()
 
+call minpac#add('k-takata/minpac', {'type':'opt'})
 call minpac#add('tpope/vim-repeat') "Required by easyclip
 call minpac#add('svermeulen/vim-easyclip') "Simplified clipboard functionality for Vim.
 call minpac#add('rking/ag.vim') " a front for ag, A.K.A. the_silver_searcher
 
 " File management
-call minpac#add('ctrlpvim/ctrlp.vim') " fuzzy find files
+call minpac#add('junegunn/fzf.vim')
 call minpac#add('tpope/vim-vinegar') " Combine with netrw to create a delicious salad dressing.
 call minpac#add('pbrisbin/vim-mkdir') "Automatically create any non-existent directories before writing the buffer
 
@@ -89,4 +90,3 @@ call minpac#add('dhruvasagar/vim-table-mode')
 call minpac#add('shawncplus/phpcomplete.vim')
 call minpac#add('mkusher/padawan.vim')
 call minpac#add('joonty/vdebug')
-call minpac#add('k-takata/minpac', {'type':'opt'})

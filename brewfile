@@ -28,6 +28,7 @@ brew install flac
 brew install flex
 brew install fontconfig
 brew install freetype
+brew install fzf
 brew install git-extras
 brew install git-flow
 brew install githud
