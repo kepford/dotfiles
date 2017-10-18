@@ -22,6 +22,7 @@ call minpac#add('pbrisbin/vim-mkdir') "Automatically create any non-existent dir
 call minpac#add('tpope/vim-fugitive') "the ultimate git helper
 call minpac#add('airblade/vim-gitgutter') "shows a git diff in the gutter
 call minpac#add('christoomey/vim-conflicted') "Easy git merge conflict resolution in Vim
+call minpac#add('junegunn/gv.vim') "A git commit browser
 
 " Code management
 call minpac#add('tpope/vim-commentary') " comment/uncomment lines with gcc or gc in visual mode
