@@ -11,6 +11,7 @@ call minpac#add('k-takata/minpac', {'type':'opt'})
 call minpac#add('tpope/vim-repeat') "Required by easyclip
 call minpac#add('svermeulen/vim-easyclip') "Simplified clipboard functionality for Vim.
 call minpac#add('rking/ag.vim') " a front for ag, A.K.A. the_silver_searcher
+call minpac#add('junegunn/limelight.vim')
 
 " File management
 call minpac#add('junegunn/fzf.vim')
