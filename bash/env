@@ -25,7 +25,7 @@ export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/
 
 # PHP https://github.com/Homebrew/homebrew-php/wiki/Installing-Multiple-Versions
 # PHP 5.6
-export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
 export XDEBUG_CONFIG="idekey=PHPSTORM"
 
 PATH="$PATH:$HOME/.composer/vendor/bin"
