@@ -69,8 +69,10 @@ call minpac#add('christoomey/vim-titlecase')
 call minpac#add('polm/github-tasks.vim') "This plugin adds support for Github tasks, letting you turn normal markdown list entries into tasks and toggle them done or not done.
 call minpac#add('tommcdo/vim-exchange') "Easy text exchange operator
 call minpac#add('lifepillar/vim-solarized8') " My current colorscheme.
+call minpac#add('herrbischoff/cobalt2.vim') " Wes Bos clone.
 call minpac#add('wincent/terminus') " Enhanced terminal integration for Vim. Allows Vim to receive FocusGained and FocusLost events, even in the terminal and inside tmux.
 call minpac#add('tpope/vim-eunuch') " Vim sugar for UNIX shell commands that need it the most.
+call minpac#add('ap/vim-css-color') " Preview colours in source code while editing.
 
 " Javascript
 call minpac#add('pangloss/vim-javascript')
