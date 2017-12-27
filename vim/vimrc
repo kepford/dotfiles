@@ -56,9 +56,6 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 " open ag.vim
 nnoremap <leader>a :Ag
 
-" To change :Files to :FzfFiles
-" let g:fzf_command_prefix = 'Fzf'
-
 """""""""""""""""""""""""""""""""""""""
 " General settings
 """""""""""""""""""""""""""""""""""""""
@@ -418,12 +415,17 @@ let g:airline_theme='solarized'
 """""""""""""""""""""""""""""""""""""""
 
 set cursorline " Highlight current line.
+set cursorcolumn " Highlight current column.
 
 " Highlights the current line number.
 highlight linenr term=bold cterm=none ctermfg=darkgrey ctermbg=none gui=none guifg=darkgrey
 
 highlight Comment cterm=italic        " Make comments italic.
 set textwidth=80                      " Set width to 80 characters as this is a good default and is also the Drupal coding standard.
+
+" Mark trailing white space.
+match ErrorMsg '\%>120v.\+'
+match ErrorMsg '\s\+$'
 
 if exists('+colorcolumn')
   " Highlight up to 255 columns (this is the current Vim max) beyond 'textwidth'
