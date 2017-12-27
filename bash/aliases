@@ -99,8 +99,8 @@ alias f='open .'
 # General code
 
 # Processes
-alias tu='top -o cpu' # cpu
-alias tm='top -o vsize' # memory
+alias topu='top -o cpu' # cpu
+alias topp='top -o vsize' # memory
 
 # Git
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
@@ -229,6 +229,24 @@ function ntp() {
     vim $1.taskpaper
 }
 
+# [Create and] open project todo
+# If you don't pass a name as an argument, it's pulled from the directory name
+td() {
+	if [[ -n $1 ]]; then
+		proj=$1
+		todofile=$proj.taskpaper
+	else
+		proj=${PWD##*/}
+		todofile=$proj.taskpaper
+		todofile=${todofile#.}
+	fi
+	if [ ! -e $todofile ]; then
+		touch $todofile
+		echo -e "Inbox:\n$proj:\n\tNew Features:\n\tIdeas:\n\tBugs:\nArchive:\nSearch Definitions:\n\tTop Priority @search(@priority = 5 and not @done)\n\tHigh Priority @search(@priority > 3 and not @done)\n\tMaybe @search(@maybe)\n\tNext @search(@na and not @done and not project = \"Archive\")\n" >> $todofile
+	fi
+	vim $todofile
+}
+
 # From http://github.com/suztomo/dotfiles
 function rmf(){
     for file in $*
@@ -329,6 +347,23 @@ alias arduino="/Applications/Arduino.app/Contents/MacOS/Arduino"
 # Get readable list of network IPs
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+# l(ist)ips Get local and WAN IP adddresses
+# $ lips
+#    Local IP: 10.0.1.4
+# External IP: 41.32.11.102
+lips() {
+    local ip=`ifconfig en0 | grep "inet " | grep -v 127.0.0.1 | awk '{print $2}'`
+    local locip extip
+
+    [ "$ip" != "" ] && locip=$ip || locip="inactive"
+
+    ip=`dig +short myip.opendns.com @resolver1.opendns.com`
+    [ "$ip" != "" ] && extip=$ip || extip="inactive"
+
+    printf '%11s: %s\n%11s: %s\n' "Local IP" $locip "External IP" $extip
+}
+
 alias flush="dscacheutil -flushcache" # Flush DNS cache
 alias dnslocal="sudo networksetup -setdnsservers Wi-Fi 10.10.10.21"
 alias dnsgoogle="sudo networksetup -setdnsservers Wi-Fi 8.8.8.8 8.8.4.4"
@@ -354,6 +389,17 @@ alias wifi="networksetup -setairportpower en1"
 
 # Tmuxinator
 alias mux="tmuxinator"
+
+# tm - create new tmux session, or switch to existing one. Works from within tmux too. (@bag-man)
+# `tm` will allow you to select your tmux session via fzf.
+# `tm irc` will attach to the irc session (if it exists), else it will create it.
+function tm() {
+  [[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
+  if [ $1 ]; then
+    tmux $change -t "$1" 2>/dev/null || (tmux new-session -d -s $1 && tmux $change -t "$1"); return
+  fi
+  session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
+}
 
 # Vagrant
 alias vgs='vagrant global-status'
