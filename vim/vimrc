@@ -20,8 +20,8 @@ let mapleader = "\<Space>"
 " Close other buffers, focus on one.
 nnoremap <Leader>f :only<CR>
 
-" Shortcut to rapidly Google but it only works in normal mode.
-nnoremap <leader>g :Google<CR>
+" Search the git repository for filename with.
+nnoremap <leader>g :GFiles<CR>
 
 " Open files with leader o
 nnoremap <Leader>o :Files<CR>
@@ -339,6 +339,11 @@ let g:airline_symbols.whitespace = 'ξ'
 " check spelling in git
 autocmd FileType gitcommit setlocal spell
 autocmd FileType gitcommit set textwidth=72
+
+nnoremap <c-N> :GitGutterNextHunk<CR>
+nnoremap <c-P> :GitGutterPrevHunk<CR>
+nnoremap <c-U> :GitGutterUndoHunk<CR>
+nnoremap <c-A> :GitGutterStageHunk<CR>
 
 """""""""""""""""""""""""""""""""""""""
 " Tmux
