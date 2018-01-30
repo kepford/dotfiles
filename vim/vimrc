@@ -246,7 +246,6 @@ let g:ale_fixers = {
 let g:airline#extensions#ale#enabled = 1 " Set this. Airline will handle the rest.
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '.'
-let g:ale_lint_on_text_changed = 'never' " Only check on save.
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 
 """"""""""""""""""""""""""""""""""""""""
@@ -337,11 +336,6 @@ let g:airline_symbols.whitespace = 'ξ'
 " check spelling in git
 autocmd FileType gitcommit setlocal spell
 autocmd FileType gitcommit set textwidth=72
-
-nnoremap <c-N> :GitGutterNextHunk<CR>
-nnoremap <c-P> :GitGutterPrevHunk<CR>
-nnoremap <c-U> :GitGutterUndoHunk<CR>
-nnoremap <c-A> :GitGutterStageHunk<CR>
 
 """""""""""""""""""""""""""""""""""""""
 " Tmux
