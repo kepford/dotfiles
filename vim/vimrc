@@ -565,22 +565,8 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 """""""""""""""""""""""""""""""""""""""
-" Emmet
-"""""""""""""""""""""""""""""""""""""""
-
-let g:user_emmet_settings = {
-  \  'javascript.jsx' : {
-    \      'extends' : 'jsx',
-    \  },
-  \}
-
-"""""""""""""""""""""""""""""""""""""""
 " PHP
 """""""""""""""""""""""""""""""""""""""
-" Padaewan PHP composer path
-let $PATH=$PATH . ':' . expand('/usr/local/bin/composer')
-let g:padawan#composer_command = "php /usr/local/bin/composer"
-
 let g:ycm_semantic_triggers = {}
 let g:ycm_semantic_triggers.php =
       \ ['->', '::', '(', 'use ', 'namespace ', '\']
