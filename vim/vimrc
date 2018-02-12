@@ -386,6 +386,18 @@ inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 """"""""""""""""""""""""""""""""""""""
 " Colors
 """"""""""""""""""""""""""""""""""""""
+
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+map <Leader>c :call SyntaxAttr#SyntaxAttr()<CR>
+
 " Set Vim-specific sequences for RGB colors
 if exists('$TMUX')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -398,34 +410,42 @@ endif
 
 syntax enable
 set background=dark
-" colorscheme cobalt2
-colorscheme solarized8_dark
-let g:solarized_visibility="high"
-let g:solarized_diffmode="high"
-let g:solarized_termtrans=1           " Make terminal background transparent so colors in gutter work.
+colorscheme cobalt2
+" let g:airline_theme='cobalt2'
+" colorscheme solarized8_dark
+" let g:solarized_visibility="high"
+" let g:solarized_diffmode="high"
+" let g:solarized_termtrans=1           " Make terminal background transparent so colors in gutter work.
 let g:airline_theme='solarized'
+
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 
 """""""""""""""""""""""""""""""""""""""
 " Line coloring
 """""""""""""""""""""""""""""""""""""""
 
 set cursorline " Highlight current line.
-set cursorcolumn " Highlight current column.
+" set cursorcolumn " Highlight current column, this can be a performance issue in large files.
+" highlight linenr term=bold cterm=none ctermfg=darkgrey ctermbg=none gui=none guifg=darkgrey
 
-" Highlights the current line number.
-highlight linenr term=bold cterm=none ctermfg=darkgrey ctermbg=none gui=none guifg=darkgrey
-
-highlight Comment cterm=italic        " Make comments italic.
+highlight Comment cterm=italic gui=italic
 set textwidth=80                      " Set width to 80 characters as this is a good default and is also the Drupal coding standard.
 
 " Mark trailing white space.
 match ErrorMsg '\%>120v.\+'
 match ErrorMsg '\s\+$'
 
-if exists('+colorcolumn')
-  " Highlight up to 255 columns (this is the current Vim max) beyond 'textwidth'
-  let &l:colorcolumn='+' . join(range(0, 255), ',+')
-endif
+" if exists('+colorcolumn')
+"   " Highlight up to 255 columns (this is the current Vim max) beyond 'textwidth'
+"   let &l:colorcolumn='+' . join(range(0, 255), ',+')
+" endif
 
 """""""""""""""""""""""""""""""""""""""
 " Misc
@@ -440,8 +460,6 @@ command! -nargs=* Wrap set wrap linebreak nolist
 """""""""""""""""""""""""""""""""""""""
 " Markdown
 """""""""""""""""""""""""""""""""""""""
-" let g:syntastic_markdown_checkers = ['proselint']
-" au FileType markdown let g:syntastic_check_on_open = 0  " Don't check Markdown files for errors on open.
 au FileType Markdown set textwidth=0                  " Don't set text width in markdown files.
 let g:table_mode_corner=" "
 let g:marked_app = "marked 2"
@@ -580,9 +598,6 @@ autocmd FileType php let b:surround_45 = "<?php \r ?>"
 """""""""""""""""""""""""""""""""""""""
 " Drupal
 """""""""""""""""""""""""""""""""""""""
-
-" Syntastic drupal coding standards
-" let g:syntastic_php_phpcs_args="--standard=drupal --extensions='php,module,inc,install,test,profile,theme,info' --ignore='*.features.*.inc'"
 
 if has("autocmd")
   " Drupal *.module and *.install files.
