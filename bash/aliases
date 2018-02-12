@@ -190,6 +190,8 @@ function jsc() {
   jsl -conf /etc/jsl/jsl.conf -process $1
 }
 
+alias nr='npm run'
+
 function aiff2mp3() {
   lame -h -V 0 $1.aif $1.mp3
 }
