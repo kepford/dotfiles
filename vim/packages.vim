@@ -69,7 +69,8 @@ call minpac#add('christoomey/vim-titlecase')
 call minpac#add('polm/github-tasks.vim') "This plugin adds support for Github tasks, letting you turn normal markdown list entries into tasks and toggle them done or not done.
 call minpac#add('tommcdo/vim-exchange') "Easy text exchange operator
 call minpac#add('lifepillar/vim-solarized8') " My current colorscheme.
-call minpac#add('herrbischoff/cobalt2.vim') " Wes Bos clone.
+call minpac#add('kepford/cobalt2.vim') " My verion of the Wes Bos clone of Cobalt2.
+call minpac#add('inkarkat/SyntaxAttr.vim') " Show syntax highlighting attributes of character under cursor.
 call minpac#add('wincent/terminus') " Enhanced terminal integration for Vim. Allows Vim to receive FocusGained and FocusLost events, even in the terminal and inside tmux.
 call minpac#add('tpope/vim-eunuch') " Vim sugar for UNIX shell commands that need it the most.
 call minpac#add('ap/vim-css-color') " Preview colours in source code while editing.
@@ -78,7 +79,6 @@ call minpac#add('ap/vim-css-color') " Preview colours in source code while editi
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('tpope/vim-jdaddy') "JSON manipulation and pretty printing
 call minpac#add('mxw/vim-jsx') " React JSX syntax highlighting and indenting for vim.
-call minpac#add('mattn/emmet-vim') " emmet for vim
 call minpac#add('ternjs/tern_for_vim')
 
 " Markdown
