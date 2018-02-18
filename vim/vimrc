@@ -1,197 +1,201 @@
 filetype plugin indent on
 
-"""""""""""""""""""""""""""""""""""""""
-" Remapping
-"""""""""""""""""""""""""""""""""""""""
+“””””””””””””””””””””””””””””””””””””””
+“ Remapping
+“””””””””””””””””””””””””””””””””””””””
 
-" Disable arrow keys.
+“ Disable arrow keys.
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-" Add line without entering insert mode.
+“ Zoom current split.
+noremap Zz <c-w>_ \| <c-w>\|
+noremap Zo <c-w>=
+
+“ Add line without entering insert mode.
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
-" Set leader to space bar
-let mapleader = "\<Space>"
+“ Set leader to space bar
+let mapleader = “\<Space>”
 
-" Close other buffers, focus on one.
+“ Close other buffers, focus on one.
 nnoremap <Leader>f :only<CR>
 
-" Search the git repository for filename with.
+“ Search the git repository for filename with.
 nnoremap <leader>g :GFiles<CR>
 
-" Open files with leader o
+“ Open files with leader o
 nnoremap <Leader>o :Files<CR>
 
-" <Leader>p -- Show the path of the current file (mnemonic: path; useful when
-" you have a lot of splits and the status line gets truncated).
-nnoremap <Leader>p :echo expand('%')<CR>
+“ <Leader>p — Show the path of the current file (mnemonic: path; useful when
+“ you have a lot of splits and the status line gets truncated).
+nnoremap <Leader>p :echo expand(‘%’)<CR>
 
-" Copy current buffer file name and full path to system clipboard.
-nnoremap <Leader>pp :let @+ = expand("%:p")<CR>
+“ Copy current buffer file name and full path to system clipboard.
+nnoremap <Leader>pp :let @+ = expand(“%:p”)<CR>
 
-" Remap Buffer to leader b
+“ Remap Buffer to leader b
 nnoremap <Leader>b :Buffers<CR>
 
-" Remap Tag to .
+“ Remap Tag to .
 nnoremap <leader>. :Tags<cr>
 
-" Save files faster
+“ Save files faster
 nnoremap <Leader>w :w<CR>
 
 nnoremap <Leader>q :quit<CR>
 
 nnoremap <Leader>x :xit<CR>
 
-" Comment mapping
+“ Comment mapping
 nmap cm  <Plug>Commentary
 
-" Edit vimrc and load vimrc bindings
+“ Edit vimrc and load vimrc bindings
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
-" open ag.vim
+“ open ag.vim
 nnoremap <leader>a :Ag
 
-"""""""""""""""""""""""""""""""""""""""
-" General settings
-"""""""""""""""""""""""""""""""""""""""
+“””””””””””””””””””””””””””””””””””””””
+“ General settings
+“””””””””””””””””””””””””””””””””””””””
 
-set nocompatible                      " Must come first because it changes other options.
-syntax enable                         " Turn on syntax highlighting.
-filetype plugin indent on             " Turn on file type detection.
-set showmode                          " Display the mode you're in.
-set backspace=indent,eol,start        " Intuitive backspacing.
-set ruler                             " Show cursor position.
+set nocompatible                      “ Must come first because it changes other options.
+syntax enable                         “ Turn on syntax highlighting.
+filetype plugin indent on             “ Turn on file type detection.
+set showmode                          “ Display the mode you’re in.
+set backspace=indent,eol,start        “ Intuitive backspacing.
+set ruler                             “ Show cursor position.
 
-if has('persistent_undo')
-  if exists('$SUDO_USER')
-    set noundofile                    " don't create root-owned files
+if has(‘persistent_undo’)
+  if exists(‘$SUDO_USER’)
+    set noundofile                    “ don’t create root-owned files
   else
-    set undodir=~/local/.vim/tmp/undo " Keep undo files out of the way.
+    set undodir=~/local/.vim/tmp/undo “ Keep undo files out of the way.
     set undodir+=~/.vim/tmp/undo
     set undodir+=.
-    set undofile                      " actually use undo files
+    set undofile                      “ actually use undo files
     set undolevels=1000
     set undoreload=10000
   endif
 endif
 
-if has('viminfo')
-  if exists('$SUDO_USER')
-    set viminfo=                      " Don't create root-owned files.
+if has(‘viminfo’)
+  if exists(‘$SUDO_USER’)
+    set viminfo=                      “ Don’t create root-owned files.
   else
-    if isdirectory('~/local/.vim/tmp')
+    if isdirectory(‘~/local/.vim/tmp’)
       set viminfo+=n~/local/.vim/tmp/viminfo
     else
-      set viminfo+=n~/.vim/tmp/viminfo " Override ~/.viminfo default.
+      set viminfo+=n~/.vim/tmp/viminfo “ Override ~/.viminfo default.
     endif
 
-    if !empty(glob('~/.vim/tmp/viminfo'))
-      if !filereadable(expand('~/.vim/tmp/viminfo'))
-        echoerr 'warning: ~/.vim/tmp/viminfo exists but is not readable'
+    if !empty(glob(‘~/.vim/tmp/viminfo’))
+      if !filereadable(expand(‘~/.vim/tmp/viminfo’))
+        echoerr ‘warning: ~/.vim/tmp/viminfo exists but is not readable’
       endif
     endif
   endif
 endif
 
-if has('mksession')
-  if isdirectory('~/local/.vim/tmp')
+if has(‘mksession’)
+  if isdirectory(‘~/local/.vim/tmp’)
     set viewdir=~/local/.vim/tmp/view
   else
-    set viewdir=~/.vim/tmp/view       " Override ~/.vim/view default.
+    set viewdir=~/.vim/tmp/view       “ Override ~/.vim/view default.
   endif
-  set viewoptions=cursor,folds        " Save/restore just these (with `:{mk,load}view`).
+  set viewoptions=cursor,folds        “ Save/restore just these (with `:{mk,load}view`).
 endif
 
-if has('virtualedit')
-  set virtualedit=block               " Allow cursor to move where there is no text in visual block mode
+if has(‘virtualedit’)
+  set virtualedit=block               “ Allow cursor to move where there is no text in visual block mode
 endif
 
-if has('wildmenu')
-  set wildmenu                        " Show options as list when switching buffers etc
+if has(‘wildmenu’)
+  set wildmenu                        “ Show options as list when switching buffers etc
 endif
 
-set wildmode=longest:full,full        " Shell-like autocomplete to unambiguous portion
-set incsearch                         " Highlight matches as you type.
-set hlsearch                          " Highlight matches.
-set ignorecase                        " Case-insensitive searching.
-set smartcase                         " But case-sensitive if expression contains a capital letter.
-set wrap                              " Turn on line wrapping.
-set title                             " Set the terminal's title
-set noswapfile                        " Don't create swap files.
+set wildmode=longest:full,full        “ Shell-like autocomplete to unambiguous portion
+set incsearch                         “ Highlight matches as you type.
+set hlsearch                          “ Highlight matches.
+set ignorecase                        “ Case-insensitive searching.
+set smartcase                         “ But case-sensitive if expression contains a capital letter.
+set wrap                              “ Turn on line wrapping.
+set title                             “ Set the terminal’s title
+set noswapfile                        “ Don’t create swap files.
 
-if exists('$SUDO_USER')
-  set nobackup                        " Don't create root-owned files.
-  set nowritebackup                   " Don't create root-owned files.
+if exists(‘$SUDO_USER’)
+  set nobackup                        “ Don’t create root-owned files.
+  set nowritebackup                   “ Don’t create root-owned files.
 else
   set backupdir=$HOME/local/.vim/tmp/backup
-  set backupdir+=$HOME/.vim/tmp/backup    " Keep backup files out of the way.
+  set backupdir+=$HOME/.vim/tmp/backup    “ Keep backup files out of the way.
   set backupdir+=.
 endif
 
-if exists('&belloff')
-  set belloff=all                     " Never ring the bell for any reason.
+if exists(‘&belloff’)
+  set belloff=all                     “ Never ring the bell for any reason.
 endif
 
-set visualbell                        " No beeping.
+set visualbell                        “ No beeping.
 
-if has('linebreak')
-  set breakindent                     " Indent wrapped lines to match start.
-  if exists('&breakindentopt')
-    set breakindentopt=shift:2        " Emphasize broken lines by indenting them.
+if has(‘linebreak’)
+  set breakindent                     “ Indent wrapped lines to match start.
+  if exists(‘&breakindentopt’)
+    set breakindentopt=shift:2        “ Emphasize broken lines by indenting them.
   endif
 endif
 
-set expandtab                         " Use spaces instead of tabs
-set laststatus=2                      " Show the status line all the time
-set lazyredraw                        " Don't bother updating screen during macro playback
-set listchars=nbsp:⦸                  " CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
-set listchars=tab:▸\ ,eol:¬           " Use the same symbols as TextMate for tab stops and EOLs.
-                                      " + BOX DRAWINGS HEAVY TRIPLE DASH HORIZONTAL (U+2505, UTF-8: E2 94 85)
-set listchars+=extends:»              " RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
-set listchars+=precedes:«             " LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
-set listchars+=trail:•                " BULLET (U+2022, UTF-8: E2 80 A2)
-set nojoinspaces                      " Don't autoinsert two spaces after '.', '?', '!' for join command.
-set number                            " Show line numbers in gutter.
+set expandtab                         “ Use spaces instead of tabs
+set laststatus=2                      “ Show the status line all the time
+set lazyredraw                        “ Don’t bother updating screen during macro playback
+set listchars=nbsp:⦸                  “ CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
+set listchars=tab:▸\ ,eol:¬           “ Use the same symbols as TextMate for tab stops and EOLs.
+                                      “ + BOX DRAWINGS HEAVY TRIPLE DASH HORIZONTAL (U+2505, UTF-8: E2 94 85)
+set listchars+=extends:»              “ RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
+set listchars+=precedes:«             “ LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
+set listchars+=trail:•                “ BULLET (U+2022, UTF-8: E2 80 A2)
+set nojoinspaces                      “ Don’t autoinsert two spaces after ‘.’, ‘?’, ‘!’ for join command.
+set number                            “ Show line numbers in gutter.
 
-if exists('+relativenumber')
-  set relativenumber             " Show relative numbers in gutter.
+if exists(‘+relativenumber’)
+  set relativenumber             “ Show relative numbers in gutter.
 endif
 
-set scrolloff=3                  " Show 3 lines of context around the cursor.
-set shiftround                   " Always indent by multiple of shiftwidth.
-set shiftwidth=2                 " Spaces per tab (when shifting)
+set scrolloff=3                  “ Show 3 lines of context around the cursor.
+set shiftround                   “ Always indent by multiple of shiftwidth.
+set shiftwidth=2                 “ Spaces per tab (when shifting)
 
-if has('linebreak')
-  let &showbreak='⤷ '            " ARROW POINTING DOWNWARDS THEN CURVING RIGHTWARDS (U+2937, UTF-8: E2 A4 B7)
+if has(‘linebreak’)
+  let &showbreak=‘⤷ ‘            “ ARROW POINTING DOWNWARDS THEN CURVING RIGHTWARDS (U+2937, UTF-8: E2 A4 B7)
 endif
 
-if has('showcmd')
-  set showcmd                    " Display incomplete commands. " extra info at end of command line.
+if has(‘showcmd’)
+  set showcmd                    “ Display incomplete commands. “ extra info at end of command line.
 endif
 
-set sidescrolloff=3              " Same as scolloff, but for columns.
-set smarttab                     " <tab>/<BS> indent/dedent in leading whitespace
+set sidescrolloff=3              “ Same as scolloff, but for columns.
+set smarttab                     “ <tab>/<BS> indent/dedent in leading whitespace
 
-if v:progname !=# 'vi'
-  set softtabstop=-1                  " Use 'shiftwidth' for tab/bs at end of line.
+if v:progname !=# ‘vi’
+  set softtabstop=-1                  “ Use ‘shiftwidth’ for tab/bs at end of line.
 endif
 
-" Useful status information at bottom of screen
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+“ Useful status information at bottom of screen
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists(‘*CapsLockStatusline’)?CapsLockStatusline():’’}%=%-16(\ %l,%c-%v\ %)%P
 
-if has('syntax')
-  set spellcapcheck=             " Don't check for capital letters at start of sentence.
+if has(‘syntax’)
+  set spellcapcheck=             “ Don’t check for capital letters at start of sentence.
 endif
 
-set switchbuf=usetab             " Try to reuse windows/tabs when switching buffers.
-set tabstop=2                    " Global tab width.
+set switchbuf=usetab             “ Try to reuse windows/tabs when switching buffers.
+set tabstop=2                    “ Global tab width.
 
-" Auto remove line end whitespace
+“ Auto remove line end whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 
 set autoindent
@@ -201,101 +205,101 @@ set clipboard=unnamed
 set complete+=kspell
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\
 
-" Enable text selection with the mouse in all modes.
+“ Enable text selection with the mouse in all modes.
 :set mouse=a
 
-"""""""""""""""""""""""""""""""""""""""
-" Netrw
-"""""""""""""""""""""""""""""""""""""""
-" Map :E to :Explore: http://stackoverflow.com/questions/14367440/map-e-to-explore-in-command-mode
+“””””””””””””””””””””””””””””””””””””””
+“ Netrw
+“””””””””””””””””””””””””””””””””””””””
+“ Map :E to :Explore: http://stackoverflow.com/questions/14367440/map-e-to-explore-in-command-mode
 command! -nargs=* -bar -bang -count=0 -complete=dir E Explore <args>
 
-let g:netrw_liststyle=3     " tree view
+let g:netrw_liststyle=3     “ tree view
 let g:netrw_list_hide=netrw_gitignore#Hide()
-let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
-" let g:netrw_browse_split=4 " Open file in previous buffer
+let g:netrw_list_hide = ‘\(^\|\s\s\)\zs\.\S\+’
+“ let g:netrw_browse_split=4 “ Open file in previous buffer
 
-" Allow netrw to remove non-empty local directories
-let g:netrw_localrmdir='rm -rf'
+“ Allow netrw to remove non-empty local directories
+let g:netrw_localrmdir=‘rm -rf’
 
-" Resolve hidden buffers preventing quiting of Vim.
+“ Resolve hidden buffers preventing quiting of Vim.
 autocmd FileType netrw setl bufhidden=delete
 
-" map leader+d to toggle Netrw
+“ map leader+d to toggle Netrw
 nnoremap <leader>d :Lexplore<cr>
 let g:netrw_winsize=20
 
-"""""""""""""""""""""""""""""""""""""""
-" ALE
-"""""""""""""""""""""""""""""""""""""""
-let g:ale_php_phpcs_standard="Drupal"
+“””””””””””””””””””””””””””””””””””””””
+“ ALE
+“””””””””””””””””””””””””””””””””””””””
+let g:ale_php_phpcs_standard=“Drupal”
 let g:ale_linters = {
-\   'php': ['php', 'phpcs'],
-\   'javascript': ['eslint'],
-\   'javascript.jsx': ['eslint'],
-\   'scss': ['sasslint'],
-\   'markdown': ['proselint'],
+\   ‘php’: [‘php’, ‘phpcs’],
+\   ‘javascript’: [‘eslint’],
+\   ‘javascript.jsx’: [‘eslint’],
+\   ‘scss’: [‘sasslint’],
+\   ‘markdown’: [‘proselint’],
 \}
 
 let g:ale_fixers = {
-\   'javascript': ['prettier', 'eslint'],
+\   ‘javascript’: [‘prettier’, ‘eslint’],
 \}
 
-" let g:ale_linter_aliases = {'jsx': 'css'}
+“ let g:ale_linter_aliases = {‘jsx’: ‘css’}
 
-let g:airline#extensions#ale#enabled = 1 " Set this. Airline will handle the rest.
-let g:ale_sign_error = '●' " Less aggressive than the default '>>'
-let g:ale_sign_warning = '.'
-let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+let g:airline#extensions#ale#enabled = 1 “ Set this. Airline will handle the rest.
+let g:ale_sign_error = ‘●’ “ Less aggressive than the default ‘>>’
+let g:ale_sign_warning = ‘.’
+let g:ale_lint_on_enter = 0 “ Less distracting when opening a new file
 
-""""""""""""""""""""""""""""""""""""""""
-" Snipmate
-""""""""""""""""""""""""""""""""""""""""
-"to prevent clash with tab completion, change snippet trigger
+“”””””””””””””””””””””””””””””””””””””””
+“ Snipmate
+“”””””””””””””””””””””””””””””””””””””””
+“to prevent clash with tab completion, change snippet trigger
 imap <C-J> <esc>a<Plug>snipMateNextOrTrigger
 smap <C-J> <Plug>snipMateNextOrTrigger
 
-""""""""""""""""""""""""""""""""""""""""
-" Smooth Scroll
-""""""""""""""""""""""""""""""""""""""""
+“”””””””””””””””””””””””””””””””””””””””
+“ Smooth Scroll
+“”””””””””””””””””””””””””””””””””””””””
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
-" Vdebug
-""""""""""""""""""""""""""""""""""""""""
+“ Vdebug
+“”””””””””””””””””””””””””””””””””””””””
 
-" Keymap for Vdebug
+“ Keymap for Vdebug
 let g:vdebug_keymap = {
-\    "run" : "<Leader>/",
-\    "run_to_cursor" : "<Down>",
-\    "step_over" : "<Up>",
-\    "step_into" : "<Left>",
-\    "step_out" : "<Right>",
-\    "close" : "q",
-\    "detach" : "<F7>",
-\    "set_breakpoint" : "<Leader>s",
-\    "eval_visual" : "<Leader>e",
-\    "eval_under_cursor" : "<Leader>c"
+\    “run” : “<Leader>/“,
+\    “run_to_cursor” : “<Down>”,
+\    “step_over” : “<Up>”,
+\    “step_into” : “<Left>”,
+\    “step_out” : “<Right>”,
+\    “close” : “q”,
+\    “detach” : “<F7>”,
+\    “set_breakpoint” : “<Leader>s”,
+\    “eval_visual” : “<Leader>e”,
+\    “eval_under_cursor” : “<Leader>c”
 \}
 
-" Vdebug settings.
+“ Vdebug settings.
 let g:vdebug_options = {}
-let g:vdebug_options['break_on_open'] = 1
-let g:vdebug_options['max_children'] = 128
-let g:vdebug_options['watch_window_style'] = 'compact'
-let g:vdebug_options['ide_key'] = 'PHPSTORM'
+let g:vdebug_options[‘break_on_open’] = 1
+let g:vdebug_options[‘max_children’] = 128
+let g:vdebug_options[‘watch_window_style’] = ‘compact’
+let g:vdebug_options[‘ide_key’] = ‘PHPSTORM’
 
-" Need to set as empty for this to work with Vagrant boxes.
-let g:vdebug_options['server'] = ""
+“ Need to set as empty for this to work with Vagrant boxes.
+let g:vdebug_options[‘server’] = “”
 
-"""""""""""""""""""""""""""""""""""""""
-" airline
-"""""""""""""""""""""""""""""""""""""""
+“””””””””””””””””””””””””””””””””””””””
+“ airline
+“””””””””””””””””””””””””””””””””””””””
 
-" Powerline Escape Fix: http://usevim.com/2013/07/24/powerline-escape-fix
-if ! has('gui_running')
+“ Powerline Escape Fix: http://usevim.com/2013/07/24/powerline-escape-fix
+if ! has(‘gui_running’)
   set ttimeoutlen=10
   augroup FastEscape
     autocmd!
@@ -304,214 +308,214 @@ if ! has('gui_running')
   augroup END
 endif
 
-" need it for airline symbols
+“ need it for airline symbols
 set encoding=utf-8
 
-" airline settings
+“ airline settings
 let g:airline#extensions#syntastic#enabled=1
 let g:airline_powerline_fonts=1
 
-if !exists('g:airline_symbols')
+if !exists(‘g:airline_symbols’)
   let g:airline_symbols = {}
 endif
 
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = ''
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'ξ'
+“ unicode symbols
+let g:airline_left_sep = ‘»’
+let g:airline_left_sep = ‘▶’
+let g:airline_right_sep = ‘«’
+let g:airline_right_sep = ‘◀’
+let g:airline_symbols.linenr = ‘␊’
+let g:airline_symbols.linenr = ‘␤’
+let g:airline_symbols.linenr = ‘¶’
+let g:airline_symbols.branch = ‘’
+let g:airline_symbols.paste = ‘ρ’
+let g:airline_symbols.paste = ‘þ’
+let g:airline_symbols.paste = ‘∥’
+let g:airline_symbols.whitespace = ‘ξ’
 
-"""""""""""""""""""""""""""""""""""""""
-" git
-"""""""""""""""""""""""""""""""""""""""
+“””””””””””””””””””””””””””””””””””””””
+“ git
+“””””””””””””””””””””””””””””””””””””””
 
-" check spelling in git
+“ check spelling in git
 autocmd FileType gitcommit setlocal spell
 autocmd FileType gitcommit set textwidth=72
 
-"""""""""""""""""""""""""""""""""""""""
-" Tmux
-"""""""""""""""""""""""""""""""""""""""
+“””””””””””””””””””””””””””””””””””””””
+“ Tmux
+“””””””””””””””””””””””””””””””””””””””
 
-" zoom a vim pane, <C-w>= to re-balance
+“ zoom a vim pane, <C-w>= to re-balance
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
 
-if exists('$tmux')
+if exists(‘$tmux’)
   set term=screen-256color
 endif
 
-" Change Cursor shape by mode for tmux.
-if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+“ Change Cursor shape by mode for tmux.
+if exists(‘$TMUX’)
+  let &t_SI = “\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\”
+  let &t_EI = “\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\”
 else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  let &t_SI = “\<Esc>]50;CursorShape=1\x7”
+  let &t_EI = “\<Esc>]50;CursorShape=0\x7”
 endif
 
-" For tmux to automatically set paste and nopaste mode at the time pasting (as
-" happens in VIM UI)
+“ For tmux to automatically set paste and nopaste mode at the time pasting (as
+“ happens in VIM UI)
 function! WrapForTmux(s)
-  if !exists('$TMUX')
+  if !exists(‘$TMUX’)
     return a:s
   endif
 
-  let tmux_start = "\<Esc>Ptmux;"
-  let tmux_end = "\<Esc>\\"
+  let tmux_start = “\<Esc>Ptmux;”
+  let tmux_end = “\<Esc>\\”
 
-  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+  return tmux_start . substitute(a:s, “\<Esc>”, “\<Esc>\<Esc>”, ‘g’) . tmux_end
 endfunction
 
-let &t_SI .= WrapForTmux("\<Esc>[?2004h")
-let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+let &t_SI .= WrapForTmux(“\<Esc>[?2004h”)
+let &t_EI .= WrapForTmux(“\<Esc>[?2004l”)
 
 function! XTermPasteBegin()
   set pastetoggle=<Esc>[201~
   set paste
-  return ""
+  return “”
 endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
-" End fix for Tmux paste.
+“ End fix for Tmux paste.
 
-""""""""""""""""""""""""""""""""""""""
-" Colors
-""""""""""""""""""""""""""""""""""""""
+“”””””””””””””””””””””””””””””””””””””
+“ Colors
+“”””””””””””””””””””””””””””””””””””””
 
-" Show syntax highlighting groups for word under cursor
+“ Show syntax highlighting groups for word under cursor
 nmap <C-S-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
-  if !exists("*synstack")
+  if !exists(“*synstack”)
     return
   endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+  echo map(synstack(line(‘.’), col(‘.’)), ‘synIDattr(v:val, “name”)’)
 endfunc
 
 map <Leader>c :call SyntaxAttr#SyntaxAttr()<CR>
 
-" Set Vim-specific sequences for RGB colors
-if exists('$TMUX')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+“ Set Vim-specific sequences for RGB colors
+if exists(‘$TMUX’)
+  let &t_8f = “\<Esc>[38;2;%lu;%lu;%lum”
+  let &t_8b = “\<Esc>[48;2;%lu;%lu;%lum”
 endif
 
-if has('termguicolors')
-  set termguicolors                   " use guifg/guibg instead of ctermfg/ctermbg in terminal
+if has(‘termguicolors’)
+  set termguicolors                   “ use guifg/guibg instead of ctermfg/ctermbg in terminal
 endif
 
 syntax enable
 set background=dark
 colorscheme cobalt2
-" let g:airline_theme='cobalt2'
-" colorscheme solarized8_dark
-" let g:solarized_visibility="high"
-" let g:solarized_diffmode="high"
-" let g:solarized_termtrans=1           " Make terminal background transparent so colors in gutter work.
-let g:airline_theme='solarized'
+“ let g:airline_theme=‘cobalt2’
+“ colorscheme solarized8_dark
+“ let g:solarized_visibility=“high”
+“ let g:solarized_diffmode=“high”
+“ let g:solarized_termtrans=1           “ Make terminal background transparent so colors in gutter work.
+let g:airline_theme=‘solarized’
 
-" Show syntax highlighting groups for word under cursor
+“ Show syntax highlighting groups for word under cursor
 nmap <C-S-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
-  if !exists("*synstack")
+  if !exists(“*synstack”)
     return
   endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+  echo map(synstack(line(‘.’), col(‘.’)), ‘synIDattr(v:val, “name”)’)
 endfunc
 
-"""""""""""""""""""""""""""""""""""""""
-" Line coloring
-"""""""""""""""""""""""""""""""""""""""
+“””””””””””””””””””””””””””””””””””””””
+“ Line coloring
+“””””””””””””””””””””””””””””””””””””””
 
-set cursorline " Highlight current line.
-" set cursorcolumn " Highlight current column, this can be a performance issue in large files.
-" highlight linenr term=bold cterm=none ctermfg=darkgrey ctermbg=none gui=none guifg=darkgrey
+set cursorline “ Highlight current line.
+“ set cursorcolumn “ Highlight current column, this can be a performance issue in large files.
+“ highlight linenr term=bold cterm=none ctermfg=darkgrey ctermbg=none gui=none guifg=darkgrey
 
 highlight Comment cterm=italic gui=italic
-set textwidth=80                      " Set width to 80 characters as this is a good default and is also the Drupal coding standard.
+set textwidth=80                      “ Set width to 80 characters as this is a good default and is also the Drupal coding standard.
 
-" Mark trailing white space.
-match ErrorMsg '\%>120v.\+'
-match ErrorMsg '\s\+$'
+“ Mark trailing white space.
+match ErrorMsg ‘\%>120v.\+’
+match ErrorMsg ‘\s\+$’
 
-" if exists('+colorcolumn')
-"   " Highlight up to 255 columns (this is the current Vim max) beyond 'textwidth'
-"   let &l:colorcolumn='+' . join(range(0, 255), ',+')
-" endif
+“ if exists(‘+colorcolumn’)
+“   “ Highlight up to 255 columns (this is the current Vim max) beyond ‘textwidth’
+“   let &l:colorcolumn=‘+’ . join(range(0, 255), ‘,+’)
+“ endif
 
-"""""""""""""""""""""""""""""""""""""""
-" Misc
-"""""""""""""""""""""""""""""""""""""""
+“””””””””””””””””””””””””””””””””””””””
+“ Misc
+“””””””””””””””””””””””””””””””””””””””
 
-" turn off autohide of quotes in json-vim.
+“ turn off autohide of quotes in json-vim.
 let g:vim_json_syntax_conceal = 0
 
-" Custom wrap command.
+“ Custom wrap command.
 command! -nargs=* Wrap set wrap linebreak nolist
 
-"""""""""""""""""""""""""""""""""""""""
-" Markdown
-"""""""""""""""""""""""""""""""""""""""
-au FileType Markdown set textwidth=0                  " Don't set text width in markdown files.
-let g:table_mode_corner=" "
-let g:marked_app = "marked 2"
+“””””””””””””””””””””””””””””””””””””””
+“ Markdown
+“””””””””””””””””””””””””””””””””””””””
+au FileType Markdown set textwidth=0                  “ Don’t set text width in markdown files.
+let g:table_mode_corner=“ “
+let g:marked_app = “marked 2”
 autocmd bufnewfile,bufreadpost *.md set filetype=markdown
 autocmd filetype markdown call Setmarkdownoptions()
 function! Setmarkdownoptions()
   set showmode
-  " enable spellcheck.
+  “ enable spellcheck.
   set spell spelllang=en_us
-  " wrap text (without linebreak charecters)
-  " i don't want to highlight the current line.
+  “ wrap text (without linebreak charecters)
+  “ i don’t want to highlight the current line.
   highlight cursorline ctermbg=none
 endfunction
 let g:vim_markdown_new_list_item_indent = 2
-let g:markdown_fenced_languages = ['php', 'css', 'sass', 'javascript', 'js=javascript', 'json=javascript', 'bash=sh', 'html']
-let g:markdown_fold_style = 'nested'
+let g:markdown_fenced_languages = [‘php’, ‘css’, ‘sass’, ‘javascript’, ‘js=javascript’, ‘json=javascript’, ‘bash=sh’, ‘html’]
+let g:markdown_fold_style = ‘nested’
 
-" Add custom surround for markdown bold and emphasis
-autocmd FileType markdown let b:surround_{char2nr('e')} = "*\r*"
-autocmd FileType markdown let b:surround_{char2nr('b')} = "**\r**"
+“ Add custom surround for markdown bold and emphasis
+autocmd FileType markdown let b:surround_{char2nr(‘e’)} = “*\r*”
+autocmd FileType markdown let b:surround_{char2nr(‘b’)} = “**\r**”
 
-"""""""""""""""""""""""""""""""""""""""
-" Folding settings
-"""""""""""""""""""""""""""""""""""""""
-if has('folding')
-  if has('windows')
-    set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
+“””””””””””””””””””””””””””””””””””””””
+“ Folding settings
+“””””””””””””””””””””””””””””””””””””””
+if has(‘folding’)
+  if has(‘windows’)
+    set fillchars=vert:┃              “ BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
   endif
-  set foldmethod=indent            " Fold based on indent.
-  set foldnestmax=6                " Deepest fold is 10 levels.
-  set nofoldenable                 " Dont fold by default.
-  set foldlevel=1                  " This is just what i use.
+  set foldmethod=indent            “ Fold based on indent.
+  set foldnestmax=6                “ Deepest fold is 10 levels.
+  set nofoldenable                 “ Dont fold by default.
+  set foldlevel=1                  “ This is just what i use.
 endif
 
-if v:version > 703 || v:version == 703 && has('patch541')
-  set formatoptions+=j                " Remove comment leader when joining comment lines.
+if v:version > 703 || v:version == 703 && has(‘patch541’)
+  set formatoptions+=j                “ Remove comment leader when joining comment lines.
 endif
 
-set formatoptions+=n              " Smart auto-indenting inside numbered list.
-set hidden                        " Allows you to hide buffers with unsaved changes without being prompted.
+set formatoptions+=n              “ Smart auto-indenting inside numbered list.
+set hidden                        “ Allows you to hide buffers with unsaved changes without being prompted.
 
-" set highlight+=@:ColorColumn          " ~/@ at end of window, 'showbreak'
-set highlight+=N:DiffText             " Make current line number stand out a little
-set highlight+=c:LineNr               " Blend vertical separators with line numbers
+“ set highlight+=@:ColorColumn          “ ~/@ at end of window, ‘showbreak’
+set highlight+=N:DiffText             “ Make current line number stand out a little
+set highlight+=c:LineNr               “ Blend vertical separators with line numbers
 
-if has('linebreak')
-  set linebreak                       " Wrap long lines at characters in 'breakat'.
+if has(‘linebreak’)
+  set linebreak                       “ Wrap long lines at characters in ‘breakat’.
 endif
 
-""""""""""""""""""""""""""""""""""""""
-" Tab mappings
-""""""""""""""""""""""""""""""""""""""
+“”””””””””””””””””””””””””””””””””””””
+“ Tab mappings
+“”””””””””””””””””””””””””””””””””””””
 
 map <leader>tt :tabnew<cr>
 map <leader>te :tabedit
@@ -523,70 +527,70 @@ map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
-"""""""""""""""""""""""""""""""""""""
-" Splits
-"""""""""""""""""""""""""""""""""""""
+“””””””””””””””””””””””””””””””””””””
+“ Splits
+“””””””””””””””””””””””””””””””””””””
 
-" Open new split panes to right and bottom, which feels more natural.
-if has('windows')
+“ Open new split panes to right and bottom, which feels more natural.
+if has(‘windows’)
   set splitbelow
 endif
 
-if has('vertsplit')
+if has(‘vertsplit’)
   set splitright
 endif
 
-" resize splits with mouse.
+“ resize splits with mouse.
 set ttymouse=xterm2
 
-"""""""""""""""""""""""""""""""""""""
-" Make arrowkey resize viewports
-" To resize the split by 1 use Left,Right,Up,Down
-" To resize by 50% of the split use <C-w>Left,Right,Up,Down
-"""""""""""""""""""""""""""""""""""""
+“””””””””””””””””””””””””””””””””””””
+“ Make arrowkey resize viewports
+“ To resize the split by 1 use Left,Right,Up,Down
+“ To resize by 50% of the split use <C-w>Left,Right,Up,Down
+“””””””””””””””””””””””””””””””””””””
 
 nnoremap <Left> :vertical resize +1<CR>
 nnoremap <Right> :vertical resize -1<CR>
 nnoremap <Up> :resize +1<CR>
 nnoremap <Down> :resize -1<CR>
-nnoremap <C-w><Right> :exe "vertical resize +" . (winwidth(0) * 1/2)<CR>
-nnoremap <C-w><Left> :exe "vertical resize -" . (winwidth(0) * 1/2)<CR>
-nnoremap <C-w><Up> :exe "resize +" . (winheight(0) * 1/2)<CR>
-nnoremap <C-w><Down> :exe "resize -" . (winheight(0) * 1/2)<CR>
+nnoremap <C-w><Right> :exe “vertical resize +” . (winwidth(0) * 1/2)<CR>
+nnoremap <C-w><Left> :exe “vertical resize -“ . (winwidth(0) * 1/2)<CR>
+nnoremap <C-w><Up> :exe “resize +” . (winheight(0) * 1/2)<CR>
+nnoremap <C-w><Down> :exe “resize -“ . (winheight(0) * 1/2)<CR>
 
-"""""""""""""""""""""""""""""""""""""""
-" Javascript
-"""""""""""""""""""""""""""""""""""""""
-" Enables syntax highlighting for JSDocs.
+“””””””””””””””””””””””””””””””””””””””
+“ Javascript
+“””””””””””””””””””””””””””””””””””””””
+“ Enables syntax highlighting for JSDocs.
 let g:javascript_plugin_jsdoc = 1
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+let g:jsx_ext_required = 0 “ Allow JSX in normal JS files
 
-" Omni completion for Javascript.
+“ Omni completion for Javascript.
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
-"""""""""""""""""""""""""""""""""""""""
-" PHP
-"""""""""""""""""""""""""""""""""""""""
+“””””””””””””””””””””””””””””””””””””””
+“ PHP
+“””””””””””””””””””””””””””””””””””””””
 let g:ycm_semantic_triggers = {}
 let g:ycm_semantic_triggers.php =
-      \ ['->', '::', '(', 'use ', 'namespace ', '\']
+      \ [‘->’, ‘::’, ‘(‘, ‘use ‘, ‘namespace ‘, ‘\’]
 
 function! IPhpInsertUse()
     call PhpInsertUse()
-    call feedkeys('a',  'n')
+    call feedkeys(‘a’,  ‘n’)
 endfunction
 autocmd FileType php inoremap <Leader>cu <Esc>:call IPhpInsertUse()<CR>
 autocmd FileType php noremap <Leader>cu :call PhpInsertUse()<CR>
 
-" Adds custom PHP tag surround with `-` in PHP files.
-autocmd FileType php let b:surround_45 = "<?php \r ?>"
+“ Adds custom PHP tag surround with `-` in PHP files.
+autocmd FileType php let b:surround_45 = “<?php \r ?>”
 
-"""""""""""""""""""""""""""""""""""""""
-" Drupal
-"""""""""""""""""""""""""""""""""""""""
+“””””””””””””””””””””””””””””””””””””””
+“ Drupal
+“””””””””””””””””””””””””””””””””””””””
 
-if has("autocmd")
-  " Drupal *.module and *.install files.
+if has(“autocmd”)
+  “ Drupal *.module and *.install files.
   augroup module
     autocmd BufRead,BufNewFile *.module set filetype=php
     autocmd BufRead,BufNewFile *.install set filetype=php
@@ -596,42 +600,42 @@ if has("autocmd")
     autocmd BufRead,BufNewFile *.view set filetype=php
   augroup END
 
-  " Omnicompletion with PHPcomplete
+  “ Omnicompletion with PHPcomplete
   autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 endif
 
-"""""""""""""""""""""""""""""""""""""""
-" Gist settings
-"""""""""""""""""""""""""""""""""""""""
+“””””””””””””””””””””””””””””””””””””””
+“ Gist settings
+“””””””””””””””””””””””””””””””””””””””
 
-" Detect filetype from the filename.
+“ Detect filetype from the filename.
 let g:gist_detect_filetype = 1
 
-" Open browser after the post.
+“ Open browser after the post.
 let g:gist_open_browser_after_post = 1
 
-"""""""""""""""""""""""""""""""""""""""
-" Vimrc settings
-"""""""""""""""""""""""""""""""""""""""
+“””””””””””””””””””””””””””””””””””””””
+“ Vimrc settings
+“””””””””””””””””””””””””””””””””””””””
 
-" Automatically reload vimrc when it's saved.
+“ Automatically reload vimrc when it’s saved.
 augroup myvimrc
     au!
-    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has(‘gui_running’) | so $MYGVIMRC | endif
 augroup END
 
-" Include local vim settings.
-let $LOCALFILE=expand('~/.vimrc-private')
+“ Include local vim settings.
+let $LOCALFILE=expand(‘~/.vimrc-private’)
 if filereadable($LOCALFILE)
     source $LOCALFILE
 endif
 
-" Include packages.
+“ Include packages.
 source ~/.vim/packages.vim
 
-" Use fzf in Vim!
+“ Use fzf in Vim!
 set rtp+=/usr/local/opt/fzf
 
-" Look for project specific .vimrc.
+“ Look for project specific .vimrc.
 set exrc
 set secure
