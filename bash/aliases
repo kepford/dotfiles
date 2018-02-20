@@ -293,6 +293,7 @@ alias terminus="$HOME/bin/terminus/vendor/pantheon-systems/terminus/bin/terminus
 
 alias d='drupal'
 alias dca='drush cc all'
+alias dr='drush cr'
 alias dfr='drush fra -y && drush cc all'
 alias dfl='drush fl'
 alias duli='drush uli'
@@ -401,6 +402,25 @@ function tm() {
     tmux $change -t "$1" 2>/dev/null || (tmux new-session -d -s $1 && tmux $change -t "$1"); return
   fi
   session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
+}
+
+# fs [FUZZY PATTERN] - Select selected tmux session
+#   - Bypass fuzzy finder if there's only one match (--select-1)
+#   - Exit if there's no match (--exit-0)
+fs() {
+  local session
+  session=$(tmux list-sessions -F "#{session_name}" | \
+    fzf --query="$1" --select-1 --exit-0) &&
+  tmux switch-client -t "$session"
+}
+
+# fbr - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
+fbr() {
+  local branches branch
+  branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
 # Vagrant
