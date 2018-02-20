@@ -10,6 +10,10 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+" Zoom current split.
+noremap Zz <c-w>_ \| <c-w>\|
+noremap Zo <c-w>=
+
 " Add line without entering insert mode.
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
