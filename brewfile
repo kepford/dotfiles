@@ -7,7 +7,6 @@ brew upgrade
 # Taps
 brew tap homebrew/dupes
 brew tap homebrew/versions
-brew tap homebrew/homebrew-php
 brew tap gbataille/homebrew-gba
 brew tap Goles/battery
 
@@ -15,7 +14,6 @@ brew install ansible
 brew install bash
 brew install bash-completion
 brew install battery
-brew install brew-php-switcher
 brew install browsertime
 brew install cmake
 brew install composer
@@ -37,6 +35,9 @@ brew install glib
 brew install go
 brew install graphviz
 brew install gzip
+# Added for my footswitch.
+# Dowmload and install https://github.com/rgerganov/footswitch
+brew install hidapi
 brew install htop
 brew install htop-osx
 brew install hub
@@ -54,7 +55,6 @@ brew install php56-igbinary
 brew install php56-memcached
 brew install php56-opcache
 brew install php56-xdebug
-brew install php70
 brew install php71
 brew install xdebug-osx
 brew install python

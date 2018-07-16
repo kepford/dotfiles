@@ -5,10 +5,12 @@ set bell-style visible
 # fashion.
 set completion-ignore-case on
 
-# Filename matching during completion will treat hyphens and underscores as equivalent.
+# Filename matching during completion will treat hyphens and underscores as
+# equivalent.
 set completion-map-case on
 
-# Readline to display all possible matches for an ambiguous pattern at the first <Tab> press instead of at the second.
+# Readline to display all possible matches for an ambiguous pattern at the first
+# <Tab> press instead of at the second.
 set show-all-if-ambiguous on
 
 # Symbolic links to directories have a slash appended in completion.

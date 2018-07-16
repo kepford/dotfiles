@@ -48,14 +48,14 @@ call minpac#add('lumiliet/vim-twig') " Twig syntax highlighting.
 call minpac#add('elzr/vim-json') " JSON code highlighting.
 
 " Snipmate
-call minpac#add('MarcWeber/vim-addon-mw-utils')" Required by vim-snipmate
+call minpac#add('MarcWeber/vim-addon-mw-utils') " Required by vim-snipmate
 call minpac#add('tomtom/tlib_vim') " Required by vim-snipmate
 call minpac#add('garbas/vim-snipmate')
 call minpac#add('honza/vim-snippets') " Snippets for snipmate
 
 " Misc
 call minpac#add('tpope/vim-unimpaired')
-call minpac#add('tpope/vim-surround')" surround text with things
+call minpac#add('tpope/vim-surround') " surround text with things
 call minpac#add('tpope/vim-dispatch') " Run commands in the background.
 call minpac#add('tpope/vim-speeddating') " use CTRL-A/CTRL-X to increment dates, times, and more.
 call minpac#add('tpope/vim-rsi') " Readline style insertion.
@@ -91,7 +91,5 @@ call minpac#add('davidoc/taskpaper.vim')
 call minpac#add('dhruvasagar/vim-table-mode')
 
 " PHP and Drupal
-" Plugin 'arnaud-lb/vim-php-namespace' "types PHP use statements for you
-call minpac#add('shawncplus/phpcomplete.vim')
-call minpac#add('mkusher/padawan.vim')
 call minpac#add('joonty/vdebug')
+call minpac#add('shawncplus/phpcomplete.vim')
