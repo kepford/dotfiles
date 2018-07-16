@@ -376,6 +376,7 @@ alias dnslocal="sudo networksetup -setdnsservers Wi-Fi 10.10.10.21"
 alias dnsgoogle="sudo networksetup -setdnsservers Wi-Fi 8.8.8.8 8.8.4.4"
 alias dnsopen="sudo networksetup -setdnsservers Wi-Fi 208.67.222.222 208.67.220.220"
 alias dnsmlb="sudo networksetup -setdnsservers Wi-Fi 192.169.71.180 192.254.74.201 208.110.81.51"
+alias dnscloud="sudo networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1"
 alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip'
 alias vpnfix="sudo ifconfig en0 down && sudo route flush && sudo ifconfig en0 up"
 
@@ -386,6 +387,12 @@ alias ql="qlmanage -p 2>/dev/null" # preview a file using QuickLook
 # Open Notational Velicity/Simplenote files in Vim
 alias notes='cd ~/Dropbox/Notational\ Data;vim +CtrlP'
 alias marked='open -a Marked'
+
+# USB hardware
+alias usb='system_profiler SPUSBDataType'
+
+# Find Raspberry Pi on network.
+alias findpi='arp -na | grep -i b8:27:eb'
 
 # Networking
 alias hosts='sudo vim /private/etc/hosts'
