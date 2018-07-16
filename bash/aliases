@@ -9,6 +9,10 @@ alias es="vim $HOME/.ssh/config"
 alias vrc='vim $HOME/vimrc'
 alias vnote="vim /Users/kepford/Dropbox/Notational\ Data/vim.md"
 
+# Hide/Show desktop.
+alias desktophide='defaults write com.apple.finder CreateDesktop false; killall Finder'
+alias desktopshow='defaults write com.apple.finder CreateDesktop true; killall Finder'
+
 # Set the TERM of the remote machine to xterm-256. Needed for the italic local
 # TERM I use.
 alias ssh='TERM=xterm-256color ssh'
