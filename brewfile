@@ -22,6 +22,7 @@ brew install ctags
 brew install ctags-better-php
 brew install curl
 brew install dark-mode
+brew install diff-so-fancy
 brew install dnsmasq
 brew install ffmpeg
 brew install flac

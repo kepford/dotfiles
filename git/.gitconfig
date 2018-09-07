@@ -2,8 +2,9 @@
   editor = vim
 	excludesfile = ~/.gitignore
 	quotepath = false
-  # diff-highlight http://theunixtoolbox.com/git-diff-highlight/
-  pager = diff-highlight | less -r
+[pager]
+  diff = diff-so-fancy | less --tabs=1,5 -RFX
+  show = diff-so-fancy | less --tabs=1,5 -RFX
 [color]
   ui = true
   [color "branch"]
