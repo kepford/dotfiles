@@ -19,6 +19,12 @@ alias preview="fzf --preview 'bat --color \"always\" {}'"
 # add support for ctrl+o to open selected file in VS Code
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vim {})+abort'"
 
+# P - sort by CPU
+# M - sort by memory usage
+# F4 - filter processes by string (to narrow to just "node" for instance)
+# space - mark a single process so I can watch if the process is spiking
+alias top='htop'
+
 # Hide/Show desktop.
 alias desktophide='defaults write com.apple.finder CreateDesktop false; killall Finder'
 alias desktopshow='defaults write com.apple.finder CreateDesktop true; killall Finder'
