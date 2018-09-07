@@ -24,6 +24,7 @@ brew install curl
 brew install dark-mode
 brew install diff-so-fancy
 brew install dnsmasq
+brew install fd
 brew install ffmpeg
 brew install flac
 brew install flex
