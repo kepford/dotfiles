@@ -13,6 +13,7 @@ brew tap Goles/battery
 brew install ansible
 brew install bash
 brew install bash-completion
+brew install bat
 brew install battery
 brew install browsertime
 brew install cmake
