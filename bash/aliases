@@ -31,6 +31,8 @@ alias desktopshow='defaults write com.apple.finder CreateDesktop true; killall F
 
 alias du='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
 
+alias help='tldr'
+
 # Set the TERM of the remote machine to xterm-256. Needed for the italic local
 # TERM I use.
 alias ssh='TERM=xterm-256color ssh'
