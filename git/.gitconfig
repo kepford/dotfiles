@@ -67,6 +67,8 @@
   whitespace = nowarn
 [branch]
   autosetuprebase = always
+[commit]
+  template = ~/.gitmessage
 [pull]
 	rebase = true
 [init]
