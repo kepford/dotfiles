@@ -179,3 +179,5 @@ CloudFront
 Balancers
 balancer
 McGinnis
+serverless
+Cognito

@@ -398,6 +398,7 @@ alias dns="networksetup -getdnsservers Wi-Fi" # See current nameservers.
 alias dnsclear="networksetup -setdnsservers Wi-Fi" # Clears out the custom DNS nameservers.
 alias dnslocal="sudo networksetup -setdnsservers Wi-Fi 10.10.10.21"
 alias dnsgoogle="sudo networksetup -setdnsservers Wi-Fi 8.8.8.8 8.8.4.4"
+alias dnscloud="sudo networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001"
 alias dnsopen="sudo networksetup -setdnsservers Wi-Fi 208.67.222.222 208.67.220.220"
 alias dnsunlocator="sudo networksetup -setdnsservers Wi-Fi 185.37.37.37 185.37.39.39"
 alias dnsadfree="sudo networksetup -setdnsservers Wi-Fi 192.169.71.180 192.254.74.201 208.110.81.51"
@@ -497,6 +498,59 @@ alias stopcall="automator /Users/kepford/Dropbox/scripts/stop_call.workflow  &> 
 
 # Edit local aliases
 alias eal='vim ~/.alias_local'
+
+# Automatically call nvmuse
+# https://github.com/creationix/nvm#deeper-shell-integration
+find-up () {
+    path=$(pwd)
+    while [[ "$path" != "" && ! -e "$path/$1" ]]; do
+        path=${path%/*}
+    done
+    echo "$path"
+}
+
+cdnvm(){
+    cd "$@";
+    nvm_path=$(find-up .nvmrc | tr -d '[:space:]')
+
+    # If there are no .nvmrc file, use the default nvm version
+    if [[ ! $nvm_path = *[^[:space:]]* ]]; then
+
+        declare default_version;
+        default_version=$(nvm version default);
+
+        # If there is no default version, set it to `node`
+        # This will use the latest version on your machine
+        if [[ $default_version == "N/A" ]]; then
+            nvm alias default node;
+            default_version=$(nvm version default);
+        fi
+
+        # If the current version is not the default version, set it to use the default version
+        if [[ $(nvm current) != "$default_version" ]]; then
+            nvm use default;
+        fi
+
+        elif [[ -s $nvm_path/.nvmrc && -r $nvm_path/.nvmrc ]]; then
+        declare nvm_version
+        nvm_version=$(<"$nvm_path"/.nvmrc)
+
+        # Add the `v` suffix if it does not exists in the .nvmrc file
+        if [[ $nvm_version != v* ]]; then
+            nvm_version="v""$nvm_version"
+        fi
+
+        # If it is not already installed, install it
+        if [[ $(nvm ls "$nvm_version" | tr -d '[:space:]') == "N/A" ]]; then
+            nvm install "$nvm_version";
+        fi
+
+        if [[ $(nvm current) != "$nvm_version" ]]; then
+            nvm use "$nvm_version";
+        fi
+    fi
+}
+alias cd='cdnvm'
 
 # Include local and private aliases.
 if [ -f ~/.alias_local ]; then
