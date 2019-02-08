@@ -16,7 +16,8 @@ alias vnote="vim /Users/kepford/Dropbox/Notational\ Data/vim.md"
 alias cat='bat'
 
 alias preview="fzf --preview 'bat --color \"always\" {}'"
-# add support for ctrl+o to open selected file in VS Code
+
+# add support for ctrl+o to open selected file in Vim
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vim {})+abort'"
 
 # P - sort by CPU
@@ -393,10 +394,17 @@ lips() {
 }
 
 alias flush="dscacheutil -flushcache" # Flush DNS cache
+alias dns="networksetup -getdnsservers Wi-Fi" # See current nameservers.
+alias dnsclear="networksetup -setdnsservers Wi-Fi" # Clears out the custom DNS nameservers.
 alias dnslocal="sudo networksetup -setdnsservers Wi-Fi 10.10.10.21"
 alias dnsgoogle="sudo networksetup -setdnsservers Wi-Fi 8.8.8.8 8.8.4.4"
 alias dnsopen="sudo networksetup -setdnsservers Wi-Fi 208.67.222.222 208.67.220.220"
-alias dnsmlb="sudo networksetup -setdnsservers Wi-Fi 192.169.71.180 192.254.74.201 208.110.81.51"
+alias dnsunlocator="sudo networksetup -setdnsservers Wi-Fi 185.37.37.37 185.37.39.39"
+alias dnsadfree="sudo networksetup -setdnsservers Wi-Fi 192.169.71.180 192.254.74.201 208.110.81.51"
+# 178.32.187.10
+# 88.150.150.211
+# 78.46.231.161
+
 alias dnscloud="sudo networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1"
 alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip'
 alias vpnfix="sudo ifconfig en0 down && sudo route flush && sudo ifconfig en0 up"
@@ -417,7 +425,6 @@ alias findpi='arp -na | grep -i b8:27:eb'
 
 # Networking
 alias hosts='sudo vim /private/etc/hosts'
-alias dns='sudo vim /etc/resolv.dnsmasq.conf'
 alias dnsconf='sudo vim /usr/local/etc/dnsmasq.conf'
 alias dnsreload='sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist && sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist'
 alias wifi="networksetup -setairportpower en1"
@@ -480,6 +487,9 @@ vagrant() {
 jira() {
   open "http://codeandtheory.atlassian.net/browse/$1"
 }
+
+# Toggle bluetooth with https://github.com/toy/blueutil installed via blueutil
+alias bluetoggle="blueutil --power toggle"
 
 # Automator
 alias startcall="automator /Users/kepford/Dropbox/scripts/start_call.workflow  &> /dev/null"

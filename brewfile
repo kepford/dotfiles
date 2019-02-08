@@ -9,6 +9,7 @@ brew tap homebrew/dupes
 brew tap homebrew/versions
 brew tap gbataille/homebrew-gba
 brew tap Goles/battery
+brew tap browsh-org/homebrew-browsh
 
 brew install ansible
 brew install bash
@@ -16,6 +17,8 @@ brew install bash-completion
 brew install bat
 brew install battery
 brew install browsertime
+brew install browsh
+brew install blueutil
 brew install cmake
 brew install composer
 brew install ctags

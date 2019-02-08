@@ -1,6 +1,9 @@
 # Set PATH, CDPATH, EDITOR, etc.
 export EDITOR="vim"
 
+# Python
+# export PATH="/usr/local/Cellar/python@2/2.7.14_3/bin:$PATH"
+
 # Z
 . /usr/local/etc/profile.d/z.sh
 
