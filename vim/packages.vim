@@ -30,14 +30,13 @@ call minpac#add('tpope/vim-commentary') " comment/uncomment lines with gcc or gc
 call minpac#add('Valloric/YouCompleteMe')
 call minpac#add('w0rp/ale') "ALE (Asynchronous Lint Engine)
 call minpac#add('majutsushi/tagbar')
-call minpac#add('xolox/vim-misc') "Required by easytags.
-call minpac#add('xolox/vim-easytags') "Automated tag file generation and syntax highlighting of tags
 call minpac#add('AndrewRadev/splitjoin.vim') "Transition between multiline and single-line code.
 call minpac#add('jiangmiao/auto-pairs') "Insert or delete brackets, parens, quotes in pair.
 call minpac#add('chrisbra/csv.vim') " A Filetype plugin for csv files.
 
 " Tmux
 call minpac#add('christoomey/vim-tmux-navigator') "https://robots.thoughtbot.com/seamlessly-navigate-vim-and-tmux-splits
+call minpac#add('tmux-plugins/vim-tmux') "Plugin for tmux.conf.
 
 " Airline
 call minpac#add('vim-airline/vim-airline')
@@ -65,12 +64,12 @@ call minpac#add('szw/vim-g') "Google from vim by selecting a word
 call minpac#add('sjl/gundo.vim') " Visualize your Vim undo tree.
 call minpac#add('mattn/webapi-vim')
 call minpac#add('mattn/gist-vim')
-call minpac#add('terryma/vim-smooth-scroll') "Smooths the scrolling in Vim
 call minpac#add('christoomey/vim-titlecase')
 call minpac#add('polm/github-tasks.vim') "This plugin adds support for Github tasks, letting you turn normal markdown list entries into tasks and toggle them done or not done.
 call minpac#add('tommcdo/vim-exchange') "Easy text exchange operator
 call minpac#add('lifepillar/vim-solarized8') " My current colorscheme.
 call minpac#add('kepford/cobalt2.vim') " My verion of the Wes Bos clone of Cobalt2.
+call minpac#add('j-tom/vim-old-hope') " Vim port of old hope theme.
 call minpac#add('inkarkat/SyntaxAttr.vim') " Show syntax highlighting attributes of character under cursor.
 call minpac#add('wincent/terminus') " Enhanced terminal integration for Vim. Allows Vim to receive FocusGained and FocusLost events, even in the terminal and inside tmux.
 call minpac#add('tpope/vim-eunuch') " Vim sugar for UNIX shell commands that need it the most.
@@ -81,6 +80,9 @@ call minpac#add('pangloss/vim-javascript')
 call minpac#add('tpope/vim-jdaddy') "JSON manipulation and pretty printing
 call minpac#add('mxw/vim-jsx') " React JSX syntax highlighting and indenting for vim.
 call minpac#add('ternjs/tern_for_vim')
+
+" GraphQL
+call minpac#add('jparise/vim-graphql')
 
 " Markdown
 call minpac#add('godlygeek/tabular')
