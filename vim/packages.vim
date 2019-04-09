@@ -32,7 +32,6 @@ call minpac#add('w0rp/ale') "ALE (Asynchronous Lint Engine)
 call minpac#add('majutsushi/tagbar')
 call minpac#add('AndrewRadev/splitjoin.vim') "Transition between multiline and single-line code.
 call minpac#add('jiangmiao/auto-pairs') "Insert or delete brackets, parens, quotes in pair.
-call minpac#add('chrisbra/csv.vim') " A Filetype plugin for csv files.
 
 " Tmux
 call minpac#add('christoomey/vim-tmux-navigator') "https://robots.thoughtbot.com/seamlessly-navigate-vim-and-tmux-splits
