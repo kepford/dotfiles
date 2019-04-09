@@ -92,5 +92,5 @@ call minpac#add('davidoc/taskpaper.vim')
 call minpac#add('dhruvasagar/vim-table-mode')
 
 " PHP and Drupal
-call minpac#add('joonty/vdebug')
+call minpac#add('vim-vdebug/vdebug')
 call minpac#add('shawncplus/phpcomplete.vim')
