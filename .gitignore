@@ -11,4 +11,4 @@ vim/tmp/viminfo
 vim/tmp/backup/*
 vim/tmp/undo/*
 vim/tmp/view/*
-
+tmux/resurrect
