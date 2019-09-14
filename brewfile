@@ -50,6 +50,7 @@ brew install hub
 brew install irssi
 brew install mariadb
 brew install mas
+brew install mosh
 brew install mp3splt
 brew install nmap
 brew install node

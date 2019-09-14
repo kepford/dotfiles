@@ -1,5 +1,7 @@
 # Command Enhancements 2010-09-28-1248
 
+# alias vim="nvim"
+
 # Utility
 alias reload='source $HOME/bin/dotfiles/bash/aliases'
 alias ea='vim $HOME/bin/dotfiles/bash/aliases && reload' # Edit aliases
@@ -312,9 +314,6 @@ function __rm_single_file(){
     fi
 }
 
-# Terminus
-alias terminus="$HOME/bin/terminus/vendor/pantheon-systems/terminus/bin/terminus"
-
 # Drupal Directories for my themes, modules, features, and drush make files.
 
 alias d='drupal'
@@ -495,6 +494,9 @@ vagrant() {
     command vagrant "$@"
   fi
 }
+
+# Docker
+alias startdocker='open -a Docker'
 
 # Open Jira ticket
 jira() {
