@@ -496,7 +496,8 @@ vagrant() {
 }
 
 # Docker
-alias startdocker='open -a Docker'
+alias startdocker='open --hide --background -a Docker'
+alias quitdocker="osascript -e 'quit app \"Docker\"'"
 
 # Open Jira ticket
 jira() {
