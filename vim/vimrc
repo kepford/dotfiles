@@ -272,18 +272,18 @@ smap <C-J> <Plug>snipMateNextOrTrigger
 """"""""""""""""""""""""""""""""""""""""
 
 " Keymap for Vdebug
-let g:vdebug_keymap = {
-\    "run" : "<Leader>/",
-\    "run_to_cursor" : "<Down>",
-\    "step_over" : "<Up>",
-\    "step_into" : "<Left>",
-\    "step_out" : "<Right>",
-\    "close" : "q",
-\    "detach" : "<F7>",
-\    "set_breakpoint" : "<Leader>s",
-\    "eval_visual" : "<Leader>e",
-\    "eval_under_cursor" : "<Leader>c"
-\}
+" let g:vdebug_keymap = {
+" \    "run" : "<Leader>/",
+" \    "run_to_cursor" : "<Down>",
+" \    "step_over" : "<Up>",
+" \    "step_into" : "<Left>",
+" \    "step_out" : "<Right>",
+" \    "close" : "q",
+" \    "detach" : "<F7>",
+" \    "set_breakpoint" : "<Leader>s",
+" \    "eval_visual" : "<Leader>e",
+" \    "eval_under_cursor" : "<Leader>c"
+" \}
 
 " Vdebug settings.
 let g:vdebug_options = {}
@@ -507,8 +507,8 @@ set formatoptions+=n              " Smart auto-indenting inside numbered list.
 set hidden                        " Allows you to hide buffers with unsaved changes without being prompted.
 
 " set highlight+=@:ColorColumn          " ~/@ at end of window, 'showbreak'
-set highlight+=N:DiffText             " Make current line number stand out a little
-set highlight+=c:LineNr               " Blend vertical separators with line numbers
+" set highlight+=N:DiffText             " Make current line number stand out a little
+" set highlight+=c:LineNr               " Blend vertical separators with line numbers
 
 if has('linebreak')
   set linebreak                       " Wrap long lines at characters in 'breakat'.
@@ -542,7 +542,7 @@ if has('vertsplit')
 endif
 
 " resize splits with mouse.
-set ttymouse=xterm2
+" set ttymouse=xterm2
 
 """""""""""""""""""""""""""""""""""""
 " Make arrowkey resize viewports
