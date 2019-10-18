@@ -18,10 +18,10 @@ end
 singleapps = {
   {'q', 'MailMate'},
   {'w', 'OmniFocus'},
-  {'r', 'Google Chrome'},
+  {'f', 'Firefox'},
   {'s', 'Slack'},
   {'t', 'iTerm'},
-  {'f', 'Fantastical 2'},
+  {'c', 'Fantastical 2'},
   {'z', 'zoom.us'}
 }
 

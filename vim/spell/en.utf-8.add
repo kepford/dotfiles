@@ -188,3 +188,6 @@ packagist
 Guardr
 Auth0
 Netlify
+ADFS
+IDP
+SAML
