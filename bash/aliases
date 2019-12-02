@@ -328,7 +328,7 @@ function gitd() {
   git clone --branch $1 https://git.drupal.org/project/drupal.git $2; cd $2
 }
 
-alias d8upgrade='composer update drupal/core webflo/drupal-core-require-dev "symfony/*" --with-dependencies'
+alias d8upgrade='composer update drupal/core webflo/drupal-core-require-dev --with-dependencies'
 
 # Quick-Drupal install
 # By default this function installs the demo_umami profile but you can pass any
