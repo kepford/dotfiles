@@ -432,7 +432,7 @@ alias marked='open -a Marked'
 # USB hardware
 alias usb='system_profiler SPUSBDataType'
 
-# Find Raspberry Pi on network.
+# Find Raspberry Pi on network. Does not work for Pi4
 alias findpi='arp -na | grep -i b8:27:eb'
 
 # Networking
