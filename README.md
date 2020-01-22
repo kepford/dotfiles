@@ -51,12 +51,12 @@ then
 Symlink the following files/directories to the dotfiles directory.
 
 ```
-.git_template -> bin/dotfiles/git/.git_template
-.gitconfig -> /Users/yourusername/bin/dotfiles/git/.gitconfig
-.gitconfig_local
-.gitignore -> /Users/yourusername/bin/dotfiles/git/.gitignore
-git-completion.bash -> /Users/yourusername/bin/dotfiles/git/git-completion.bash
-git-flow-completion.bash -> /Users/yourusername/bin/dotfiles/git/git-flow-completion.bash
+ln -s ~/bin/dotfiles/git/.git_template ~/.git_template
+ln -s ~/bin/dotfiles/git/.gitconfig ~/.gitconfig
+touch ~/.gitconfig_local
+ln -s ~/bin/dotfiles/git/.gitignore ~/.gitignore
+ln -s ~/bin/dotfiles/git/git-completion.bash ~/git-completion.bash
+ln -s ~/bin/dotfiles/git/git-flow-completion.bash ~/git-flow-completion.bash
 ```
 
 **Vim**
@@ -64,9 +64,9 @@ git-flow-completion.bash -> /Users/yourusername/bin/dotfiles/git/git-flow-comple
 Symlink the following files/directories to the dotfiles directory.
 
 ```
-.gvimrc -> /Users/yourusername/bin/dotfiles/vim/gvimrc
-.vim -> /Users/yourusername/bin/dotfiles/vim
-.vimrc -> /Users/yourusername/bin/dotfiles/vim/vimrc
+ln -s  ~/bin/dotfiles/vim/gvimrc ~/.gvimrc
+ln -s ~/bin/dotfiles/vim ~/.vim
+ln -s ~/bin/dotfiles/vim/vimrc ~/.vimrc
 ```
 
 **Tmux**
@@ -74,7 +74,7 @@ Symlink the following files/directories to the dotfiles directory.
 Symlink the following files/directories to the dotfiles directory.
 
 ```
-.tmux.conf -> /Users/yourusername/bin/dotfiles/tmux/tmux.conf
+ln -s ~/bin/dotfiles/tmux/tmux.conf ~/.tmux.conf
 ```
 
 **Drupal Console**
@@ -82,5 +82,5 @@ Symlink the following files/directories to the dotfiles directory.
 Symlink the following files/directories to the dotfiles directory.
 
 ```
-.console -> /Users/yourusername/bin/dotfiles/drupal_console
+ln -s ~/bin/dotfiles/drupal_console ~/.console
 ```

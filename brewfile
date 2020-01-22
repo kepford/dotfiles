@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Make sure we’re using the latest Homebrew
 brew update
 
@@ -26,6 +28,7 @@ brew install ctags-better-php
 brew install curl
 brew install dark-mode
 brew install diff-so-fancy
+brew install ddev
 brew install dnsmasq
 brew install fd
 brew install ffmpeg
@@ -41,8 +44,10 @@ brew install glib
 brew install go
 brew install graphviz
 brew install gzip
+
 # Added for my footswitch.
-# Dowmload and install https://github.com/rgerganov/footswitch
+# Download and install https://github.com/rgerganov/footswitch
+
 brew install hidapi
 brew install htop
 brew install htop-osx
@@ -55,15 +60,6 @@ brew install mp3splt
 brew install nmap
 brew install node
 brew install peco
-brew install php56
-brew install php56-apcu
-brew install php56-xdebug
-brew install php56-igbinary
-brew install php56-memcached
-brew install php56-opcache
-brew install php56-xdebug
-brew install php71
-brew install xdebug-osx
 brew install python
 brew install readline
 brew install reattach-to-user-namespace
@@ -84,11 +80,10 @@ brew install youtube-dl
 brew install z
 
 # Install homebrew Bash
-```
+
 sudo -s
 echo /usr/local/bin/bash >> /etc/shells
 chsh -s /usr/local/bin/bash
-```
 
 # Cask
 brew cask install alfred
@@ -97,12 +92,9 @@ brew cask install audacity
 brew cask install audio-hijack
 brew cask install bartender
 brew cask install bettertouchtool
-brew cask install bittorrent-sync
-brew cask install caffeine
-brew cask install calibre
-brew cask install cloud
 brew cask install controlplane
 brew cask install dash
+brew cask install docker
 brew cask install dropbox
 brew cask install firefox
 brew cask install flux
@@ -120,18 +112,13 @@ brew cask install licecap
 brew cask install mailmate
 brew cask install marked
 brew cask install mindnode-pro
-brew cask install mountain
 brew cask install mousepose
+brew cask install ngrok
 brew cask install onyx
-brew cask install path-finder
-brew cask install postman
-brew cask install proxpn
 brew cask install screenflow
 brew cask install sequel-pro
-brew cask install sketch
 brew cask install slack
 brew cask install soulver
-brew cask install spotify
 brew cask install superduper
 brew cask install transmission
 brew cask install tripmode
@@ -143,6 +130,7 @@ brew cask install vlc
 brew cask install xscope
 
 # Quicklook plugins
+
 brew cask install qlcolorcode
 brew cask install qlmarkdown
 brew cask install qlstephen
@@ -154,7 +142,7 @@ brew cask install webpquicklook
 brew cask install suspicious-package
 
 # Remove outdated versions from the cellar
-cleanup
+brew cleanup
 
 # Install Mac App store apps.
 mas install 411643860  # DaisyDisk (4.3.2)
@@ -166,7 +154,6 @@ mas install 937984704  # Amphetamine
 mas install 540348655  # Monosnap (3.3.0)
 mas install 408981434  # iMovie (10.1.4)
 mas install 409183694  # Keynote (7.0.5)
-mas install 443987910  # 1Password (6.5.3)
 mas install 588726889  # ReadKit (2.5.1)
 mas install 975937182  # Fantastical 2 (2.3.3)
 mas install 1017470484 # Next Meeting (1.9)
@@ -179,12 +166,17 @@ mas install 847496013  # Deckset (1.6.3)
 mas install 409203825  # Numbers (4.0.5)
 mas install 609313570  # PDFpenPro 6 (6.3.2)
 mas install 413965349  # Soulver
-mas install 557168941  # Tweetbot
+mas install 957734279  # TogglDesktop
+mas install 405904955  # Mouseposé (3.2.7)
+mas install 1319778037 # iStat Menus (6.41)
+mas install 441258766  # Magnet (2.4.5)
+mas install 695406827  # Dropzone 3 (3.7.0)
+mas install 1346203938 # OmniFocus (3.4.6)
+mas install 1055511498 # Day One (4.4)
 
 # Other Apps that have to be installed manually.
 # Little Snitch
 # Loopback
 # OmniGraffle Professional 5
-# TextExpander 5.1.4 - pre-subscription model.
-# ToggleDesktop
 # iThoughtsX
+# Bitwarden
