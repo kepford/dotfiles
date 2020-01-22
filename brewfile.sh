@@ -7,8 +7,6 @@ brew update
 brew upgrade
 
 # Taps
-brew tap homebrew/dupes
-brew tap homebrew/versions
 brew tap gbataille/homebrew-gba
 brew tap Goles/battery
 brew tap browsh-org/homebrew-browsh
