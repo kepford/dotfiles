@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Before running make sure you have logged into the Mac App store account
+
 # Make sure we’re using the latest Homebrew
 brew update
 
@@ -86,10 +88,10 @@ chsh -s /usr/local/bin/bash
 # Cask
 brew cask install alfred
 brew cask install arq
-brew cask install audacity
 brew cask install audio-hijack
 brew cask install bartender
 brew cask install bettertouchtool
+brew cask install bitwarden
 brew cask install controlplane
 brew cask install dash
 brew cask install docker
@@ -135,7 +137,6 @@ brew cask install qlstephen
 brew cask install quicklook-json
 brew cask install qlprettypatch
 brew cask install quicklook-csv
-brew cask install betterzipql
 brew cask install webpquicklook
 brew cask install suspicious-package
 
@@ -156,7 +157,7 @@ mas install 588726889  # ReadKit (2.5.1)
 mas install 975937182  # Fantastical 2 (2.3.3)
 mas install 1017470484 # Next Meeting (1.9)
 mas install 671736912  # FruitJuice (2.3.2)
-mas install 867299399  # OmniFocus (2.8.1)
+mas install 1346203938 # OmniFocus (3.4.6)
 mas install 409201541  # Pages (6.0.5)
 mas install 682658836  # GarageBand (10.1.4)
 mas install 417375580  # BetterSnapTool (1.7)
