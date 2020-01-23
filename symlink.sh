@@ -27,3 +27,7 @@ ln -s ~/bin/dotfiles/tmux/tmux.conf ~/.tmux.conf
 ln -s ~/bin/dotfiles/drupal_console ~/.console
 
 echo "Finished symlinkng for dotfiles"
+
+# Karabiner
+
+ln -s ~/bin/dotfiles/karabiner ~/.config/karabiner
