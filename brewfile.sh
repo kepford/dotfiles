@@ -104,11 +104,13 @@ brew cask install google-drive
 brew cask install imagealpha
 brew cask install imageoptim
 brew cask install iterm2
+brew cask install ithoughtsx
 brew cask install hazel
 brew cask install jumpcut
 brew cask install karabiner-elements
 brew cask install keycastr
 brew cask install licecap
+brew cask install loopback
 brew cask install mailmate
 brew cask install marked
 brew cask install mindnode-pro
@@ -118,6 +120,7 @@ brew cask install onyx
 brew cask install screenflow
 brew cask install sequel-pro
 brew cask install slack
+brew cask install soundsource
 brew cask install soulver
 brew cask install superduper
 brew cask install transmission
@@ -175,7 +178,3 @@ mas install 1055511498 # Day One (4.4)
 
 # Other Apps that have to be installed manually.
 # Little Snitch
-# Loopback
-# OmniGraffle Professional 5
-# iThoughtsX
-# Bitwarden
