@@ -44,10 +44,10 @@ brew install glib
 brew install go
 brew install graphviz
 brew install gzip
+brew install hammerspoon
 
 # Added for my footswitch.
 # Download and install https://github.com/rgerganov/footswitch
-
 brew install hidapi
 brew install htop
 brew install htop-osx
