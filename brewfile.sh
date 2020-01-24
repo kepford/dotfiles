@@ -44,7 +44,6 @@ brew install glib
 brew install go
 brew install graphviz
 brew install gzip
-brew install hammerspoon
 
 # Added for my footswitch.
 # Download and install https://github.com/rgerganov/footswitch
@@ -102,6 +101,7 @@ brew cask install flux
 brew cask install google-chrome
 brew cask install google-chrome-canary
 brew cask install google-drive
+brew cask install hammerspoon
 brew cask install imagealpha
 brew cask install imageoptim
 brew cask install iterm2
