@@ -12,6 +12,7 @@ brew upgrade
 brew tap gbataille/homebrew-gba
 brew tap Goles/battery
 brew tap browsh-org/homebrew-browsh
+brew tap homebrew/cask-fonts
 
 brew install ansible
 brew install bash
@@ -71,6 +72,7 @@ brew install testdisk
 brew install the_silver_searcher
 brew install tig
 brew install tmux
+brew install tmuxinator
 brew install tree
 brew install tuntap
 brew install vim
@@ -98,6 +100,7 @@ brew cask install docker
 brew cask install dropbox
 brew cask install firefox
 brew cask install flux
+brew cask install font-fira-code
 brew cask install google-chrome
 brew cask install google-chrome-canary
 brew cask install google-drive

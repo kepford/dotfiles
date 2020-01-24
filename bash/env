@@ -51,5 +51,6 @@ export PATH
 ssh-add -A 2>/dev/null;
 
 # Python
+alias python=/usr/local/bin/python3
 USER_BASE_PATH=$(python -m site --user-base)
 export PATH=$PATH:$USER_BASE_PATH/bin
