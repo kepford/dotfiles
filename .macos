@@ -688,6 +688,11 @@ open "${HOME}/bin/dotfiles/iterm/themes/cobalt2.itermcolors"
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
 ###############################################################################
+# BetterTouchTool
+###############################################################################
+open "${HOME}/bin/dotfiles/bettertouchtool/default.bttpreset"
+
+###############################################################################
 # Time Machine                                                                #
 ###############################################################################
 
