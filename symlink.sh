@@ -7,6 +7,7 @@ ln -s ~/bin/dotfiles/git/.git_template ~/.git_template
 ln -s ~/bin/dotfiles/git/.gitconfig ~/.gitconfig
 touch ~/.gitconfig_local
 ln -s ~/bin/dotfiles/git/.gitignore ~/.gitignore
+ln -s ~/bin/dotfiles/git/.gitmessage ~/.gitmessage
 ln -s ~/bin/dotfiles/git/git-completion.bash ~/git-completion.bash
 ln -s ~/bin/dotfiles/git/git-flow-completion.bash ~/git-flow-completion.bash
 
@@ -26,8 +27,12 @@ ln -s ~/bin/dotfiles/tmux/tmux.conf ~/.tmux.conf
 
 ln -s ~/bin/dotfiles/drupal_console ~/.console
 
-echo "Finished symlinkng for dotfiles"
-
 # Karabiner
 
 ln -s ~/bin/dotfiles/karabiner ~/.config/karabiner
+
+# Hammerspoon
+
+ln -s ~/bin/dotfiles/hammerspoon ~/.hammerspoon
+
+echo "Finished symlinkng for dotfiles"
