@@ -84,3 +84,11 @@ Symlink the following files/directories to the dotfiles directory.
 ```
 ln -s ~/bin/dotfiles/drupal_console ~/.console
 ```
+
+**Node**
+
+[Install nvm](https://github.com/nvm-sh/nvm)
+
+**PHP**
+
+[Install Composer](https://getcomposer.org/)

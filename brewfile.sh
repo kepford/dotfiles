@@ -60,6 +60,7 @@ brew install mp3splt
 brew install nmap
 brew install node
 brew install peco
+brew install php
 brew install python
 brew install readline
 brew install reattach-to-user-namespace
