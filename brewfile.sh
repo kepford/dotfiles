@@ -70,6 +70,7 @@ brew install ssh-copy-id
 brew install sshuttle
 brew install testdisk
 brew install the_silver_searcher
+brew install tidy-html5
 brew install tig
 brew install tmux
 brew install tmuxinator
