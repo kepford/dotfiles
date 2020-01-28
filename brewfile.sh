@@ -136,7 +136,6 @@ brew cask install vagrant
 brew cask install vagrant-manager
 brew cask install vlc
 brew cask install xscope
-brew cask install zoom
 
 # Quicklook plugins
 
