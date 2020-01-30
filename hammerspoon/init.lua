@@ -21,7 +21,7 @@ singleapps = {
   {'f', 'Firefox'},
   {'s', 'Slack'},
   {'t', 'iTerm'},
-  {'c', 'Fantastical 2'},
+  {'c', 'Fantastical'},
   {'z', 'zoom.us'}
 }
 
