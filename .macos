@@ -923,6 +923,17 @@ defaults write com.twitter.twitter-mac HideInBackground -bool true
 defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
 
 ###############################################################################
+# Mailmate
+###############################################################################
+
+# Turn default send later delay on. Default is 5 minutes. I think this is too
+# long.
+defaults write com.freron.MailMate MmSendMessageDelayEnabled -bool YES
+
+# Set the delay duration (in seconds) to 180:
+defaults write com.freron.MailMate MmSendMessageDelay -integer 120
+
+###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
@@ -936,6 +947,7 @@ for app in "Activity Monitor" \
 	"Google Chrome Canary" \
 	"Google Chrome" \
 	"Mail" \
+  "MailMate" \
 	"Messages" \
 	"Opera" \
 	"Photos" \
