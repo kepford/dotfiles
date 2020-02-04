@@ -104,7 +104,6 @@ brew cask install firefox
 brew cask install flux
 brew cask install font-fira-code
 brew cask install google-chrome
-brew cask install google-chrome-canary
 brew cask install google-drive
 brew cask install hammerspoon
 brew cask install imagealpha
