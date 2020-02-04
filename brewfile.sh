@@ -53,6 +53,7 @@ brew install htop
 brew install htop-osx
 brew install hub
 brew install irssi
+brew install jq
 brew install mariadb
 brew install mas
 brew install mosh

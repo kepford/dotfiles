@@ -511,6 +511,12 @@ alias bluetoggle="blueutil --power toggle"
 alias startcall="automator /Users/kepford/Dropbox/scripts/start_call.workflow  &> /dev/null"
 alias stopcall="automator /Users/kepford/Dropbox/scripts/stop_call.workflow  &> /dev/null"
 
+startjournal () {
+  now=$(date +"%Y-%m-%d")
+  filename=journal-$now.md
+  printf '# Journaling\n\n## What are you grateful for?\n\n-\n\n## What frustrated you today?\n\n-\n\n## What excited you today?\n\n-\n\n## 5 Love languages\n\n### Did you show acts of service to __ this week?\n\n### Did you speak Words of affirmation\n\n### Did you spend Quality time together?\n\n### Did you give gifts?\n\n### Did you show affection' > $filename
+}
+
 # Edit local aliases
 alias eal='vim ~/.alias_local'
 
