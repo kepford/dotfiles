@@ -24,6 +24,10 @@ let mapleader = "\<Space>"
 " Close other buffers, focus on one.
 nnoremap <Leader>f :only<CR>
 
+" Map gm due to https://github.com/svermeulen/vim-easyclip use of m for
+" cut/paste.
+nnoremap gm m
+
 " Search the git repository for filename with.
 nnoremap <leader>g :GFiles<CR>
 
@@ -36,6 +40,13 @@ nnoremap <Leader>p :echo expand('%')<CR>
 
 " Copy current buffer file name and full path to system clipboard.
 nnoremap <Leader>pp :let @+ = expand("%:p")<CR>
+
+" <Leader>n -- Show the name of the current file (mnemonic: name; useful when
+" you have a lot of splits and the status line gets truncated).
+nnoremap <Leader>n :echo expand('%:t')<CR>
+
+" Copy current buffer file name relative path to system clipboard.
+nnoremap <Leader>nn :let @+ = './' . expand("%:t")<CR>
 
 " Remap Buffer to leader b
 nnoremap <Leader>b :Buffers<CR>

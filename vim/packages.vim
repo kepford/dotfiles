@@ -78,7 +78,7 @@ call minpac#add('ap/vim-css-color') " Preview colours in source code while editi
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('tpope/vim-jdaddy') "JSON manipulation and pretty printing
 call minpac#add('mxw/vim-jsx') " React JSX syntax highlighting and indenting for vim.
-call minpac#add('ternjs/tern_for_vim')
+call minpac#add('ternjs/tern_for_vim', {'do': 'silent! !npm install'})
 
 " GraphQL
 call minpac#add('jparise/vim-graphql')
