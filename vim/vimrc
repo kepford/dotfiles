@@ -617,6 +617,17 @@ if has("autocmd")
 endif
 
 """""""""""""""""""""""""""""""""""""""
+" Auto save
+"""""""""""""""""""""""""""""""""""""""
+
+let g:auto_save = 0
+" Only enabled for markdown files.
+augroup ft_markdown
+  au!
+  au FileType markdown let b:auto_save = 1
+augroup END
+
+"""""""""""""""""""""""""""""""""""""""
 " Gist settings
 """""""""""""""""""""""""""""""""""""""
 
