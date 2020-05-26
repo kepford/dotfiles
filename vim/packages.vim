@@ -91,6 +91,8 @@ call minpac#add('nelstrom/vim-markdown-folding')
 call minpac#add('itspriddle/vim-marked')
 call minpac#add('davidoc/taskpaper.vim')
 call minpac#add('dhruvasagar/vim-table-mode')
+call minpac#add('junegunn/goyo.vim')
+call minpac#add('reedes/vim-pencil')
 
 " PHP and Drupal
 call minpac#add('vim-vdebug/vdebug')
