@@ -70,10 +70,12 @@ ln -s ~/bin/dotfiles/vim/vimrc ~/.vimrc
 ```
 
 * Download minpack using Git
+
 ````
 git clone https://github.com/k-takata/minpac.git \
     ~/.vim/pack/minpac/opt/minpac
 ```
+
 * Install plugins using [minpack](https://github.com/k-takata/minpac) by launching vim and running the command `vim -c ":PackUpdate"`
 * cd into the YouCompleteMe directory and run this command `python3 ./install.py --clang-completer --ts-completer`
 
