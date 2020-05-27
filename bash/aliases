@@ -317,6 +317,7 @@ function __rm_single_file(){
 # Drupal Directories for my themes, modules, features, and drush make files.
 
 alias d='drupal'
+alias ddrush='ddev drush'
 alias dca='drush cc all'
 alias dr='drush cr'
 alias dfr='drush fra -y && drush cc all'

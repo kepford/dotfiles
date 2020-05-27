@@ -19,6 +19,7 @@ brew install bash
 brew install bash-completion
 brew install bat
 brew install battery
+brew install bitwarden-cli
 brew install browsertime
 brew install browsh
 brew install blueutil
