@@ -2,3 +2,4 @@
 pip install proselint
 pip install ansible
 pip install diff-highlight
+pip install gcalcli
