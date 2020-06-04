@@ -75,6 +75,7 @@ call minpac#add('wincent/terminus') " Enhanced terminal integration for Vim. All
 call minpac#add('tpope/vim-eunuch') " Vim sugar for UNIX shell commands that need it the most.
 call minpac#add('ap/vim-css-color') " Preview colours in source code while editing.
 call minpac#add('machakann/vim-highlightedyank') "Make the yanked region apparent
+call minpac#add('christoomey/vim-sort-motion') "Makes sort better
 
 " Javascript
 call minpac#add('pangloss/vim-javascript')
