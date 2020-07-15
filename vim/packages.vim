@@ -76,6 +76,7 @@ call minpac#add('tpope/vim-eunuch') " Vim sugar for UNIX shell commands that nee
 call minpac#add('ap/vim-css-color') " Preview colours in source code while editing.
 call minpac#add('machakann/vim-highlightedyank') "Make the yanked region apparent
 call minpac#add('christoomey/vim-sort-motion') "Makes sort better
+call minpac#add('dkarter/bullets.vim') " Bullets.vim is a Vim/NeoVim plugin for automated bullet lists.
 
 " Javascript
 call minpac#add('pangloss/vim-javascript')
