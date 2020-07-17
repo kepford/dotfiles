@@ -2,7 +2,9 @@
 export EDITOR="vim"
 
 # Z
-. /usr/local/etc/profile.d/z.sh
+if [ $(uname) == "Darwin" ]; then
+  . /usr/local/etc/profile.d/z.sh
+fi
 
 # Go lang
 export GOPATH=~/golang
@@ -17,8 +19,10 @@ if [ -f $GOPATH/src/github.com/zquestz/s/autocomplete/s-completion.bash ]; then
 fi
 
 # Bash completion via homebrew.
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+if [ $(uname) == "Darwin" ]; then
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+  fi
 fi
 
 export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin
