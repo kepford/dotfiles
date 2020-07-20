@@ -15,7 +15,10 @@ alias vnote="vim /Users/kepford/Dropbox/Notational\ Data/vim.md"
 # https://remysharp.com/2018/08/23/cli-improved
 # \cat # ignore aliases named "cat" - explanation: https://stackoverflow.com/a/16506263/22617
 # command cat # ignore functions and aliases
-alias cat='bat'
+
+if [ $(uname) == "Darwin" ]; then
+  alias cat='bat'
+fi
 
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 
