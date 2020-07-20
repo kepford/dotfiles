@@ -29,7 +29,7 @@ call minpac#add('junegunn/gv.vim') "A git commit browser
 
 " Code management
 call minpac#add('tpope/vim-commentary') " comment/uncomment lines with gcc or gc in visual mode
-call minpac#add('Valloric/YouCompleteMe')
+call minpac#add('Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --ts-completer' })
 call minpac#add('w0rp/ale') "ALE (Asynchronous Lint Engine)
 call minpac#add('majutsushi/tagbar')
 call minpac#add('AndrewRadev/splitjoin.vim') "Transition between multiline and single-line code.
