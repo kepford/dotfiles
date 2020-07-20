@@ -15,6 +15,7 @@ call minpac#add('junegunn/limelight.vim')
 call minpac#add('wincent/loupe') " Enhances search in Vim.
 
 " File management
+call minpac#add('junegunn/fzf', { 'do': { -> fzf#install() } })
 call minpac#add('junegunn/fzf.vim')
 call minpac#add('tpope/vim-vinegar') " Combine with netrw to create a delicious salad dressing.
 call minpac#add('pbrisbin/vim-mkdir') "Automatically create any non-existent directories before writing the buffer
