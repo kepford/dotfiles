@@ -17,6 +17,9 @@ sudo apt-get -y install php-curl
 sudo apt-get -y install php-mbstring
 sudo apt-get -y install php-simplexml
 sudo apt-get -y install php-zip
+sudo apt-get -y install python3-dev
+sudo apt-get -y python3-pip
+sudo apt-get -y libffi-dev
 sudo apt-get -y install ruby
 sudo apt-get -y install silversearcher-ag
 sudo apt-get -y install tig
