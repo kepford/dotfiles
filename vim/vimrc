@@ -680,6 +680,9 @@ if filereadable($LOCALFILE)
     source $LOCALFILE
 endif
 
+" Include abbreviations
+source ~/.vim/abbreviations.vim
+
 " Include packages.
 source ~/.vim/packages.vim
 
