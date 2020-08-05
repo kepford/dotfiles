@@ -654,6 +654,12 @@ augroup ft_markdown
   au FileType markdown let b:auto_save = 1
 augroup END
 
+""""""""""""""""""""""""""""""""""""""""
+" Auto load files
+""""""""""""""""""""""""""""""""""""""""
+set autoread
+au CursorHold * checktime
+
 """""""""""""""""""""""""""""""""""""""
 " Gist settings
 """""""""""""""""""""""""""""""""""""""
