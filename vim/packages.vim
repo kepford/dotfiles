@@ -54,6 +54,7 @@ call minpac#add('garbas/vim-snipmate')
 call minpac#add('honza/vim-snippets') " Snippets for snipmate
 
 " Misc
+call minpac#add('tpope/vim-abolish') " Abbreviation and substitution helpers
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('tpope/vim-surround') " surround text with things
 call minpac#add('tpope/vim-dispatch') " Run commands in the background.
@@ -78,6 +79,7 @@ call minpac#add('ap/vim-css-color') " Preview colours in source code while editi
 call minpac#add('machakann/vim-highlightedyank') "Make the yanked region apparent
 call minpac#add('christoomey/vim-sort-motion') "Makes sort better
 call minpac#add('dkarter/bullets.vim') " Bullets.vim is a Vim/NeoVim plugin for automated bullet lists.
+call minpac#add('mhinz/vim-startify') "Start page for Vim
 
 " Javascript
 call minpac#add('pangloss/vim-javascript')
