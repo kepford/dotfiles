@@ -13,3 +13,24 @@
 #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
   display: none;
 }
+
+/* Auto-hide sidebar when fullscreen #1548
+ * https://github.com/piroor/treestyletab/issues/1548
+ */
+#main-window[inFullscreen] #sidebar-box,
+#main-window[inFullscreen] #sidebar-splitter {
+  display: none !important;
+  width: 0px !important;
+}
+
+/* Auto-hide sidebar in windows with only one tab (requires another extension) #1768
+ * It is possible to only apply some code when a certain title preface is set by a
+ * WebExtension. The title preface can be set to a windows' tab count with an
+ * extension like [Tab Count](https://github.com/Lej77/tab-count-in-window-title)
+ * in Window Title and when that extension is installed the following code will
+ * hide the sidebar for windows with one tab:
+ * https://github.com/piroor/treestyletab/wiki/Code-snippets-for-custom-style-rules#auto-hide-sidebar-in-windows-with-only-one-tab-requires-another-extension-1768
+ */
+#main-window[titlepreface^="[1] "] #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] {
+  visibility: collapse !important;
+}
