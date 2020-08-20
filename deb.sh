@@ -2,7 +2,9 @@ sudo apt-get update
 
 sudo apt-get -y install ansible
 sudo apt-get -y install composer
+sudo apt-get -y install cmake
 sudo apt-get -y install ctags
+sudo apt-get -y install dnsmasq
 sudo apt-get -y install fzf
 sudo apt-get -y install git-extras
 sudo apt-get -y install git-flow
