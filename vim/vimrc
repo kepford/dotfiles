@@ -14,6 +14,12 @@ noremap <Right> <NOP>
 noremap Zz <c-w>_ \| <c-w>\|
 noremap Zo <c-w>=
 
+" change vertical to horizontal with -
+noremap <c-w>-  <c-w>t<c-w>K
+
+" change horizontal to vertical with |
+noremap <c-w>\|  <c-w>t<c-w>H
+
 " Add line without entering insert mode.
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
