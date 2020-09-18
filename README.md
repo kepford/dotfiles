@@ -49,9 +49,9 @@ then
 **Enabling Italics in Vim and tmux**
 
 ```
- tic ~/dotfiles/terminfo/xterm-256color-italic.terminfo
- tic ~/dotfiles/terminfo/screen-256color-italic.terminfo
- tic ~/dotfiles/terminfo/tmux.terminfo
+ tic ~/bin/dotfiles/terminfo/xterm-256color-italic.terminfo
+ tic ~/bin/dotfiles/terminfo/screen-256color-italic.terminfo
+ tic ~/bin/dotfiles/terminfo/tmux.terminfo
 ```
 
 Open iTerm2 and go to Profiles > Terminal and set Report terminal type as xterm-256color-italic
