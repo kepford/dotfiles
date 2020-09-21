@@ -13,6 +13,7 @@ brew tap gbataille/homebrew-gba
 brew tap Goles/battery
 brew tap browsh-org/homebrew-browsh
 brew tap homebrew/cask-fonts
+brew tap drud/ddev
 
 brew install ansible
 brew install bash
@@ -29,6 +30,7 @@ brew install ctags
 brew install ctags-better-php
 brew install curl
 brew install dark-mode
+brew install ddev
 brew install diff-so-fancy
 brew install ddev
 brew install dnsmasq
@@ -68,7 +70,6 @@ brew install pv
 brew install readline
 brew install reattach-to-user-namespace
 brew install rename
-brew install resty
 brew install ssh-copy-id
 brew install sshuttle
 brew install testdisk
