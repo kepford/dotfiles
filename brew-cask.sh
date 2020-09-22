@@ -14,6 +14,7 @@ brew cask install dropbox
 brew cask install firefox
 brew cask install flux
 brew cask install font-fira-code
+brew cask install google-chat
 brew cask install google-chrome
 brew cask install google-drive
 brew cask install hammerspoon
@@ -29,7 +30,7 @@ brew cask install licecap
 brew cask install loopback
 brew cask install mailmate
 brew cask install marked
-brew cask install google-chat
+brew cask install marshallofsound-google-play-music-player
 brew cask install mindnode-pro
 brew cask install mousepose
 brew cask install ngrok
