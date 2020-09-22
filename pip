@@ -1,4 +1,7 @@
 # proselint https://github.com/amperser/proselint
+# Install pip if it isn't installed
+# curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+# python get-pip.py
 pip install proselint
 pip install ansible
 pip install diff-highlight
