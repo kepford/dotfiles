@@ -285,6 +285,21 @@ nnoremap gp :silent %!prettier --stdin --trailing-comma all --single-quote<CR>
 imap <C-J> <esc>a<Plug>snipMateNextOrTrigger
 smap <C-J> <Plug>snipMateNextOrTrigger
 
+""""""""""""""""""""""""""""""""""""""""
+" Vimux
+""""""""""""""""""""""""""""""""""""""""
+" Prompt for a Vimux command to run
+map <Leader>vp :VimuxPromptCommand<CR>
+
+" Run last command executed by VimuxRunCommand
+map <Leader>vl :VimuxRunLastCommand<CR>
+
+" Inspect runner pane
+map <Leader>vi :VimuxInspectRunner<CR>
+
+" Zoom the tmux runner pane
+map <Leader>vz :VimuxZoomRunner<CR>
+
 " Vdebug
 """"""""""""""""""""""""""""""""""""""""
 
