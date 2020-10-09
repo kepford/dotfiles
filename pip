@@ -5,4 +5,5 @@
 pip install proselint
 pip install ansible
 pip install diff-highlight
+pip install docker-compose
 pip install gcalcli

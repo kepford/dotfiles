@@ -16,6 +16,7 @@ brew cask install flux
 brew cask install font-fira-code
 brew cask install google-chat
 brew cask install google-chrome
+brew cask install google-chrome-canary
 brew cask install google-drive
 brew cask install hammerspoon
 brew cask install imagealpha
@@ -45,6 +46,7 @@ brew cask install transmission
 brew cask install tripmode
 brew cask install tunnelblick
 brew cask install virtualbox
+brew cask install visual-studio-code
 brew cask install vagrant
 brew cask install vagrant-manager
 brew cask install vlc

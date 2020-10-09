@@ -71,6 +71,7 @@ brew install readline
 brew install reattach-to-user-namespace
 brew install rename
 brew install ssh-copy-id
+brew install sshfs
 brew install sshuttle
 brew install testdisk
 brew install the_silver_searcher
