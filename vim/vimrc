@@ -86,6 +86,9 @@ nnoremap <Leader>x :xit<CR>
 " Comment mapping
 nmap cm  <Plug>Commentary
 
+" Yank the current popup text to register with PopYank plugin.
+nmap <leader>y <Plug>(PopYank)
+
 " Edit vimrc and load vimrc bindings
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>

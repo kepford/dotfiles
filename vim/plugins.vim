@@ -19,10 +19,6 @@ Plug 'wincent/loupe' " Enhances search in Vim.
 " File management
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
-
 Plug 'tpope/vim-vinegar' " Combine with netrw to create a delicious salad dressing.
 Plug 'pbrisbin/vim-mkdir' "Automatically create any non-existent directories before writing the buffer
 Plug '907th/vim-auto-save' " Automatically save changes to disk in Vim
@@ -33,10 +29,9 @@ Plug 'airblade/vim-gitgutter' "shows a git diff in the gutter
 Plug 'christoomey/vim-conflicted' "Easy git merge conflict resolution in Vim
 Plug 'junegunn/gv.vim' "A git commit browser
 
-" " Code management
+" Code management
 Plug 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual mode
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --ts-completer' }
-
 Plug 'w0rp/ale' "ALE (Asynchronous Lint Engine)
 Plug 'majutsushi/tagbar'
 Plug 'AndrewRadev/splitjoin.vim' "Transition between multiline and single-line code.
@@ -90,6 +85,7 @@ Plug 'machakann/vim-highlightedyank' "Make the yanked region apparent
 Plug 'christoomey/vim-sort-motion' "Makes sort better
 Plug 'dkarter/bullets.vim' " Bullets.vim is a Vim/NeoVim plugin for automated bullet lists.
 Plug 'mhinz/vim-startify' "Start page for Vim
+Plug 'biosugar0/vim-popyank' "Yank popup window text.
 
 " Javascript
 Plug 'pangloss/vim-javascript'
