@@ -7,6 +7,7 @@ vim/.netrwhist
 vim/spell/en.utf-8.add.spl
 drupal_console/cache
 vim/pack
+vim/plugged
 vim/tmp/viminfo
 vim/tmp/backup/*
 vim/tmp/undo/*

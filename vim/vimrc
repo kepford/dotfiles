@@ -1,5 +1,18 @@
 filetype plugin indent on
 
+" Install plug if not installed.
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Include packages.
+" source ~/.vim/packages.vim
+
+" Include Plugins.
+source ~/.vim/plugins.vim
+
 """""""""""""""""""""""""""""""""""""""
 " Remapping
 """""""""""""""""""""""""""""""""""""""
@@ -282,8 +295,24 @@ nnoremap gp :silent %!prettier --stdin --trailing-comma all --single-quote<CR>
 " Snipmate
 """"""""""""""""""""""""""""""""""""""""
 "to prevent clash with tab completion, change snippet trigger
-imap <C-J> <esc>a<Plug>snipMateNextOrTrigger
-smap <C-J> <Plug>snipMateNextOrTrigger
+" imap <C-J> <esc>a<Plug>snipMateNextOrTrigger
+" smap <C-J> <Plug>snipMateNextOrTrigger
+
+""""""""""""""""""""""""""""""""""""""""
+" Utilisnips
+""""""""""""""""""""""""""""""""""""""""
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger="<c-J>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" Load snippets in fzf
+nnoremap <Leader>u :Snippets<CR>
 
 """"""""""""""""""""""""""""""""""""""""
 " Vimux
@@ -447,13 +476,8 @@ endif
 
 syntax enable
 set background=dark
-colorscheme cobalt2
-" let g:airline_theme='cobalt2'
-" colorscheme solarized8_dark
-" let g:solarized_visibility="high"
-" let g:solarized_diffmode="high"
-" let g:solarized_termtrans=1           " Make terminal background transparent so colors in gutter work.
-let g:airline_theme='solarized'
+colorscheme dracula
+let g:airline_theme='dracula'
 
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-P> :call <SID>SynStack()<CR>
@@ -709,9 +733,6 @@ endif
 
 " Include abbreviations
 source ~/.vim/abbreviations.vim
-
-" Include packages.
-source ~/.vim/packages.vim
 
 " Use fzf in Vim!
 set rtp+=/usr/local/opt/fzf
