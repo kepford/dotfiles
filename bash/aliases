@@ -365,8 +365,9 @@ function dimport() {
 }
 
 # Code sniffer.
-alias drupalcs='phpcs --standard=/Users/kepford/.composer/vendor/drupal/coder/coder_sniffer/Drupal --'
-alias drupalcsfix="phpcbf --standard=Drupal —extensions=php,module,inc,install,test,profile,theme,js,css,info,txt,md"
+alias drupalcs="phpcs --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md,yml'"
+alias drupalcsp="phpcs --standard=DrupalPractice --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md,yml'"
+alias drupalcsfix="phpcbf --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md,yml'"
 alias themes='cd ~/Dropbox/drupal/themes/' #goto the themes folder
 alias modules='cd ~/Dropbox/drupal/modules/' #goto the modules folder
 alias builds='cd ~/Dropbox/drupal/builds/' #goto the builds folder
