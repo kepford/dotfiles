@@ -91,9 +91,6 @@ Plug 'biosugar0/vim-popyank' "Yank popup window text.
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-jdaddy' "JSON manipulation and pretty printing
 Plug 'MaxMEllon/vim-jsx-pretty' " React JSX syntax highlighting and indenting for vim.
-" call minpac#add('ternjs/tern_for_vim', {'do': 'silent! !npm install'})
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
 Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
 Plug 'leafgarland/typescript-vim' " Typescript syntax for Vim.
 Plug 'peitalin/vim-jsx-typescript' " Syntax highlighting for JSX in Typescript.
