@@ -61,6 +61,7 @@ brew install mariadb
 brew install mas
 brew install mosh
 brew install mp3splt
+brew install neovim
 brew install nmap
 brew install node
 brew install peco
