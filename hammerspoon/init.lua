@@ -49,7 +49,7 @@ config.applications = {
   ['OmniFocus'] = {
     bundleID = 'com.omnigroup.OmniFocus3.MacAppStore',
     tags = {'#planning'},
-    hyper_key = 'w',
+    hyper_key = 'o',
     preferred_display = 1
   },
   ['MailMate'] = {
