@@ -1,0 +1,73 @@
+# Source: https://gist.github.com/benawad/1e9dd01994f78489306fbfd6f7b01cd3#file-snippets-typescriptreact-json
+# Place your snippets for typescriptreact here. Each snippet is defined under a snippet name and has a prefix, body and
+# description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+# $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+# same ids are connected.
+# Example:
+
+snippet rpc "Typescript React PureComponent" b
+import * as React from 'react';
+
+export class $1 extends React.PureComponent {
+	render() {
+    return ($2);
+	}
+}
+endsnippet
+
+snippet rh "Typescript React Function Component"
+import React from 'react';
+
+interface ${TM_FILENAME_BASE}Props {
+  $1
+}
+
+export const $TM_FILENAME_BASE: React.FC<${TM_FILENAME_BASE}Props> = ({$2}) => {
+return ($3);
+}
+endsnippet
+
+snippet rnss "React Native StyleSheet"
+import {StyleSheet} from 'react-native';
+
+const styles = StyleSheet.create({
+
+});
+endsnippet
+
+snippet tog "Toggle State"
+     ["this.setState(state => ({", "\topen: !state.open", "}));"]
+endsnippet
+
+snippet cl  "console.log"
+    "body": ["console.log($1)"],
+    "description": "console.log"
+  },
+  "className={classnames()}": {
+
+endsnippet
+
+snippet cc "tailwind react stuff"
+body": ["className={classnames('$1')}"],
+  },
+endsnippet
+
+snippet apq "Apollo Query Component"
+    "body": [
+      "interface Props {",
+      "  children: (data: QueryResult<$1, OperationVariables>) => JSX.Element;",
+      "}",
+      "",
+      "export class $2 extends React.PureComponent<Props> {",
+      "  render() {",
+      "    return (",
+      "     <Query<$1> query={$3}>{x => this.props.children(x)}</Query>",
+      "    );",
+      "  }",
+      "}"
+    ],
+    "description": "Apollo Query Component"
+  }
+}
+
+endsnippet

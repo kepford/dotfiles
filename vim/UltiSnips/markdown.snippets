@@ -1,0 +1,18 @@
+snippet wlt "Worklog tempalte"
+# Work log ${1:`date +%Y-%m-%d`}
+
+## General
+
+${2:`gcalcli --nocolor agenda --nodeclined --no-military --default-calendar=bkepford@redhat.com | sed -n '1,/^$/p'`}
+
+$3
+
+## Projects
+
+### WSA
+
+## DHDC
+
+## CE / TIL
+endsnippet
+
