@@ -51,7 +51,7 @@
   lolm = log --author="kepford" --decorate --pretty=oneline --abbrev-commit
   ls = ls-files
   # Copies today's commits by me on a branch.
-  mc = "!git log --since=6am --author="kepford" --decorate --abbrev-commit | grep -vwE \"(Author:|Date:)\" | pbcopy | pbpaste | cat"
+  today = "!git log --since=6am --author="kepford" --decorate --abbrev-commit | grep -vwE \"(Author:|Date:)\" | pbcopy | pbpaste | cat"
   sa = stash apply
   sl = stash list
   ss = stash save
