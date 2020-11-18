@@ -1,11 +1,25 @@
-snippet wlt "Worklog tempalte"
+global !p
+def fraction(a, b):
+    try:
+        return "%.1f" % (float(a)/float(b))
+    except (ValueError, ZeroDivisionError):
+        return "ERR"
+endglobal
+
+snippet 75wrds "Log a 750words.com session" b
+750words.com: ${1:750} words in ${2:20} minutes - `!p
+snip.rv = fraction(t[1], t[2])
+` wpm.
+endsnippet
+
+snippet wlt "Worklog template"
 # Work log ${1:`date +%Y-%m-%d`}
 
 ## General
 
-${2:`gcalcli --nocolor agenda --nodeclined --no-military --default-calendar=bkepford@redhat.com | sed -n '1,/^$/p'`}
-
-$3
+$2
+${3:`gcalcli --nocolor agenda --nodeclined --no-military --default-calendar=bkepford@redhat.com | sed -n '1,/^$/p'`}
+${4:`!!echo %`}
 
 ## Projects
 
@@ -16,3 +30,8 @@ $3
 ## CE / TIL
 endsnippet
 
+snippet fn "File name"
+
+`!p snip.rv = snip.basename`
+
+endsnippet
