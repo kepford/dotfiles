@@ -110,10 +110,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'reedes/vim-pencil'
 
 " " PHP and Drupal
-" Plug ('vim-vdebug/vdebug')
-" Plug ('shawncplus/phpcomplete.vim')
-" Plug ('https://git.drupalcode.org/project/vimrc.git', { 'name': 'drupalvim', 'branch': '8.x-1.x', 'subdir': 'bundle/vim-plugin-for-drupal' })
-
+Plug ('vim-vdebug/vdebug')
+Plug ('shawncplus/phpcomplete.vim')
 Plug 'https://git.drupalcode.org/project/vimrc.git', { 'branch': '8.x-1.x', 'rtp': 'bundle/vim-plugin-for-drupal' }
 
 

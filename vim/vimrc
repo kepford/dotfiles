@@ -280,8 +280,10 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
-\   'typescript': ['prettier', 'eslint'],
-\   'php': ['php_cs_fixer']
+\   'typescript': ['prettier', 'tslint'],
+\   'php': ['php_cs_fixer'],
+\   'scss': ['prettier'],
+\   'html': ['prettier'],
 \}
 
 " let g:ale_linter_aliases = {'jsx': 'css'}
@@ -310,8 +312,8 @@ nnoremap gp :silent %!prettier --stdin --trailing-comma all --single-quote<CR>
 " - https://github.com/Valloric/YouCompleteMe
 " - https://github.com/nvim-lua/completion-nvim
 let g:UltiSnipsExpandTrigger="<c-J>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
