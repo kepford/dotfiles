@@ -7,11 +7,10 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Include packages.
-" source ~/.vim/packages.vim
-
 " Include Plugins.
-source ~/.vim/plugins.vim
+if filereadable(expand("~/.vim/plugins.vim"))
+  source ~/.vim/plugins.vim
+endif
 
 """""""""""""""""""""""""""""""""""""""
 " Remapping
@@ -297,6 +296,16 @@ let g:ale_javascript_prettier_use_local_config = 1
 
 " Running Prettier manually.
 nnoremap gp :silent %!prettier --stdin --trailing-comma all --single-quote<CR>
+
+""""""""""""""""""""""""""""""""""""""""
+" Easyclip
+""""""""""""""""""""""""""""""""""""""""
+" Remap the cut command from m to x since m is important for marks.
+let g:EasyClipUseCutDefaults = 0
+
+nmap x <Plug>MoveMotionPlug
+xmap x <Plug>MoveMotionXPlug
+nmap xx <Plug>MoveMotionLinePlug
 
 """"""""""""""""""""""""""""""""""""""""
 " Snipmate
@@ -738,8 +747,14 @@ if filereadable($LOCALFILE)
     source $LOCALFILE
 endif
 
+if filereadable(expand("~/.vim/functions.vim"))
+  source ~/.vim/functions.vim
+endif
+
 " Include abbreviations
-source ~/.vim/abbreviations.vim
+if filereadable(expand("~/.vim/abbreviations.vim"))
+  source ~/.vim/abbreviations.vim
+endif
 
 " Use fzf in Vim!
 set rtp+=/usr/local/opt/fzf
