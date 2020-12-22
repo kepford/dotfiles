@@ -167,7 +167,7 @@ alias eg='vim .git/config'
 alias egg='vim ~/.gitconfig'
 
 # Lists all merged branches and deletes the local branchs
-alias gclean="git branch --merged | grep -v -i -E 'master|develop' | xargs -n 1 git branch -d"
+alias gclean="git branch --merged | grep -v -i -E 'master|main|develop' | xargs -n 1 git branch -d"
 
 function glg() {
   git log --author="$1" --decorate

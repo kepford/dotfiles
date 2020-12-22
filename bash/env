@@ -11,7 +11,7 @@ export GOPATH=~/golang
 export PATH=$PATH:$GOPATH/bin
 
 # Bash completion.
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 # S completion.
 if [ -f $GOPATH/src/github.com/zquestz/s/autocomplete/s-completion.bash ]; then
@@ -39,7 +39,6 @@ export XDEBUG_CONFIG="idekey=PHPSTORM"
 PATH="$PATH:$HOME/.composer/vendor/bin"
 
 # Git completion
-source ~/git-completion.bash
 source ~/git-flow-completion.bash
 
 # Terminus completion
