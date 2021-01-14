@@ -162,6 +162,8 @@ set smartcase                         " But case-sensitive if expression contain
 set wrap                              " Turn on line wrapping.
 set title                             " Set the terminal's title
 set noswapfile                        " Don't create swap files.
+set nrformats+=alpha
+set nrformats-=octal
 
 if exists('$SUDO_USER')
   set nobackup                        " Don't create root-owned files.
@@ -418,6 +420,9 @@ let g:airline_symbols.whitespace = 'ξ'
 " check spelling in git
 autocmd FileType gitcommit setlocal spell
 autocmd FileType gitcommit set textwidth=72
+
+" Used by CursorHold autocommand and specifically for gitgutter.
+set updatetime=1000
 
 """""""""""""""""""""""""""""""""""""""
 " Tmux
