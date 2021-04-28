@@ -2,3 +2,5 @@ serverless
 taskbook
 tern
 tldr
+prettier
+@prettier/plugin-php

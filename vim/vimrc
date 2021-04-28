@@ -95,6 +95,18 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 " open ag.vim
 nnoremap <leader>a :Ag
 
+" Open URL under cursor for MacOS.
+function! OpenURLUnderCursor()
+  let s:uri = expand('<cWORD>')
+  let s:uri = substitute(s:uri, '?', '\\?', '')
+  let s:uri = shellescape(s:uri, 1)
+  if s:uri != ''
+    silent exec "!open '".s:uri."'"
+    :redraw!
+  endif
+endfunction
+nnoremap gx :call OpenURLUnderCursor()<CR>
+
 """""""""""""""""""""""""""""""""""""""
 " General settings
 """""""""""""""""""""""""""""""""""""""
@@ -266,10 +278,18 @@ autocmd FileType netrw setl bufhidden=delete
 nnoremap <leader>d :Lexplore<cr>
 let g:netrw_winsize=20
 
+" Titlecase plugin
+let g:titlecase_map_keys = 0
+nmap <leader>gt <Plug>Titlecase
+vmap <leader>gt <Plug>Titlecase
+nmap <leader>gT <Plug>TitlecaseLine
+
 """""""""""""""""""""""""""""""""""""""
 " ALE
 """""""""""""""""""""""""""""""""""""""
 let g:ale_php_phpcs_standard="Drupal"
+let g:ale_php_phpcs_executable='~/.composer/vendor/bin/phpcs'
+let g:ale_php_php_cs_fixer_executable = '~/.composer/vendor/bin/phpcbf'
 let g:ale_linters = {
 \   'php': ['php', 'phpcs'],
 \   'javascript': ['eslint'],
@@ -280,8 +300,10 @@ let g:ale_linters = {
 \}
 
 let g:ale_fixers = {
+\   'css': ['prettier'],
 \   'javascript': ['prettier', 'eslint'],
 \   'typescript': ['prettier', 'tslint'],
+\   'typescriptreact': ['prettier', 'tslint'],
 \   'php': ['php_cs_fixer'],
 \   'scss': ['prettier'],
 \   'html': ['prettier'],

@@ -21,6 +21,7 @@ brew cask install google-drive
 brew cask install hammerspoon
 brew cask install imagealpha
 brew cask install imageoptim
+brew cask install insomnia
 brew cask install iterm2
 brew cask install ithoughtsx
 brew cask install hazel
