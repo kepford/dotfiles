@@ -1,7 +1,7 @@
 # Cask
 
 brew cask install alfred
-# brew cask install arq
+brew cask install alacritty
 brew cask install audio-hijack
 brew cask install bartender
 brew cask install bettertouchtool
