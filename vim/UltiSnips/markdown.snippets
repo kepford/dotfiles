@@ -35,3 +35,8 @@ snippet fn "File name"
 `!p snip.rv = snip.basename`
 
 endsnippet
+
+# [Markdown link Snippets](https://francopasut.netlify.app/post/vim_markdown_snippet_url/)
+snippet ml "Markdown link"
+[${1:${VISUAL}}](${2:`!v getreg("+")`})
+endsnippet
