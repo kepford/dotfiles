@@ -68,6 +68,7 @@ Plug 'tpope/vim-surround' " surround text with things
 Plug 'tpope/vim-dispatch' " Run commands in the background.
 Plug 'tpope/vim-speeddating' " use CTRL-A/CTRL-X to increment dates, times, and more.
 Plug 'tpope/vim-rsi' " Readline style insertion.
+Plug 'tpope/vim-scriptease' " A bunch of improvements for writing plugins and other things.
 Plug 'benmills/vimux'
 Plug 'rizzatti/dash.vim' "Dash.app support
 Plug 'szw/vim-g' "Google from vim by selecting a word
