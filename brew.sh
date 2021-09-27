@@ -68,6 +68,7 @@ brew install peco
 brew install php
 brew install python
 brew install pv
+brew install ranger
 brew install readline
 brew install reattach-to-user-namespace
 brew install rename
