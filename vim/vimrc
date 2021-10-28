@@ -1,12 +1,5 @@
 filetype plugin indent on
 
-" Install plug if not installed.
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
 " Include Plugins.
 if filereadable(expand("~/.vim/plugins.vim"))
   source ~/.vim/plugins.vim
@@ -249,7 +242,14 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 set autoindent
 set smartindent
-set clipboard=unnamed
+
+if system('uname -s') == "Darwin\n"
+  "MacOS
+  set clipboard=unnamed
+else
+  "Linux
+  set clipboard=unnamedplus
+endif
 
 set complete+=kspell
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\

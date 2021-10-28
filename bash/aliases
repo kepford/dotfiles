@@ -1,6 +1,8 @@
 # Command Enhancements 2010-09-28-1248
 
-# alias vim="nvim"
+if [ $(uname) == "Linux" ]; then
+  alias vim="gvim -v"
+fi
 
 # Utility
 alias reload='source $HOME/bin/dotfiles/bash/aliases'
@@ -57,7 +59,14 @@ function dash () {
 
 #Bret Terpstra
 #copy the working directory path
-alias cpwd='pwd|tr -d "\n"|pbcopy'
+
+if [ $(uname) == "Darwin" ]; then
+  alias cpwd='pwd|tr -d "\n"|pbcopy'
+fi
+
+if [ $(uname) == "Linux" ]; then
+  alias cpwd='pwd|tr -d "\n"|xclip -sel c'
+fi
 
 # Make file executable.
 alias ax='chmod +x'
@@ -140,7 +149,14 @@ alias gba='git branch -a'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gf='git fetch'
-alias gcb="git branch | grep '^\*' | cut -d' ' -f2 | pbcopy"
+
+if [ $(uname) == "Darwin" ]; then
+  alias gcb="git branch | grep '^\*' | cut -d' ' -f2 | pbcopy"
+fi
+
+if [ $(uname) == "Linux" ]; then
+  alias gcb="git branch | grep '^\*' | cut -d' ' -f2 | xclip -sel c"
+fi
 
 # Commit pending changes and quote all args as message
 function gg() {

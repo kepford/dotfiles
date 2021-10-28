@@ -17,6 +17,7 @@ ln -s ~/bin/dotfiles/git/git-flow-completion.bash ~/git-flow-completion.bash
 ln -s  ~/bin/dotfiles/vim/gvimrc ~/.gvimrc
 ln -s ~/bin/dotfiles/vim ~/.vim
 ln -s ~/bin/dotfiles/vim/vimrc ~/.vimrc
+
 #Tmux
 # Symlink the following files/directories to the dotfiles directory.
 
@@ -28,11 +29,16 @@ ln -s ~/bin/dotfiles/tmux/tmux.conf ~/.tmux.conf
 ln -s ~/bin/dotfiles/drupal_console ~/.console
 
 # Karabiner
-
-ln -s ~/bin/dotfiles/karabiner ~/.config/karabiner
+if [[ $OSTYPE == 'darwin'* ]]; then
+	ln -s ~/bin/dotfiles/karabiner ~/.config/karabiner
+fi
 
 # Hammerspoon
+if [[ $OSTYPE == 'darwin'* ]]; then
+	ln -s ~/bin/dotfiles/hammerspoon ~/.hammerspoon
+fi
 
-ln -s ~/bin/dotfiles/hammerspoon ~/.hammerspoon
+# Alacritty
+ln -s ~/bin/dotfiles/alacritty ~/.config/alacritty
 
 echo "Finished symlinkng for dotfiles"
