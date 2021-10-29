@@ -38,6 +38,12 @@ sudo systemctl enable powertop
 sudo dnf install tlp tlp-rdw
 sudo systemctl enable tlp
 
+# My coding fonts
+sudo dnf install fira-code-fonts
+
+# Required for YouCompleteMe Vim plugin.
+sudo dnf install cmake gcc-c++ make python3-devel
+
 # sudo vim /etc/tlp.conf
 # Add this config
 # PCIE_ASPM_ON_BAT=powersupersave
