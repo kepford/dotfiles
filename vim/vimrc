@@ -536,9 +536,6 @@ endfunc
 """""""""""""""""""""""""""""""""""""""
 
 set cursorline " Highlight current line.
-" set cursorcolumn " Highlight current column, this can be a performance issue in large files.
-" highlight linenr term=bold cterm=none ctermfg=darkgrey ctermbg=none gui=none guifg=darkgrey
-
 highlight Comment cterm=italic gui=italic
 set textwidth=80                      " Set width to 80 characters as this is a good default and is also the Drupal coding standard.
 
