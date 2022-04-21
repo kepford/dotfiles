@@ -38,7 +38,7 @@ alias desktophide='defaults write com.apple.finder CreateDesktop false; killall 
 alias desktopshow='defaults write com.apple.finder CreateDesktop true; killall Finder'
 
 # Show disk space.
-alias du='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
+# alias du='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
 
 alias help='tldr'
 

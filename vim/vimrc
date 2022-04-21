@@ -290,6 +290,7 @@ nmap <leader>gT <Plug>TitlecaseLine
 let g:ale_php_phpcs_standard="Drupal"
 let g:ale_php_phpcs_executable='~/.composer/vendor/bin/phpcs'
 let g:ale_php_php_cs_fixer_executable = '~/.composer/vendor/bin/phpcbf'
+" let g:ale_html_tidy_executable = '/usr/bin/tidy'
 let g:ale_linters = {
 \   'php': ['php', 'phpcs'],
 \   'javascript': ['eslint'],
@@ -306,7 +307,7 @@ let g:ale_fixers = {
 \   'typescriptreact': ['prettier', 'tslint'],
 \   'php': ['php_cs_fixer'],
 \   'scss': ['prettier'],
-\   'html': ['prettier'],
+\   'html': ['tidy', 'prettier'],
 \}
 
 " let g:ale_linter_aliases = {'jsx': 'css'}
@@ -566,7 +567,10 @@ command! -nargs=* Wrap set wrap linebreak nolist
 """""""""""""""""""""""""""""""""""""""
 au FileType Markdown set textwidth=0                  " Don't set text width in markdown files.
 let g:table_mode_corner=" "
-let g:marked_app = "marked 2"
+
+if system('uname -s') == "Darwin\n"
+  let g:marked_app = "marked 2"
+endif
 autocmd bufnewfile,bufreadpost *.md set filetype=markdown
 autocmd filetype markdown call Setmarkdownoptions()
 function! Setmarkdownoptions()
