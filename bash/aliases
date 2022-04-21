@@ -171,7 +171,6 @@ function gdx() {
   git diff $1 $2 | gitx
 }
 alias gl='git pull'
-# https://github.com/chrisk/git-extras
 alias gnp="git-notpushed"
 alias gp='git push'
 alias g='git status'
@@ -518,8 +517,29 @@ vagrant() {
 }
 
 # Docker
-alias startdocker='open --hide --background -a Docker && sleep 10'
-alias quitdocker="osascript -e 'quit app \"Docker\"'"
+#
+
+if [ $(uname) == "Darwin" ]; then
+  alias startdocker='open --hide --background -a Docker && sleep 10'
+  alias quitdocker="osascript -e 'quit app \"Docker\"'"
+fi
+
+if [ $(uname) == "Linux" ]; then
+  alias startdocker='sudo systemctl start docker'
+  alias stopdocker='sudo systemctl stop docker'
+fi
+
+# Tail last 50 lines of docker logs
+alias dtail='docker logs -tf --tail='50' '
+
+# Shorthand, customise docker-compose.yaml location as needed
+alias dcp='docker-compose -f ~/docker-compose.yaml '
+
+# Remove unused images (useful after an upgrade)
+alias dprune='docker image prune'
+
+# Remove unused images, unused networks *and data* (use with care)
+alias dprunesys='docker system prune --all'
 
 # Open Jira ticket
 jira() {

@@ -100,11 +100,14 @@ Plug 'styled-components/vim-styled-components' " Support for styled components.
 " GraphQL
 Plug 'jparise/vim-graphql'
 
-" " Markdown
+" Markdown
+if system('uname -s') == "Darwin\n"
+  Plug 'itspriddle/vim-marked'
+endif
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-markdown'
 Plug 'nelstrom/vim-markdown-folding'
-Plug 'itspriddle/vim-marked'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'davidoc/taskpaper.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'junegunn/goyo.vim'
