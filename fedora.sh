@@ -3,6 +3,10 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
 #Scale the text size up by 75%
 gsettings set org.gnome.desktop.interface text-scaling-factor 1.75
 
+# Disable Bluetooth power on boot.
+# sudo vim /etc/tlp.conf
+# DEVICES_TO_DISABLE_ON_STARTUP="bluetooth"
+
 # flatpak install flathub org.signal.Signal
 # Build from source: https://zngguvnf.org/2018-02-25--building-signal-from-source.html
 sudo dnf install libXScrnSaver
@@ -53,8 +57,38 @@ sudo dnf install igt-gpu-tools
 # Ensure that intel_gpu_top is showing GPU usage when watching video on browser.
 # Firefox 92 → about:config → layers.acceleration.force-enabled
 
+# HTML Tidy
+sudo dnf install tidy
+
 sudo dnf install php
 sudo dnf install composer
+# Install coder for phpcs
+composer global require drupal/coder
+composer global require drupal/coder dealerdirect/phpcodesniffer-composer-installer
+phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer
+
+# ALE CONFIG
+#  Current Filetype: php.drupal
+# Available Linters: ['intelephense', 'langserver', 'phan', 'php', 'phpcs', 'phpmd', 'phpstan', 'psalm', 'tlint']
+#   Enabled Linters: ['php', 'phpcs']
+#   Ignored Linters: []
+#  Suggested Fixers:
+#   'php_cs_fixer' - Fix PHP files with php-cs-fixer.
+#   'phpcbf' - Fix PHP files with phpcbf.
+#   'remove_trailing_lines' - Remove all blank lines at the end of a file.
+#   'trim_whitespace' - Remove all trailing whitespace characters at the end of every line.
+#  Linter Variables:
+#
+# let g:ale_php_cs_fixer_executable = 'php-cs-fixer'
+# let g:ale_php_cs_fixer_options = ''
+# let g:ale_php_cs_fixer_use_global = 0
+# let g:ale_php_php_cs_fixer_executable = '~/.composer/vendor/bin/phpcbf'
+# let g:ale_php_php_executable = 'php'
+# let g:ale_php_phpcs_executable = '~/.composer/vendor/bin/phpcs'
+# let g:ale_php_phpcs_options = ''
+# let g:ale_php_phpcs_standard = 'Drupal'
+# let g:ale_php_phpcs_use_global = 0
+
 sudo dnf install the_silver_searcher
 
 # Clipboard support for Tmux and Vim
@@ -73,11 +107,6 @@ sudo dnf install gvim
 sudo dnf install fzf
 
 # git clone https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator.git /usr/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com
-
-# Not sure I need this
-sudo dnf install git-extras
-
-# brew install bash
 
 sudo dnf install bash-completion
 sudo dnf install bat
@@ -110,3 +139,4 @@ sudo dnf install tig
 sudo dnf install tmux
 sudo dnf install tree
 sudo dnf install youtube-dl
+sudo dnf install wireguard-tools
