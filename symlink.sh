@@ -38,7 +38,4 @@ if [[ $OSTYPE == 'darwin'* ]]; then
 	ln -s ~/bin/dotfiles/hammerspoon ~/.hammerspoon
 fi
 
-# Alacritty
-ln -s ~/bin/dotfiles/alacritty ~/.config/alacritty
-
 echo "Finished symlinkng for dotfiles"

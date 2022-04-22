@@ -1,3 +1,6 @@
+####################
+# DO NOT RUN AS SUDO
+####################
 
 # sudo nano /etc/dnf/dnf.conf
 # fastestmirror=True
@@ -18,15 +21,22 @@ sudo dnf install \
   https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 
 # Installing plugins for playing movies and music
-# https://docs.fedoraproject.org/en-US/quick-docs/assembly_installing-plugins-for-playing-movies-and-music/ 
+# https://docs.fedoraproject.org/en-US/quick-docs/assembly_installing-plugins-for-playing-movies-and-music/
 
 sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel -y
 sudo dnf install lame\* --exclude=lame-devel -y
 sudo dnf group upgrade --with-optional Multimedia -y
 
+# Vim: YouCompleteMe plugin requirements
+sudo dnf install cmake gcc-c++ make python3-devel -y
+
 # install vim
 sudo dnf install vim -y
 sudo dnf install neofetch -y
+
+# Install Alacritty
+sudo dnf install cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel g++
+sudo dnf install alacritty
 
 # Maps capslock to escape
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
@@ -62,7 +72,7 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
 # Settings in Firefox: https://extensions.gnome.org/local/
 
 # Syncthing #
-dnf install syncthing -
+sudo dnf install syncthing -y
 
 # Start and enable on boot.
 systemctl --user enable syncthing.service
@@ -93,12 +103,16 @@ sudo dnf install igt-gpu-tools -y
 
 sudo dnf install tidy -y
 sudo dnf install php  -y
-sudo dnf install composer -y
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40b5f787e49f22d4c2f19492ac310e8cba5b96ac8b64115ac402c8cd292b8a03482574915d1a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
 
 # Install coder for phpcs
 composer global require drupal/coder
 composer global require drupal/coder dealerdirect/phpcodesniffer-composer-installer
 phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer
+sudo mv composer.phar ~/.local/bin/composer
 
 # ALE CONFIG
 #  Current Filetype: php.drupal
