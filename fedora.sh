@@ -170,6 +170,8 @@ sudo dnf install ffmpeg -y
 # Download and install https://github.com/rgerganov/footswitch
 # brew install hidapi
 
+sudo dnf install krb5-workstation -y
+
 sudo dnf install htop -y
 sudo dnf install jq -y
 sudo dnf install mosh -y
@@ -184,3 +186,36 @@ sudo dnf install tmux -y
 sudo dnf install tree -y
 sudo dnf install youtube-dl -y
 sudo dnf install wireguard-tools -y
+sudo dnf install vlc -y
+
+# Install Flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+# Install Flatpaks
+flatpak install flathub rest.insomnia.Insomnia -y
+sudo flatpak override rest.insomnia.Insomnia --filesystem=home
+flatpak install flathub org.signal.Signal
+
+## Espanso text expansion ##
+# Create the $HOME/opt destination folder
+# mkdir -p ~/opt
+# # Download the AppImage inside it
+# wget -O ~/opt/Espanso.AppImage 'https://github.com/federico-terzi/espanso/releases/download/v2.1.5-beta/Espanso-X11.AppImage'
+# # Make it executable
+# chmod u+x ~/opt/Espanso.AppImage
+# # Create the "espanso" command alias
+# sudo ~/opt/Espanso.AppImage env-path register
+
+# Compile
+# https://espanso.org/docs/install/linux/#wayland-compile
+# Install Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Install development tools
+sudo dnf install @development-tools gcc-c++ wl-clipboard libxkbcommon-devel dbus-devel wxGTK3-devel
+cargo install --force cargo-make --version 0.34.0
+cd ~/bin
+git clone https://github.com/federico-terzi/espanso
+cd espanso
+cargo make --profile release --env NO_X11=true build-binary
+sudo mv target/release/espanso /usr/local/bin/espanso
