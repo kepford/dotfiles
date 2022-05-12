@@ -41,6 +41,10 @@ PATH="$PATH:$HOME/.composer/vendor/bin"
 # Git completion
 source ~/git-flow-completion.bash
 
+# Diff-so-fancy
+DSFPATH=~/bin/diff-so-fancy
+export PATH=$PATH:$DSFPATH
+
 # Terminus completion
 source ~/bin/dotfiles/terminus/terminus-completion.bash
 
@@ -59,3 +63,25 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   USER_BASE_PATH=$(python -m site --user-base)
   export PATH=$PATH:$USER_BASE_PATH/bin
 fi
+
+
+# Run 'nvm use' automatically every time there's
+# a .nvmrc file in the directory. Also, revert to default
+# version when entering a directory without .nvmrc
+#
+enter_directory() {
+if [[ $PWD == $PREV_PWD ]]; then
+    return
+fi
+
+PREV_PWD=$PWD
+if [[ -f ".nvmrc" ]]; then
+    nvm use
+    NVM_DIRTY=true
+elif [[ $NVM_DIRTY = true ]]; then
+    nvm use default
+    NVM_DIRTY=false
+fi
+}
+
+export PROMPT_COMMAND=enter_directory

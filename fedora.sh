@@ -4,28 +4,51 @@
 
 # sudo nano /etc/dnf/dnf.conf
 # fastestmirror=True
-# max_parallel_downloads=10
+# max_parallel_downloads=5
 # defaultyes=True
+# keepcache=True
 
 # run updates `sudo dnf update`
+sudo dnf update -y
 
 # Enabling the RPM Fusion repositories
-# https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/
+# https://rpmfusion.org/Configuration
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E fedora).noarch.rpm -y
+sudo dnf groupupdate core -y
 
-# Enables free repository
-sudo dnf install \
-  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm -y
+# Install Media Codecs
+sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y
+sudo dnf groupupdate sound-and-video -y
 
-# Enables non-free repository
-sudo dnf install \
-  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
-
+# Deprecated
 # Installing plugins for playing movies and music
 # https://docs.fedoraproject.org/en-US/quick-docs/assembly_installing-plugins-for-playing-movies-and-music/
 
-sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel -y
-sudo dnf install lame\* --exclude=lame-devel -y
-sudo dnf group upgrade --with-optional Multimedia -y
+# sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel -y
+# sudo dnf install lame\* --exclude=lame-devel -y
+# sudo dnf group upgrade --with-optional Multimedia -y
+
+# Flatpak https://flatpak.org/setup/Fedora
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+sudo hostnamectl set-hostname "Fedora_RH" -y
+
+# Install Gnome apps
+sudo dnf install gnome-tweaks -y
+
+# Add min/max/close buttons to right top of windows
+gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
+
+# Maps capslock to escape
+gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
+
+# Scale the text size up by 75%
+# gsettings set org.gnome.desktop.interface text-scaling-factor 1.25
+gsettings set org.gnome.desktop.interface text-scaling-factor 1.25
+
+# Disable Bluetooth power on boot.
+# sudo vim /etc/tlp.conf
+# DEVICES_TO_DISABLE_ON_STARTUP="bluetooth"
 
 # Vim: YouCompleteMe plugin requirements
 sudo dnf install cmake gcc-c++ make python3-devel -y
@@ -38,15 +61,6 @@ sudo dnf install neofetch -y
 sudo dnf install cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel g++
 sudo dnf install alacritty
 
-# Maps capslock to escape
-gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
-
-# Scale the text size up by 75%
-# gsettings set org.gnome.desktop.interface text-scaling-factor 1.75
-
-# Disable Bluetooth power on boot.
-# sudo vim /etc/tlp.conf
-# DEVICES_TO_DISABLE_ON_STARTUP="bluetooth"
 
 # Signal
 # flatpak install flathub org.signal.Signal
@@ -188,8 +202,8 @@ sudo dnf install youtube-dl -y
 sudo dnf install wireguard-tools -y
 sudo dnf install vlc -y
 
-# Install Flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+# Install diff-so-fancy
+cd ~/bin && git clone https://github.com/so-fancy/diff-so-fancy.git
 
 # Install Flatpaks
 flatpak install flathub rest.insomnia.Insomnia -y
