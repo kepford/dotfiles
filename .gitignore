@@ -10,3 +10,4 @@ vim/pack
 vim/plugged
 vim/tmp/*
 tmux/resurrect
+node_modules

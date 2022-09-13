@@ -394,7 +394,7 @@ alias drupalcsp="phpcs --standard=DrupalPractice --extensions='php,module,inc,in
 alias drupalcsfix="phpcbf --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md,yml'"
 alias themes='cd ~/Dropbox/drupal/themes/' #goto the themes folder
 alias modules='cd ~/Dropbox/drupal/modules/' #goto the modules folder
-alias builds='cd ~/Dropbox/drupal/builds/' #goto the builds folder
+alias builds='cd ~/Code/builds/' #goto the builds folder
 alias profiles='cd ~/Dropbox/drupal/profiles/' #goto the profiles folder
 alias repos='cd ~/Dropbox/repos/' #goto the repos folder
 alias sites='cd ~/Sites' #goto the profiles folder
