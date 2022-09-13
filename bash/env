@@ -6,10 +6,6 @@ if [ $(uname) == "Darwin" ]; then
   . /usr/local/etc/profile.d/z.sh
 fi
 
-# Go lang
-export GOPATH=~/golang
-export PATH=$PATH:$GOPATH/bin
-
 # Bash completion.
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
@@ -40,6 +36,14 @@ PATH="$PATH:$HOME/.composer/vendor/bin"
 
 # Git completion
 source ~/git-flow-completion.bash
+
+# Go lang
+export GOPATH=~/golang
+export PATH=$PATH:$GOPATH/bin
+
+# Rust / Cargo
+export CARGOPATH=~/.cargo
+export PATH=$PATH:$CARGOPATH/bin
 
 # Diff-so-fancy
 DSFPATH=~/bin/diff-so-fancy

@@ -192,7 +192,7 @@ sudo dnf install mosh -y
 sudo dnf install neovim -y
 sudo dnf install nmap -y
 sudo dnf install pv -y
-sudo dnf install ranger -y
+sudo dnf install nnn -y
 sudo dnf install readline -y
 sudo dnf install sshuttle -y
 sudo dnf install tig -y
