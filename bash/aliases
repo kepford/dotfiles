@@ -434,18 +434,25 @@ lips() {
     printf '%11s: %s\n%11s: %s\n' "Local IP" $locip "External IP" $extip
 }
 
-alias flush="dscacheutil -flushcache" # Flush DNS cache
-alias dns="networksetup -getdnsservers Wi-Fi" # See current nameservers.
-alias dnsclear="networksetup -setdnsservers Wi-Fi" # Clears out the custom DNS nameservers.
-alias dnslocal="sudo networksetup -setdnsservers Wi-Fi 10.10.10.21"
-alias dnsgoogle="sudo networksetup -setdnsservers Wi-Fi 8.8.8.8 8.8.4.4"
-alias dnscloud="sudo networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001"
-alias dnsopen="sudo networksetup -setdnsservers Wi-Fi 208.67.222.222 208.67.220.220"
-alias dnsunlocator="sudo networksetup -setdnsservers Wi-Fi 185.37.37.37 185.37.39.39"
-alias dnsadfree="sudo networksetup -setdnsservers Wi-Fi 192.169.71.180 192.254.74.201 208.110.81.51"
+// MacOS
+if [ $(uname) == "Darwin" ]; then
+  alias flush="dscacheutil -flushcache" # Flush DNS cache
+  alias dns="networksetup -getdnsservers Wi-Fi" # See current nameservers.
+  alias dnsclear="networksetup -setdnsservers Wi-Fi" # Clears out the custom DNS nameservers.
+  alias dnslocal="sudo networksetup -setdnsservers Wi-Fi 10.10.10.21"
+  alias dnsgoogle="sudo networksetup -setdnsservers Wi-Fi 8.8.8.8 8.8.4.4"
+  alias dnscloud="sudo networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001"
+  alias dnsopen="sudo networksetup -setdnsservers Wi-Fi 208.67.222.222 208.67.220.220"
+  alias dnsunlocator="sudo networksetup -setdnsservers Wi-Fi 185.37.37.37 185.37.39.39"
+  alias dnsadfree="sudo networksetup -setdnsservers Wi-Fi 192.169.71.180 192.254.74.201 208.110.81.51"
 # 178.32.187.10
 # 88.150.150.211
 # 78.46.231.161
+fi
+if [ $(uname) == "Linux" ]; then
+  alias flush="resolvectl flush-caches" # Flush DNS cache
+fi
+
 
 alias dnscloud="sudo networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1"
 alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip'
