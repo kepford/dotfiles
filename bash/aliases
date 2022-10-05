@@ -434,7 +434,7 @@ lips() {
     printf '%11s: %s\n%11s: %s\n' "Local IP" $locip "External IP" $extip
 }
 
-// MacOS
+# MacOS
 if [ $(uname) == "Darwin" ]; then
   alias flush="dscacheutil -flushcache" # Flush DNS cache
   alias dns="networksetup -getdnsservers Wi-Fi" # See current nameservers.
