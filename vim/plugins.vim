@@ -55,10 +55,7 @@ Plug 'honza/vim-snippets' " Snippets for snipmate
 
 " Color Schemes
 Plug 'lifepillar/vim-solarized8' " My current colorscheme.
-" Plug 'kepford/cobalt2.vim', {'as': 'cobalt2'} " My verion of the Wes Bos clone of Cobalt2.
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
-Plug 'j-tom/vim-old-hope' " Vim port of old hope theme.
-Plug 'herrbischoff/cobalt2.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Misc
@@ -107,7 +104,7 @@ endif
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-markdown'
 Plug 'nelstrom/vim-markdown-folding'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'davidoc/taskpaper.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'junegunn/goyo.vim'
