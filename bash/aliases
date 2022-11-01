@@ -57,6 +57,12 @@ function dash () {
   open dash://$1
 }
 
+# Make cp more informative by default.
+alias cp='cp -iv'
+#
+# Ask about deleting a file and make rm more informative by default.
+alias rm='rm -iv'
+
 #Bret Terpstra
 #copy the working directory path
 
