@@ -16,11 +16,9 @@ snippet wlt "Worklog template"
 # Work log ${1:`date +%Y-%m-%d`}
 
 ## General
-
 $2
-${3:`gcalcli --nocolor agenda 7am 5pm --nodeclined --no-military --calendar=bkepford@redhat.com | sed -n '1,/^$/p'`}
+${3:`gcalcli --nocolor agenda 7am 5pm --nodeclined --no-military --calendar=bkepford@redhat.com | sed '/^$/d' | cut -c 13- | sed 's/^/* /'`}
 ${4:`!!echo %`}
-
 ## Projects
 
 ### Sentry
