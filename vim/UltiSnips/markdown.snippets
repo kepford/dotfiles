@@ -18,14 +18,16 @@ snippet wlt "Worklog template"
 ## General
 
 $2
-${3:`gcalcli --nocolor agenda --nodeclined --no-military --default-calendar=bkepford@redhat.com | sed -n '1,/^$/p'`}
+${3:`gcalcli --nocolor agenda 7am 5pm --nodeclined --no-military --calendar=bkepford@redhat.com | sed -n '1,/^$/p'`}
 ${4:`!!echo %`}
 
 ## Projects
 
-### WSA
+### Sentry
 
-## DHDC
+### RHPT
+
+## RHDC
 
 ## CE / TIL
 endsnippet
