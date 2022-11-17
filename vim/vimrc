@@ -94,7 +94,11 @@ function! OpenURLUnderCursor()
   let s:uri = substitute(s:uri, '?', '\\?', '')
   let s:uri = shellescape(s:uri, 1)
   if s:uri != ''
+if system('uname -s') == "Darwin\n"
     silent exec "!open '".s:uri."'"
+else
+    silent exec "!firefox '".s:uri."'"
+endif
     :redraw!
   endif
 endfunction
