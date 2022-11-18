@@ -171,9 +171,20 @@ sudo dnf install fzf -y
 
 sudo dnf install bash-completion -y
 sudo dnf install bat -y
+sudo dnf install lynx -y
+sudo dnf install atool -y
+sudo dnf install mediainfo -y
+sudo dnf install ffmpegthumbnailer -y
 sudo dnf install cmake -y
+sudo dnf install odt2txt -y
+sudo dnf install pdftoppm -y
+sudo dnf install zathura -y
+sudo dnf install mpv -y
 sudo dnf install ctags -y
 sudo dnf install ffmpeg -y
+sudo dnf install sxiv -y
+sudo dnf install libreoffice -y
+sudo dnf install mpd -y
 # sudo dnf install flex -y
 # sudo dnf install fontconfig -y
 # sudo dnf install freetype -y
@@ -183,6 +194,13 @@ sudo dnf install ffmpeg -y
 # Added for my footswitch.
 # Download and install https://github.com/rgerganov/footswitch
 # brew install hidapi
+#
+#
+#Virtualization https://docs.fedoraproject.org/en-US/quick-docs/getting-started-with-virtualization/
+sudo dnf install @virtualization
+sudo dnf group install --with-optional virtualization
+sudo systemctl start libvirtd
+sudo systemctl enable libvirtd
 
 sudo dnf install krb5-workstation -y
 
@@ -233,3 +251,12 @@ git clone https://github.com/federico-terzi/espanso
 cd espanso
 cargo make --profile release --env NO_X11=true build-binary
 sudo mv target/release/espanso /usr/local/bin/espanso
+
+# DWM
+# sudo dnf module enable dwm:latest
+# sudo dnf module install dwm
+# Log out and back in
+# sudo dnf install dwm-user
+# Replaces Ranger
+# sudo dnf copr enable pennbauman/ports
+# sudo dnf install lf

@@ -1,6 +1,8 @@
 # Set PATH, CDPATH, EDITOR, etc.
 export EDITOR="vim"
 
+set -o vi
+
 # Z
 if [ $(uname) == "Darwin" ]; then
   . /usr/local/etc/profile.d/z.sh

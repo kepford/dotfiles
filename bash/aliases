@@ -63,6 +63,8 @@ alias cp='cp -iv'
 # Ask about deleting a file and make rm more informative by default.
 alias rm='rm -iv'
 
+alias lf='lfub'
+
 #Bret Terpstra
 #copy the working directory path
 
