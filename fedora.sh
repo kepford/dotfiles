@@ -179,6 +179,7 @@ sudo dnf install cmake -y
 sudo dnf install odt2txt -y
 sudo dnf install pdftoppm -y
 sudo dnf install zathura -y
+sudo dnf install zathura-pdf-poppler -y
 sudo dnf install mpv -y
 sudo dnf install ctags -y
 sudo dnf install ffmpeg -y
