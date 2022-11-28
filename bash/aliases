@@ -321,10 +321,18 @@ function rmf(){
     done
 }
 
+if [ $(uname) == "Darwin" ]; then
+  TRASH_PATH='~/.Trash'
+fi
+
+if [ $(uname) == "Linux" ]; then
+  TRASH_PATH='/home/'$USER'/.local/share/Trash'
+fi
+
 function __rm_single_file(){
-    if ! [ -d ~/.Trash/ ]
+    if ! [ -d $TRASH_PATH/ ]
     then
-        command /bin/mkdir ~/.Trash
+        command /bin/mkdir $TRASH_PATH
     fi
 
     if ! [ $# -eq 1 ]
@@ -338,13 +346,13 @@ function __rm_single_file(){
         BASENAME=`basename $1`
         NAME=$BASENAME
         COUNT=0
-        while [ -e ~/.Trash/$NAME ]
+        while [ -e $TRASH_PATH/$NAME ]
         do
             COUNT=$(($COUNT+1))
             NAME="$BASENAME.$COUNT"
         done
 
-        command /bin/mv $1 ~/.Trash/$NAME
+        command /bin/mv $1 $TRASH_PATH/$NAME
     else
         echo "No such file or directory: $file"
     fi
