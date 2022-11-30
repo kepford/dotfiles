@@ -223,6 +223,11 @@ sudo dnf install wireguard-tools -y
 sudo dnf copr enable marcusmueller/sc-im
 sudo dnf --refresh install sc-im -y
 
+
+# Neomutt Wizard dep
+sudo dnf install isync msmtp pass -y
+sudo dnf install lynx notmuch abook urlview -y
+
 # Install diff-so-fancy
 cd ~/bin && git clone https://github.com/so-fancy/diff-so-fancy.git
 

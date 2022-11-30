@@ -439,6 +439,13 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'ξ'
 
 """""""""""""""""""""""""""""""""""""""
+" email
+"""""""""""""""""""""""""""""""""""""""
+
+" check spelling in NeoMutt
+autocmd FileType mail setlocal spell
+
+"""""""""""""""""""""""""""""""""""""""
 " git
 """""""""""""""""""""""""""""""""""""""
 
