@@ -219,7 +219,9 @@ sudo dnf install tmux -y
 sudo dnf install tree -y
 sudo dnf install youtube-dl -y
 sudo dnf install wireguard-tools -y
-sudo dnf install vlc -y
+
+sudo dnf copr enable marcusmueller/sc-im
+sudo dnf --refresh install sc-im -y
 
 # Install diff-so-fancy
 cd ~/bin && git clone https://github.com/so-fancy/diff-so-fancy.git
