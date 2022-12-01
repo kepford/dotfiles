@@ -84,7 +84,6 @@ Plug 'christoomey/vim-sort-motion' "Makes sort better
 Plug 'dkarter/bullets.vim' " Bullets.vim is a Vim/NeoVim plugin for automated bullet lists.
 Plug 'mhinz/vim-startify' "Start page for Vim
 Plug 'biosugar0/vim-popyank' "Yank popup window text.
-Plug 'neomutt/neomutt.vim'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
