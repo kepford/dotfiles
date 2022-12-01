@@ -11,7 +11,6 @@ alias ee="vim $HOME/bin/dotfiles/bash/env"
 alias et="vim $HOME/bin/dotfiles/tmux/tmux.conf"
 alias es="vim $HOME/.ssh/config"
 alias vrc='vim $HOME/vimrc'
-
 alias mutt="neomutt"
 
 
@@ -19,9 +18,26 @@ alias mutt="neomutt"
 # https://remysharp.com/2018/08/23/cli-improved
 # \cat # ignore aliases named "cat" - explanation: https://stackoverflow.com/a/16506263/22617
 # command cat # ignore functions and aliases
+alias yt="youtube-dl --add-metadata -ic" # Download video link
+alias yta="youtube-dl --add-metadata -xic" # Download only audio
 
+# MacOS Specific Commands.
 if [ $(uname) == "Darwin" ]; then
+  alias marked='open -a Marked'
+
+# command cat # ignore functions and aliases
   alias cat='bat'
+
+# Hide/Show desktop.
+  alias desktophide='defaults write com.apple.finder CreateDesktop false; killall Finder'
+  alias desktopshow='defaults write com.apple.finder CreateDesktop true; killall Finder'
+
+# Notify command
+  alias notify="osascript -e 'tell app \"System Events\" to display alert \"Shell task\" message \"Task completed\"'"
+
+  # Processes
+  alias topu='top -o cpu' # cpu
+  alias topp='top -o vsize' # memory
 fi
 
 alias preview="fzf --preview 'bat --color \"always\" {}'"
@@ -35,10 +51,6 @@ export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vim {})+abort'"
 # space - mark a single process so I can watch if the process is spiking
 alias top='htop'
 
-# Hide/Show desktop.
-alias desktophide='defaults write com.apple.finder CreateDesktop false; killall Finder'
-alias desktopshow='defaults write com.apple.finder CreateDesktop true; killall Finder'
-
 # Show disk space.
 # alias du='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
 
@@ -48,16 +60,8 @@ alias help='tldr'
 # TERM I use.
 alias ssh='TERM=xterm-256color ssh'
 
-# Notify command
-alias notify="osascript -e 'tell app \"System Events\" to display alert \"Shell task\" message \"Task completed\"'"
-
 # Global ag ignore.
 alias ag='ag --path-to-agignore=~/.agignore'
-
-#Dash
-function dash () {
-  open dash://$1
-}
 
 # Make cp more informative by default.
 alias cp='cp -iv'
@@ -69,7 +73,6 @@ alias lf='lfub'
 
 #Bret Terpstra
 #copy the working directory path
-
 if [ $(uname) == "Darwin" ]; then
   alias cpwd='pwd|tr -d "\n"|pbcopy'
 fi
@@ -80,16 +83,6 @@ fi
 
 # Make file executable.
 alias ax='chmod +x'
-
-# http://brettterpstra.com/2011/12/28/a-simple-but-handy-bash-function-console
-function console () {
-  if [[ $# > 0 ]]; then
-    query=$(echo "$*"|tr -s ' ' '|')
-    tail -f /var/log/system.log|grep -i --color=auto -E "$query"
-  else
-    tail -f /var/log/system.log
-  fi
-}
 
 # Common -- Some are from Damian Conway
 alias a='ls -A' # -A all except literal . ..
@@ -154,12 +147,6 @@ fi
 
 # General code
 
-# Processes
-
-if [ $(uname) == "Darwin" ]; then
-  alias topu='top -o cpu' # cpu
-  alias topp='top -o vsize' # memory
-fi
 
 # Git
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
@@ -481,8 +468,7 @@ alias ping="ping -c 5" # ping 5 times ‘by default’
 alias ql="qlmanage -p 2>/dev/null" # preview a file using QuickLook
 
 # Open Notational Velicity/Simplenote files in Vim
-alias notes='cd ~/Dropbox/Notational\ Data;preview'
-alias marked='open -a Marked'
+alias notes='cd ~/notes;vim .'
 
 # USB hardware
 alias usb='system_profiler SPUSBDataType'

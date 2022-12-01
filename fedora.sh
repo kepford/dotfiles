@@ -220,13 +220,17 @@ sudo dnf install tree -y
 sudo dnf install youtube-dl -y
 sudo dnf install wireguard-tools -y
 
-sudo dnf copr enable marcusmueller/sc-im
+sudo dnf copr enable marcusmueller/sc-im # CLI spreadsheet tool
 sudo dnf --refresh install sc-im -y
-
 
 # Neomutt Wizard dep
 sudo dnf install isync msmtp pass -y
 sudo dnf install lynx notmuch abook urlview -y
+
+# Set up cron
+sudo dnf install cronie -y
+sudo systemctl start crond.service
+sudo systemctl enable crond.service
 
 # Install diff-so-fancy
 cd ~/bin && git clone https://github.com/so-fancy/diff-so-fancy.git
