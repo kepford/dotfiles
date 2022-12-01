@@ -222,6 +222,20 @@ sudo dnf install wireguard-tools -y
 
 sudo dnf copr enable marcusmueller/sc-im # CLI spreadsheet tool
 sudo dnf --refresh install sc-im -y
+sudo dnf install calcurse -y # Calendar
+
+# tty-clock
+git clone https://github.com/xorg62/tty-clock
+cd tty-clock
+sudo dnf install ncurses ncurses-devel -y
+make
+chmod +x tty-clock
+sudo mv tty-clock /usr/local/bin/tty-clock
+# tty-clock -cbt
+
+# Weather
+# curl wttr.in/Caruthers?format=4
+# Caruthers: 🌦   🌡️+53°F 🌬️↖11mph
 
 # Neomutt Wizard dep
 sudo dnf install isync msmtp pass -y
