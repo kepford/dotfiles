@@ -705,6 +705,9 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " Omni completion for Javascript.
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
+" Format JSON
+nnoremap <Leader>j :%!python -m json.tool<CR>
+
 """""""""""""""""""""""""""""""""""""""
 " PHP
 """""""""""""""""""""""""""""""""""""""
