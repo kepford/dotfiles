@@ -1,5 +1,5 @@
 # Set PATH, CDPATH, EDITOR, etc.
-export EDITOR="vim"
+export EDITOR="gvim -v"
 
 set -o vi
 
