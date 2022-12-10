@@ -13,6 +13,7 @@ alias es="vim $HOME/.ssh/config"
 alias vrc='vim $HOME/vimrc'
 alias mutt="neomutt"
 
+alias clock='tty-clock -cbt'
 
 # Alternative cli tools:
 # https://remysharp.com/2018/08/23/cli-improved
