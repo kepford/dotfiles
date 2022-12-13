@@ -243,6 +243,8 @@ sudo dnf install neomutt -y
 sudo dnf install isync msmtp pass -y
 sudo dnf install lynx notmuch abook urlview -y
 
+sudo dnf install pass-otp # not required but useful
+
 # Set up cron
 sudo dnf install cronie -y
 sudo systemctl start crond.service
