@@ -224,6 +224,10 @@ sudo dnf copr enable marcusmueller/sc-im # CLI spreadsheet tool
 sudo dnf --refresh install sc-im -y
 sudo dnf install calcurse -y # Calendar
 
+# Remind
+# curl https://dianne.skoll.ca/projects/remind/download/remind-04.02.00.tar.gz -o remind-04.02.00.tar.gz
+# tar xfz remind-04.02.00.tar.gz && cd remind-04.02.00 && ./configure && make && make test && sudo make install
+
 # tty-clock
 git clone https://github.com/xorg62/tty-clock
 cd tty-clock
@@ -249,6 +253,11 @@ sudo dnf install pass-otp # not required but useful
 sudo dnf install cronie -y
 sudo systemctl start crond.service
 sudo systemctl enable crond.service
+
+## Librewolf
+sudo rpm --import https://keys.openpgp.org/vks/v1/by-fingerprint/034F7776EF5E0C613D2F7934D29FBD5F93C0CFC3
+sudo dnf config-manager --add-repo https://rpm.librewolf.net
+sudo dnf install --refresh librewolf -y
 
 # Install diff-so-fancy
 cd ~/bin && git clone https://github.com/so-fancy/diff-so-fancy.git
@@ -287,6 +296,6 @@ sudo mv target/release/espanso /usr/local/bin/espanso
 # sudo dnf module install dwm
 # Log out and back in
 # sudo dnf install dwm-user
-# Replaces Ranger
-# sudo dnf copr enable pennbauman/ports
-# sudo dnf install lf
+# File brower that replaces Ranger
+sudo dnf copr enable pennbauman/ports
+sudo dnf install lf
