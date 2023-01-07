@@ -1,5 +1,6 @@
 # Set PATH, CDPATH, EDITOR, etc.
 export EDITOR="gvim -v"
+export BROWSER="/usr/bin/librewolf"
 
 set -o vi
 
