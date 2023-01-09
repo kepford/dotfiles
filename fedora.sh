@@ -246,8 +246,9 @@ sudo dnf copr enable flatcap/neomutt -y
 sudo dnf install neomutt -y
 sudo dnf install isync msmtp pass -y
 sudo dnf install lynx notmuch abook urlview -y
-
 sudo dnf install pass-otp # not required but useful
+
+sudo dnf install newsboat -y
 
 # Set up cron
 sudo dnf install cronie -y
