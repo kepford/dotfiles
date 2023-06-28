@@ -1,5 +1,5 @@
 [core]
-  editor = vim
+  editor = nvim
 	excludesfile = ~/.gitignore
 	quotepath = false
 [pager]
@@ -75,7 +75,7 @@
 	templatedir = ~/.git_template
 	defaultBranch = main
 [merge]
-	tool = vimdiff
+	tool = nvimdiff
 [mergetool]
 	prompt = false
 	keepBackup = true

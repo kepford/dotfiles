@@ -176,7 +176,7 @@ if exists('$SUDO_USER')
   set nobackup                        " Don't create root-owned files.
   set nowritebackup                   " Don't create root-owned files.
 else
-  set backupdir=$HOME/local/.vim/tmp/backup
+  set backupdir=$HOME/.local/.vim/tmp/backup
   set backupdir+=$HOME/.vim/tmp/backup    " Keep backup files out of the way.
   set backupdir+=.
 endif
