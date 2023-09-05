@@ -725,6 +725,13 @@ autocmd FileType php noremap <Leader>cu :call PhpInsertUse()<CR>
 " Adds custom PHP tag surround with `-` in PHP files.
 autocmd FileType php let b:surround_45 = "<?php \r ?>"
 
+
+"""""""""""""""""""""""""""""""""""""""
+" YAML
+"""""""""""""""""""""""""""""""""""""""
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
 """""""""""""""""""""""""""""""""""""""
 " Drupal
 """""""""""""""""""""""""""""""""""""""
