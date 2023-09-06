@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Hi Colson, lets download a YT video as a MP3 file."
+echo "Starting to download file from YouTube. YOUR WELCOME"
+echo "Dad"
+yt-dlp -x --audio-format mp3 $1

@@ -268,6 +268,17 @@ command! -nargs=* -bar -bang -count=0 -complete=dir E Explore <args>
 let g:netrw_liststyle=3     " tree view
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+
+" Fixes issue where you can't move files back to their previous dir.
+" let g:netrw_keepdir = 0
+
+" Change the copy command. Mostly to enable recursive copy of directories.
+" https://vonheikemen.github.io/devlog/tools/using-netrw-vim-builtin-file-explorer/
+" let g:netrw_localcopydircmd = 'cp -r'
+"Keep the current directory and the browsing directory synced. This helps you avoid the move files error.
+" let g:netrw_keepdir = 0
+" let g:netrw_winsize = 30
+
 " let g:netrw_browse_split=4 " Open file in previous buffer
 
 " Allow netrw to remove non-empty local directories
@@ -276,9 +287,99 @@ let g:netrw_localrmdir='rm -rf'
 " Resolve hidden buffers preventing quiting of Vim.
 autocmd FileType netrw setl bufhidden=delete
 
-" map leader+d to toggle Netrw
-nnoremap <leader>d :Lexplore<cr>
-let g:netrw_winsize=20
+" map leader+dd to toggle Netrw in dir of current file
+" nnoremap <leader>dd :Lexplore %:p:h<CR>
+" nnoremap <Leader>da :Lexplore<CR>
+
+hi! link netrwMarkFile Search
+
+" Remove files in non-empty directories.
+" function! NetrwRemoveRecursive()
+"   if &filetype ==# 'netrw'
+"     cnoremap <buffer> <CR> rm -r<CR>
+"     normal mu
+"     normal mf
+
+"     try
+"       normal mx
+"     catch
+"       echo "Canceled"
+"     endtry
+
+"     cunmap <buffer> <CR>
+"   endif
+" endfunction
+
+augroup netrw_mapping
+  autocmd!
+  autocmd filetype netrw call NetrwMapping()
+augroup END
+
+function! NetrwMapping()
+  " H: Will "go back" in history.
+  nmap <buffer> H u
+  " h: Will "go up" a directory.
+  nmap <buffer> h -^
+  " l: Will open a directory or a file.
+  nmap <buffer> l <CR>
+
+  " .: Will toggle the dotfiles.
+  nmap <buffer> . gh
+  " P: Will close the preview window.
+  nmap <buffer> P <C-w>z
+  " L: Will open a file and close Netrw.
+  nmap <buffer> L <CR>:Lexplore<CR>
+  " Leader dd: Will just close Netrw.
+  nmap <buffer> <Leader>dd :Lexplore<CR>
+
+
+  """"""""""""""""""
+  " Marks
+  """"""""""""""""""
+  " Tab: Toggles the mark on a file or directory.
+  nmap <buffer> <TAB> mf
+  " Shift Tab: Will unmark all the files in the current buffer.
+  nmap <buffer> <S-TAB> mF
+  " Leader Tab: Will remove all the marks on all files.
+  nmap <buffer> <Leader><TAB> mu
+
+  """"""""""""""""""
+  " File management
+  """"""""""""""""""
+  " ff: Will create a file. But like create it for real. This time, after doing % we use :w<CR> to save the empty file and :buffer #<CR> to go back to Netrw.
+  nmap <buffer> ff %:w<CR>:buffer #<CR>
+  "  fe: Will rename a file.
+  nmap <buffer> fe R
+  "  fc: Will copy the marked files.
+  nmap <buffer> fc mc
+  "  fC: We will use this to "skip" a step. After you mark your files you can put the cursor in a directory and this will assign the target directory and copy in one step.
+  nmap <buffer> fC mtmc
+  "  fx: Will move marked files.
+  nmap <buffer> fx mm
+  "  fX: Same thing as fC but for moving files.
+  nmap <buffer> fX mtmm
+  "  f;: Will be for running external commands on the marked files.
+  nmap <buffer> f; mx
+  " Show a list of marked files.
+  nmap <buffer> fl :echo join(netrw#Expose("netrwmarkfilelist"), "\n")<CR>
+  " Show the target directory, just in case we want to avoid the banner.
+  nmap <buffer> fq :echo 'Target:' . netrw#Expose("netrwmftgt")<CR>
+  " Now we can use that along side mt.
+  nmap <buffer> fd mtfq
+
+  """"""""""""""""""
+  "Bookmarks
+  """"""""""""""""""
+  "  bb: To create a bookmark.
+  nmap <buffer> bb mb
+  "  bd: To remove the most recent bookmark.
+  nmap <buffer> bd mB
+  "  bl: To jump to the most recent bookmark.
+  nmap <buffer> bl gb
+
+  " nmap <buffer> FF :call NetrwRemoveRecursive()<CR>
+
+endfunction
 
 " Titlecase plugin
 let g:titlecase_map_keys = 0
