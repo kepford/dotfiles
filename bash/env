@@ -71,6 +71,9 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   export PATH=$PATH:$USER_BASE_PATH/bin
 fi
 
+# Zoxide
+eval "$(zoxide init bash)"
+
 
 # Run 'nvm use' automatically every time there's
 # a .nvmrc file in the directory. Also, revert to default

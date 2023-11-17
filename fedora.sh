@@ -264,8 +264,6 @@ sudo dnf install --refresh librewolf -y
 cd ~/bin && git clone https://github.com/so-fancy/diff-so-fancy.git
 
 # Install Flatpaks
-flatpak install flathub rest.insomnia.Insomnia -y
-sudo flatpak override rest.insomnia.Insomnia --filesystem=home
 flatpak install flathub org.signal.Signal
 
 ## Espanso text expansion ##
