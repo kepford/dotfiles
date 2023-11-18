@@ -57,6 +57,9 @@ sudo dnf install cmake gcc-c++ make python3-devel -y
 sudo dnf install vim -y
 sudo dnf install neofetch -y
 
+# install keychain
+sudo dnf install keychain -y
+
 # Install Alacritty
 sudo dnf install cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel g++
 sudo dnf install alacritty
