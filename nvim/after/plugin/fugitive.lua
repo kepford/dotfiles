@@ -1,4 +1,5 @@
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+vim.keymap.set("n", "<leader>gc", vim.cmd.Git)
 
 local Kepford_Fugitive = vim.api.nvim_create_augroup("Kepford_Fugitive", {})
 
