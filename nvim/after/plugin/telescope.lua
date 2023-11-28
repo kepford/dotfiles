@@ -1,6 +1,15 @@
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+
+-- Fuzzy find files
+vim.keymap.set('n', '<leader>o', builtin.find_files, {})
+
+-- Fuzzy find git files
+vim.keymap.set('n', '<leader>g', builtin.git_files, {})
+
+-- Fuzzy find buffers
+vim.keymap.set('n', '<leader>b', builtin.buffers, {})
+
+-- Search with grep
 vim.keymap.set('n', '<leader>ps', function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end)

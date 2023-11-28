@@ -30,7 +30,22 @@ return require('packer').startup(function(use)
   use("theprimeagen/refactoring.nvim")
   use("mbbill/undotree")
   use("tpope/vim-fugitive")
+  use('airblade/vim-gitgutter') -- shows a git diff in the gutter
   use("nvim-treesitter/nvim-treesitter-context");
+  use('tpope/vim-commentary') -- comment/uncomment lines with gcc or gc in visual mode
+  -- use('jiangmiao/auto-pairs') -- Insert or delete brackets, parens, quotes in pair.
+
+  -- Tmux
+  use('christoomey/vim-tmux-navigator'); -- "https://robots.thoughtbot.com/seamlessly-navigate-vim-and-tmux-splits
+
+  -- Markdown
+  use('polm/github-tasks.vim'); -- "This plugin adds support for Github tasks, letting you turn normal markdown list entries into tasks and toggle them done or not done.
+  use('dkarter/bullets.vim');  -- Bullets.vim is a Vim/NeoVim plugin for automated bullet lists.
+  -- Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+  use('tpope/vim-repeat'); -- Required by easyclip
+  use('tpope/vim-unimpaired');
+  use('tpope/vim-surround'); -- surround text with things
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',

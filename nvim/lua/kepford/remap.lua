@@ -24,20 +24,42 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set({'n', 'v'}, '<leader>y', [["+y]])
+vim.keymap.set('n', '<leader>Y', [["+Y]])
 
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({'n', 'v'}, '<leader>d', [["_d]])
 
 -- This is going to get me cancelled
-vim.keymap.set("i", "<C-c>", "<Esc>")
+vim.keymap.set('i', '<C-c>', '<Esc>')
 
-vim.keymap.set("n", "Q", "<nop>")
+-- Disable Q
+vim.keymap.set('n', "Q", "<nop>")
+
+-- Disable arrow keys.
+vim.keymap.set('n', '<Up>', '<nop>')
+vim.keymap.set('n', '<Down>', '<nop>')
+vim.keymap.set('n', '<Left>', '<nop>')
+vim.keymap.set('n', '<Right>', '<nop>')
+
+-- Make arrowkey resize viewports
+-- To resize the split by 1 use Left,Right,Up,Down
+
+vim.keymap.set('n', '<Left>', ':vertical resize +1<CR>')
+vim.keymap.set('n', '<Right>', ':vertical resize -1<CR>')
+vim.keymap.set("n", '<Up>', ':resize +1<CR>')
+vim.keymap.set("n", "<Down>", ':resize -1<CR>')
 
 -- Copy current buffer file name and full path to system clipboard.
 -- nnoremap <Leader>pp :let @+ = expand("%:p")<CR>
--- vim.keymap.set("n", "<Leader>pp", vim.cmd.let @+ = expand("%:p"))
+vim.keymap.set('n', '<Leader>pp', 'vim.cmd.let @+ = expand("%:p")')
 --
+--
+-- " <Leader>p -- Show the path of the current file (mnemonic: path; useful when
+-- " you have a lot of splits and the status line gets truncated).
+-- nnoremap <Leader>p :echo expand('%')<CR>
+-- 
+-- " Copy current buffer file name and full path to system clipboard.
+-- nnoremap <Leader>pp :let @+ = expand("%:p")<CR>
 --
 --
 --
