@@ -35,6 +35,11 @@ vim.keymap.set('i', '<C-c>', '<Esc>')
 -- Disable Q
 vim.keymap.set('n', "Q", "<nop>")
 
+-- Source file with leader leader.
+vim.keymap.set("n", "<leader><leader>", function()
+    vim.cmd("so")
+end)
+
 -- Disable arrow keys.
 vim.keymap.set('n', '<Up>', '<nop>')
 vim.keymap.set('n', '<Down>', '<nop>')

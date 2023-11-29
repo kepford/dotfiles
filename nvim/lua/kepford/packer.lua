@@ -46,6 +46,7 @@ return require('packer').startup(function(use)
   use('tpope/vim-repeat'); -- Required by easyclip
   use('tpope/vim-unimpaired');
   use('tpope/vim-surround'); -- surround text with things
+  use('pbrisbin/vim-mkdir'); -- Automatically create any non-existent directories before writing the buffer
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',
