@@ -65,56 +65,10 @@ vim.keymap.set('n', '<Leader>pp', 'vim.cmd.let @+ = expand("%:p")')
 -- 
 -- " Copy current buffer file name and full path to system clipboard.
 -- nnoremap <Leader>pp :let @+ = expand("%:p")<CR>
+
+vim.keymap.set("n", "<leader>c", "<cmd>:r !gcalcli --nocolor agenda 7am 5pm --nodeclined --no-military --calendar=bkepford@redhat.com | sed '/^$/d' | cut -c 13- | sed 's/^/* /'<CR>");
+
+
+-- :r !gcalcli --nocolor agenda 7am 5pm --nodeclined --no-military --calendar=bkepford@redhat.com | sed '/^$/d' | cut -c 13- | sed 's/^/* /'<CR>
 --
---
---
---
---
---
---
---
---
---
---
--- vim
---
---
---
---
---
---
---
--- vim
---
---
---
---
---
---
---
---
---
---
---
---
---
---
---
---
---
---
---
---
--- vim
---
---
---
---
---
---
---
---
---
---
---
--- 
+
