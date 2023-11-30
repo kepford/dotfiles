@@ -32,7 +32,8 @@ ls.add_snippets(nil, {
       ""}), text({"",
       "## General"}), text({"",
       ""}), text({"",
-      ""}), func(agenda, {}), text({"",
+      ""}), insert(0), text({"",
+ --   ""}), func(agenda, {}), text({"",
       ""}), text({"",
       "## Projects"}), text({"",
       ""}), text({"",
@@ -47,7 +48,6 @@ ls.add_snippets(nil, {
       "### Sentry"}), text({"",
       ""}), text({"",
       "## CE / TIL", ""}),
-      insert(0)
     }),
     snip({
       trig = "meta",
