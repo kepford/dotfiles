@@ -1,5 +1,4 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "-", vim.cmd.Ex)
 vim.keymap.set("n", "<Leader>q", vim.cmd.quit)
 
 -- Save files faster
@@ -67,7 +66,6 @@ vim.keymap.set('n', '<Leader>pp', 'vim.cmd.let @+ = expand("%:p")')
 -- nnoremap <Leader>pp :let @+ = expand("%:p")<CR>
 
 vim.keymap.set("n", "<leader>c", "<cmd>:r !gcalcli --nocolor agenda 7am 5pm --nodeclined --no-military --calendar=bkepford@redhat.com | sed '/^$/d' | cut -c 13- | sed 's/^/* /'<CR>");
-
 
 -- :r !gcalcli --nocolor agenda 7am 5pm --nodeclined --no-military --calendar=bkepford@redhat.com | sed '/^$/d' | cut -c 13- | sed 's/^/* /'<CR>
 --

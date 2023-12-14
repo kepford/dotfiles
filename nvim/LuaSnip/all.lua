@@ -9,9 +9,14 @@ local choice = ls.choice_node
 local dynamicn = ls.dynamic_node
 
 local date = function() return {os.date('%Y-%m-%d')} end
-local agenda = function() return {vim.cmd(":r ! gcalcli --nocolor agenda 7am 5pm --nodeclined --no-military --calendar=bkepford@redhat.com | sed '/^$/d' | cut -c 13- | sed 's/^/* /'")} end
-
--- ${3:`gcalcli --nocolor agenda 7am 5pm --nodeclined --no-military --calendar=bkepford@redhat.com | sed '/^$/d' | cut -c 13- | sed 's/^/* /'`}
+-- local agenda = function() return {vim.cmd(":r ! gcalcli --nocolor agenda 7am 5pm --nodeclined --no-military --calendar=bkepford@redhat.com | sed '/^$/d' | cut -c 13- | sed 's/^/* /'")} end
+-- :lua print(vim.inspect(vim.fn.system("gcalcli --nocolor agenda 7am 5pm --nodeclined --no-military --calendar=bkepford@redhat.com | sed '/^$/d' | cut -c 13- | sed 's/^/* /'")))
+-- `:lua print(vim.inspect(vim.fn.system("uname")))`
+-- Outputs `"Linux\n"`
+-- `"* 7:30am             Office Hours: My Trials Presentation Prep\n* 11:00am            [Online] Shared Products - Stand-up\n"`
+-- local agenda = function()
+--   return { vim.fn.trim(vim.fn.system("uname")) }
+-- end
 
 ls.add_snippets(nil, {
   all = {
@@ -32,8 +37,10 @@ ls.add_snippets(nil, {
       ""}), text({"",
       "## General"}), text({"",
       ""}), text({"",
+   -- ""}), insert(0), text({"",
       ""}), insert(0), text({"",
- --   ""}), func(agenda, {}), text({"",
+   -- insert output of gcalcli
+      -- ""}), func(agenda, {}), text({"",
       ""}), text({"",
       "## Projects"}), text({"",
       ""}), text({"",
