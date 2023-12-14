@@ -436,13 +436,6 @@ xmap x <Plug>MoveMotionXPlug
 nmap xx <Plug>MoveMotionLinePlug
 
 """"""""""""""""""""""""""""""""""""""""
-" Snipmate
-""""""""""""""""""""""""""""""""""""""""
-"to prevent clash with tab completion, change snippet trigger
-" imap <C-J> <esc>a<Plug>snipMateNextOrTrigger
-" smap <C-J> <Plug>snipMateNextOrTrigger
-
-""""""""""""""""""""""""""""""""""""""""
 " Utilisnips
 """"""""""""""""""""""""""""""""""""""""
 " Trigger configuration. You need to change this to something other than <tab> if you use one of the following:

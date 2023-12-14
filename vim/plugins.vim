@@ -67,8 +67,6 @@ Plug 'tpope/vim-speeddating' " use CTRL-A/CTRL-X to increment dates, times, and 
 Plug 'tpope/vim-rsi' " Readline style insertion.
 Plug 'tpope/vim-scriptease' " A bunch of improvements for writing plugins and other things.
 Plug 'benmills/vimux'
-Plug 'rizzatti/dash.vim' "Dash.app support
-Plug 'szw/vim-g' "Google from vim by selecting a word
 Plug 'sjl/gundo.vim' " Visualize your Vim undo tree.
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'

@@ -29,11 +29,23 @@ return require('packer').startup(function(use)
   use("theprimeagen/harpoon")
   use("theprimeagen/refactoring.nvim")
   use("mbbill/undotree")
-  use("tpope/vim-fugitive")
+  use('tpope/vim-fugitive')
   use('airblade/vim-gitgutter') -- shows a git diff in the gutter
-  use("nvim-treesitter/nvim-treesitter-context");
+  use('nvim-treesitter/nvim-treesitter-context')
   use('tpope/vim-commentary') -- comment/uncomment lines with gcc or gc in visual mode
-  -- use('jiangmiao/auto-pairs') -- Insert or delete brackets, parens, quotes in pair.
+  -- Consider removing
+  use('tpope/vim-rsi') -- Readline style insertion.
+  -- Improvements to netrw. Use it for - open on current file
+  use('tpope/vim-vinegar') 
+  use('tpope/vim-eunuch') -- Vim sugar for UNIX shell commands that need it the most.
+  use('wincent/loupe') -- " Enhances search in Vim.
+  -- End consider removing
+
+  use('machakann/vim-highlightedyank') -- Make the yanked region apparent
+  use {
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  }
 
   -- Tmux
   use('christoomey/vim-tmux-navigator'); -- "https://robots.thoughtbot.com/seamlessly-navigate-vim-and-tmux-splits

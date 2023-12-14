@@ -1,4 +1,5 @@
-vim.opt.guicursor = ""
+-- Change cursor based on mode
+vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
