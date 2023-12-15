@@ -42,3 +42,6 @@ vim.opt.smartcase = true
 
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
+
+-- Should use in Markdown files
+-- set complete+=kspell
