@@ -1,3 +1,4 @@
+-- set leader key to space
 vim.g.mapleader = " "
 vim.keymap.set("n", "<Leader>q", vim.cmd.quit)
 

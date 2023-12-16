@@ -1,3 +1,6 @@
+require("kepford.core.keymaps")
+require("kepford.core.options")
+
 vim.g.netrw_liststyle = 3
 -- Disable Netrw banner
 vim.g.netrw_banner = 0
