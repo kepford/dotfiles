@@ -13,5 +13,6 @@ return {
   "tpope/vim-repeat",
   "pbrisbin/vim-mkdir",
   "machakann/vim-highlightedyank",
-  'airblade/vim-gitgutter'
+  'airblade/vim-gitgutter',
+  'dkarter/bullets.vim' -- Bullets.vim is a Vim/NeoVim plugin for automated bullet lists.
 }
