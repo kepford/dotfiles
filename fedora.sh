@@ -3,10 +3,10 @@
 ####################
 
 # sudo nano /etc/dnf/dnf.conf
-# fastestmirror=True
-# max_parallel_downloads=5
-# defaultyes=True
-# keepcache=True
+sudo /bin/sh -c 'echo fastestmirror=True >> /etc/dnf/dnf.conf'
+sudo /bin/sh -c 'echo max_parallel_downloads=5 >> /etc/dnf/dnf.conf'
+sudo /bin/sh -c 'echo defaultyes=True >> /etc/dnf/dnf.conf'
+sudo /bin/sh -c 'echo keepcache=True >> /etc/dnf/dnf.conf'
 
 # run updates `sudo dnf update`
 sudo dnf update -y
@@ -31,10 +31,11 @@ sudo dnf groupupdate sound-and-video -y
 # Flatpak https://flatpak.org/setup/Fedora
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-sudo hostnamectl set-hostname "Fedora_RH" -y
+# sudo hostnamectl set-hostname "Fedora_RH" -y
 
 # Install Gnome apps
-sudo dnf install gnome-tweaks -y
+# Deprecated
+# sudo dnf install gnome-tweaks -y
 
 # Add min/max/close buttons to right top of windows
 gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
@@ -44,11 +45,11 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
 
 # Scale the text size up by 75%
 # gsettings set org.gnome.desktop.interface text-scaling-factor 1.25
-gsettings set org.gnome.desktop.interface text-scaling-factor 1.25
+gsettings set org.gnome.desktop.interface text-scaling-factor 1.5
 
 # Disable Bluetooth power on boot.
-# sudo vim /etc/tlp.conf
-# DEVICES_TO_DISABLE_ON_STARTUP="bluetooth"
+sudo /bin/sh -c "sed -i '/\[Policy\]/a AutoEnable=false' /etc/bluetooth/main.conf"
+
 
 # Vim: YouCompleteMe plugin requirements
 sudo dnf install cmake gcc-c++ make python3-devel -y
@@ -61,29 +62,8 @@ sudo dnf install neofetch -y
 sudo dnf install keychain -y
 
 # Install Alacritty
-sudo dnf install cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel g++
-sudo dnf install alacritty
-
-
-# Signal
-# flatpak install flathub org.signal.Signal
-
-# Build from source: https://zngguvnf.org/2018-02-25--building-signal-from-source.html
-# sudo dnf install libXScrnSaver
-# sudo dnf install gcc-c++
-# sudo dnf install git-lfs
-# git clone https://github.com/signalapp/Signal-Desktop.git ~/Applications/Signal-Desktop
-# cd Signal-Desktop
-# git checkout tags/v5.21.0
-# npm install yarn
-# yarn install
-# yarn generate
-# yarn build-release
-# # Start Signal
-# ./release/linux-unpacked/signal-desktop
-# sudo ln -s ~/Applications/Signal-Desktop/release/linux-unpacked/signal-desktop /usr/local/bin/signal-desktop
-# sudo mkdir /usr/local/share/icons/
-# sudo cp ~/Applications/Signal-Desktop/images/icon_250.png /usr/local/share/icons/signal.png
+sudo dnf install cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel g++ -y
+sudo dnf install alacritty -y
 
 # sudo dnf install gnome-tweak-tool
 # Settings in Firefox: https://extensions.gnome.org/local/
@@ -111,7 +91,8 @@ systemctl --user start syncthing.service
 sudo dnf install fira-code-fonts -y
 
 # Required for YouCompleteMe Vim plugin.
-sudo dnf install cmake gcc-c++ make python3-devel -y
+# Depreciated
+# sudo dnf install cmake gcc-c++ make python3-devel -y
 
 # GPU rendering with Firefox
 sudo dnf install igt-gpu-tools -y
@@ -119,7 +100,7 @@ sudo dnf install igt-gpu-tools -y
 # Firefox 92 → about:config → layers.acceleration.force-enabled
 
 sudo dnf install tidy -y
-sudo dnf install php  -y
+sudo dnf install php php-process -y
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40b5f787e49f22d4c2f19492ac310e8cba5b96ac8b64115ac402c8cd292b8a03482574915d1a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 php composer-setup.php
@@ -153,7 +134,8 @@ sudo mv composer.phar ~/.local/bin/composer
 # let g:ale_php_phpcs_standard = 'Drupal'
 # let g:ale_php_phpcs_use_global = 0
 
-sudo dnf install the_silver_searcher -y
+# Depreciated
+# sudo dnf install the_silver_searcher -y
 
 # Clipboard support for Tmux and Vim
 dnf install xclip -y # Need to run `hostname | xclip -sel c`
@@ -167,7 +149,6 @@ dnf install xclip -y # Need to run `hostname | xclip -sel c`
 # chmod +x install_ddev.sh
 # ./install_ddev.sh
 
-sudo dnf install gvim -y
 sudo dnf install fzf -y
 
 # git clone https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator.git /usr/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com
@@ -201,8 +182,8 @@ sudo dnf install mpd -y
 #
 #
 #Virtualization https://docs.fedoraproject.org/en-US/quick-docs/getting-started-with-virtualization/
-sudo dnf install @virtualization
-sudo dnf group install --with-optional virtualization
+sudo dnf install @virtualization -y
+sudo dnf group install --with-optional virtualization -y
 sudo systemctl start libvirtd
 sudo systemctl enable libvirtd
 
@@ -220,11 +201,12 @@ sudo dnf install sshuttle -y
 sudo dnf install tig -y
 sudo dnf install tmux -y
 sudo dnf install tree -y
-sudo dnf install youtube-dl -y
+# Depreciated
+# sudo dnf install youtube-dl -y
 sudo dnf install wireguard-tools -y
 
-sudo dnf copr enable marcusmueller/sc-im # CLI spreadsheet tool
-sudo dnf --refresh install sc-im -y
+# sudo dnf copr enable marcusmueller/sc-im # CLI spreadsheet tool
+# sudo dnf --refresh install sc-im -y
 sudo dnf install calcurse -y # Calendar
 
 # Remind
@@ -249,8 +231,10 @@ sudo dnf copr enable flatcap/neomutt -y
 sudo dnf install neomutt -y
 sudo dnf install isync msmtp pass -y
 sudo dnf install lynx notmuch abook urlview -y
-sudo dnf install pass-otp # not required but useful
+sudo dnf install pass-otp -y # not required but useful
+sudo dnf install gvim -y
 
+# RSS Reader
 sudo dnf install newsboat -y
 
 # Set up cron
@@ -259,45 +243,33 @@ sudo systemctl start crond.service
 sudo systemctl enable crond.service
 
 ## Librewolf
-sudo rpm --import https://keys.openpgp.org/vks/v1/by-fingerprint/034F7776EF5E0C613D2F7934D29FBD5F93C0CFC3
-sudo dnf config-manager --add-repo https://rpm.librewolf.net
-sudo dnf install --refresh librewolf -y
+# Depreciated
+# sudo rpm --import https://keys.openpgp.org/vks/v1/by-fingerprint/034F7776EF5E0C613D2F7934D29FBD5F93C0CFC3
+# sudo dnf config-manager --add-repo https://rpm.librewolf.net
+# sudo dnf install --refresh librewolf -y
 
 # Install diff-so-fancy
 cd ~/bin && git clone https://github.com/so-fancy/diff-so-fancy.git
 
 # Install Flatpaks
-flatpak install flathub org.signal.Signal
-
-## Espanso text expansion ##
-# Create the $HOME/opt destination folder
-# mkdir -p ~/opt
-# # Download the AppImage inside it
-# wget -O ~/opt/Espanso.AppImage 'https://github.com/federico-terzi/espanso/releases/download/v2.1.5-beta/Espanso-X11.AppImage'
-# # Make it executable
-# chmod u+x ~/opt/Espanso.AppImage
-# # Create the "espanso" command alias
-# sudo ~/opt/Espanso.AppImage env-path register
-
-# Compile
-# https://espanso.org/docs/install/linux/#wayland-compile
-# Install Rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-# Install development tools
-sudo dnf install @development-tools gcc-c++ wl-clipboard libxkbcommon-devel dbus-devel wxGTK3-devel
-cargo install --force cargo-make --version 0.34.0
-cd ~/bin
-git clone https://github.com/federico-terzi/espanso
-cd espanso
-cargo make --profile release --env NO_X11=true build-binary
-sudo mv target/release/espanso /usr/local/bin/espanso
+flatpak install flathub org.signal.Signal -y
+flatpak install flathub com.bitwarden.desktop -y
 
 # DWM
 # sudo dnf module enable dwm:latest
 # sudo dnf module install dwm
 # Log out and back in
 # sudo dnf install dwm-user
-# File brower that replaces Ranger
-sudo dnf copr enable pennbauman/ports
-sudo dnf install lf
+
+
+# LF File 
+sudo dnf copr enable pennbauman/ports -y
+sudo dnf install lf -y
+
+# Tailscale
+sudo dnf config-manager --add-repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo -y
+sudo dnf install tailscale -y
+
+sudo systemctl enable --now tailscaled
+sudo tailscale up
+tailscale ip -4
