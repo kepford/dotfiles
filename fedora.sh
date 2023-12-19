@@ -160,12 +160,22 @@ dnf install xclip -y # Need to run `hostname | xclip -sel c`
 
 # Docker #
 # https://docs.docker.com/engine/install/fedora/
+sudo dnf -y install dnf-plugins-core
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# Run docker as norm user
+sudo groupadd docker
+sudo usermod -aG docker $USER
 
 # Ddev #
-# sudo apt install build-essential apt-transport-https ca-certificates software-properties-common curl
-# curl -O https://raw.githubusercontent.com/drud/ddev/master/scripts/install_ddev.sh
-# chmod +x install_ddev.sh
-# ./install_ddev.sh
+echo '[ddev]
+name=DDEV Repo
+baseurl=https://pkg.ddev.com/yum/
+enabled=1
+gpgcheck=0' | sudo tee -a /etc/yum.repos.d/ddev.repo
+
+sudo dnf install --refresh ddev
 
 sudo dnf install gvim -y
 sudo dnf install fzf -y
