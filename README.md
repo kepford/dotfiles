@@ -94,6 +94,8 @@ Install Tmux plugin manager (tpm)
 
 `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 
+* If you are in Tmux exit and kill the server.
+* Launch Tmux
 * Press `prefix + I` (capital i, as in Install) to fetch the plugins.
 * `prefix + U` updates plugins
 
@@ -107,7 +109,8 @@ ln -s ~/bin/dotfiles/drupal_console ~/.console
 
 **Node**
 
-[Install nvm](https://github.com/nvm-sh/nvm)
+* [Install nvm](https://github.com/nvm-sh/nvm)
+* Install node and nvm
 
 **PHP**
 
