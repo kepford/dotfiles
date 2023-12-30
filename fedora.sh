@@ -50,6 +50,9 @@ gsettings set org.gnome.desktop.interface text-scaling-factor 1.25
 # sudo vim /etc/tlp.conf
 # DEVICES_TO_DISABLE_ON_STARTUP="bluetooth"
 
+# Setup gnu-stow
+sudo dnf install stow -y
+
 # Vim: YouCompleteMe plugin requirements
 sudo dnf install cmake gcc-c++ make python3-devel -y
 
