@@ -159,4 +159,4 @@ selection:
 live_config_reload: true
 
 import:
-  - ~/bin/dotfiles/alacritty/dracula.yml
+  - ~/.config/alacritty/dracula.yml

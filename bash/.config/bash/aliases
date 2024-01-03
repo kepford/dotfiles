@@ -24,10 +24,10 @@ if [ $(uname) == "Linux" ]; then
 fi
 
 # Utility
-alias reload='source $HOME/bin/dotfiles/bash/aliases'
-alias ea='vim $HOME/bin/dotfiles/bash/aliases && reload' # Edit aliases
-alias ee="vim $HOME/bin/dotfiles/bash/env"
-alias et="vim $HOME/bin/dotfiles/tmux/tmux.conf"
+alias reload='source $HOME/.config/bash/aliases'
+alias ea='vim $HOME/.config/bash/aliases && reload' # Edit aliases
+alias ee="vim $HOME/.config/bash/env"
+alias et="vim $HOME/.config/tmux/tmux.conf"
 alias es="vim $HOME/.ssh/config"
 alias vrc='vim $HOME/vimrc'
 alias mutt="neomutt"

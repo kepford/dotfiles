@@ -1,17 +1,18 @@
 Review and set up dotfile paths in repo
 
-- [x] alacritty
+- [x] readline
+- [ ] scripts/
+- [ ] setup/
+- [ ] vagrant/
+- [ ] vim/
+- [x] Tig
+- [ ] alacritty
 - [x] bash
 - [x] git/
 - [x] js/
 - [x] keyboard/
 - [x] nvim/
-- [ ] scripts/
-- [ ] setup/
-- [x] Tig
-- [ ] tmux/
-- [ ] vagrant/
-- [ ] vim/
+- [x] tmux/
 
 Review
 
