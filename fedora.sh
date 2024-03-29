@@ -258,7 +258,6 @@ sudo mv tty-clock /usr/local/bin/tty-clock
 # Caruthers: 🌦   🌡️+53°F 🌬️↖11mph
 
 # Neomutt Wizard dep
-sudo dnf copr enable flatcap/neomutt -y
 sudo dnf install neomutt -y
 sudo dnf install isync msmtp pass -y
 sudo dnf install lynx notmuch abook urlview -y
