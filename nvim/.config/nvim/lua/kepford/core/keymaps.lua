@@ -32,6 +32,9 @@ vim.keymap.set({'n', 'v'}, '<leader>d', [["_d]])
 -- This is going to get me cancelled
 vim.keymap.set('i', '<C-c>', '<Esc>')
 
+-- Explore
+vim.keymap.set('n', "<Leader>e", ":Explore<CR>")
+
 -- Disable Q
 vim.keymap.set('n', "Q", "<nop>")
 
