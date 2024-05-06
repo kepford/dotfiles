@@ -31,20 +31,20 @@ sudo dnf groupupdate sound-and-video -y
 # Flatpak https://flatpak.org/setup/Fedora
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-sudo hostnamectl set-hostname "Fedora_RH" -y
+# sudo hostnamectl set-hostname "Fedora_RH" -y
 
 # Install Gnome apps
-sudo dnf install gnome-tweaks -y
+# sudo dnf install gnome-tweaks -y
 
 # Add min/max/close buttons to right top of windows
-gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
+# gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
 
 # Maps capslock to escape
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
 
 # Scale the text size up by 75%
 # gsettings set org.gnome.desktop.interface text-scaling-factor 1.25
-gsettings set org.gnome.desktop.interface text-scaling-factor 1.25
+# gsettings set org.gnome.desktop.interface text-scaling-factor 1.25
 
 # Disable Bluetooth power on boot.
 # sudo vim /etc/tlp.conf
@@ -54,7 +54,7 @@ gsettings set org.gnome.desktop.interface text-scaling-factor 1.25
 sudo dnf install stow -y
 
 # Vim: YouCompleteMe plugin requirements
-sudo dnf install cmake gcc-c++ make python3-devel -y
+# sudo dnf install cmake gcc-c++ make python3-devel -y
 
 # install vim
 sudo dnf install vim -y
@@ -64,29 +64,12 @@ sudo dnf install neofetch -y
 sudo dnf install keychain -y
 
 # Install Alacritty
-sudo dnf install cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel g++
-sudo dnf install alacritty
+sudo dnf install cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel g++ -y
+sudo dnf install alacritty -y
 
 
 # Signal
 # flatpak install flathub org.signal.Signal
-
-# Build from source: https://zngguvnf.org/2018-02-25--building-signal-from-source.html
-# sudo dnf install libXScrnSaver
-# sudo dnf install gcc-c++
-# sudo dnf install git-lfs
-# git clone https://github.com/signalapp/Signal-Desktop.git ~/Applications/Signal-Desktop
-# cd Signal-Desktop
-# git checkout tags/v5.21.0
-# npm install yarn
-# yarn install
-# yarn generate
-# yarn build-release
-# # Start Signal
-# ./release/linux-unpacked/signal-desktop
-# sudo ln -s ~/Applications/Signal-Desktop/release/linux-unpacked/signal-desktop /usr/local/bin/signal-desktop
-# sudo mkdir /usr/local/share/icons/
-# sudo cp ~/Applications/Signal-Desktop/images/icon_250.png /usr/local/share/icons/signal.png
 
 # sudo dnf install gnome-tweak-tool
 # Settings in Firefox: https://extensions.gnome.org/local/
@@ -114,47 +97,25 @@ systemctl --user start syncthing.service
 sudo dnf install fira-code-fonts -y
 
 # Required for YouCompleteMe Vim plugin.
-sudo dnf install cmake gcc-c++ make python3-devel -y
+# sudo dnf install cmake gcc-c++ make python3-devel -y
 
 # GPU rendering with Firefox
-sudo dnf install igt-gpu-tools -y
+# sudo dnf install igt-gpu-tools -y
 # Ensure that intel_gpu_top is showing GPU usage when watching video on browser.
 # Firefox 92 → about:config → layers.acceleration.force-enabled
 
 sudo dnf install tidy -y
-sudo dnf install php  -y
-php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40b5f787e49f22d4c2f19492ac310e8cba5b96ac8b64115ac402c8cd292b8a03482574915d1a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-php composer-setup.php
-php -r "unlink('composer-setup.php');"
+# sudo dnf install php  -y
+# php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+# php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40b5f787e49f22d4c2f19492ac310e8cba5b96ac8b64115ac402c8cd292b8a03482574915d1a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+# php composer-setup.php
+# php -r "unlink('composer-setup.php');"
 
 # Install coder for phpcs
-composer global require drupal/coder
-composer global require drupal/coder dealerdirect/phpcodesniffer-composer-installer
-phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer
-sudo mv composer.phar ~/.local/bin/composer
-
-# ALE CONFIG
-#  Current Filetype: php.drupal
-# Available Linters: ['intelephense', 'langserver', 'phan', 'php', 'phpcs', 'phpmd', 'phpstan', 'psalm', 'tlint']
-#   Enabled Linters: ['php', 'phpcs']
-#   Ignored Linters: []
-#  Suggested Fixers:
-#   'php_cs_fixer' - Fix PHP files with php-cs-fixer.
-#   'phpcbf' - Fix PHP files with phpcbf.
-#   'remove_trailing_lines' - Remove all blank lines at the end of a file.
-#   'trim_whitespace' - Remove all trailing whitespace characters at the end of every line.
-#  Linter Variables:
-#
-# let g:ale_php_cs_fixer_executable = 'php-cs-fixer'
-# let g:ale_php_cs_fixer_options = ''
-# let g:ale_php_cs_fixer_use_global = 0
-# let g:ale_php_php_cs_fixer_executable = '~/.composer/vendor/bin/phpcbf'
-# let g:ale_php_php_executable = 'php'
-# let g:ale_php_phpcs_executable = '~/.composer/vendor/bin/phpcs'
-# let g:ale_php_phpcs_options = ''
-# let g:ale_php_phpcs_standard = 'Drupal'
-# let g:ale_php_phpcs_use_global = 0
+# composer global require drupal/coder
+# composer global require drupal/coder dealerdirect/phpcodesniffer-composer-installer
+# phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer
+# sudo mv composer.phar ~/.local/bin/composer
 
 sudo dnf install the_silver_searcher -y
 
@@ -164,8 +125,8 @@ dnf install xclip -y # Need to run `hostname | xclip -sel c`
 # Docker #
 # https://docs.docker.com/engine/install/fedora/
 sudo dnf -y install dnf-plugins-core
-sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo dnf -y config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Run docker as norm user
 sudo groupadd docker
@@ -178,7 +139,7 @@ baseurl=https://pkg.ddev.com/yum/
 enabled=1
 gpgcheck=0' | sudo tee -a /etc/yum.repos.d/ddev.repo
 
-sudo dnf install --refresh ddev
+sudo dnf install --refresh ddev -y
 
 sudo dnf install gvim -y
 sudo dnf install fzf -y
@@ -190,7 +151,7 @@ sudo dnf install bat -y
 sudo dnf install lynx -y
 sudo dnf install atool -y
 sudo dnf install mediainfo -y
-sudo dnf install ffmpegthumbnailer -y
+# sudo dnf install ffmpegthumbnailer -y
 sudo dnf install cmake -y
 sudo dnf install odt2txt -y
 sudo dnf install pdftoppm -y
@@ -198,7 +159,7 @@ sudo dnf install zathura -y
 sudo dnf install zathura-pdf-poppler -y
 sudo dnf install mpv -y
 sudo dnf install ctags -y
-sudo dnf install ffmpeg -y
+sudo dnf install ffmpeg-free -y
 sudo dnf install sxiv -y
 sudo dnf install libreoffice -y
 sudo dnf install mpd -y
@@ -223,7 +184,6 @@ sudo dnf install krb5-workstation -y
 
 sudo dnf install htop -y
 sudo dnf install jq -y
-sudo dnf install mosh -y
 sudo dnf install neovim -y
 sudo dnf install python3-neovim -y
 sudo dnf install nmap -y
@@ -235,6 +195,7 @@ sudo dnf install tmux -y
 sudo dnf install tree -y
 sudo dnf install youtube-dl -y
 sudo dnf install wireguard-tools -y
+sudo dnf install zoxide -y
 
 sudo dnf copr enable marcusmueller/sc-im # CLI spreadsheet tool
 sudo dnf --refresh install sc-im -y
@@ -263,6 +224,24 @@ sudo dnf install isync msmtp pass -y
 sudo dnf install lynx notmuch abook urlview -y
 sudo dnf install pass-otp # not required but useful
 
+# Mutt wizard
+cd /tmp
+git clone https://github.com/LukeSmithxyz/mutt-wizard
+cd mutt-wizard
+sudo make install
+
+# Copy the pass files password-store
+# cp -rp /backup/bkepford/.password-store ~/.
+
+# Copy the mail dir
+# cp -rp /backup/bkepford/.local/share/mail ~/.local/share/.
+
+# Copy notmuch-config
+# cp -p /backup/bkepford/.notmuch-config ~/.
+
+# Copy mbsync
+# cp -p /backup/bkepford/.mbsync ~/.
+
 sudo dnf install newsboat -y
 
 # Set up cron
@@ -270,46 +249,14 @@ sudo dnf install cronie -y
 sudo systemctl start crond.service
 sudo systemctl enable crond.service
 
-## Librewolf
-sudo rpm --import https://keys.openpgp.org/vks/v1/by-fingerprint/034F7776EF5E0C613D2F7934D29FBD5F93C0CFC3
-sudo dnf config-manager --add-repo https://rpm.librewolf.net
-sudo dnf install --refresh librewolf -y
-
 # Install diff-so-fancy
-cd ~/bin && git clone https://github.com/so-fancy/diff-so-fancy.git
+# cd ~/bin && git clone https://github.com/so-fancy/diff-so-fancy.git
+
+sudo dnf config-manager --add-repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+sudo dnf install tailscale
+sudo systemctl enable --now tailscaled
+
+sudo dnf install python3-pip -y
 
 # Install Flatpaks
 flatpak install flathub org.signal.Signal
-
-## Espanso text expansion ##
-# Create the $HOME/opt destination folder
-# mkdir -p ~/opt
-# # Download the AppImage inside it
-# wget -O ~/opt/Espanso.AppImage 'https://github.com/federico-terzi/espanso/releases/download/v2.1.5-beta/Espanso-X11.AppImage'
-# # Make it executable
-# chmod u+x ~/opt/Espanso.AppImage
-# # Create the "espanso" command alias
-# sudo ~/opt/Espanso.AppImage env-path register
-
-# Compile
-# https://espanso.org/docs/install/linux/#wayland-compile
-# Install Rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-# Install development tools
-sudo dnf install @development-tools gcc-c++ wl-clipboard libxkbcommon-devel dbus-devel wxGTK3-devel
-cargo install --force cargo-make --version 0.34.0
-cd ~/bin
-git clone https://github.com/federico-terzi/espanso
-cd espanso
-cargo make --profile release --env NO_X11=true build-binary
-sudo mv target/release/espanso /usr/local/bin/espanso
-
-# DWM
-# sudo dnf module enable dwm:latest
-# sudo dnf module install dwm
-# Log out and back in
-# sudo dnf install dwm-user
-# File brower that replaces Ranger
-sudo dnf copr enable pennbauman/ports
-sudo dnf install lf

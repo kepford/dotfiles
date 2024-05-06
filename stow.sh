@@ -1,3 +1,5 @@
+rm ~/.bashrc
+rm ~/.bash_profile
 stow -v -R -t ~ bash
 stow -v -R -t ~ git
 stow -v -R -t ~ nvim
