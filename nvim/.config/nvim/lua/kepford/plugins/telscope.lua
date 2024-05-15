@@ -34,7 +34,6 @@ return {
     -- end)
     -- vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
 
-    -- TODO: try these
     keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
     keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
     keymap.set('n', '<leader>fg', "<cmd>Telescope git_files<cr>", { desc = "Fuzzy find files in git" })

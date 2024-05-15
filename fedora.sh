@@ -142,7 +142,10 @@ gpgcheck=0' | sudo tee -a /etc/yum.repos.d/ddev.repo
 sudo dnf install --refresh ddev -y
 
 sudo dnf install gvim -y
-sudo dnf install fzf -y
+
+# Install fzf using git to get the latest version
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+# sudo dnf install fzf -y
 
 # git clone https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator.git /usr/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com
 
