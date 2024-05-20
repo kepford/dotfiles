@@ -250,6 +250,9 @@ sudo make install
 
 sudo dnf install newsboat -y
 
+# Screencasting tools
+sudo dnf install screenkey
+
 # Set up cron
 sudo dnf install cronie -y
 sudo systemctl start crond.service
