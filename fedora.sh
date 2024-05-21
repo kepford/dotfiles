@@ -67,10 +67,6 @@ sudo dnf install keychain -y
 sudo dnf install cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel g++ -y
 sudo dnf install alacritty -y
 
-
-# Signal
-# flatpak install flathub org.signal.Signal
-
 # sudo dnf install gnome-tweak-tool
 # Settings in Firefox: https://extensions.gnome.org/local/
 
@@ -269,3 +265,5 @@ sudo dnf install python3-pip -y
 
 # Install Flatpaks
 flatpak install flathub org.signal.Signal
+flatpak install flathub org.gimp.GIMP
+flatpak install flathub com.bitwarden.desktop
