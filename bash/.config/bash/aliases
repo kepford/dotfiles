@@ -651,6 +651,9 @@ cdnvm(){
 }
 alias cd='cdnvm'
 
+# Launch OBS with flatpak and 1.5 scaling
+alias obs='export QT_SCALE_FACTOR=1.5 && flatpak run com.obsproject.Studio'
+
 # Include local and private aliases.
 if [ -f ~/.alias_local ]; then
     source ~/.alias_local
