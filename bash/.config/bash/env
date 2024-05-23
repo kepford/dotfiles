@@ -2,6 +2,9 @@
 export EDITOR="gvim -v"
 export BROWSER="/usr/bin/librewolf"
 
+# QT apps need scaling for UI text.
+export QT_SCALE_FACTOR=1.5
+
 # Set up keychain for SSH.
 eval `keychain --quiet --eval --agents ssh id_rsa`
 

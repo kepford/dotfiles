@@ -267,3 +267,4 @@ sudo dnf install python3-pip -y
 flatpak install flathub org.signal.Signal
 flatpak install flathub org.gimp.GIMP
 flatpak install flathub com.bitwarden.desktop
+flatpak install flathub org.kde.kdenlive
