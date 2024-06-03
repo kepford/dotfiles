@@ -89,6 +89,8 @@ alias cp='cp -iv'
 # Ask about deleting a file and make rm more informative by default.
 alias rm='rm -iv'
 
+alias pbcopy='xclip -sel c'
+
 #Bret Terpstra
 #copy the working directory path
 if [ $(uname) == "Darwin" ]; then
