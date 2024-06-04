@@ -11,6 +11,7 @@
 
 set $mod Mod4
 
+exec --no-startup-id picom
 # Change CAPS LOCK to Escape
 exec_always --no-startup-id xmodmap -e "clear lock"
 

@@ -264,7 +264,7 @@ sudo systemctl enable --now tailscaled
 sudo dnf install python3-pip -y
 
 # i3
-sudo dnf install i3 rofi -y
+sudo dnf install i3 rofi picom -y
 
 # Install Flatpaks
 flatpak install flathub org.signal.Signal
