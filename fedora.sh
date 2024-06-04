@@ -263,9 +263,12 @@ sudo systemctl enable --now tailscaled
 
 sudo dnf install python3-pip -y
 
+# i3
+sudo dnf install i3 rofi -y
+
 # Install Flatpaks
 flatpak install flathub org.signal.Signal
 flatpak install flathub org.gimp.GIMP
 flatpak install flathub com.bitwarden.desktop
 flatpak install flathub org.kde.kdenlive
-flatpak install flathub calibre
+flatpak install flathub com.calibre_ebook.calibre

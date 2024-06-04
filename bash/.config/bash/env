@@ -32,16 +32,14 @@ fi
 
 export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin
 
-# PHP https://github.com/Homebrew/homebrew-php/wiki/Installing-Multiple-Versions
-# PHP 5.6
-# export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
-# export PATH="/usr/local/opt/php@7.1/bin:$PATH"
-# export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
 export PATH="/usr/local/opt/php@7.3/bin:$PATH"
 export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
 export XDEBUG_CONFIG="idekey=PHPSTORM"
 
 PATH="$PATH:$HOME/.composer/vendor/bin"
+
+# Adds flatpaks to path.
+PATH="$PATH:/var/lib/flatpak/exports/bin"
 
 # Git completion
 source ~/git-flow-completion.bash
