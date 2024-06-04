@@ -1,1 +1,1 @@
-import = ["/home/bkepford/.dotfiles/alacritty/base.toml"]
+import = ["~/.config/alacritty/base.toml"]
