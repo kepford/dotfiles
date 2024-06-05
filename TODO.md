@@ -6,7 +6,7 @@ Review and set up dotfile paths in repo
 - [ ] vagrant/
 - [ ] vim/
 - [x] Tig
-- [ ] alacritty
+- [x] alacritty
 - [x] bash
 - [x] git/
 - [x] js/

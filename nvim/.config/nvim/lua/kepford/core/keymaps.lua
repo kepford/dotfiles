@@ -20,8 +20,11 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- Disable search highlight.
+vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
+
 -- greatest remap ever
-vim.keymap.set("x", "<leader>p", [["_dP]])
+-- vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
 vim.keymap.set({'n', 'v'}, '<leader>y', [["+y]])
@@ -32,8 +35,12 @@ vim.keymap.set({'n', 'v'}, '<leader>d', [["_d]])
 -- This is going to get me cancelled
 vim.keymap.set('i', '<C-c>', '<Esc>')
 
--- Explore
-vim.keymap.set('n', "<Leader>e", ":Explore<CR>")
+-- Neotree
+vim.keymap.set('n', "<Leader>/", ":Neotree toggle current reveal_force_cwd<cr>")
+vim.keymap.set('n', "<Leader>e", ":Neotree reveal<cr>")
+vim.keymap.set('n', "<Leader>g", ":Neotree float reveal_file=<cfile> reveal_force_cwd<cr>")
+vim.keymap.set('n', "<Leader>b", ":Neotree toggle show buffers right<cr>")
+vim.keymap.set('n', "<Leader>s", ":Neotree float git_status<cr>")
 
 -- Disable Q
 vim.keymap.set('n', "Q", "<nop>")
@@ -59,7 +66,7 @@ vim.keymap.set("n", "<Down>", ':resize -1<CR>')
 
 -- Copy current buffer file name and full path to system clipboard.
 -- nnoremap <Leader>pp :let @+ = expand("%:p")<CR>
-vim.keymap.set('n', '<Leader>pp', 'vim.cmd.let @+ = expand("%:p")')
+-- vim.keymap.set('n', '<Leader>pp', 'vim.cmd.let @+ = expand("%:p")')
 --
 --
 -- " <Leader>p -- Show the path of the current file (mnemonic: path; useful when
@@ -73,4 +80,3 @@ vim.keymap.set("n", "<leader>c", "<cmd>:r !gcalcli --nocolor agenda 7am 5pm --no
 
 -- :r !gcalcli --nocolor agenda 7am 5pm --nodeclined --no-military --calendar=bkepford@redhat.com | sed '/^$/d' | cut -c 13- | sed 's/^/* /'<CR>
 --
-
