@@ -12,6 +12,18 @@
 
 ## Installation
 
+### Fonts
+
+[FiraCodeNerdFont](https://www.nerdfonts.com/font-downloads)
+
+Download the font
+
+Move fonts to `/usr/share/fonts/`
+
+Refresh the system font cache with fc-cache, e.g.:
+
+`fc-cache -v`
+
 ### Homebrew
 
 Install [Homebrew](http://brew.sh/)
