@@ -27,18 +27,13 @@ return {
 
     -- set keymaps
     local keymap = vim.keymap -- for conciseness
-
-    -- Search with grep
-    -- vim.keymap.set('n', '<leader>a', function()
-    --   builtin.grep_string({ search = vim.fn.input("Grep > ") })
-    -- end)
-    -- vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
-
-    keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
-    keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
-    keymap.set("n", '<leader>fg', "<cmd>Telescope git_files<cr>", { desc = "Fuzzy find files in git" })
-    keymap.set("n", '<leader>fb', "<cmd>Telescope buffers<cr>", { desc = "Fuzzy find file in buffers" })
-    keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-    keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
+    local builtin = require('telescope.builtin')
+    keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Fuzzy find files in cwd" })
+    keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Fuzzy find recent files" })
+    keymap.set("n", '<leader>fg', builtin.git_files, { desc = "Fuzzy find files in git" })
+    keymap.set("n", '<leader>fb', builtin.buffers, { desc = "Fuzzy find file in buffers" })
+    keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "Find string in current working directory" })
+    keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in current working directory" })
+    keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Find string in help"})
   end,
 }

@@ -16,12 +16,12 @@ Review and set up dotfile paths in repo
 
 Review
 
-- [ ] drupal_console/
+- [x] drupal_console/
 - [ ] firefox/
 - [ ] php
 - [ ] terminfo/
 - [ ] terminus/
-- [ ] sass/
+- [x] sass/
 - [ ] init
 
 MacOS only:

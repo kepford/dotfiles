@@ -46,9 +46,9 @@ vim.keymap.set('n', "<Leader>s", ":Neotree float git_status<cr>")
 vim.keymap.set('n', "Q", "<nop>")
 
 -- Source file with leader leader.
-vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
-end)
+-- vim.keymap.set("n", "<leader><leader>", function()
+--     vim.cmd("so")
+-- end)
 
 -- Disable arrow keys.
 vim.keymap.set('n', '<Up>', '<nop>')
