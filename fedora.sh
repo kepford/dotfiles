@@ -264,7 +264,7 @@ sudo systemctl enable --now tailscaled
 sudo dnf install python3-pip -y
 
 # i3 for X11
-sudo dnf install i3 rofi picom polybar -y
+sudo dnf install i3 rofi picom polybar fey -y
 
 # Install Flatpaks
 flatpak install flathub org.signal.Signal
