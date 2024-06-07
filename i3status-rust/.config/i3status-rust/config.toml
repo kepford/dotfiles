@@ -1,10 +1,10 @@
 icons_format = "{icon}"
 
 [theme]
-theme = "solarized-dark"
-[theme.overrides]
-idle_bg = "#123456"
-idle_fg = "#abcdef"
+theme = "ctp-mocha"
+# [theme.overrides]
+# idle_bg = "#1e1e2e"
+# idle_fg = "#f5e0dc"
 
 [icons]
 icons = "awesome4"
