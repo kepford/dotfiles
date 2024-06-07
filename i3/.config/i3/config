@@ -12,9 +12,6 @@ set $mod Mod4
 
 exec --no-startup-id picom
 
-# kill any hanging polybar processes
-exec_always killall polybar
-exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec_always feh --bg-scale ~/.config/backgrounds/fedora-blue.jpg
 
 
@@ -192,6 +189,8 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
+# Catppuccin-mocha theme
+
 set $rosewater #f5e0dc
 set $flamingo  #f2cdcd
 set $pink      #f5c2e7
@@ -235,4 +234,18 @@ bindsym $mod+r mode "resize"
 #         status_command i3status
 # }
 
-# Catppuccin-mocha theme
+bar {
+    font pango:FiraCode Nerd Font Mono, FontAwesome 12
+    position bottom
+    status_command /usr/bin/i3status-rs ~/.config/i3status-rust/config.toml
+    colors {
+        separator #666666
+        background #222222
+        statusline #dddddd
+        focused_workspace #0088CC #0088CC #ffffff
+        active_workspace #333333 #333333 #ffffff
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace #2f343a #900000 #ffffff
+    }
+}
+

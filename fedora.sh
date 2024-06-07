@@ -265,6 +265,8 @@ sudo dnf install python3-pip -y
 
 # i3 for X11
 sudo dnf install i3 rofi picom polybar feh -y
+sudo dnf copr enable atim/i3status-rust -y
+sudo dnf install i3status-rust -y
 
 # Install Flatpaks
 flatpak install flathub org.signal.Signal
