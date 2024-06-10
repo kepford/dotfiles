@@ -13,6 +13,12 @@ bat = ["|E|", "|_|", "|=|", "|F|"]
 bat_charging = "|^| "
 
 [[block]]
+block = "custom"
+command = "echo $(curl wttr.in/~${CITY}?format=2)"
+# command = "echo $CITY"
+interval = 3600
+
+[[block]]
 block = "cpu"
 info_cpu = 20
 warning_cpu = 50
@@ -49,5 +55,5 @@ missing_format = ""
 [[block]]
 block = "time"
 interval = 5
-format = " $timestamp.datetime(f:'%a %m/%d %R') "
+format = " $timestamp.datetime(f:'%a %m/%d %I:%M') "
 

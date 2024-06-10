@@ -5,4 +5,7 @@ if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
 
-# User specific environment and startup programs
+# Include local and private environment variables.
+if [ -f ~/.alias_local ]; then
+    source ~/.bash_local
+fi

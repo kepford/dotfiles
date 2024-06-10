@@ -656,6 +656,10 @@ alias cd='cdnvm'
 # Launch OBS with flatpak and 1.5 scaling
 alias obs='export QT_SCALE_FACTOR=1.5 && flatpak run com.obsproject.Studio'
 
+# Weather from current city. CITY should be set in ~/.bash_profile
+alias weather="curl 'https://wttr.in/${CITY}?format=2' -s"
+alias weatherweek="curl 'https://wttr.in/${CITY}' -s"
+
 # Include local and private aliases.
 if [ -f ~/.alias_local ]; then
     source ~/.alias_local
