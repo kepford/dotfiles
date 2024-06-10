@@ -40,7 +40,14 @@ button = "left"
 cmd = "pavucontrol"
 
 [[block]]
+block = "battery"
+format = " $percentage {$time |}"
+device = "DisplayDevice"
+driver = "upower"
+missing_format = ""
+
+[[block]]
 block = "time"
 interval = 5
-format = " $timestamp.datetime(f:'%a %d/%m %R') "
+format = " $timestamp.datetime(f:'%a %m/%d %R') "
 
