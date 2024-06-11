@@ -264,7 +264,7 @@ sudo systemctl enable --now tailscaled
 sudo dnf install python3-pip -y
 
 # i3 for X11
-sudo dnf install i3 rofi picom feh -y
+sudo dnf install i3 rofi picom feh blueman -y
 sudo dnf copr enable atim/i3status-rust -y
 sudo dnf install i3status-rust -y
 

@@ -22,6 +22,9 @@ exec_always --no-startup-id xmodmap -e "clear lock"
 exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape"
 exec_always --no-startup-id set caps_lock as escape
 
+# Start blueman-applet in tray
+exec_always --no-startup-id blueman-applet &
+
 exec --no-startup-id /usr/lib/gsd-xsettings
 
 # Font for window titles. Will also be used by the bar unless a different font
