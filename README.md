@@ -127,3 +127,40 @@ ln -s ~/bin/dotfiles/drupal_console ~/.console
 **PHP**
 
 [Install Composer](https://getcomposer.org/)
+
+# Linux
+
+# X
+
+For X there are a few things that must be done.
+
+## Natural Scrolling
+
+Edit the file `/usr/share/X11/xorg.conf.d/40-libinput.conf
+`
+Add there Option "NaturalScrolling" "True" like this:
+
+For your mouse:
+
+```
+# Match on all types of devices but joysticks
+Section "InputClass"
+        Identifier "libinput pointer catchall"
+        MatchIsPointer "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+        Option "NaturalScrolling" "True"
+EndSection
+```
+ 
+For your touchpad:
+
+```
+Section "InputClass"
+        Identifier "libinput touchpad catchall"
+        MatchIsTouchpad "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+        Option "NaturalScrolling" "True"
+EndSection
+```

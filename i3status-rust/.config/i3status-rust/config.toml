@@ -14,6 +14,7 @@ bat_charging = "|^| "
 
 [[block]]
 block = "custom"
+# set variable CITY in ~/.xsessionrc
 command = "echo $(curl wttr.in/~${CITY}?format=2)"
 # command = "echo $CITY"
 interval = 3600
