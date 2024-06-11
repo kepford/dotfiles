@@ -12,7 +12,7 @@ set $mod Mod4
 
 exec --no-startup-id picom
 
-exec_always feh --bg-scale ~/.config/backgrounds/fedora-blue.jpg
+exec_always --no-startup-id feh --bg-scale ~/.config/backgrounds/fedora-blue.jpg
 
 
 # Change CAPS LOCK to Escape
@@ -24,9 +24,6 @@ exec_always --no-startup-id set caps_lock as escape
 
 # Start blueman-applet in tray
 exec_always --no-startup-id blueman-applet &
-
-# Start flameshot
-exec_always --no-startup-id flameshot &
 
 exec --no-startup-id /usr/lib/gsd-xsettings
 
@@ -69,6 +66,11 @@ tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec alacritty
+
+# start a firefox
+bindsym $mod+b exec firefox
+
+bindsym $mod+p exec "flameshot gui"
 
 # kill focused window
 bindsym $mod+Shift+q kill

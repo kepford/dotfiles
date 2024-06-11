@@ -267,7 +267,7 @@ sudo dnf install python3-pip -y
 sudo dnf install flameshot -y
 
 # i3 for X11
-sudo dnf install i3 rofi picom feh blueman -y
+sudo dnf install i3 rofi picom feh blueman pavucontrol -y
 sudo dnf copr enable atim/i3status-rust -y
 sudo dnf install i3status-rust -y
 

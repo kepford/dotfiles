@@ -17,6 +17,9 @@ block = "custom"
 # set variable CITY in ~/.xsessionrc
 command = "echo $(curl wttr.in/~${CITY}?format=2)"
 interval = 360
+[[block.click]]
+button = "left"
+cmd = "urxvt -hold -e curl wttr.in/~${CITY}"
 
 [[block]]
 block = "cpu"
@@ -56,4 +59,6 @@ missing_format = ""
 block = "time"
 interval = 5
 format = " $timestamp.datetime(f:'%a %m/%d %I:%M') "
-
+[[block.click]]
+button = "left"
+cmd = "urxvt -hold -e calcurse"
