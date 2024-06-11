@@ -6,6 +6,6 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # Include local and private environment variables.
-if [ -f ~/.alias_local ]; then
+if [ -f ~/.bash_local ]; then
     source ~/.bash_local
 fi
