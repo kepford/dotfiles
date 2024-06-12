@@ -164,3 +164,25 @@ Section "InputClass"
         Option "NaturalScrolling" "True"
 EndSection
 ```
+
+### Disable middle click
+
+First get a list of the input devices
+
+`xinput list`
+
+Then output the button map for the device. You can use the name or ID number. 
+
+`xinput get-button-map 'PIXA3854:00 093A:0274 Touchpad'`
+
+or
+
+`xinput get-button-map 10`
+
+It likely looks like this
+
+`1 2 3 4 5 6 7`
+
+Middle click is typically `2` change that `1`
+
+`xinput set-button-map 10 1 1 3 4 5 6 7`
