@@ -12,6 +12,9 @@ set $mod Mod4
 
 exec --no-startup-id picom
 
+# Set mouse/trackpad speed
+exec xset m 6 3
+
 exec_always --no-startup-id feh --bg-scale ~/.config/backgrounds/fedora-blue.jpg
 
 
