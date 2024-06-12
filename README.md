@@ -186,3 +186,5 @@ It likely looks like this
 Middle click is typically `2` change that `1`
 
 `xinput set-button-map 10 1 1 3 4 5 6 7`
+
+[source](https://unix.stackexchange.com/questions/438725/disabling-middle-click-on-bottom-of-a-clickpad-touchpad/553581#553581)
