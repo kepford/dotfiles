@@ -53,6 +53,5 @@ save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [window]
-decorations = "None"
 dynamic_padding = true
 startup_mode = "Maximized"
