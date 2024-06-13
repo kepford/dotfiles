@@ -34,10 +34,30 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 # sudo hostnamectl set-hostname "Fedora_RH" -y
 
 # Install Gnome apps
-# sudo dnf install gnome-tweaks -y
+sudo dnf install gnome-tweaks -y
 
 # Add min/max/close buttons to right top of windows
 # gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
+
+# Set natural scroll
+gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll true
+
+# Set touchpad speed
+gsettings set org.gnome.desktop.peripherals.touchpad speed 0.43968871595330739
+
+gsettings set org.gnome.desktop.peripherals.touchpad accel-profile 'default'
+gsettings set org.gnome.desktop.peripherals.touchpad click-method 'fingers'
+gsettings set org.gnome.desktop.peripherals.touchpad disable-while-typing true
+gsettings set org.gnome.desktop.peripherals.touchpad edge-scrolling-enabled false
+gsettings set org.gnome.desktop.peripherals.touchpad left-handed 'mouse'
+gsettings set org.gnome.desktop.peripherals.touchpad middle-click-emulation false
+gsettings set org.gnome.desktop.peripherals.touchpad send-events 'enabled'
+gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag true
+gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag-lock false
+gsettings set org.gnome.desktop.peripherals.touchpad tap-button-map 'default'
+gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click false
+gsettings set org.gnome.desktop.peripherals.touchpad two-finger-scrolling-enabled true
+
 
 # Maps capslock to escape
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
@@ -267,7 +287,7 @@ sudo dnf install python3-pip -y
 sudo dnf install flameshot -y
 
 # i3 for X11
-sudo dnf install i3 rofi picom feh blueman pavucontrol xset -y
+sudo dnf install i3 rofi picom feh blueman pavucontrol xset xinput -y
 sudo dnf copr enable atim/i3status-rust -y
 sudo dnf install i3status-rust -y
 

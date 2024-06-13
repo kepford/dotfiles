@@ -134,10 +134,10 @@ ln -s ~/bin/dotfiles/drupal_console ~/.console
 
 For X there are a few things that must be done.
 
-## Natural Scrolling
+## Natural Scrolling and faster response
 
-Edit the file `/usr/share/X11/xorg.conf.d/40-libinput.conf
-`
+Edit the file `/usr/share/X11/xorg.conf.d/40-libinput.conf`
+
 Add there Option "NaturalScrolling" "True" like this:
 
 For your mouse:
@@ -188,3 +188,32 @@ Middle click is typically `2` change that `1`
 `xinput set-button-map 10 1 1 3 4 5 6 7`
 
 [source](https://unix.stackexchange.com/questions/438725/disabling-middle-click-on-bottom-of-a-clickpad-touchpad/553581#553581)
+
+Set touchpad speed by creating a file at `~/.xinputrc` with
+
+[Source](https://unix.stackexchange.com/questions/391683/how-to-increase-the-acceleration-speed-of-ibm-touchpad-and-trackpoint-in-xubuntu)
+
+`xinput list-props "Synaptics TM3625-010" | grep "Accel Speed"`
+
+        libinput Accel Speed (332):     0.450000
+        libinput Accel Speed Default (333):     0.000000
+
+**Gnome settings**
+
+```
+gsettings list-recursively org.gnome.desktop.peripherals.touchpad
+org.gnome.desktop.peripherals.touchpad accel-profile 'default'
+org.gnome.desktop.peripherals.touchpad click-method 'fingers'
+org.gnome.desktop.peripherals.touchpad disable-while-typing true
+org.gnome.desktop.peripherals.touchpad edge-scrolling-enabled false
+org.gnome.desktop.peripherals.touchpad left-handed 'mouse'
+org.gnome.desktop.peripherals.touchpad middle-click-emulation false
+org.gnome.desktop.peripherals.touchpad natural-scroll true
+org.gnome.desktop.peripherals.touchpad send-events 'enabled'
+org.gnome.desktop.peripherals.touchpad speed 0.43968871595330739
+org.gnome.desktop.peripherals.touchpad tap-and-drag true
+org.gnome.desktop.peripherals.touchpad tap-and-drag-lock false
+org.gnome.desktop.peripherals.touchpad tap-button-map 'default'
+org.gnome.desktop.peripherals.touchpad tap-to-click false
+org.gnome.desktop.peripherals.touchpad two-finger-scrolling-enabled true
+```
