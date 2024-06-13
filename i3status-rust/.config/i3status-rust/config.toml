@@ -63,6 +63,14 @@ driver = "upower"
 missing_format = ""
 
 [[block]]
+block = "custom"
+command = "echo \uf011" # assumes fontawesome icons
+interval = "once"
+[[block.click]]
+button = "left"
+cmd = "systemctl `echo -e 'suspend\npoweroff\nreboot' | dmenu`"
+
+[[block]]
 block = "time"
 interval = 5
 format = " $timestamp.datetime(f:'%a %m/%d %I:%M') "
