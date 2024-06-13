@@ -78,7 +78,7 @@ sudo dnf install stow -y
 
 # install vim
 sudo dnf install vim -y
-sudo dnf install neofetch -y
+sudo dnf install fastfetch -y
 
 # install keychain
 sudo dnf install keychain -y
