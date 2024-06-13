@@ -28,6 +28,15 @@ interval = 360
 button = "left"
 cmd = "urxvt -hold -e curl wttr.in/~${CITY}"
 
+# Syncthing
+[[block]]
+block = "custom"
+command = "if pgrep -x \"syncthing\" > /dev/null; then echo '{\"icon\":\"\",\"state\":\"Info\", \"text\": \"\"}'; else echo '{\"icon\":\"\",\"state\":\"Warning\", \"text\": \"\"}'; fi"
+json = true
+[[block.click]]
+button = "left"
+cmd = "xdg-open http://localhost:8384"
+
 [[block]]
 block = "cpu"
 info_cpu = 20
