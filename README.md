@@ -189,9 +189,32 @@ Middle click is typically `2` change that `1`
 
 [source](https://unix.stackexchange.com/questions/438725/disabling-middle-click-on-bottom-of-a-clickpad-touchpad/553581#553581)
 
-Set touchpad speed by creating a file at `~/.xinputrc` with
+### Set acceleration speed for track pad
+
+
+`xinput set-prop "device name" "ID" 0.45`
 
 [Source](https://unix.stackexchange.com/questions/391683/how-to-increase-the-acceleration-speed-of-ibm-touchpad-and-trackpoint-in-xubuntu)
+
+List the devices with `xinput list` to find the device name.
+
+Then find the ID for the Accel Speed setting.
+
+Framework has this:
+
+`PIXA3854:00 093A:0274 Touchpad`
+
+`xinput list-props "PIXA3854:00 093A:0274 Touchpad" | grep "Accel Speed"`
+
+        libinput Accel Speed (328):     0.000000
+        libinput Accel Speed Default (329):     0.000000
+
+`xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "328" 0.4`
+
+Add this line to `~/.xinputrc` to make permanent. 
+
+
+Thinkpad has this:
 
 `xinput list-props "Synaptics TM3625-010" | grep "Accel Speed"`
 
