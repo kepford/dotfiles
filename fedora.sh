@@ -277,6 +277,9 @@ sudo systemctl enable crond.service
 # Install diff-so-fancy
 sudo dnf install diff-so-fancy -y
 
+# Yubikey management cli
+sudo dnf install yubikey-manage -y
+
 sudo dnf config-manager --add-repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 sudo dnf install tailscale
 sudo systemctl enable --now tailscaled
@@ -297,3 +300,4 @@ flatpak install flathub org.gimp.GIMP
 flatpak install flathub com.bitwarden.desktop
 flatpak install flathub org.kde.kdenlive
 flatpak install flathub com.calibre_ebook.calibre
+flatpak install flathub com.yubico.yubioath
