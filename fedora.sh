@@ -311,3 +311,4 @@ flatpak install flathub com.bitwarden.desktop
 flatpak install flathub org.kde.kdenlive
 flatpak install flathub com.calibre_ebook.calibre
 flatpak install flathub com.yubico.yubioath
+flatpak install flathub com.discordapp.Discord
