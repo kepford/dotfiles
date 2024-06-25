@@ -294,6 +294,16 @@ sudo dnf install i3 rofi picom feh blueman pavucontrol xset xinput -y
 sudo dnf copr enable atim/i3status-rust -y
 sudo dnf install i3status-rust -y
 
+# Auto detect the monitors and set up xrandr/displays as desired.
+sudo dnf install autorandr -y
+
+# Load laptop only display
+# autorandr mobile
+# Load dock in my office
+# autorandr dock
+# Load KMF
+# autorandr kmf
+
 # Install Flatpaks
 flatpak install flathub org.signal.Signal
 flatpak install flathub org.gimp.GIMP
