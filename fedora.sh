@@ -207,6 +207,8 @@ sudo dnf install jq -y
 sudo dnf install fd-find -y
 sudo dnf install ripgrep -y
 sudo dnf install neovim -y
+# for doing math in Vim with !!calc -p or :.!calc -p
+sudo dnf install calc -y
 sudo dnf install python3-neovim -y
 sudo dnf install nmap -y
 sudo dnf install pv -y
