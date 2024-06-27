@@ -298,6 +298,8 @@ sudo dnf install i3status-rust -y
 
 # Rust cargo stuff
 rustup update
+
+# Install yazi file manager
 cargo install --locked yazi-fm yazi-cli
 
 # Auto detect the monitors and set up xrandr/displays as desired.
