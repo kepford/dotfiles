@@ -302,6 +302,9 @@ rustup update
 # Install yazi file manager
 cargo install --locked yazi-fm yazi-cli
 
+# Install helpers for yazi
+sudo dnf install unar -y
+
 # Auto detect the monitors and set up xrandr/displays as desired.
 sudo dnf install autorandr -y
 
