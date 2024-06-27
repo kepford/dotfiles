@@ -660,6 +660,16 @@ alias obs='export QT_SCALE_FACTOR=1.5 && flatpak run com.obsproject.Studio'
 alias weather="curl 'https://wttr.in/${CITY}?format=2' -s"
 alias weatherweek="curl 'https://wttr.in/${CITY}' -s"
 
+# Yazi function
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 # Include local and private aliases.
 if [ -f ~/.alias_local ]; then
     source ~/.alias_local

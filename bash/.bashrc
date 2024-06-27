@@ -36,3 +36,4 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(zoxide init bash)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+. "$HOME/.cargo/env"

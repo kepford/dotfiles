@@ -296,6 +296,10 @@ sudo dnf install i3 rofi picom feh blueman pavucontrol xset xinput dunst -y
 sudo dnf copr enable atim/i3status-rust -y
 sudo dnf install i3status-rust -y
 
+# Rust cargo stuff
+rustup update
+cargo install --locked yazi-fm yazi-cli
+
 # Auto detect the monitors and set up xrandr/displays as desired.
 sudo dnf install autorandr -y
 
