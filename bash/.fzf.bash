@@ -1,5 +1,5 @@
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */home/bkepford/.fzf/bin* ]]; then
-  PATH="${PATH:+${PATH}:}/home/bkepford/.fzf/bin"
+if [[ ! "$PATH" == *~/.fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}~/.fzf/bin"
 fi
