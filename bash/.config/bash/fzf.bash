@@ -15,7 +15,7 @@ source "/usr/local/opt/fzf/shell/key-bindings.bash"
 # Preview file content using bat (https://github.com/sharkdp/bat)
 export FZF_CTRL_T_OPTS="
   --walker-skip .git,node_modules,target
-  --preview 'bat -n --color=always {}'
+  --preview 'bat -n --style=numbers --color=always {}'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
 # CTRL-/ to toggle small preview window to see the full command
