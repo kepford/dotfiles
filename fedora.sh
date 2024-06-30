@@ -282,8 +282,8 @@ sudo dnf install cronie -y
 sudo systemctl start crond.service
 sudo systemctl enable crond.service
 
-# Install diff-so-fancy
-sudo dnf install diff-so-fancy -y
+# Install git-delta
+sudo dnf install git-delta -y
 
 # Yubikey management cli
 sudo dnf install yubikey-manage -y

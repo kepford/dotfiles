@@ -2,9 +2,11 @@
   editor = nvim
 	excludesfile = ~/.gitignore
 	quotepath = false
-[pager]
-  diff = diff-so-fancy | less --tabs=1,5 -RFX
-  show = diff-so-fancy | less --tabs=1,5 -RFX
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
 [color]
   ui = true
   [color "branch"]
@@ -76,11 +78,13 @@
 	defaultBranch = main
 [merge]
 	tool = nvimdiff
+  conflictstyle = diff3
 [mergetool]
 	prompt = false
 	keepBackup = true
 [diff]
 	tool = vimdiff
+  colorMoved = default
 [include]
     path = ~/.gitconfig_local
 [filter "lfs"]
@@ -88,3 +92,10 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+
+[delta]
+  navigate = true    # use n and N to move between diff sections
+
+  # delta detects terminal colors automatically; set one of these to disable auto-detection
+  dark = true
+  # light = true
