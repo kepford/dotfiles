@@ -134,6 +134,11 @@ ln -s ~/bin/dotfiles/drupal_console ~/.console
 
 For X there are a few things that must be done.
 
+# Load Theme
+
+Load the catppuccin mocha theme.
+`xrdb -merge ~/.dotfiles/x/xresources`
+
 ## Natural Scrolling and faster response
 
 Edit the file `/usr/share/X11/xorg.conf.d/40-libinput.conf`
