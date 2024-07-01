@@ -13,3 +13,7 @@ map J zoom out
 map i recolor
 map p print
 map g goto top
+
+# Themes
+# include catppuccin-mocha
+# include catppuccin-latte
