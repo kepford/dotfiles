@@ -56,9 +56,6 @@ export PATH=$PATH:$CARGOPATH/bin
 DSFPATH=~/bin/diff-so-fancy
 export PATH=$PATH:$DSFPATH
 
-# Terminus completion
-source ~/.dotfiles/terminus/terminus-completion.bash
-
 #Drupal Console completion
 source "$HOME/.console/console.rc" 2>/dev/null
 
