@@ -17,7 +17,6 @@ exec --no-startup-id picom
 
 exec_always --no-startup-id feh --bg-scale ~/.config/backgrounds/fedora-blue.jpg
 
-
 # Change CAPS LOCK to Escape
 exec_always --no-startup-id xmodmap -e "clear lock"
 
@@ -106,6 +105,10 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
+# move focused workspace between monitors
+bindsym $mod+Shift+greater move workspace to output right
+bindsym $mod+Shift+less move workspace to output left
 
 # split in horizontal orientation
 bindsym $mod-- split h

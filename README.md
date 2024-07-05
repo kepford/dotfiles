@@ -245,3 +245,19 @@ org.gnome.desktop.peripherals.touchpad tap-button-map 'default'
 org.gnome.desktop.peripherals.touchpad tap-to-click false
 org.gnome.desktop.peripherals.touchpad two-finger-scrolling-enabled true
 ```
+
+## i3 Monitor Setup
+
+### Using autorandr
+
+Save the current configuration.
+
+`autorandr --save name`
+
+Load thinkpad only display
+
+`autorandr think`
+
+Load dock profile which disables laptop monitor
+
+`autorandr think-dock`
