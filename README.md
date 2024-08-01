@@ -261,3 +261,30 @@ Load thinkpad only display
 Load dock profile which disables laptop monitor
 
 `autorandr think-dock`
+
+# Check BIOS version Fedora
+
+Install `lshw` and `dmidecode`
+
+```
+sudo dnf install lshw dmidecode -y && sudo dmidecode | grep -A3 'Vendor:\|Product:' && sudo lshw -C cpu | grep -A3 'product:\|vendor:'
+```
+
+Run this after install
+
+```
+sudo dmidecode | grep -A3 'Vendor:\|Product:' && sudo lshw -C cpu | grep -A3 'product:\|vendor:'
+```
+
+list drives:
+
+lsblk
+
+or
+
+df
+
+sudo parted /dev/sda --script -- mklabel msdos
+sudo parted /dev/sda --script -- mkpart primary fat32 1MiB 100%
+sudo mkfs.vfat -F32 /dev/sda1
+sudo parted /dev/sda --script print
