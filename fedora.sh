@@ -87,6 +87,8 @@ sudo dnf install keychain -y
 sudo dnf install cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel g++ -y
 sudo dnf install alacritty -y
 
+sudo dnf install kitty -y
+
 # sudo dnf install gnome-tweak-tool
 # Settings in Firefox: https://extensions.gnome.org/local/
 
