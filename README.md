@@ -143,7 +143,7 @@ Load the catppuccin mocha theme.
 
 Edit the file `/usr/share/X11/xorg.conf.d/40-libinput.conf`
 
-Add there Option "NaturalScrolling" "True" like this:
+Add the Option "NaturalScrolling" "True" like this:
 
 For your mouse:
 
