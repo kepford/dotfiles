@@ -24,6 +24,7 @@
     untracked = cyan
 [push]
   default = current
+
 [alias]
   br = branch
   ci = commit
@@ -33,12 +34,12 @@
   # Show modified files in last commit.
   diffall = diff HEAD
   diffstaged = diff --staged
-  nextrelease = log origin/develop ^origin/master --no-merges
+  nextrelease = log origin/dev ^origin/main --no-merges
   dl = "!git ll -1"
   # Show a diff last commit.
   dlc = diff --cached HEAD^
   filelog = log --oneline --no-merges --
-  fl = log -u
+  fl = log -t u
   init = init --template ~/.git_template
   # List oneline commits showing relative dates.
   ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
@@ -59,7 +60,7 @@
   ss = stash save
   st = status
   # Commits on current branch. Assumes the branch was created from develop.
-  thisbranch = log --no-merges develop..
+  thisbranch = log --no-merges dev..
   undolast = reset --soft Head^
   unstage = reset HEAD
 

@@ -93,7 +93,11 @@ alias cp='cp -iv'
 # Ask about deleting a file and make rm more informative by default.
 alias rm='rm -iv'
 
-alias pbcopy='xclip -sel c'
+# Alias  pbcopy and pbpaste on Linux
+if [ $(uname) == "Linux" ]; then
+  alias pbcopy='xclip -sel c'
+  alias pbpaste='xclip -selection clipboard -o'
+fi
 
 #Bret Terpstra
 #copy the working directory path
@@ -170,7 +174,6 @@ if [ $(uname) == "Linux" ]; then
 fi
 
 # General code
-
 
 # Git
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
