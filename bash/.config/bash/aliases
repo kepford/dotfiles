@@ -195,14 +195,10 @@ fi
 function gg() {
     git commit -v -a -m "$*"
 }
+
 alias gco='git checkout'
-alias gcod='git checkout develop'
 alias gcob='git checkout -b'
 alias gd='git diff'
-alias gdm='git diff master'
-function gdx() {
-  git diff $1 $2 | gitx
-}
 alias gl='git pull'
 alias gnp="git-notpushed"
 alias gp='git push'
@@ -253,80 +249,16 @@ function new-git() {
   git config push.default current
 }
 
-#Git Flow
-alias gff='git flow feature start'
-
-## Open Drupal issue node
-# http://chapterthree.com/blog/open-your-drupalorg-issue-automatically-your-git-repository
-alias issue="open /Applications/Google\ Chrome.app https://www.drupal.org/node/\$(git symbolic-ref -q HEAD 2>/dev/null | sed 's/^refs\/heads\/\([0-9]*\).*/\1/')"
-
 # Setup a tunnel
 function haproxyssh() {
   ssh -L7997:127.0.0.1:7997 deploy@$1.com
 }
-
-# Syntax check Javascript
-function jsc() {
-  jsl -conf /etc/jsl/jsl.conf -process $1
-}
-
-alias nr='npm run'
 
 function aiff2mp3() {
   lame -h -V 0 $1.aif $1.mp3
 }
 function wav2mp3() {
   lame -h -V 0 $1.wav $1.mp3
-}
-
-# Update Vhosts
-alias vhost="sudo vim /etc/apache2/extra/httpd-vhosts.conf"
-
-# Apache Restart
-alias apacherestart="sudo apachectl -k restart"
-
-# Nginx
-# sudo $(brew --prefix)/sbin/nginx -s stop
-function nginx_stop() {
-  sudo nginx -s stop
-}
-function nginx_start() {
-  sudo /usr/local/sbin/nginx
-}
-function nginx_reload() {
-  sudo nginx -s reload
-}
-
-# Restart PHP56
-alias phprestart="brew services restart php56"
-
-# php-fpm
-function php_stop() {
-    ps ax | grep php-fpm | cut -d " " -f 1 | xargs sudo kill -9
-}
-
-# TaskPaper
-function ntp() {
-    touch $1.taskpaper
-    vim $1.taskpaper
-}
-
-# [Create and] open project todo
-# If you don't pass a name as an argument, it's pulled from the directory name
-td() {
-	if [[ -n $1 ]]; then
-		proj=$1
-		todofile=$proj.taskpaper
-	else
-		proj=${PWD##*/}
-		todofile=$proj.taskpaper
-		todofile=${todofile#.}
-	fi
-	if [ ! -e $todofile ]; then
-		touch $todofile
-		echo -e "Inbox:\n$proj:\n\tNew Features:\n\tIdeas:\n\tBugs:\nArchive:\nSearch Definitions:\n\tTop Priority @search(@priority = 5 and not @done)\n\tHigh Priority @search(@priority > 3 and not @done)\n\tMaybe @search(@maybe)\n\tNext @search(@na and not @done and not project = \"Archive\")\n" >> $todofile
-	fi
-	vim $todofile
 }
 
 # From http://github.com/suztomo/dotfiles
@@ -374,76 +306,6 @@ function __rm_single_file(){
     fi
 }
 
-# Drupal Directories for my themes, modules, features, and drush make files.
-
-alias d='drupal'
-alias ddrush='ddev drush'
-alias dca='drush cc all'
-alias dr='drush cr'
-alias dfr='drush fra -y && drush cc all'
-alias dfl='drush fl'
-alias duli='drush uli'
-
-# Download Drupal 8 with git
-function gitd() {
-  git clone --branch $1 https://git.drupal.org/project/drupal.git $2; cd $2
-}
-
-alias d8upgrade='composer update drupal/core webflo/drupal-core-require-dev --with-dependencies'
-
-# Quick-Drupal install
-# By default this function installs the demo_umami profile but you can pass any
-# core profile you like as an arguement
-# Example: quickdrupal standard
-function quickdrupal() {
-  PROFILE=${1:-demo_umami}
-  mkdir quickdrupal && cd quickdrupal && curl -sSL https://www.drupal.org/download-latest/tar.gz | tar -xz --strip-components=1
-  php core/scripts/drupal quick-start $PROFILE
-}
-
-# Create db for new Drupal site.
-function ddb() {
-  mysql -u root -p -e "CREATE DATABASE $1 CHARACTER SET utf8 COLLATE utf8_general_ci;"
-}
-
-# Import a compressed database using Drush.
-function dimport() {
-  echo "Dropping current database."
-  drush sql-drop
-  echo "Importing database from $1"
-  gunzip -c $1 | drush sqlc
-  echo "Database imported. Rebuiling registry now."
-  drush rr
-  echo "unblocking user ID 1"
-  drush uublk 1
-  echo "Logging you in now."
-  drush uli
-}
-
-# Code sniffer.
-alias drupalcs="phpcs --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md,yml'"
-alias drupalcsp="phpcs --standard=DrupalPractice --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md,yml'"
-alias drupalcsfix="phpcbf --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md,yml'"
-alias themes='cd ~/Dropbox/drupal/themes/' #goto the themes folder
-alias modules='cd ~/Dropbox/drupal/modules/' #goto the modules folder
-alias builds='cd ~/Code/builds/' #goto the builds folder
-alias profiles='cd ~/Dropbox/drupal/profiles/' #goto the profiles folder
-alias repos='cd ~/Dropbox/repos/' #goto the repos folder
-alias sites='cd ~/Sites' #goto the profiles folder
-alias twd='cd ~/Dropbox/currentprojects/theweeklydrop' #goto theweeklydrop folder
-alias grab="drush dl --package-handler=git_drupalorg --dev"
-
-#Grunt
-alias grunt='/usr/local/share/npm/bin/grunt'
-
-# Go lang s search tool.
-alias s="~/golang/bin/s"
-alias sa="s -p amazon"
-alias sw="s -p wikipedia"
-alias si="s -p imdb"
-alias ss="s -p stackoverflow"
-alias sy="s -p youtube"
-
 # Get readable list of network IPs
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -483,7 +345,6 @@ if [ $(uname) == "Linux" ]; then
   alias flush="resolvectl flush-caches" # Flush DNS cache
 fi
 
-
 alias dnscloud="sudo networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1"
 alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip'
 alias vpnfix="sudo ifconfig en0 down && sudo route flush && sudo ifconfig en0 up"
@@ -492,11 +353,13 @@ alias gzip="gzip -9n" # set strongest compression level as ‘default’ for gzi
 alias ping="ping -c 5" # ping 5 times ‘by default’
 alias ql="qlmanage -p 2>/dev/null" # preview a file using QuickLook
 
-# Open Notational Velicity/Simplenote files in Vim
+# Open notes in Vim
 alias notes='cd ~/notes;vim .'
 
 # USB hardware
-alias usb='system_profiler SPUSBDataType'
+if [ $(uname) == "Darwin" ]; then
+  alias usb='system_profiler SPUSBDataType'
+fi
 
 # Find Raspberry Pi on network. Does not work for Pi4
 alias findpi='arp -na | grep -i b8:27:eb'
@@ -504,14 +367,13 @@ alias findpi='arp -na | grep -i b8:27:eb'
 # Networking
 alias hosts='sudo vim /private/etc/hosts'
 alias dnsconf='sudo vim /usr/local/etc/dnsmasq.conf'
-alias dnsreload='sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist && sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist'
+
+if [ $(uname) == "Darwin" ]; then
+  alias dnsreload='sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist && sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist'
+fi
 alias wifi="networksetup -setairportpower en1"
 
-# Find all Raspberry Pi IPs on the network.
-alias findpi='arp -na | grep -i b8:27:eb'
-
-# Tmuxinator
-alias mux="tmuxinator"
+#fzf stuff
 
 # tm - create new tmux session, or switch to existing one. Works from within tmux too. (@bag-man)
 # `tm` will allow you to select your tmux session via fzf.
@@ -543,26 +405,7 @@ fbr() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-# Vagrant
-alias vgs='vagrant global-status'
-# alias vgh="vagrant global-status | awk '/virtualbox running/{ print $1 }' | xargs vagrant halt"
-
-# vagrant halt all and vagrant switch
-# https://gist.github.com/PGBI/4bdac70e8fcb0d9335db154e9458934f
-
-vagrant() {
-  if [[ $@ == "halt all" ]]; then
-    command vagrant global-status | grep running | colrm 8 | xargs -L 1 -t vagrant halt
-  elif [[ $@ == "switch" ]]; then
-    command vagrant global-status | grep running | colrm 8 | xargs -L 1 -t vagrant halt
-    command vagrant up
-  else
-    command vagrant "$@"
-  fi
-}
-
 # Docker
-#
 
 if [ $(uname) == "Darwin" ]; then
   alias startdocker='open --hide --background -a Docker && sleep 10'
@@ -586,26 +429,28 @@ alias dprune='docker image prune'
 # Remove unused images, unused networks *and data* (use with care)
 alias dprunesys='docker system prune --all'
 
-# Open Jira ticket
-jira() {
-  open "http://codeandtheory.atlassian.net/browse/$1"
-}
+# Misc
 
-# Toggle bluetooth with https://github.com/toy/blueutil installed via blueutil
-alias bluetoggle="blueutil --power toggle"
-
-# Automator
-alias startcall="automator /Users/kepford/Dropbox/scripts/start_call.workflow  &> /dev/null"
-alias stopcall="automator /Users/kepford/Dropbox/scripts/stop_call.workflow  &> /dev/null"
-
-startjournal () {
+startjournal() {
   now=$(date +"%Y-%m-%d")
   filename=journal-$now.md
   printf '# Journaling\n\n## What are you grateful for?\n\n-\n\n## What frustrated you today?\n\n-\n\n## What excited you today?\n\n-\n\n## 5 Love languages\n\n### Did you show acts of service to __ this week?\n\n### Did you speak Words of affirmation\n\n### Did you spend Quality time together?\n\n### Did you give gifts?\n\n### Did you show affection' > $filename
 }
 
-# Edit local aliases
-alias eal='vim ~/.alias_local'
+worklog() {
+  today=$(date +"%Y-%m-%d")
+  filename=worklog-$today.md
+  touch $filename
+  echo "Created $filename"
+}
+
+
+# Syntax check Javascript
+function jsc() {
+  jsl -conf /etc/jsl/jsl.conf -process $1
+}
+
+alias nr='npm run'
 
 # Automatically call nvmuse
 # https://github.com/creationix/nvm#deeper-shell-integration
@@ -676,6 +521,9 @@ function yy() {
 	fi
 	rm -f -- "$tmp"
 }
+
+# Edit local aliases
+alias eal='vim ~/.alias_local'
 
 # Include local and private aliases.
 if [ -f ~/.alias_local ]; then
