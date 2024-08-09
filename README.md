@@ -130,6 +130,10 @@ ln -s ~/bin/dotfiles/drupal_console ~/.console
 
 # Linux
 
+## AppImages
+
+Store AppImages in `~/.local/share/applications`
+
 # X
 
 For X there are a few things that must be done.
