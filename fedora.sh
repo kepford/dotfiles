@@ -299,6 +299,9 @@ sudo dnf install python3-pip -y
 # For screenshots
 sudo dnf install flameshot -y
 
+# Sway for Wayland
+sudo dnf install sway-config-fedora -y
+
 # i3 for X11
 sudo dnf install i3 rofi picom feh blueman pavucontrol xset xinput dunst -y
 sudo dnf copr enable atim/i3status-rust -y
