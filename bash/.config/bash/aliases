@@ -34,6 +34,9 @@ alias mutt="neomutt"
 
 alias clock='tty-clock -cbt'
 
+# Start calculator with math support
+alias bc='bc -lq'
+
 # Alternative cli tools:
 # https://remysharp.com/2018/08/23/cli-improved
 # \cat # ignore aliases named "cat" - explanation: https://stackoverflow.com/a/16506263/22617
