@@ -11,6 +11,7 @@ stow -v -R -t ~ kitty
 stow -v -R -t ~ flameshot
 stow -v -R -t ~ i3
 stow -v -R -t ~ i3status-rust
+stow -v -R -t ~ sway
 stow -v -R -t ~ picom
 stow -v -R -t ~ readline
 stow -v -R -t ~ rofi
