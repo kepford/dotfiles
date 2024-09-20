@@ -41,13 +41,14 @@ BWHITE='\e[47m'
 # Colorize listing of files
 export CLICOLOR=1
 
-PS1="\n⚡ ${BLUE}\u${WHITE}:${NO_COLOR}${GREEN}\w${NO_COLOR}\n"
+function parse_git_dirty {
+  [[ $(git status --porcelain 2> /dev/null) ]] && echo "*"
+}
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1$(parse_git_dirty))/"
+}
 
-# gitHUD is a heads up display for the command line that will show git information
-# https://github.com/gbataille/gitHUD
-if [[ $OSTYPE == 'darwin'* ]]; then
-  PS1="$PS1\$(/usr/local/bin/gitHUD)\[\033[0m\]\n→ "
-fi
+export PS1="\n⚡ ${BLUE}\u$ \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\]\n"
 
 # History from Sensible Bash
 # http://mrzool.cc/writing/sensible-bash/
