@@ -15,7 +15,7 @@ exec --no-startup-id picom
 # Set trackpad speed
 # xinput set-prop "Synaptics TM3625-010" "332" 0.45
 
-exec_always --no-startup-id feh --bg-scale --randomize ~/.config/backgrounds/*
+exec_always --no-startup-id feh --bg-fill --randomize ~/.config/backgrounds/*
 
 # Change CAPS LOCK to Escape
 exec_always --no-startup-id xmodmap -e "clear lock"

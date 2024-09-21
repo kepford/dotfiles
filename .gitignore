@@ -12,3 +12,4 @@ vim/tmp/*
 tmux/resurrect
 node_modules
 nvim/plugin/packer_compiled.lua
+backgrounds/.config/backgrounds/*
