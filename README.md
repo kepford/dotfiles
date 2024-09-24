@@ -146,7 +146,15 @@ org.gnome.desktop.peripherals.touchpad two-finger-scrolling-enabled true
 
 ## i3 Monitor Setup
 
-### Using autorandr
+List the active monitors
+
+`xrandr --listactivemonitors`
+
+Setting up output of monitors
+
+`xrandr --output DP-3-3 --auto --left-of DP-3-1`
+
+### Load Presets Using autorandr
 
 Save the current configuration.
 
