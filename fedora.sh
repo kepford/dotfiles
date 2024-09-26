@@ -306,6 +306,7 @@ sudo dnf install sway-config-fedora -y
 sudo dnf install i3 rofi picom feh blueman pavucontrol xset xinput dunst -y
 sudo dnf copr enable atim/i3status-rust -y
 sudo dnf install i3status-rust -y
+sudo dnf install brightnessctl -y
 
 # Rust cargo stuff
 rustup update

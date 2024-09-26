@@ -176,6 +176,13 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+# Increase brightness
+# https://github.com/particleofmass/i3wm_screen_brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+
+# Decrease brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
