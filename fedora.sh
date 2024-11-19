@@ -211,6 +211,7 @@ sudo dnf install krb5-workstation -y
 
 sudo dnf install htop -y
 sudo dnf install jq -y
+sudo dnf install jo -y
 # Used by telescope.nvim
 sudo dnf install fd-find -y
 sudo dnf install ripgrep -y

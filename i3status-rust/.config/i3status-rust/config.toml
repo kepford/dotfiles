@@ -19,14 +19,14 @@ command = "echo '\uf0f4' `xset -q | grep 'DPMS is' | awk '{ print $3 }'`" # assu
 button = "left"
 cmd = "sh ~/.dotfiles/scripts/caffeine.sh"
 
-[[block]]
-block = "custom"
-# set variable CITY in ~/.xsessionrc
-command = "echo $(curl wttr.in/~${CITY}?format=2)"
-interval = 360
-[[block.click]]
-button = "left"
-cmd = "urxvt -hold -e curl wttr.in/~${CITY}"
+# [[block]]
+# block = "custom"
+# # set variable CITY in ~/.xsessionrc
+# command = "echo $(curl wttr.in/~${CITY}?format=2)"
+# interval = 360
+# [[block.click]]
+# button = "left"
+# cmd = "urxvt -hold -e curl wttr.in/~${CITY}"
 
 # Syncthing
 [[block]]
