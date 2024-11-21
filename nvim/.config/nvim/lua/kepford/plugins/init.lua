@@ -17,7 +17,6 @@ return {
   "tpope/vim-unimpaired",
   "tpope/vim-vinegar",
   "wincent/loupe", -- Enhances search in Vim. consider removing
-  'airblade/vim-gitgutter',
   'dkarter/bullets.vim', -- Bullets.vim is a Vim/NeoVim plugin for automated bullet lists.
   'mfussenegger/nvim-dap', -- DAP (Debug Adapter Protocol) debugging for Drupal :)
   'nvim-telescope/telescope-dap.nvim', -- Integration for nvim-dap with telescope.nvim. Overriding dap internal ui, so running any dap command, which makes use of the internal ui, will result in a telescope prompt.
