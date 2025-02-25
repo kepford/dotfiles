@@ -194,3 +194,12 @@ sudo parted /dev/sda --script -- mklabel msdos
 sudo parted /dev/sda --script -- mkpart primary fat32 1MiB 100%
 sudo mkfs.vfat -F32 /dev/sda1
 sudo parted /dev/sda --script print
+
+## Tips
+
+Neofetch replacement :)
+
+`cat /proc/cpuinfo`
+`cat /proc/meminfo`
+`cat /etc/osrelease`
+`uname -a`
