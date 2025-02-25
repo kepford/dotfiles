@@ -3,28 +3,55 @@
 	excludesfile = ~/.gitignore
 	quotepath = false
   pager = delta
-
+  fsmonitor = true
+  untrackedCache = true
 [interactive]
   diffFilter = delta --color-only
-
+[column]
+  # Displays output in columns
+  ui = auto
 [color]
   ui = true
+  [color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
   [color "branch"]
     current = yellow reverse
     local = yellow
     remote = green
   [color "diff"]
-    meta = yellow bold
+    meta = 11
     frag = magenta bold
     old = red bold
     new = green bold
+    func = 146 bold
+    commit = yellow bold
+    whitespace = red reverse
   [color "status"]
     added = yellow
     changed = green
     untracked = cyan
 [push]
-  default = current
-
+  # default = current
+  # Uses current if the remote branch is named the same
+  default = simple
+  autoSetupRemote = true
+  followTags = true
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
+[help]
+  autocorrect = prompt
+[rerere]
+  enabled = true
+  autoupdate = true
+[rebase]
+  autoSquash = true
+  autoStash = true
+  updateRefs = true
 [alias]
   br = branch
   ci = commit
@@ -64,14 +91,17 @@
   undolast = reset --soft Head^
   unstage = reset HEAD
 
-  # diff-highlight http://theunixtoolbox.com/git-diff-highlight/
-  worddiff = !git diff --color | diff-highlight | less -r
 [apply]
   whitespace = nowarn
 [branch]
   autosetuprebase = always
+  # List branch last committed first
+  sort = -committerdate
+[tag]
+  sort = version:refname
 [commit]
   template = ~/.gitmessage
+  verbose = true
 [pull]
 	rebase = true
 [init]
@@ -79,13 +109,18 @@
 	defaultBranch = main
 [merge]
 	tool = nvimdiff
-  conflictstyle = diff3
+  # (just 'diff3' if git version < 2.3)
+  conflictstyle = zdiff3
 [mergetool]
 	prompt = false
 	keepBackup = true
 [diff]
 	tool = vimdiff
   colorMoved = default
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
 [include]
     path = ~/.gitconfig_local
 [filter "lfs"]

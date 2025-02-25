@@ -3,7 +3,6 @@
 # curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 # python get-pip.py
 pip install proselint
-pip install diff-highlight
 pip install gcalcli
 if [ $(uname) == "Darwin" ]; then
   pip3 install bpytop --upgrade
