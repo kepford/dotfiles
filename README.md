@@ -126,22 +126,29 @@ Thinkpad has this:
 
 **Gnome settings**
 
+List your touchpad settings
+
 ```
 gsettings list-recursively org.gnome.desktop.peripherals.touchpad
-org.gnome.desktop.peripherals.touchpad accel-profile 'default'
-org.gnome.desktop.peripherals.touchpad click-method 'fingers'
-org.gnome.desktop.peripherals.touchpad disable-while-typing true
-org.gnome.desktop.peripherals.touchpad edge-scrolling-enabled false
-org.gnome.desktop.peripherals.touchpad left-handed 'mouse'
-org.gnome.desktop.peripherals.touchpad middle-click-emulation false
-org.gnome.desktop.peripherals.touchpad natural-scroll true
-org.gnome.desktop.peripherals.touchpad send-events 'enabled'
-org.gnome.desktop.peripherals.touchpad speed 0.43968871595330739
-org.gnome.desktop.peripherals.touchpad tap-and-drag true
-org.gnome.desktop.peripherals.touchpad tap-and-drag-lock false
-org.gnome.desktop.peripherals.touchpad tap-button-map 'default'
-org.gnome.desktop.peripherals.touchpad tap-to-click false
-org.gnome.desktop.peripherals.touchpad two-finger-scrolling-enabled true
+```
+
+Set them if needed
+
+```
+gsettings set org.gnome.desktop.peripherals.touchpad accel-profile 'default'
+gsettings set org.gnome.desktop.peripherals.touchpad click-method 'fingers'
+gsettings set org.gnome.desktop.peripherals.touchpad disable-while-typing true
+gsettings set org.gnome.desktop.peripherals.touchpad edge-scrolling-enabled false
+gsettings set org.gnome.desktop.peripherals.touchpad left-handed 'mouse'
+gsettings set org.gnome.desktop.peripherals.touchpad middle-click-emulation false
+gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll true
+gsettings set org.gnome.desktop.peripherals.touchpad send-events 'enabled'
+gsettings set org.gnome.desktop.peripherals.touchpad speed 0.43968871595330739
+gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag true
+gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag-lock false
+gsettings set org.gnome.desktop.peripherals.touchpad tap-button-map 'default'
+gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click false
+gsettings set org.gnome.desktop.peripherals.touchpad two-finger-scrolling-enabled true
 ```
 
 ## i3 Monitor Setup
