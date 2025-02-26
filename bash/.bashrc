@@ -37,9 +37,10 @@ eval "$(zoxide init bash)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 . "$HOME/.cargo/env"
-. "$HOME/.deno/env"
 
 # jenv / Java
-export PATH="$HOME/.jenv/bin:$PATH" 
-eval "$(jenv init -)" 
+if command -v "jenv" &>/dev/null; then
+  export PATH="$HOME/.jenv/bin:$PATH" 
+  eval "$(jenv init -)" 
+fi
 
