@@ -106,6 +106,17 @@ sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.co
 sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 sudo dnf install brave-browser -y
 
+# Fedora 41 and newer
+# Add the Mullvad repository server to dnf
+# sudo dnf config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
+
+# Fedora 40 and earlier
+# Add the Mullvad repository server to dnf
+sudo dnf config-manager --add-repo https://repository.mullvad.net/rpm/stable/mullvad.repo -y
+
+# Install the package
+sudo dnf install mullvad-browser -y
+
 # Syncthing #
 sudo dnf install syncthing -y
 
