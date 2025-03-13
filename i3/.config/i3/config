@@ -72,8 +72,8 @@ bindsym Control+$mod+l exec i3lock
 # start a terminal
 bindsym $mod+Return exec kitty
 
-# start a firefox
-bindsym $mod+b exec firefox
+# start a brave
+bindsym $mod+b exec com.brave.Browser
 
 bindsym $mod+p exec "flameshot gui"
 
