@@ -30,8 +30,6 @@ ls.add_snippets(nil, {
       ""}), text({"",
       "[Jira Board](https://issues.redhat.com/secure/RapidBoard.jspa?rapidView=12488#)"}), text({"",
       ""}), text({"",
-      "### RHPT"}), text({"",
-      ""}), text({"",
       "## CE / TIL", ""}),
     }),
     snip({
