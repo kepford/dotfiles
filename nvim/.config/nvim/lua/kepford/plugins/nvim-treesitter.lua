@@ -32,6 +32,7 @@ return {
           "html",
           "css",
           "php",
+          "python",
           "markdown",
           "markdown_inline",
           "svelte",

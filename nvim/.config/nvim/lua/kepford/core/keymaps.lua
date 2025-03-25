@@ -82,3 +82,7 @@ vim.keymap.set("n", "<leader>c", "<cmd>:r !gcalcli --nocolor agenda 7am 5pm --no
 --
 -- Dismiss Noice Message
 vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", {desc = "Dismiss Noice Message"})
+
+-- Debugging
+vim.keymap.set('n', '<leader>db', '<cmd> DapToggleBreakpoint <CR>')
+-- vim.keymap.set('n', '<leader>dpr', 'function() require("dap-python").test_method() end')
