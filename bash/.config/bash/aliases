@@ -422,6 +422,10 @@ fbr() {
 
 # Docker
 
+alias dps='docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
+alias dl='docker logs --tail=100'
+alias dc='docker compose'
+
 if [ $(uname) == "Darwin" ]; then
   alias startdocker='open --hide --background -a Docker && sleep 10'
   alias quitdocker="osascript -e 'quit app \"Docker\"'"
@@ -443,6 +447,13 @@ alias dprune='docker image prune'
 
 # Remove unused images, unused networks *and data* (use with care)
 alias dprunesys='docker system prune --all'
+
+# Aliases: pass
+alias pa='pass'
+alias pac='pass -c'
+alias po='pass otp'
+alias poc='pass otp -c'
+alias pg='openssl rand -base64 33'
 
 # Misc
 
