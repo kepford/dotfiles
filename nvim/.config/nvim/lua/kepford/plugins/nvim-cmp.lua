@@ -22,6 +22,11 @@ return {
 
     -- loads my lua snippets
     require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/luasnip"})
+    -- loads my snipmate snippents.
+    require 'luasnip.loaders.from_snipmate'.lazy_load {
+        paths =  { '~/.config/nvim/snippets' },
+        fs_event_providers = { libuv = true },
+      }
 
     cmp.setup({
       completion = {

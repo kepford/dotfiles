@@ -2,43 +2,51 @@
   editor = nvim
 	excludesfile = ~/.gitignore
 	quotepath = false
-  pager = delta
+  pager = delta # Use the git-delta package for diffs
   fsmonitor = true
   untrackedCache = true
 [interactive]
   diffFilter = delta --color-only
+  singlekey = true # one-letter input with a single key in interactive commands without hitting enter
+[blame]
+  coloring = highlightRecent
+  date = relative
 [column]
   # Displays output in columns
   ui = auto
 [color]
   ui = true
-  [color "diff-highlight"]
-    oldNormal = red bold
-    oldHighlight = red bold 52
-    newNormal = green bold
-    newHighlight = green bold 22
-  [color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
-  [color "diff"]
-    meta = 11
-    frag = magenta bold
-    old = red bold
-    new = green bold
-    func = 146 bold
-    commit = yellow bold
-    whitespace = red reverse
-  [color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+[color "blame"]
+  highlightRecent = black bold,1 year ago,white,1 month ago,default,7 days ago,blue
+[color "branch"]
+  current = magenta
+  local = default
+  remote = yellow
+  upstream = green
+  plain = blue
+[color "diff"]
+  meta = black bold
+  frag = magenta
+  context = white
+  whitespace = yellow reverse
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
 [push]
-  # default = current
-  # Uses current if the remote branch is named the same
-  default = simple
-  autoSetupRemote = true
-  followTags = true
+  default = current  # push only current branch by default
+  autoSetupRemote = true  # easier to push new branches
+  followTags = true  # push also tags
+  gpgSign = false  # my remotes doesn't support sign pushes
+[pull]
+	rebase = true
+[submodule]
+  fetchJobs = 16
 [fetch]
   prune = true
   pruneTags = true
@@ -102,25 +110,35 @@
 [commit]
   template = ~/.gitmessage
   verbose = true
-[pull]
-	rebase = true
 [init]
 	templatedir = ~/.git_template
 	defaultBranch = main
+[log]
+  abbrevCommit = true  # short commits
+  graphColors = blue,yellow,cyan,magenta,green,red
+[status]
+  branch = true
+  short = true
+  showStash = true
+  showUntrackedFiles = all  # show individual untracked files
 [merge]
 	tool = nvimdiff
   # (just 'diff3' if git version < 2.3)
-  conflictstyle = zdiff3
+  conflictstyle = zdiff3 # for git-delta
 [mergetool]
 	prompt = false
 	keepBackup = true
+[pager]
+  branch = false  # no need to use pager for git branch
 [diff]
+  context = 3  # less context in diffs
+  renames = copies  # detect copies as renames in diffs
+  interHunkContext = 10  # merge near hunks in diffs
 	tool = vimdiff
   colorMoved = default
   algorithm = histogram
   colorMoved = plain
   mnemonicPrefix = true
-  renames = true
 [include]
     path = ~/.gitconfig_local
 [filter "lfs"]
@@ -136,3 +154,12 @@
   # delta detects terminal colors automatically; set one of these to disable auto-detection
   dark = true
   # light = true
+[credential]
+	helper = store
+
+# URL shortcuts
+[url "git@github.com:"]
+    insteadOf = "gh:"
+
+[url "git@github.com:kepford"]
+    insteadOf = "kgh:"

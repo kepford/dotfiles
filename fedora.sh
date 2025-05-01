@@ -304,7 +304,8 @@ sudo dnf install cronie -y
 sudo systemctl start crond.service
 sudo systemctl enable crond.service
 
-# Install git-delta
+# Install git-delta A syntax-highlighting pager for git, diff, grep, and blame 
+# output. Replaced diff-so-fancy
 sudo dnf install git-delta -y
 
 # Yubikey management cli

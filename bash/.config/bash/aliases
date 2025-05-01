@@ -199,6 +199,8 @@ function gg() {
     git commit -v -a -m "$*"
 }
 
+alias ga='git add'
+alias gap='ga --patch'
 alias gco='git checkout'
 alias gcob='git checkout -b'
 alias gd='git diff'

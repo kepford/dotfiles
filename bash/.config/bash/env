@@ -52,10 +52,6 @@ export PATH=$PATH:$GOPATH/bin
 export CARGOPATH=~/.cargo
 export PATH=$PATH:$CARGOPATH/bin
 
-# Diff-so-fancy
-DSFPATH=~/bin/diff-so-fancy
-export PATH=$PATH:$DSFPATH
-
 #Drupal Console completion
 source "$HOME/.console/console.rc" 2>/dev/null
 

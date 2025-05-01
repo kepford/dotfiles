@@ -23,3 +23,11 @@ FirePHPCore/*
 # Name a module directory dev.hide for things like coder and devel if they
 # are not in the site repo.
 dev.hide
+
+# Python specific
+.mypy_cache/
+.pytest_cache/
+__pycache__/
+.hypothesis/
+.ruff_cache/
+.ropeproject/
