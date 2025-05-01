@@ -178,14 +178,6 @@ fi
 
 # General code
 
-# Git
-alias ungit="find . -name '.git' -exec rm -rf {} \;"
-alias gb='git branch'
-alias gba='git branch -a'
-alias gc='git commit -v'
-alias gca='git commit -v -a'
-alias gf='git fetch'
-
 if [ $(uname) == "Darwin" ]; then
   alias gcb="git branch | grep '^\*' | cut -d' ' -f2 | pbcopy"
 fi
@@ -199,24 +191,42 @@ function gg() {
     git commit -v -a -m "$*"
 }
 
-alias ga='git add'
-alias gap='ga --patch'
-alias gco='git checkout'
-alias gcob='git checkout -b'
-alias gd='git diff'
-alias gl='git pull'
-alias gnp="git-notpushed"
-alias gp='git push'
+# Git aliases 
 alias g='git status'
 alias ga-modified="git status | grep modified | cut -d':' -f2 | xargs git add"
+alias ga='git add'
+alias gap='ga --patch'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gc='git commit -v'
+alias gca='gc --amend --no-edit'
+alias gce='gc --amend'
+alias gco='git checkout'
+alias gcob='git checkout -b'
+alias gcl='git clone --recursive'
+alias gd='git diff'
+alias gds='gd --staged'
+alias gf='git fetch'
+alias gi='git init'
+alias gl='git log --graph --all --pretty=format:"%C(magenta)%h %C(white) %an  %ar%C(blue)  %D%n%s%n"'
+alias gm='git merge'
+alias gn='git checkout -b'  # new branch
+alias gnp="git-notpushed"
+alias gp='git push'
+alias gr='git reset'
+alias gs='git status --short'
+alias gu='git pull'
 
 # Get and merge upstream repo
 alias gups='git fetch upstream && git merge upstream/master'
 alias eg='vim .git/config'
 alias egg='vim ~/.gitconfig'
 
-# Lists all merged branches and deletes the local branchs
-alias gclean="git branch --merged | grep -v -i -E 'master|main|develop' | xargs -n 1 git branch -d"
+# Remove git from project
+alias ungit="find . -name '.git' -exec rm -rf {} \;"
+
+# Lists all merged branches and deletes the local branches
+alias gclean="git branch --merged | grep -v -i -E 'master|main|develop|dev' | xargs -n 1 git branch -d"
 
 function glg() {
   git log --author="$1" --decorate
