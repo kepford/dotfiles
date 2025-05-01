@@ -79,7 +79,7 @@ alias preview="fzf --preview 'bat --color \"always\" {}'"
 alias top='htop'
 
 # Show disk space.
-# alias du='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
+alias du='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
 
 alias help='tldr'
 
@@ -149,6 +149,9 @@ function take() {
     mkdir -p "$1"
     cd "$1"
 }
+
+# Aliases: rg
+alias rg="rg --hidden --smart-case --glob='!.git/' --no-search-zip --trim --colors=line:fg:black --colors=line:style:bold --colors=path:fg:magenta --colors=match:style:nobold"
 
 alias e='exit'
 alias k9="kill -9"
@@ -454,6 +457,29 @@ alias pac='pass -c'
 alias po='pass otp'
 alias poc='pass otp -c'
 alias pg='openssl rand -base64 33'
+
+# Aliases: systemd
+alias sd='sudo systemctl'
+alias sdu='systemctl --user'
+alias jd='journalctl --no-pager'
+
+# Aliases: human-readable
+alias cal='TZ=America/Los_Angeles cal --monday'
+# alias du='du --human-readable'
+alias free='free --human'
+
+# Man colors
+man() {
+  GROFF_NO_SGR=1 \
+  LESS_TERMCAP_mb=$'\e[31m' \
+  LESS_TERMCAP_md=$'\e[34m' \
+  LESS_TERMCAP_me=$'\e[0m' \
+  LESS_TERMCAP_se=$'\e[0m' \
+  LESS_TERMCAP_so=$'\e[1;30m' \
+  LESS_TERMCAP_ue=$'\e[0m' \
+  LESS_TERMCAP_us=$'\e[35m' \
+  command man "$@"
+}
 
 # Misc
 

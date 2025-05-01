@@ -341,6 +341,9 @@ sudo dnf install unar -y
 # Auto detect the monitors and set up xrandr/displays as desired.
 sudo dnf install autorandr -y
 
+sudo dnf install tldr -y
+sudo dnf install ncdu -y
+
 # Load laptop only display
 # autorandr mobile
 # Load dock in my office
