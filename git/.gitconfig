@@ -118,7 +118,7 @@
   graphColors = blue,yellow,cyan,magenta,green,red
 [status]
   branch = true
-  short = true
+  short = false # I like to see it all. I can get short with gs alias in bash
   showStash = true
   showUntrackedFiles = all  # show individual untracked files
 [merge]
