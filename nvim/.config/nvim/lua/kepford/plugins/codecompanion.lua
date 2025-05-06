@@ -1,6 +1,15 @@
 return {
   "olimorris/codecompanion.nvim",
-  opts = {},
+  opts = {
+    adapters = {
+      gemini = {
+        enabled = true,
+        model = "gemini-pro", -- or "gemini-pro-vision" if vision needed
+        api_key = vim.env.GEMINI_API_KEY, -- Secure way via environment variable
+      },
+    },
+    default_adapter = "gemini",
+  },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
