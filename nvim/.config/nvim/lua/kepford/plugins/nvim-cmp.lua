@@ -21,12 +21,12 @@ return {
     require("luasnip.loaders.from_vscode").lazy_load()
 
     -- loads my lua snippets
-    require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/luasnip"})
+    require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/luasnip" })
     -- loads my snipmate snippents.
     require 'luasnip.loaders.from_snipmate'.lazy_load {
-        paths =  { '~/.config/nvim/snippets' },
-        fs_event_providers = { libuv = true },
-      }
+      paths = { '~/.config/nvim/snippets' },
+      fs_event_providers = { libuv = true },
+    }
 
     cmp.setup({
       completion = {
@@ -48,10 +48,11 @@ return {
       }),
       -- sources for autocompletion
       sources = cmp.config.sources({
-        { name = "nvim_lsp" },
+        { name = "nvim_lsp" }, -- LSP source
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
+        { name = "codecompanion" }, -- CodeCompanion source
       }),
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
