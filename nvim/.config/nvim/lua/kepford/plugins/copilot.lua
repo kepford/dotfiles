@@ -23,10 +23,10 @@ return {
 				},
 			},
 			filetypes = {
-				markdown = true,
+				markdown = false,
 				help = false,
 				gitcommit = true,
-				["*"] = true,
+				["*"] = false,
 			},
 		})
 	end,
