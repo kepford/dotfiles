@@ -46,6 +46,10 @@ Download tmux plugin-manager
 
 `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 
+In Tmux you must do the following:
+
+Press `prefix` + <kbd>I</kbd> (capital i, as in **I**nstall) to fetch the plugin.
+
 ### GNU Stow
 
 Run `./stow.sh` to symlink all config
