@@ -14,6 +14,32 @@ Refresh the system font cache with fc-cache, e.g.:
 
 `fc-cache -v`
 
+### Install NVM (Node Version Manager, its needed for Neovim plugins)
+
+Change the version number
+
+`curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash`
+
+Install a node version.
+
+`nvm install v22.15.1`
+
+### Git
+
+Create local git config
+
+`touch ~/.gitconfig_local`
+
+### Bash Local
+
+Create local bash config
+
+`touch ~/.bash_local`
+
+### Clipboard vim config
+
+@TODO Doesn't work in Arch
+
 ### GNU Stow
 
 Run `./stow.sh` to symlink all config
@@ -226,4 +252,3 @@ gpg --import <key>.gpg
 gpg --edit-key <key-id>
 # trust, 5, save
 ```
-
