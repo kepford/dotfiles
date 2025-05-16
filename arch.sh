@@ -2,6 +2,9 @@
 # Arch install script
 #################
 
+# Maintenance script
+# https://github.com/kurealnum/dotfiles/blob/main/.config/scripts/sysmaintenance.sh
+
 # run updates 
 sudo pacman -Syu
 
