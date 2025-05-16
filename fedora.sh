@@ -66,7 +66,6 @@ gsettings set org.gnome.desktop.peripherals.touchpad tap-button-map 'default'
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click false
 gsettings set org.gnome.desktop.peripherals.touchpad two-finger-scrolling-enabled true
 
-
 # Maps capslock to escape
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
 
@@ -80,9 +79,6 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
 
 # Setup gnu-stow
 sudo dnf install stow -y
-
-# Vim: YouCompleteMe plugin requirements
-# sudo dnf install cmake gcc-c++ make python3-devel -y
 
 # install vim
 sudo dnf install vim -y
@@ -112,7 +108,7 @@ sudo dnf install brave-browser -y
 
 # Fedora 40 and earlier
 # Add the Mullvad repository server to dnf
-sudo dnf config-manager --add-repo https://repository.mullvad.net/rpm/stable/mullvad.repo -y
+# sudo dnf config-manager --add-repo https://repository.mullvad.net/rpm/stable/mullvad.repo -y
 
 # Install the package
 sudo dnf install mullvad-browser -y
@@ -138,9 +134,6 @@ systemctl --user start syncthing.service
 
 # My coding fonts
 sudo dnf install fira-code-fonts -y
-
-# Required for YouCompleteMe Vim plugin.
-# sudo dnf install cmake gcc-c++ make python3-devel -y
 
 # GPU rendering with Firefox
 # sudo dnf install igt-gpu-tools -y
@@ -248,10 +241,10 @@ sudo dnf install tree -y
 sudo dnf install youtube-dl -y
 sudo dnf install wireguard-tools -y
 sudo dnf install zoxide -y
-
 sudo dnf copr enable marcusmueller/sc-im # CLI spreadsheet tool
 sudo dnf --refresh install sc-im -y
 sudo dnf install calcurse -y # Calendar
+sudo dnf install newsboat -y
 
 # Remind
 # curl https://dianne.skoll.ca/projects/remind/download/remind-04.02.00.tar.gz -o remind-04.02.00.tar.gz
@@ -293,8 +286,6 @@ sudo make install
 
 # Copy mbsync
 # cp -p /backup/bkepford/.mbsync ~/.
-
-sudo dnf install newsboat -y
 
 # Screencasting tools
 sudo dnf install screenkey -y
