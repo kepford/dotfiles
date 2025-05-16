@@ -40,6 +40,12 @@ Create local bash config
 
 @TODO Doesn't work in Arch
 
+### Tmux 
+
+Download tmux plugin-manager
+
+`git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+
 ### GNU Stow
 
 Run `./stow.sh` to symlink all config

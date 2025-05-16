@@ -30,6 +30,9 @@ makepkg -si
 #
 # Keep packages updated by running yay -Sua
 
+# Install inetutils so we can use `hostname`
+sudo pacman -S inetutils --noconfirm
+
 #################################
 # Browsers
 #################################
@@ -150,7 +153,7 @@ sudo pacman -S fira-code-fonts --noconfirm
 
 # Clipboard support for Tmux and Vim
 # Need to run `hostname | xclip -sel c`
-pacman -S xclip --noconfirm 
+sudo pacman -S xclip --noconfirm 
 
 ##########
 # Docker #
