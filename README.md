@@ -210,3 +210,20 @@ Neofetch replacement :)
 `cat /proc/meminfo`
 `cat /etc/osrelease`
 `uname -a`
+
+### Optional extra steps (on new hosts)
+
+1. Generate ssh keys:
+
+```sh
+ssh-keygen -t ed25519
+```
+
+2. Import gpg keys:
+
+```sh
+gpg --import <key>.gpg
+gpg --edit-key <key-id>
+# trust, 5, save
+```
+
