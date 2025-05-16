@@ -216,8 +216,9 @@ sudo pacman -S screenkey --noconfirm
 
 # Set up cron
 sudo pacman -S cronie --noconfirm
-sudo systemctl start crond.service
-sudo systemctl enable crond.service
+## Failed service not found 
+# sudo systemctl start crond.service
+# sudo systemctl enable crond.service
 
 # Install git-delta A syntax-highlighting pager for git, diff, grep, and blame 
 # output. Replaced diff-so-fancy
@@ -237,11 +238,13 @@ sudo pacman -S flameshot --noconfirm
 # sudo pacman -S sway-config-fedora --noconfirm
 
 # i3 for X11
+# Had some issues here
 sudo pacman -S i3 rofi picom feh blueman pavucontrol xset xinput dunst i3status-rust brightnessctl --noconfirm
 
 ###########################
 # Install yazi file manager
 ###########################
+# Falied to install yazi-fm
 cargo install --locked yazi-fm yazi-cli
 
 # Install helpers for yazi
@@ -264,17 +267,16 @@ sudo pacman -S autorandr --noconfirm
 # autorandr kmf
 
 # Install Flatpaks
-flatpak install flathub org.signal.Signal
-flatpak install flathub org.gimp.GIMP
-flatpak install flathub com.bitwarden.desktop
-flatpak install flathub org.kde.kdenlive
-flatpak install flathub com.calibre_ebook.calibre
-flatpak install flathub com.yubico.yubioath
-flatpak install flathub com.discordapp.Discord
+flatpak install flathub org.signal.Signal -y
+flatpak install flathub org.gimp.GIMP -y
+flatpak install flathub com.bitwarden.desktop -y
+flatpak install flathub org.kde.kdenlive -y
+flatpak install flathub com.calibre_ebook.calibre -y
+flatpak install flathub com.yubico.yubioath -y
+flatpak install flathub com.discordapp.Discord -y
 
 ########################
 # VPNs
 ########################
-# Fedora 41 and newer
-# Add the Mullvad repository server to dnf
-# sudo dnf config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
+# Mullvad
+yay -S mullvad-vpn
