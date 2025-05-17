@@ -50,6 +50,8 @@ In Tmux you must do the following:
 
 Press `prefix` + <kbd>I</kbd> (capital i, as in **I**nstall) to fetch the plugin.
 
+@TODO Fonts don't look right. I think I'm missing some
+
 ### GNU Stow
 
 Run `./stow.sh` to symlink all config
