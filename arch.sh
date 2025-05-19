@@ -1,5 +1,6 @@
 #################
 # Arch install script
+# https://wiki.archlinux.org/title/Lenovo_ThinkPad_T480
 #################
 
 # Maintenance script
@@ -11,6 +12,11 @@ sudo pacman -Syu
 # Install fastfetch
 sudo pacman -S fastfetch --noconfirm
 sudo pacman -S git --noconfirm
+
+# Install intel graphics
+# sudo pacman -S xf86-video-intel
+#
+# Bluetooth doesn't work
 
 # Install yay AUR helper
 sudo pacman -S --needed git base-devel --noconfirm
@@ -240,12 +246,21 @@ sudo systemctl enable --now tailscaled
 # For screenshots
 sudo pacman -S flameshot --noconfirm
 
-# Sway for Wayland
-# sudo pacman -S sway-config-fedora --noconfirm
-
 # i3 for X11
+sudo pacman -Sy xorg-xinit dmenu xorg-xset xorg-xinput --noconfirm
+
 # Had some issues here
-sudo pacman -S i3 rofi picom feh blueman pavucontrol xset xinput dunst i3status-rust brightnessctl --noconfirm
+sudo pacman -Sy i3-wm --noconfirm
+# Rofi is a window switcher, application launcher, and dmenu replacement
+# lightweight compositor for X11
+sudo pacman -Sy rofi --noconfirm 
+sudo pacman -Sy picom --noconfirm 
+sudo pacman -Sy feh --noconfirm
+sudo pacman -Sy blueman --noconfirm # Bluetooth manager 
+sudo pacman -Sy pavucontrol --noconfirm # PulseAudio Volume Control
+sudo pacman -Sy dunst --noconfirm # Notifications
+sudo pacman -Sy i3status-rust --noconfirm # status 
+sudo pacman -Sy brightnessctl --noconfirm
 
 ###########################
 # Install yazi file manager
