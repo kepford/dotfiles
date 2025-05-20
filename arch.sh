@@ -19,6 +19,7 @@ sudo pacman -S git --noconfirm
 # Bluetooth doesn't work
 
 # Install yay AUR helper
+# @TODO: Requires input
 sudo pacman -S --needed git base-devel --noconfirm
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -53,7 +54,7 @@ sudo pacman -S mullvad-browser firefox --noconfirm
 sudo pacman -S python python-pip --noconfirm
 
 # Rust
-sudo pacman -S rust
+sudo pacman -S rustup --noconfirm
 
 # Rust cargo stuff
 rustup update
@@ -92,6 +93,7 @@ sudo pacman -S keychain --noconfirm
 
 sudo pacman -S kitty --noconfirm
 
+# @TODO Requires input
 # Install fzf using git to get the latest version
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 # sudo pacman -S fzf 
@@ -135,9 +137,9 @@ sudo pacman -S tree --noconfirm
 sudo pacman -S youtube-dl --noconfirm
 sudo pacman -S wireguard-tools --noconfirm
 sudo pacman -S zoxide --noconfirm
-sudo dnf copr enable marcusmueller/sc-im # CLI spreadsheet tool
-sudo dnf --refresh install sc-im --noconfirm
-sudo pacman -S calcurse  # Calendar
+# sudo dnf copr enable marcusmueller/sc-im # CLI spreadsheet tool
+# sudo dnf --refresh install sc-im --noconfirm
+sudo pacman -S calcurse --noconfirm # Calendar
 sudo pacman -S newsboat --noconfirm
 sudo pacman -S tidy --noconfirm
 sudo pacman -S the_silver_searcher --noconfirm
@@ -178,6 +180,7 @@ sudo usermod -aG docker $USER
 # ##############
 # https://ddev.readthedocs.io/en/stable/users/install/ddev-installation/#linux
 
+# @TODO requires action
 yay -S ddev-bin
 
 # One-time initialization of mkcert
@@ -203,7 +206,7 @@ sudo mv tty-clock /usr/local/bin/tty-clock
 sudo pacman -S neomutt --noconfirm
 sudo pacman -S isync msmtp pass --noconfirm
 sudo pacman -S lynx notmuch abook urlview --noconfirm
-sudo pacman -S pass-otp--noconfirm
+sudo pacman -S pass-otp --noconfirm
 
 # Mutt wizard
 cd /tmp
@@ -228,7 +231,7 @@ sudo pacman -S screenkey --noconfirm
 
 # Set up cron
 sudo pacman -S cronie --noconfirm
-## Failed service not found 
+## @TODO: Failed service not found 
 # sudo systemctl start crond.service
 # sudo systemctl enable crond.service
 
@@ -252,8 +255,8 @@ sudo pacman -Sy xorg-xinit dmenu xorg-xset xorg-xinput --noconfirm
 # Had some issues here
 sudo pacman -Sy i3-wm --noconfirm
 # Rofi is a window switcher, application launcher, and dmenu replacement
-# lightweight compositor for X11
 sudo pacman -Sy rofi --noconfirm 
+# lightweight compositor for X11
 sudo pacman -Sy picom --noconfirm 
 sudo pacman -Sy feh --noconfirm
 sudo pacman -Sy blueman --noconfirm # Bluetooth manager 
@@ -300,4 +303,6 @@ flatpak install flathub com.discordapp.Discord -y
 # VPNs
 ########################
 # Mullvad
+# @TODO asks for conf
+# @TODO import certs
 yay -S mullvad-vpn
