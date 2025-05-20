@@ -1,5 +1,5 @@
-rm ~/.bashrc
-rm ~/.bash_profile
+mv ~/.bashrc ~/.bashrc.bak
+mv ~/.bash_profile ~/.bash_profile.bak
 stow -v -R -t ~ alacritty
 stow -v -R -t ~ autorandr
 stow -v -R -t ~ backgrounds
