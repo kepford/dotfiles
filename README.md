@@ -2,6 +2,7 @@
 
 ## Installation
 
+
 ### Fonts
 
 [FiraCodeNerdFont](https://www.nerdfonts.com/font-downloads)
@@ -28,7 +29,23 @@ Install a node version.
 
 Create local git config
 
-`touch ~/.gitconfig_local`
+`printf '%s\n' '[user]' '  email = bob@bobkepford.com' '  name = kepford' > .gitconfig_local`
+
+#### Optional extra steps (on new hosts)
+
+1. Generate ssh keys:
+
+```sh
+ssh-keygen -t ed25519
+```
+
+2. Import gpg keys:
+
+```sh
+gpg --import <key>.gpg
+gpg --edit-key <key-id>
+# trust, 5, save
+```
 
 ### Bash Local
 
@@ -248,19 +265,3 @@ Neofetch replacement :)
 `cat /proc/meminfo`
 `cat /etc/osrelease`
 `uname -a`
-
-### Optional extra steps (on new hosts)
-
-1. Generate ssh keys:
-
-```sh
-ssh-keygen -t ed25519
-```
-
-2. Import gpg keys:
-
-```sh
-gpg --import <key>.gpg
-gpg --edit-key <key-id>
-# trust, 5, save
-```

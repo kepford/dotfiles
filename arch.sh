@@ -48,7 +48,7 @@ sudo pacman -S inetutils --noconfirm
 yay -S brave-bin
 
 # Install other browsers
-sudo pacman -S mullvad-browser firefox --noconfirm
+# sudo pacman -S mullvad-browser firefox --noconfirm
 
 # Install Python and Pip if they aren't installed
 sudo pacman -S python python-pip --noconfirm
