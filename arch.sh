@@ -314,6 +314,9 @@ sudo pacman -S i3status-rust --noconfirm # status
 # Brightness control
 sudo pacman -S brightnessctl --noconfirm
 
+sudo pacman -S network-manager-applet --noconfirm
+
+
 ###########################
 # Install yazi file manager
 ###########################
