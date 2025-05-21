@@ -310,10 +310,6 @@ sudo pacman -Sy i3status-rust --noconfirm # status
 sudo pacman -S yazi --noconfirm
 sudo pacman -S ffmpeg p7zip jq poppler fd ripgrep fzf zoxide imagemagick chafa --noconfirm
 
-# 7zip: for archive preview
-# imagemagick: for previewing fonts
-# chafa: for previewing images
-
 # Install helpers for yazi
 # sudo pacman -S unar --noconfirm
 
