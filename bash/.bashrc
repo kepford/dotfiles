@@ -36,7 +36,8 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(zoxide init bash)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-. "$HOME/.cargo/env"
+[ -f $HOME/.cargo/env ] && . "$HOME/.cargo/env"
+[ -f $HOME/.cargo/env ] && echo "it works"
 
 # jenv / Java
 if command -v "jenv" &>/dev/null; then
