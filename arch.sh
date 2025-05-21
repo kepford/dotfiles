@@ -282,26 +282,37 @@ sudo systemctl enable --now tailscaled
 sudo pacman -S flameshot --noconfirm
 
 # # i3 for X11 if not installed with archscript
+# sudo pacman -Sy i3-wm --noconfirm
+
 # sudo pacman -Sy xorg-xinit xorg-xset xorg-xinput dmenu  --noconfirm
 
-# sudo pacman -Sy i3-wm --noconfirm
+
 # # Rofi is a window switcher, application launcher, and dmenu replacement
-sudo pacman -Sy rofi --noconfirm 
+sudo pacman -S rofi --noconfirm 
+
 # # lightweight compositor for X11
-# sudo pacman -Sy picom --noconfirm 
-sudo pacman -Sy feh --noconfirm
+sudo pacman -S picom --noconfirm 
 
-# Bluetooth manager 
-# sudo pacman -Sy blueman --noconfirm 
+# Used for desktop backgrounds in i3
+sudo pacman -S feh --noconfirm
 
-# PulseAudio Volume Control
-# sudo pacman -Sy pavucontrol --noconfirm 
+# Bluetooth manager used by i3status-rust
+sudo pacman -S blueman --noconfirm 
+
+# PulseAudio Volume Control used by i3status-rust
+sudo pacman -S pavucontrol --noconfirm 
 
 # Notifications
-# sudo pacman -Sy dunst --noconfirm 
-sudo pacman -Sy i3status-rust --noconfirm # status 
+sudo pacman -S dunst --noconfirm 
 
-# sudo pacman -Sy brightnessctl --noconfirm
+# Battery status
+sudo pacman -S upower --noconfirm 
+
+# Status bar
+sudo pacman -S i3status-rust --noconfirm # status 
+
+# Brightness control
+sudo pacman -S brightnessctl --noconfirm
 
 ###########################
 # Install yazi file manager
