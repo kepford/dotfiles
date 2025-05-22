@@ -74,6 +74,9 @@ makepkg -si
 # Install inetutils so we can use `hostname`
 sudo pacman -S inetutils --noconfirm
 
+# Install ssh
+sudo pacman -S openssh rsync --noconfirm
+
 #################################
 # Browsers
 #################################
