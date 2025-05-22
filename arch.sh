@@ -129,6 +129,10 @@ sudo pacman -S keychain --noconfirm
 sudo pacman -S kitty --noconfirm
 sudo pacman -S alacritty --noconfirm
 
+# For color emoji fonts
+# https://chrpaul.de/posts/2019-07-19-enable-colour-emoji-support-on-manjaro-linux/
+sudo pacman -S noto-fonts-emoji --noconfirm
+
 # @TODO Requires input
 # Install fzf using git to get the latest version
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
