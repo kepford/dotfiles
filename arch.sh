@@ -127,6 +127,7 @@ rustup update
 sudo pacman -S keychain --noconfirm
 
 sudo pacman -S kitty --noconfirm
+sudo pacman -S alacritty --noconfirm
 
 # @TODO Requires input
 # Install fzf using git to get the latest version
