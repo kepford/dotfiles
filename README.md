@@ -67,7 +67,12 @@ In Tmux you must do the following:
 
 Press `prefix` + <kbd>I</kbd> (capital i, as in **I**nstall) to fetch the plugin.
 
-@TODO Fonts don't look right. I think I'm missing some
+#### Catppuccin Theme Plugin
+
+```
+mkdir -p ~/.config/tmux/plugins/catppuccin
+git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+```
 
 ### GNU Stow
 
