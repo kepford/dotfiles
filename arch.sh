@@ -7,7 +7,7 @@
 # https://github.com/kurealnum/dotfiles/blob/main/.config/scripts/sysmaintenance.sh
 
 # run updates 
-sudo pacman -Syu
+sudo pacman -Syu --noconfirm
 
 # Install fastfetch
 sudo pacman -S fastfetch --noconfirm
@@ -95,6 +95,9 @@ sudo pacman -S rustup --noconfirm
 
 # Rust cargo stuff
 rustup update
+
+# Set up the stable version
+rustup default stable
 
 ###############
 # Gnome Stuff

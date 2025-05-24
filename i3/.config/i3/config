@@ -215,6 +215,23 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
+# Scratchpads
+
+# @TODO: Add a calculator
+# Add a tmux session
+# Add a terminal session
+
+bindsym $mod+c exec --no-startup-id ~/.config/i3/scripts/launch_scratchpad.sh Calc calc
+
+# Yazi Scratchpad
+bindsym $mod+y exec --no-startup-id ~/.config/i3/scripts/launch_scratchpad.sh Yazi yazi
+
+# Htop Scratchpad
+# bindsym $mod+h exec --no-startup-id ~/.config/i3/scripts/launch_scratchpad.sh Htop htop
+
+# Neomutt Scratchpad
+bindsym $mod+m exec --no-startup-id ~/.config/i3/scripts/launch_scratchpad.sh Neomutt neomutt
+
 # Catppuccin-mocha theme
 
 set $rosewater #f5e0dc
