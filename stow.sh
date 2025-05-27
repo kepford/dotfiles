@@ -19,6 +19,7 @@ stow -v -R -t ~ picom
 stow -v -R -t ~ readline
 stow -v -R -t ~ rofi
 stow -v -R -t ~ screenlayout
+stow -v -R -t ~ starship
 stow -v -R -t ~ sway
 stow -v -R -t ~ tig
 stow -v -R -t ~ tmux
