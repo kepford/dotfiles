@@ -227,6 +227,7 @@ sudo systemctl enable libvirtd
 sudo dnf install krb5-workstation -y
 
 sudo dnf install htop -y
+sudo dnf install btop -y
 sudo dnf install jq -y
 sudo dnf install jo -y
 # Used by telescope.nvim
