@@ -144,6 +144,7 @@ sudo pacman -S fzf
 # git clone https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator.git /usr/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com
 
 sudo pacman -S bash-completion --noconfirm
+sudo pacman -S starship --noconfirm
 sudo pacman -S bat --noconfirm
 sudo pacman -S lynx --noconfirm
 sudo pacman -S atool --noconfirm
@@ -160,6 +161,7 @@ sudo pacman -S sxiv --noconfirm
 sudo pacman -S libreoffice --noconfirm
 sudo pacman -S mpd --noconfirm
 sudo pacman -S htop --noconfirm
+sudo pacman -S btop --noconfirm
 sudo pacman -S jq --noconfirm
 sudo pacman -S jo --noconfirm
 # Used by telescope.nvim
@@ -334,6 +336,13 @@ sudo pacman -S network-manager-applet --noconfirm
 # Also installs ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common
 sudo pacman -S yazi --noconfirm
 sudo pacman -S ffmpeg p7zip jq poppler fd ripgrep fzf zoxide imagemagick chafa --noconfirm
+
+# #########################
+# Music player
+# #########################
+
+sudo pacman -S mpd --noconfirm
+sudo pacman -S rmpc --noconfirm
 
 # Install helpers for yazi
 # sudo pacman -S unar --noconfirm

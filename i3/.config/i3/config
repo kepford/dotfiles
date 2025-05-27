@@ -217,8 +217,7 @@ mode "resize" {
 
 # Scratchpads
 
-# @TODO: Add a calculator
-# Add a tmux session
+# @TODO: Add a tmux session
 # Add a terminal session
 
 bindsym $mod+c exec --no-startup-id ~/.config/i3/scripts/launch_scratchpad.sh Calc calc

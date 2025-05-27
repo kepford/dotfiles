@@ -186,6 +186,11 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 # git clone https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator.git /usr/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com
 
 sudo dnf install bash-completion -y
+
+# Setup Starship
+dnf copr enable atim/starship
+dnf install starship
+
 sudo dnf install bat -y
 sudo dnf install lynx -y
 sudo dnf install atool -y
