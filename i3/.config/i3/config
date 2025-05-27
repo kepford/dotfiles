@@ -219,17 +219,18 @@ mode "resize" {
 
 # @TODO: Add a tmux session
 # Add a terminal session
+bindsym Mod1+t exec --no-startup-id ~/.config/i3/scripts/launch_scratchpad.sh Tmux tmux
 
-bindsym $mod+c exec --no-startup-id ~/.config/i3/scripts/launch_scratchpad.sh Calc calc
+bindsym Mod1+c exec --no-startup-id ~/.config/i3/scripts/launch_scratchpad.sh Calc calc
 
 # Yazi Scratchpad
-bindsym $mod+y exec --no-startup-id ~/.config/i3/scripts/launch_scratchpad.sh Yazi yazi
+bindsym Mod1+y exec --no-startup-id ~/.config/i3/scripts/launch_scratchpad.sh Yazi yazi
 
-# Htop Scratchpad
-# bindsym $mod+h exec --no-startup-id ~/.config/i3/scripts/launch_scratchpad.sh Htop htop
+# Btop Scratchpad
+bindsym Mod1+b exec --no-startup-id ~/.config/i3/scripts/launch_scratchpad.sh Btop btop
 
 # Neomutt Scratchpad
-bindsym $mod+m exec --no-startup-id ~/.config/i3/scripts/launch_scratchpad.sh Neomutt neomutt
+bindsym Mod1+m exec --no-startup-id ~/.config/i3/scripts/launch_scratchpad.sh Neomutt neomutt
 
 # Catppuccin-mocha theme
 
