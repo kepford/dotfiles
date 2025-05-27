@@ -188,8 +188,8 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 sudo dnf install bash-completion -y
 
 # Setup Starship
-dnf copr enable atim/starship
-dnf install starship
+sudo dnf copr enable atim/starship
+sudo dnf install starship
 
 sudo dnf install bat -y
 sudo dnf install lynx -y
