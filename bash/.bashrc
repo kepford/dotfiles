@@ -14,6 +14,13 @@ then
 fi
 export PATH
 
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && source /usr/share/bash-completion/bash_completion
+
+# Source tmux completion
+if [ -f ~/.bash_completion.d/tmux ]; then
+  . ~/.bash_completion.d/tmux
+fi
+
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
