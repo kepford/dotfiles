@@ -160,8 +160,24 @@ sudo pacman -S ctags --noconfirm
 sudo pacman -S sxiv --noconfirm
 sudo pacman -S libreoffice --noconfirm
 sudo pacman -S mpd --noconfirm
+
+#########################################
+# Monitoring Tools ######################
+#########################################
 sudo pacman -S htop --noconfirm
 sudo pacman -S btop --noconfirm
+
+# test and stress test your CPU and fans on a new system.
+sudo pacman -S s-tui --noconfirm
+sudo pacman -S atop --noconfirm
+# Monitors bandwidth 
+sudo pacman -S iftop --noconfirm
+# Dispacman -Sandwidth.
+sudo pacman -S iotop --noconfirm
+sudo pacman -S nvtop --noconfirm
+sudo pacman -S perf --noconfirm
+sudo pacman -S wavemon --noconfirm
+
 sudo pacman -S jq --noconfirm
 sudo pacman -S jo --noconfirm
 # Used by telescope.nvim

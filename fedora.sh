@@ -226,8 +226,22 @@ sudo systemctl enable libvirtd
 
 sudo dnf install krb5-workstation -y
 
+##################################
+# Top tools ######################
+##################################
 sudo dnf install htop -y
 sudo dnf install btop -y
+# test and stress test your CPU and fans on a new system.
+sudo dnf install s-tui -y
+sudo dnf install atop -y
+# Monitors bandwidth 
+sudo dnf install iftop -y
+# Disk bandwidth.
+sudo dnf install iotop -y
+sudo dnf install nvtop -y
+sudo dnf install perf -y
+sudo dnf install wavemon -y
+
 sudo dnf install jq -y
 sudo dnf install jo -y
 # Used by telescope.nvim
