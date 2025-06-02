@@ -262,6 +262,24 @@ sudo parted /dev/sda --script -- mkpart primary fat32 1MiB 100%
 sudo mkfs.vfat -F32 /dev/sda1
 sudo parted /dev/sda --script print
 
+## Fedora Firmware Updates
+
+1. Fetch firmware updates 
+
+`sudo fwupdmgr refresh`
+
+This command will refresh the LVFS and check for available firmware updates for your system. 
+
+2. View available updates:
+
+`fwupdmgr get-updates`
+
+This command will display a list of available firmware updates. 
+
+3. Install updates:
+
+`sudo fwupdmgr update`
+
 ## Tips
 
 Neofetch replacement :)
