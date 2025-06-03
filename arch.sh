@@ -71,8 +71,8 @@ makepkg -si
 #
 # Keep packages updated by running yay -Sua
 
-# Install inetutils so we can use `hostname`
-sudo pacman -S inetutils --noconfirm
+# Install inetutils so we can use `hostname` and bind-tools for dig.
+sudo pacman -S bind-tools inetutils --noconfirm
 
 # Install ssh
 sudo pacman -S openssh rsync --noconfirm
