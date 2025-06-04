@@ -6,6 +6,8 @@ export BROWSER="/usr/bin/firefox"
 export QT_SCALE_FACTOR=1.5
 
 # Set up keychain for SSH.
+# For use in audiobook script
+# @TODO this doesn't work on Arch because I'm not using id_rsa
 # eval `keychain --quiet --eval --agents ssh id_rsa`
 
 set -o vi
