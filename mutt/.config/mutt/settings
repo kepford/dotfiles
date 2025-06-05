@@ -1,0 +1,27 @@
+# vim: filetype=neomuttrc
+
+set editor='gvim -v'
+# set imap_check_subscribed #check for all subscribed IMAP folders (as if all were added with a mailboxes line):
+
+# Set preffered view modes
+auto_view text/html text/calendar application/ics # view html automatically
+
+# main options
+unset help               # No help bar at the top of index
+set quit                 # don't ask, just do!!
+
+# status bar, date format, finding stuff etc.
+# set status_format = "[ Folder: %f ] [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]%>─%?p?( %p postponed )?"
+set sort = threads # Show threads.
+set sort_aux = reverse-last-date-received # Reverse chron order.
+set sort_re
+set sidebar_visible = no # Sidebar hidden on launch, toggle with B
+bind index,pager D delete-message # Delete when viewing messages as well as in the index. This overrides Mutt Wizard
+
+# Override the urlview command
+macro index,pager,attach,compose u "\
+<enter-command> set my_pipe_decode=\$pipe_decode pipe_decode<Enter>\
+<pipe-message> urlview<Enter>\
+<enter-command> set pipe_decode=\$my_pipe_decode; unset my_pipe_decode<Enter>" \
+"call urlview to extract URLs out of a message"
+

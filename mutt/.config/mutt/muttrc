@@ -1,0 +1,10 @@
+# vim: filetype=neomuttrc
+source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
+source ~/.config/mutt/settings
+source ~/.config/mutt/dracula.muttrc
+
+# All accounts and macros for switching set in accounts file.
+source ~/.config/mutt/accounts.muttrc
+
+# My macro overrides. 
+source ~/.config/mutt/overrides.muttrc

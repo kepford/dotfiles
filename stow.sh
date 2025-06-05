@@ -14,6 +14,7 @@ stow -v -R -t ~ i3status-rust
 stow -v -R -t ~ kitty
 stow -v -R -t ~ lf
 stow -v -R -t ~ mpv
+stow -v -R -t ~ mutt
 stow -v -R -t ~ nvim
 stow -v -R -t ~ picom
 stow -v -R -t ~ readline
