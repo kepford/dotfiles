@@ -208,6 +208,7 @@ sudo pacman -S man --noconfirm
 sudo pacman -S unzip --noconfirm
 sudo pacman -S gdisk --noconfirm
 sudo pacman -S dosfstools --noconfirm
+sudo pacman -S exfat-utils --noconfirm
 sudo pacman -S nautilus --noconfirm
 sudo pacman -S ncdu --noconfirm
 
