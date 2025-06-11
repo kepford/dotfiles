@@ -1,6 +1,6 @@
 # vim: filetype=neomuttrc
 
-set editor='gvim -v'
+set editor='nvim'
 # set imap_check_subscribed #check for all subscribed IMAP folders (as if all were added with a mailboxes line):
 
 # Set preffered view modes
