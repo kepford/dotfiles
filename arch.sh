@@ -74,6 +74,8 @@ makepkg -si
 # Install inetutils so we can use `hostname` and bind-tools for dig.
 sudo pacman -S bind-tools inetutils --noconfirm
 
+sudo pacman -S usbutils --noconfirm
+
 # Install ssh
 sudo pacman -S openssh rsync --noconfirm
 
