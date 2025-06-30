@@ -96,6 +96,9 @@ alias cp='cp -iv'
 # Ask about deleting a file and make rm more informative by default.
 alias rm='rm -iv'
 
+# Recursive file diff that ignores dotfiles and is quiet.
+alias rfilediff="diff -bur -x '.*'"
+
 # Alias  pbcopy and pbpaste on Linux
 if [ $(uname) == "Linux" ]; then
   alias pbcopy='xclip -sel c'
@@ -219,6 +222,7 @@ alias gp='git push'
 alias gr='git reset'
 alias gs='git status --short'
 alias gu='git pull'
+alias gcp='git cherry-pick $1'
 
 # Get and merge upstream repo
 alias gups='git fetch upstream && git merge upstream/master'
@@ -467,6 +471,9 @@ alias jd='journalctl --no-pager'
 alias cal='TZ=America/Los_Angeles cal --monday'
 # alias du='du --human-readable'
 alias free='free --human'
+
+# Generate good passwords for DBs.
+alias genpass='< /dev/urandom tr -dc 'A-Za-z0-9' | head -c 20'
 
 # Man colors
 man() {

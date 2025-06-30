@@ -244,6 +244,9 @@ sudo systemctl start docker
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
+# Install Docker Compose plugin
+sudo pacman -S docker-compose -y
+
 # ##############
 # Install DDEV
 # ##############
