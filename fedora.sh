@@ -241,6 +241,7 @@ sudo dnf install iotop -y
 sudo dnf install nvtop -y
 sudo dnf install perf -y
 sudo dnf install wavemon -y
+sudo dnf install iperf -y
 
 sudo dnf install jq -y
 sudo dnf install jo -y
