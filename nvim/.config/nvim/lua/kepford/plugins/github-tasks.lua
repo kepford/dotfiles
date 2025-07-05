@@ -1,3 +1,3 @@
 return {
-  "polm/github-tasks.vim"
+	"polm/github-tasks.vim",
 }

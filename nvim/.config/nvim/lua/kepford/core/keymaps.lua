@@ -21,29 +21,29 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- Disable search highlight.
-vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
+vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 
 -- greatest remap ever
 -- vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({'n', 'v'}, '<leader>y', [["+y]])
-vim.keymap.set('n', '<leader>Y', [["+Y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({'n', 'v'}, '<leader>d', [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- This is going to get me cancelled
-vim.keymap.set('i', '<C-c>', '<Esc>')
+vim.keymap.set("i", "<C-c>", "<Esc>")
 
 -- Neotree
-vim.keymap.set('n', "<Leader>/", ":Neotree toggle current reveal_force_cwd<cr>")
-vim.keymap.set('n', "<Leader>e", ":Neotree reveal<cr>")
-vim.keymap.set('n', "<Leader>g", ":Neotree float reveal_file=<cfile> reveal_force_cwd<cr>")
-vim.keymap.set('n', "<Leader>b", ":Neotree toggle show buffers right<cr>")
-vim.keymap.set('n', "<Leader>s", ":Neotree float git_status<cr>")
+vim.keymap.set("n", "<Leader>/", ":Neotree toggle current reveal_force_cwd<cr>")
+vim.keymap.set("n", "<Leader>e", ":Neotree reveal<cr>")
+vim.keymap.set("n", "<Leader>g", ":Neotree float reveal_file=<cfile> reveal_force_cwd<cr>")
+vim.keymap.set("n", "<Leader>b", ":Neotree toggle show buffers right<cr>")
+vim.keymap.set("n", "<Leader>s", ":Neotree float git_status<cr>")
 
 -- Disable Q
-vim.keymap.set('n', "Q", "<nop>")
+vim.keymap.set("n", "Q", "<nop>")
 
 -- Source file with leader leader.
 -- vim.keymap.set("n", "<leader><leader>", function()
@@ -51,18 +51,18 @@ vim.keymap.set('n', "Q", "<nop>")
 -- end)
 
 -- Disable arrow keys.
-vim.keymap.set('n', '<Up>', '<nop>')
-vim.keymap.set('n', '<Down>', '<nop>')
-vim.keymap.set('n', '<Left>', '<nop>')
-vim.keymap.set('n', '<Right>', '<nop>')
+vim.keymap.set("n", "<Up>", "<nop>")
+vim.keymap.set("n", "<Down>", "<nop>")
+vim.keymap.set("n", "<Left>", "<nop>")
+vim.keymap.set("n", "<Right>", "<nop>")
 
 -- Make arrowkey resize viewports
 -- To resize the split by 1 use Left,Right,Up,Down
 
-vim.keymap.set('n', '<Left>', ':vertical resize +1<CR>')
-vim.keymap.set('n', '<Right>', ':vertical resize -1<CR>')
-vim.keymap.set("n", '<Up>', ':resize +1<CR>')
-vim.keymap.set("n", "<Down>", ':resize -1<CR>')
+vim.keymap.set("n", "<Left>", ":vertical resize +1<CR>")
+vim.keymap.set("n", "<Right>", ":vertical resize -1<CR>")
+vim.keymap.set("n", "<Up>", ":resize +1<CR>")
+vim.keymap.set("n", "<Down>", ":resize -1<CR>")
 
 -- Copy current buffer file name and full path to system clipboard.
 -- nnoremap <Leader>pp :let @+ = expand("%:p")<CR>
@@ -72,17 +72,21 @@ vim.keymap.set("n", "<Down>", ':resize -1<CR>')
 -- " <Leader>p -- Show the path of the current file (mnemonic: path; useful when
 -- " you have a lot of splits and the status line gets truncated).
 -- nnoremap <Leader>p :echo expand('%')<CR>
--- 
+--
 -- " Copy current buffer file name and full path to system clipboard.
 -- nnoremap <Leader>pp :let @+ = expand("%:p")<CR>
 
-vim.keymap.set("n", "<leader>c", "<cmd>:r !gcalcli --nocolor agenda 7am 5pm --nodeclined --no-military --calendar=bkepford@redhat.com | sed '/^$/d' | cut -c 13- | sed 's/^/* /'<CR>");
+vim.keymap.set(
+	"n",
+	"<leader>c",
+	"<cmd>:r !gcalcli --nocolor agenda 7am 5pm --nodeclined --no-military --calendar=bkepford@redhat.com | sed '/^$/d' | cut -c 13- | sed 's/^/* /'<CR>"
+)
 
 -- :r !gcalcli --nocolor agenda 7am 5pm --nodeclined --no-military --calendar=bkepford@redhat.com | sed '/^$/d' | cut -c 13- | sed 's/^/* /'<CR>
 --
 -- Dismiss Noice Message
-vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", {desc = "Dismiss Noice Message"})
+vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Message" })
 
 -- Debugging
-vim.keymap.set('n', '<leader>db', '<cmd> DapToggleBreakpoint <CR>')
+vim.keymap.set("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>")
 -- vim.keymap.set('n', '<leader>dpr', 'function() require("dap-python").test_method() end')
