@@ -18,6 +18,7 @@ stow -v -R -t ~ mutt
 stow -v -R -t ~ nvim
 stow -v -R -t ~ picom
 stow -v -R -t ~ readline
+stow -v -R -t ~ rmpc
 stow -v -R -t ~ rofi
 stow -v -R -t ~ screenlayout
 stow -v -R -t ~ starship

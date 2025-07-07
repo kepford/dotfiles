@@ -402,6 +402,9 @@ flatpak install flathub com.calibre_ebook.calibre -y
 flatpak install flathub com.yubico.yubioath -y
 flatpak install flathub com.discordapp.Discord -y
 
+# yt-dlp
+yay -S yt-dlp
+
 ########################
 # VPNs
 ########################

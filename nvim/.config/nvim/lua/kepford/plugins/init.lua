@@ -22,5 +22,6 @@ return {
 	"nvim-telescope/telescope-dap.nvim", -- Integration for nvim-dap with telescope.nvim. Overriding dap internal ui, so running any dap command, which makes use of the internal ui, will result in a telescope prompt.
 	"rcarriga/nvim-dap-ui",
 	"theHamsta/nvim-dap-virtual-text", -- adds virtual text support to nvim-dap. nvim-treesitter is used to find variable definitions.
+  'ron-rs/ron.vim', -- support RON filetype for Rust
 	-- use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"}
 }
