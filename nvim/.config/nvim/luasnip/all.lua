@@ -31,6 +31,7 @@ ls.add_snippets(nil, {
 			text({ "", "" }),
 			text({ "", "### IT Training and Certification" }),
 			text({ "", "" }),
+      text({ "", "[Jira Board](https://issues.redhat.com/secure/RapidBoard.jspa?rapidView=21860&quickFilter=141283)" }),
 			text({ "", "" }),
 			text({ "", "### Legal" }),
 			text({ "", "" }),
