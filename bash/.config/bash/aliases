@@ -673,8 +673,8 @@ web2app() {
 #!/bin/bash
 APP_CLASS="$APP_SLUG"
 
-# Try to find existing window
-WIN_ID=\$(wmctrl -lx | awk -v cls="\$APP_CLASS" '\$3 ~ cls {print \$1; exit}')
+# Try to find existing window (match full WM_CLASS or instance)
+WIN_ID=\$(wmctrl -lx | awk -v cls="\$APP_CLASS" 'BEGIN{IGNORECASE=1} \$3 ~ cls {print \$1; exit}')
 if [[ -n "\$WIN_ID" ]]; then
     wmctrl -ia "\$WIN_ID"
     exit 0
@@ -684,6 +684,7 @@ fi
 exec "$WEB2APP_BROWSER" --new-window $BROWSER_FLAGS --app="$APP_URL" --name="$APP_NAME" --class="\$APP_CLASS"
 EOF
   chmod +x "$WRAPPER_SCRIPT"
+
 
   # Create desktop file
   cat > "$DESKTOP_FILE" <<EOF
