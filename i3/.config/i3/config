@@ -8,6 +8,12 @@
 # i3 config file (v4)
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# Mod1 (Alt):
+# Mod4 (Super / Windows key):
+# Shift: The Shift key. Example: bindsym $mod+Shift+q kill (kill focused window)
+# Control (or Ctrl): The Control key. Example: bindsym $mod+Control+Return exec xterm
+# Lock: The Caps Lock key.
+
 set $mod Mod4
 
 exec --no-startup-id picom
@@ -73,7 +79,7 @@ bindsym Control+$mod+l exec i3lock
 bindsym $mod+Return exec kitty
 
 # start a brave
-bindsym $mod+b exec brave-browser
+bindsym $mod+b exec --no-startup-id ~/.config/i3/scripts/start_brave_browser.sh
 
 bindsym $mod+p exec "flameshot gui"
 
@@ -217,11 +223,15 @@ mode "resize" {
 
 # Scratchpads
 
-# @TODO: Add a tmux session
 # Add a terminal session
 bindsym Mod1+$mod+t exec --no-startup-id ~/.config/i3/scripts/launch_scratchpad.sh Tmux tmux
 
+# Calculations
 bindsym Mod1+$mod+c exec --no-startup-id ~/.config/i3/scripts/launch_scratchpad.sh Calc calc
+
+# Python
+bindsym Mod1+$mod+p exec --no-startup-id ~/.config/i3/scripts/launch_scratchpad.sh Python python -q
+
 
 # Yazi Scratchpad
 bindsym Mod1+$mod+y exec --no-startup-id ~/.config/i3/scripts/launch_scratchpad.sh Yazi yazi
