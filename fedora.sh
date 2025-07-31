@@ -93,6 +93,9 @@ sudo dnf install alacritty -y
 
 sudo dnf install kitty -y
 
+# For the web2app: To allow chromium browsers to detect if a app already has a window instance.
+sudo dnf install wmctrl -y
+
 # sudo dnf install gnome-tweak-tool
 # Settings in Firefox: https://extensions.gnome.org/local/
 

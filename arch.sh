@@ -79,6 +79,9 @@ sudo pacman -S usbutils --noconfirm
 # Install ssh
 sudo pacman -S openssh rsync --noconfirm
 
+# For the web2app: To allow chromium browsers to detect if a app already has a window instance.
+sudo pacman -S wmctrl --noconfirm
+
 #################################
 # Browsers
 #################################
