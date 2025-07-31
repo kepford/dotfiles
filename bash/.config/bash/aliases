@@ -625,12 +625,18 @@ web2app() {
   local APP_NAME="$1"
   local APP_URL="$2"
   local ICON_URL="$3"
+
+  # Slug for filenames (lowercase, no spaces/special chars)
+  local APP_SLUG
+  APP_SLUG=$(echo "$APP_NAME" | tr '[:upper:]' '[:lower:]' | tr -cd '[:alnum:]_-')
+
+  # Paths
   local ICON_DIR="$HOME/.local/share/applications/icons"
   local BIN_DIR="$HOME/.local/bin"
   local PROFILE_BASE="$HOME/.config/web2app-profiles"
-  local WRAPPER_SCRIPT="$BIN_DIR/${APP_NAME,,}-web2app"
-  local DESKTOP_FILE="$HOME/.local/share/applications/${APP_NAME}.desktop"
-  local ICON_PATH="${ICON_DIR}/${APP_NAME}.png"
+  local WRAPPER_SCRIPT="$BIN_DIR/${APP_SLUG}-web2app"
+  local DESKTOP_FILE="$HOME/.local/share/applications/${APP_SLUG}.desktop"
+  local ICON_PATH="${ICON_DIR}/${APP_SLUG}.png"
 
   mkdir -p "$ICON_DIR" "$BIN_DIR" "$PROFILE_BASE"
 
@@ -640,13 +646,10 @@ web2app() {
     return 1
   fi
 
-  # WM_CLASS (use lowercase app name)
-  local APP_CLASS="${APP_NAME,,}"
-
   # Decide on profile behavior
   local PROFILE_DIR=""
   if [[ "$CREATE_PROFILE" == "-y" ]]; then
-      PROFILE_DIR="$PROFILE_BASE/$APP_CLASS"
+      PROFILE_DIR="$PROFILE_BASE/$APP_SLUG"
       mkdir -p "$PROFILE_DIR"
       BROWSER_FLAGS="$BROWSER_FLAGS --user-data-dir=$PROFILE_DIR"
       echo "Dedicated profile created at: $PROFILE_DIR"
@@ -656,7 +659,7 @@ web2app() {
       echo -n "Do you want to create a dedicated browser profile for $APP_NAME? (y/N): "
       read -r USE_PROFILE
       if [[ "$USE_PROFILE" =~ ^[Yy]$ ]]; then
-          PROFILE_DIR="$PROFILE_BASE/$APP_CLASS"
+          PROFILE_DIR="$PROFILE_BASE/$APP_SLUG"
           mkdir -p "$PROFILE_DIR"
           BROWSER_FLAGS="$BROWSER_FLAGS --user-data-dir=$PROFILE_DIR"
           echo "Dedicated profile created at: $PROFILE_DIR"
@@ -668,7 +671,7 @@ web2app() {
   # Create wrapper for single-instance behavior
   cat > "$WRAPPER_SCRIPT" <<EOF
 #!/bin/bash
-APP_CLASS="$APP_CLASS"
+APP_CLASS="$APP_SLUG"
 
 # Try to find existing window
 WIN_ID=\$(wmctrl -lx | awk -v cls="\$APP_CLASS" '\$3 ~ cls {print \$1; exit}')
@@ -678,7 +681,7 @@ if [[ -n "\$WIN_ID" ]]; then
 fi
 
 # Otherwise launch new instance
-exec $WEB2APP_BROWSER --new-window $BROWSER_FLAGS --app="$APP_URL" --name="$APP_NAME" --class="$APP_CLASS"
+exec "$WEB2APP_BROWSER" --new-window $BROWSER_FLAGS --app="$APP_URL" --name="$APP_NAME" --class="\$APP_CLASS"
 EOF
   chmod +x "$WRAPPER_SCRIPT"
 
@@ -693,7 +696,7 @@ Terminal=false
 Type=Application
 Icon=$ICON_PATH
 StartupNotify=true
-StartupWMClass=$APP_CLASS
+StartupWMClass=$APP_SLUG
 Categories=Network;WebApp;
 EOF
 
@@ -701,7 +704,6 @@ EOF
   echo "Web app '$APP_NAME' created. Launch it from your app menu or run: $WRAPPER_SCRIPT"
 }
 
-# Remove web2app and related files
 web2app-remove() {
   if [ "$#" -ne 1 ]; then
     echo "Usage: web2app-remove <AppName>"
@@ -709,12 +711,14 @@ web2app-remove() {
   fi
 
   local APP_NAME="$1"
-  local APP_CLASS="${APP_NAME,,}"
+  local APP_SLUG
+  APP_SLUG=$(echo "$APP_NAME" | tr '[:upper:]' '[:lower:]' | tr -cd '[:alnum:]_-')
+
   local ICON_DIR="$HOME/.local/share/applications/icons"
-  local DESKTOP_FILE="$HOME/.local/share/applications/${APP_NAME}.desktop"
-  local ICON_PATH="${ICON_DIR}/${APP_NAME}.png"
-  local WRAPPER_SCRIPT="$HOME/.local/bin/${APP_CLASS}-web2app"
-  local PROFILE_DIR="$HOME/.config/web2app-profiles/${APP_CLASS}"
+  local DESKTOP_FILE="$HOME/.local/share/applications/${APP_SLUG}.desktop"
+  local ICON_PATH="${ICON_DIR}/${APP_SLUG}.png"
+  local WRAPPER_SCRIPT="$HOME/.local/bin/${APP_SLUG}-web2app"
+  local PROFILE_DIR="$HOME/.config/web2app-profiles/${APP_SLUG}"
 
   # Remove desktop entry
   if [[ -f "$DESKTOP_FILE" ]]; then
@@ -745,6 +749,29 @@ web2app-remove() {
   fi
 
   echo "Web app '$APP_NAME' removed."
+}
+
+web2app-list() {
+  local DESKTOP_DIR="$HOME/.local/share/applications"
+  local COUNT=0
+
+  echo "Installed web2apps:"
+  for FILE in "$DESKTOP_DIR"/*.desktop; do
+    [[ -f "$FILE" ]] || continue
+    # Detect only web2app-created apps (look for our marker)
+    if grep -q "Categories=.*WebApp" "$FILE"; then
+      local NAME
+      NAME=$(grep -m1 '^Name=' "$FILE" | cut -d'=' -f2-)
+      local EXEC
+      EXEC=$(grep -m1 '^Exec=' "$FILE" | cut -d'=' -f2-)
+      echo " - $NAME  (Exec: $EXEC)"
+      ((COUNT++))
+    fi
+  done
+
+  if [[ $COUNT -eq 0 ]]; then
+    echo "No web2app-created applications found."
+  fi
 }
 
 # Edit local aliases
