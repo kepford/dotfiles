@@ -588,12 +588,21 @@ function yy() {
 # Remove them by running 
 # web2app-remove "YouTube"
 web2app() {
+  # Check for flags
+  local CREATE_PROFILE=""
+  if [[ "$1" == "-y" || "$1" == "-n" ]]; then
+    CREATE_PROFILE="$1"
+    shift
+  fi
+
   if [ "$#" -ne 3 ]; then
-    echo "Usage: web2app <AppName> <AppURL> <IconURL> (IconURL must be in PNG -- use https://dashboardicons.com)"
+    echo "Usage: web2app [-y|-n] <AppName> <AppURL> <IconURL>"
+    echo "  -y : Always create a dedicated profile (no prompt)"
+    echo "  -n : Never create a dedicated profile (no prompt)"
     return 1
   fi
 
-  # Detect OS ID (for Brave executable)
+  # Detect OS ID
   local OS_ID
   OS_ID=$(awk -F= '/^ID=/{print $2}' /etc/os-release | tr -d '"')
 
@@ -618,11 +627,12 @@ web2app() {
   local ICON_URL="$3"
   local ICON_DIR="$HOME/.local/share/applications/icons"
   local BIN_DIR="$HOME/.local/bin"
+  local PROFILE_BASE="$HOME/.config/web2app-profiles"
   local WRAPPER_SCRIPT="$BIN_DIR/${APP_NAME,,}-web2app"
   local DESKTOP_FILE="$HOME/.local/share/applications/${APP_NAME}.desktop"
   local ICON_PATH="${ICON_DIR}/${APP_NAME}.png"
 
-  mkdir -p "$ICON_DIR" "$BIN_DIR"
+  mkdir -p "$ICON_DIR" "$BIN_DIR" "$PROFILE_BASE"
 
   # Download icon
   if ! curl -sL -o "$ICON_PATH" "$ICON_URL"; then
@@ -630,8 +640,30 @@ web2app() {
     return 1
   fi
 
-  # WM_CLASS (use lowercase app name as class)
+  # WM_CLASS (use lowercase app name)
   local APP_CLASS="${APP_NAME,,}"
+
+  # Decide on profile behavior
+  local PROFILE_DIR=""
+  if [[ "$CREATE_PROFILE" == "-y" ]]; then
+      PROFILE_DIR="$PROFILE_BASE/$APP_CLASS"
+      mkdir -p "$PROFILE_DIR"
+      BROWSER_FLAGS="$BROWSER_FLAGS --user-data-dir=$PROFILE_DIR"
+      echo "Dedicated profile created at: $PROFILE_DIR"
+  elif [[ "$CREATE_PROFILE" == "-n" ]]; then
+      echo "Using default browser profile."
+  else
+      echo -n "Do you want to create a dedicated browser profile for $APP_NAME? (y/N): "
+      read -r USE_PROFILE
+      if [[ "$USE_PROFILE" =~ ^[Yy]$ ]]; then
+          PROFILE_DIR="$PROFILE_BASE/$APP_CLASS"
+          mkdir -p "$PROFILE_DIR"
+          BROWSER_FLAGS="$BROWSER_FLAGS --user-data-dir=$PROFILE_DIR"
+          echo "Dedicated profile created at: $PROFILE_DIR"
+      else
+          echo "Using default browser profile."
+      fi
+  fi
 
   # Create wrapper for single-instance behavior
   cat > "$WRAPPER_SCRIPT" <<EOF
@@ -669,6 +701,7 @@ EOF
   echo "Web app '$APP_NAME' created. Launch it from your app menu or run: $WRAPPER_SCRIPT"
 }
 
+# Remove web2app and related files
 web2app-remove() {
   if [ "$#" -ne 1 ]; then
     echo "Usage: web2app-remove <AppName>"
@@ -676,12 +709,42 @@ web2app-remove() {
   fi
 
   local APP_NAME="$1"
+  local APP_CLASS="${APP_NAME,,}"
   local ICON_DIR="$HOME/.local/share/applications/icons"
   local DESKTOP_FILE="$HOME/.local/share/applications/${APP_NAME}.desktop"
   local ICON_PATH="${ICON_DIR}/${APP_NAME}.png"
+  local WRAPPER_SCRIPT="$HOME/.local/bin/${APP_CLASS}-web2app"
+  local PROFILE_DIR="$HOME/.config/web2app-profiles/${APP_CLASS}"
 
-  rm "$DESKTOP_FILE"
-  rm "$ICON_PATH"
+  # Remove desktop entry
+  if [[ -f "$DESKTOP_FILE" ]]; then
+    rm "$DESKTOP_FILE"
+    echo "Removed: $DESKTOP_FILE"
+  fi
+
+  # Remove icon
+  if [[ -f "$ICON_PATH" ]]; then
+    rm "$ICON_PATH"
+    echo "Removed: $ICON_PATH"
+  fi
+
+  # Remove wrapper script
+  if [[ -f "$WRAPPER_SCRIPT" ]]; then
+    rm "$WRAPPER_SCRIPT"
+    echo "Removed: $WRAPPER_SCRIPT"
+  fi
+
+  # Ask about profile removal (if it exists)
+  if [[ -d "$PROFILE_DIR" ]]; then
+    echo -n "Remove dedicated profile directory ($PROFILE_DIR)? (y/N): "
+    read -r CONFIRM
+    if [[ "$CONFIRM" =~ ^[Yy]$ ]]; then
+      rm -rf "$PROFILE_DIR"
+      echo "Removed: $PROFILE_DIR"
+    fi
+  fi
+
+  echo "Web app '$APP_NAME' removed."
 }
 
 # Edit local aliases
