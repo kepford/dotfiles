@@ -227,11 +227,11 @@ Save the current configuration.
 
 `autorandr --save name`
 
-Load thinkpad only display
+Load work thinkpad only display
 
 `autorandr think`
 
-Load dock profile which disables laptop monitor
+Load dock profile which disables laptop monitor and works with home dock.
 
 `autorandr think-dock`
 
