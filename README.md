@@ -219,7 +219,7 @@ List the active monitors
 
 Setting up output of monitors
 
-`xrandr --output DP-3 --auto --left-of DP-2`
+`xrandr --output DP-2 --auto --left-of eDP-1`
 
 ### Load Presets Using autorandr
 
