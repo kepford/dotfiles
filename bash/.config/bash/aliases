@@ -624,7 +624,7 @@ web2app() {
   # Inputs
   local APP_NAME="$1"
   local APP_URL="$2"
-  local ICON_URL="$3"
+  local ICON_ARG="$3"
 
   # Slug for filenames (lowercase, no spaces/special chars)
   local APP_SLUG
@@ -640,10 +640,24 @@ web2app() {
 
   mkdir -p "$ICON_DIR" "$BIN_DIR" "$PROFILE_BASE"
 
-  # Download icon
-  if ! curl -sL -o "$ICON_PATH" "$ICON_URL"; then
-    echo "Error: Failed to download icon."
-    return 1
+  # Handle icon: local file or remote URL
+  if [[ -f "$ICON_ARG" ]]; then
+    # Local file — copy to icons dir
+    ICON_EXT=$(echo "${ICON_ARG##*.}" | tr '[:upper:]' '[:lower:]')
+    ICON_PATH="${ICON_DIR}/${APP_SLUG}.${ICON_EXT}"
+    if ! install -m 0644 "$ICON_ARG" "$ICON_PATH"; then
+      echo "Error: Failed to copy local icon from: $ICON_ARG"
+      return 1
+    fi
+  else
+    # Assume URL — try to download
+    ICON_EXT=$(echo "${ICON_ARG##*.}" | sed 's/[?#].*$//' | tr '[:upper:]' '[:lower:]')
+    [[ "$ICON_EXT" =~ ^(png|svg|jpg|jpeg|webp)$ ]] || ICON_EXT="png"
+    ICON_PATH="${ICON_DIR}/${APP_SLUG}.${ICON_EXT}"
+    if ! curl -fsSL -o "$ICON_PATH" "$ICON_ARG"; then
+      echo "Error: Failed to download icon from: $ICON_ARG"
+      return 1
+    fi
   fi
 
   # Decide on profile behavior
