@@ -332,7 +332,7 @@ function __rm_single_file(){
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 
-# l(ist)ips Get local and WAN IP adddresses
+# l(ist)ips Get local and WAN IP addresses
 # $ lips
 #    Local IP: 10.0.1.4
 # External IP: 41.32.11.102
