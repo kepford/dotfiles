@@ -29,3 +29,4 @@ stow -v -R -t ~ x
 stow -v -R -t ~ xdg
 stow -v -R -t ~ yazi
 stow -v -R -t ~ zathura
+stow -v -R -t ~ local-bin
