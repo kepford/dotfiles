@@ -1,5 +1,23 @@
 #!/usr/bin/env bash
 
+#  Usage Examples
+
+## Single monitor - auto-selects without prompting
+#./screencast.sh
+
+## Multiple monitors - shows interactive menu
+#./screencast.sh
+
+## Specify monitor via command-line
+#./screencast.sh -m HDMI-1
+#./screencast.sh -m DP-1
+
+## Combine with existing flags
+#./screencast.sh -m HDMI-1 -n          # No audio
+#./screencast.sh -m DP-1 -f            # Foreground mode
+#./screencast.sh -m eDP-1 -f -n        # Both options
+
+
 # --- Configuration ---
 OUTPUT_DIR="$HOME/Videos/Screencasts"
 TEMP_FILE="/tmp/screencast.mkv"
@@ -41,7 +59,54 @@ done
 # Create output directory if it doesn't exist
 mkdir -p "$OUTPUT_DIR"
 
-# --- Monitor Detection and Selection ---
+# ----------------------------------------
+# --- STOP RECORDING LOGIC (Marker Search) ---
+# ----------------------------------------
+# Check if a recording is already running BEFORE doing monitor selection
+
+# Search for the running FFmpeg PID using the unique FFMPEG_MARKER in the command line
+# This is the most reliable method when args and PID files fail.
+PID=$(pgrep -f "ffmpeg.*-metadata title=$FFMPEG_MARKER")
+
+if [ -n "$PID" ]; then
+    echo "Stopping FFmpeg PID: $PID via marker search" >> /tmp/screencast.log
+    
+    # 1. Send SIGINT (Ctrl+C equivalent) for a graceful stop
+    kill -INT "$PID" 
+    
+    # 2. Give FFmpeg time to finalize.
+    sleep 3 
+
+    # 3. Double-check: If it's STILL running, kill it forcefully.
+    if ps -p "$PID" > /dev/null; then
+        echo "FFmpeg failed graceful stop. Forcing SIGKILL." >> /tmp/screencast.log
+        kill -KILL "$PID"
+    fi
+
+    FINAL_FILE="$OUTPUT_DIR/screencast-$(date +'%Y-%m-%d_%H%M%S').mkv"
+
+    # 4. Read monitor info if available
+    RECORDED_MONITOR="Unknown"
+    if [ -f "$MONITOR_INFO_FILE" ]; then
+        RECORDED_MONITOR=$(cat "$MONITOR_INFO_FILE")
+        rm -f "$MONITOR_INFO_FILE"
+    fi
+
+    # 5. Move and notify
+    if [ -f "$TEMP_FILE" ]; then
+        mv "$TEMP_FILE" "$FINAL_FILE"
+        notify-send "🎥 Screencast Stopped" "Recording of $RECORDED_MONITOR saved to ${FINAL_FILE##*/}"
+    else
+        notify-send "⚠️ Screencast Error" "Temporary file was not found."
+    fi
+    exit 0
+fi
+
+# ----------------------------------------
+# --- MONITOR DETECTION AND SELECTION ---
+# ----------------------------------------
+# Only reached if we're starting a new recording (not stopping)
+
 # Parse available monitors from xrandr
 declare -a AVAILABLE_MONITORS
 declare -A MONITOR_DATA
@@ -125,48 +190,6 @@ SCREEN_OFFSET="+${SCREEN_XOFF},${SCREEN_YOFF}"
 AUDIO_ARGS=""
 if [ "$RECORD_AUDIO" = true ]; then
     AUDIO_ARGS="-f pulse -ac 2 -i \"$AUDIO_INPUT\" -c:a aac -b:a 128k"
-fi
-
-# ----------------------------------------
-# --- STOP RECORDING LOGIC (Marker Search) ---
-# ----------------------------------------
-
-# Search for the running FFmpeg PID using the unique FFMPEG_MARKER in the command line
-# This is the most reliable method when args and PID files fail.
-PID=$(pgrep -f "ffmpeg.*-metadata title=$FFMPEG_MARKER")
-
-if [ -n "$PID" ]; then
-    echo "Stopping FFmpeg PID: $PID via marker search" >> /tmp/screencast.log
-    
-    # 1. Send SIGINT (Ctrl+C equivalent) for a graceful stop
-    kill -INT "$PID" 
-    
-    # 2. Give FFmpeg time to finalize.
-    sleep 3 
-
-    # 3. Double-check: If it's STILL running, kill it forcefully.
-    if ps -p "$PID" > /dev/null; then
-        echo "FFmpeg failed graceful stop. Forcing SIGKILL." >> /tmp/screencast.log
-        kill -KILL "$PID"
-    fi
-
-    FINAL_FILE="$OUTPUT_DIR/screencast-$(date +'%Y-%m-%d_%H%M%S').mkv"
-
-    # 4. Read monitor info if available
-    RECORDED_MONITOR="Unknown"
-    if [ -f "$MONITOR_INFO_FILE" ]; then
-        RECORDED_MONITOR=$(cat "$MONITOR_INFO_FILE")
-        rm -f "$MONITOR_INFO_FILE"
-    fi
-
-    # 5. Move and notify
-    if [ -f "$TEMP_FILE" ]; then
-        mv "$TEMP_FILE" "$FINAL_FILE"
-        notify-send "🎥 Screencast Stopped" "Recording of $RECORDED_MONITOR saved to ${FINAL_FILE##*/}"
-    else
-        notify-send "⚠️ Screencast Error" "Temporary file was not found."
-    fi
-    exit 0
 fi
 
 # ----------------------------------------
