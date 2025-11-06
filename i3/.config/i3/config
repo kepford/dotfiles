@@ -83,7 +83,7 @@ bindsym $mod+b exec --no-startup-id ~/.config/i3/scripts/start_brave_browser.sh
 
 bindsym $mod+p exec "flameshot gui"
 
-bindsym $mod+Shift+s exec --no-startup-id ~/.local/bin/screencast.sh -n
+bindsym $mod+Shift+s exec --no-startup-id ~/.local/bin/screencast.sh -b -n
 
 # kill focused window
 bindsym $mod+Shift+q kill

@@ -1,21 +1,87 @@
 #!/usr/bin/env bash
 
-#  Usage Examples
-
-## Single monitor - auto-selects without prompting
-#./screencast.sh
-
-## Multiple monitors - shows interactive menu
-#./screencast.sh
-
-## Specify monitor via command-line
-#./screencast.sh -m HDMI-1
-#./screencast.sh -m DP-1
-
-## Combine with existing flags
-#./screencast.sh -m HDMI-1 -n          # No audio
-#./screencast.sh -m DP-1 -f            # Foreground mode
-#./screencast.sh -m eDP-1 -f -n        # Both options
+# ==============================================================================
+# SCREENCAST.SH - Multi-Monitor Screen Recording Script
+# ==============================================================================
+#
+# DESCRIPTION:
+#   Records your screen using ffmpeg with support for multi-monitor setups.
+#   Automatically detects available monitors and allows selection via interactive
+#   menu or command-line argument. Works in both foreground (CLI) and background
+#   (i3 keybind) modes.
+#
+# FEATURES:
+#   - Auto-detects all connected monitors via xrandr
+#   - Interactive monitor selection (rofi/dmenu/fzf/bash select)
+#   - Single monitor auto-selection (no prompt)
+#   - Command-line monitor specification
+#   - Foreground mode (default) - Press 'q' to stop
+#   - Background mode (toggle) - Run script again to stop
+#   - Audio recording (optional)
+#   - High-quality H.264 encoding
+#
+# ==============================================================================
+# USAGE
+# ==============================================================================
+#
+# FLAGS:
+#   -b, --background       Run in background mode (for i3 keybinds)
+#   -n, --no-audio         Record without audio
+#   -m, --monitor NAME     Specify monitor (e.g., HDMI-1, DP-1, eDP-1)
+#
+# ==============================================================================
+# EXAMPLES
+# ==============================================================================
+#
+# BASIC USAGE (CLI - Foreground Mode):
+#   ./screencast.sh                    # Start recording, press 'q' to stop
+#   ./screencast.sh -n                 # Record without audio
+#   ./screencast.sh -m HDMI-1          # Record specific monitor
+#
+# BACKGROUND MODE (i3 Keybind Usage):
+#   ./screencast.sh -b                 # Start in background
+#   ./screencast.sh -b                 # Run again to STOP (toggle)
+#   ./screencast.sh -b -n              # Background mode without audio
+#
+# MULTI-MONITOR EXAMPLES:
+#   ./screencast.sh                    # Shows menu to select monitor
+#   ./screencast.sh -m DP-1            # Skip menu, record DP-1
+#   ./screencast.sh -m HDMI-1 -n       # Record HDMI-1 without audio
+#
+# COMBINED FLAGS:
+#   ./screencast.sh -b -m eDP-1 -n     # Background, specific monitor, no audio
+#
+# ==============================================================================
+# HOW TO STOP RECORDING
+# ==============================================================================
+#
+# FOREGROUND MODE (default):
+#   - Press 'q' in the terminal
+#   - Or press Ctrl+C
+#
+# BACKGROUND MODE (-b flag):
+#   - Run the script again with the same flags
+#   - The script acts as a toggle (start/stop)
+#   - From i3 keybind: Press the same keybind again
+#
+# ==============================================================================
+# OUTPUT
+# ==============================================================================
+#
+# Videos are saved to: ~/Videos/Screencasts/
+# Filename format: screencast-YYYY-MM-DD_HHMMSS.mkv
+#
+# ==============================================================================
+# I3 KEYBIND EXAMPLE
+# ==============================================================================
+#
+# Add to your i3 config:
+#   bindsym $mod+Shift+s exec --no-startup-id ~/.local/bin/screencast.sh -b -n
+#
+# First press: Starts recording (shows monitor selection if multiple monitors)
+# Second press: Stops recording and saves file
+#
+# ==============================================================================
 
 
 # --- Configuration ---
@@ -31,15 +97,15 @@ FRAMERATE="30"
 AUDIO_INPUT="default" 
 
 # --- Argument Parsing ---
-MODE="background"
+MODE="foreground"
 RECORD_AUDIO=true
 SELECTED_MONITOR=""
 MONITOR_ARG_NEXT=false
 
 for arg in "$@"; do
     case "$arg" in
-        -f|--foreground)
-            MODE="foreground"
+        -b|--background)
+            MODE="background"
             ;;
         -n|--no-audio)
             RECORD_AUDIO=false
@@ -226,5 +292,5 @@ elif [ "$MODE" == "background" ]; then
     # Background Mode: Starts FFmpeg with the unique marker
     eval $FFMPEG_CMD &
 
-    notify-send "🔴 Screencast Started" "Recording $MONITOR_NAME ($SCREEN_RES) in background (i3 mode)..."
+    notify-send "🔴 Screencast Started" "Recording $MONITOR_NAME ($SCREEN_RES) in background. Run script again to stop."
 fi
