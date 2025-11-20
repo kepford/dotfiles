@@ -393,6 +393,9 @@ sudo pacman -S autorandr --noconfirm
 # Load KMF
 # autorandr kmf
 
+# AUR packages
+yay -S chirp-next
+
 # Set up flatpak
 sudo pacman -S flatpak --noconfirm
 
