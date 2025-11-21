@@ -6,8 +6,21 @@ return {
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
+    -- Suppress deprecation warning for lspconfig until migration to vim.lsp.config is complete
+    -- The old API still works but shows a warning in nvim 0.11+
+    local notify = vim.notify
+    vim.notify = function(msg, ...)
+      if msg:match("lspconfig.*deprecated") then
+        return
+      end
+      notify(msg, ...)
+    end
+
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")
+
+    -- Restore original notify function
+    vim.notify = notify
 
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
