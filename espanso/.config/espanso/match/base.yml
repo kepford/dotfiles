@@ -20,15 +20,16 @@ matches:
   # But matches can also be dynamic:
 
   # Print the current date
-  - trigger: ":date"
+  - trigger: ";date"
     replace: "{{mydate}}"
     vars:
       - name: mydate
         type: date
         params:
           format: "%m/%d/%Y"
+
   # Print date stamp
-  - trigger: ":dstamp"
+  - trigger: ";ds"
     replace: "{{datestamp}}"
     vars:
       - name: datestamp
@@ -37,13 +38,13 @@ matches:
           format: "%Y-%m-%d"
 
   # Print time stamp
-  - trigger: ":tstamp"
+  - trigger: ";ts"
     replace: "{{timestamp}}"
     vars:
       - name: timestamp
         type: date
         params:
-          format: "%Y-%m-%d-%m-%s"
+          format: "%Y-%m-%d-%H%M%S"
 
   # Print the output of a shell command
   - trigger: ":shell"
