@@ -5,6 +5,7 @@ stow -v -R -t ~ autorandr
 stow -v -R -t ~ backgrounds
 stow -v -R -t ~ bash
 stow -v -R -t ~ bat
+stow -v -R -t ~ espanso
 stow -v -R -t ~ feh
 stow -v -R -t ~ flameshot
 stow -v -R -t ~ git
