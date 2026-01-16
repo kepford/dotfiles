@@ -1,0 +1,126 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "height": 30,
+    "spacing": 4,
+
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": [],
+    "modules-right": [
+        "custom/caffeine",
+        "custom/syncthing",
+        "cpu",
+        "disk",
+        "memory",
+        "pulseaudio",
+        "battery",
+        "custom/power",
+        "clock"
+    ],
+
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "on-click": "activate",
+        "all-outputs": false,
+        "active-only": false
+    },
+
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 50,
+        "separate-outputs": true
+    },
+
+    "custom/caffeine": {
+        "format": " {}",
+        "exec": "xset -q | grep 'DPMS is' | awk '{ print $3 }'",
+        "interval": 5,
+        "on-click": "~/.dotfiles/scripts/caffeine.sh",
+        "tooltip": false
+    },
+
+    "custom/syncthing": {
+        "format": "{}",
+        "exec": "if pgrep -x syncthing > /dev/null; then echo ''; else echo ''; fi",
+        "interval": 5,
+        "on-click": "xdg-open http://localhost:8384",
+        "tooltip": true,
+        "tooltip-format": "Syncthing Status"
+    },
+
+    "cpu": {
+        "format": " {usage}%",
+        "interval": 2,
+        "states": {
+            "warning": 50,
+            "critical": 90
+        }
+    },
+
+    "disk": {
+        "interval": 30,
+        "format": " {free}",
+        "path": "/",
+        "tooltip": true,
+        "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+
+    "memory": {
+        "format": " {percentage}%",
+        "interval": 2,
+        "states": {
+            "warning": 70,
+            "critical": 90
+        },
+        "tooltip": true,
+        "tooltip-format": "RAM: {used:0.1f}G / {total:0.1f}G\nSwap: {swapUsed:0.1f}G / {swapTotal:0.1f}G"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " {volume}%",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+        "tooltip": true,
+        "tooltip-format": "{desc}"
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip": true,
+        "tooltip-format": "{timeTo}"
+    },
+
+    "custom/power": {
+        "format": "",
+        "on-click": "systemctl $(echo -e 'suspend\\npoweroff\\nreboot' | rofi -dmenu -p 'Power')",
+        "tooltip": false
+    },
+
+    "clock": {
+        "interval": 1,
+        "format": " {:%a %m/%d %I:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "on-click": "kitty -e calcurse"
+    }
+}

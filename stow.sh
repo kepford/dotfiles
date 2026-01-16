@@ -10,9 +10,11 @@ stow -v -R -t ~ feh
 stow -v -R -t ~ flameshot
 stow -v -R -t ~ git
 stow -v -R -t ~ gtk-3.0
+stow -v -R -t ~ hypr
 stow -v -R -t ~ i3
 stow -v -R -t ~ i3status-rust
 stow -v -R -t ~ kitty
+stow -v -R -t ~ waybar
 stow -v -R -t ~ lf
 stow -v -R -t ~ mpv
 stow -v -R -t ~ mutt
